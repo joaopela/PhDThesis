@@ -1,20 +1,20 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.13 (TeX Live 2013/dev) (format=pdflatex 2013.8.7)  7 AUG 2013 17:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.13 (TeX Live 2013/dev) (format=pdflatex 2013.6.17)  21 AUG 2013 18:45
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **JPela_PhDReport18M_Report.tex
 (./JPela_PhDReport18M_Report.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, po
-lish, ukrainian, russian, coptic, welsh, afrikaans, latin, interlingua, finnish
-, indonesian, romansh, assamese, bengali, gujarati, hindi, kannada, malayalam, 
-marathi, oriya, panjabi, tamil, telugu, irish, slovenian, kurmanji, arabic, san
-skrit, icelandic, bokmal, nynorsk, bulgarian, dutch, ethiopic, latvian, mongoli
-an, mongolianlmc, esperanto, hungarian, swedish, slovak, czech, farsi, french, 
-piedmontese, croatian, portuguese, turkmen, armenian, italian, greek, basque, t
-urkish, friulan, ancientgreek, ibycus, german, ngerman, swissgerman, galician, 
-romanian, serbian, serbianc, lithuanian, danish, spanish, catalan, ukenglish, u
-senglishmax, uppersorbian, pinyin, estonian, loaded.
+lish, ukrainian, russian, coptic, welsh, afrikaans, swedish, latin, interlingua
+, indonesian, ibycus, romansh, assamese, bengali, gujarati, hindi, kannada, mal
+ayalam, marathi, oriya, panjabi, tamil, telugu, slovenian, kurmanji, arabic, fi
+nnish, sanskrit, icelandic, dutch, ethiopic, latvian, mongolian, mongolianlmc, 
+esperanto, hungarian, slovak, czech, farsi, french, piedmontese, croatian, port
+uguese, turkmen, bokmal, nynorsk, bulgarian, armenian, italian, greek, basque, 
+turkish, pinyin, friulan, german, ngerman, swissgerman, galician, irish, romani
+an, serbian, serbianc, lithuanian, danish, spanish, catalan, ukenglish, usengli
+shmax, uppersorbian, estonian, loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/revtex/revtex4-1.cls
 Document Class: revtex4-1 2010/07/25/20:33:00 4.1r (http://publish.aps.org/revt
 ex4/ for documentation)
@@ -577,6 +577,24 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package: ulem 2012/05/18
 \ULdepth=\dimen121
 )
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
 (/usr/share/texlive/texmf-dist/tex/latex/feynmf/feynmp.sty
 Package: feynmp 1996/12/02 v1.08 LaTeX/MetaPost Feynman Diagram Package (ohl)
 \@outfmf=\write4
@@ -622,25 +640,10 @@ LaTeX Font Info:    ... okay on input line 52.
 \MPnumerator=\count124
 \makeMPintoPDFobject=\count125
 \everyMPtoPDFconversion=\toks30
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 )
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
 \AtBeginShipoutBox=\box47
 Package hyperref Info: Link coloring OFF on input line 52.
-
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -674,176 +677,148 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: feynmanDiagram_GFHiggs.1 Graphic file (type mps)
  [MP to PDF]
 (./feynmanDiagram_GFHiggs.1) (./feynmanDiagram_GFHiggs.t1)
-runsystem(mpost feynmanDiagram_GFHiggs)...executed.
-
 \openout4 = `feynmanDiagram_VBFHiggs.mp'.
 
 File: feynmanDiagram_VBFHiggs.1 Graphic file (type mps)
  [MP to PDF]
 (./feynmanDiagram_VBFHiggs.1) (./feynmanDiagram_VBFHiggs.t1)
-runsystem(mpost feynmanDiagram_VBFHiggs)...executed.
-
 \openout4 = `feynmanDiagram_ttFHiggs.mp'.
 
 File: feynmanDiagram_ttFHiggs.1 Graphic file (type mps)
  [MP to PDF]
 (./feynmanDiagram_ttFHiggs.1) (./feynmanDiagram_ttFHiggs.t1)
-runsystem(mpost feynmanDiagram_ttFHiggs)...executed.
-
 \openout4 = `feynmanDiagram_WZstrahlung.mp'.
 
 File: feynmanDiagram_WZstrahlung.1 Graphic file (type mps)
  [MP to PDF]
 (./feynmanDiagram_WZstrahlung.1) (./feynmanDiagram_WZstrahlung.t1)
-runsystem(mpost feynmanDiagram_WZstrahlung)...executed.
-
-
-<img/SMHiggs_XSec.png, id=143, 791.24474pt x 530.4767pt>
+<img/SMHiggs_XSec.png, id=147, 791.24474pt x 530.4767pt>
 File: img/SMHiggs_XSec.png Graphic file (type png)
 
 <use img/SMHiggs_XSec.png>
-Package pdftex.def Info: img/SMHiggs_XSec.png used on input line 229.
+Package pdftex.def Info: img/SMHiggs_XSec.png used on input line 230.
 (pdftex.def)             Requested size: 229.49844pt x 153.85858pt.
 
-<img/SMHiggs_BR.png, id=147, 786.02939pt x 535.69206pt>
+<img/SMHiggs_BR.png, id=151, 786.02939pt x 535.69206pt>
 File: img/SMHiggs_BR.png Graphic file (type png)
 
 <use img/SMHiggs_BR.png>
-Package pdftex.def Info: img/SMHiggs_BR.png used on input line 240.
+Package pdftex.def Info: img/SMHiggs_BR.png used on input line 241.
 (pdftex.def)             Requested size: 229.49844pt x 156.40933pt.
  [1{/usr/share/texlive/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 264.
+ on input line 257.
 
-[2 <./img/SMHiggs_XSec.png> <./img/SMHiggs_BR.png>]
-<img/ObjectsRapidityGap.jpeg, id=195, 288.07625pt x 248.93pt>
+[2 <./img/SMHiggs_XSec.png> <./img/SMHiggs_BR.png>] [3]
+<img/sig122to128_Truth-fPow2_vs_fExp2.png, id=204, 698.61pt x 473.77pt>
+File: img/sig122to128_Truth-fPow2_vs_fExp2.png Graphic file (type png)
+
+<use img/sig122to128_Truth-fPow2_vs_fExp2.png>
+Package pdftex.def Info: img/sig122to128_Truth-fPow2_vs_fExp2.png used on input
+ line 392.
+(pdftex.def)             Requested size: 229.49844pt x 155.63612pt.
+
+<img/cosThetaStar_cs_all_Norm1_SignalCompare.png, id=206, 598.235pt x 574.145pt
+>
+File: img/cosThetaStar_cs_all_Norm1_SignalCompare.png Graphic file (type png)
+ <use img/cosThetaStar_cs_all_Norm1_SignalCompare.png>
+Package pdftex.def Info: img/cosThetaStar_cs_all_Norm1_SignalCompare.png used o
+n input line 421.
+(pdftex.def)             Requested size: 229.49844pt x 220.25366pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--437
+[]\OT1/cmr/m/n/10 Several meth-ods for cal-cu-lat-ing sig-nal sig-nif-i-
+ []
+
+
+Underfull \hbox (badness 2662) in paragraph at lines 435--437
+\OT1/cmr/m/n/10 cance/exclusion are now be-ing in-ves-ti-gated, which
+ []
+
+[4 <./img/sig122to128_Truth-fPow2_vs_fExp2.png> <./img/cosThetaStar_cs_all_Norm
+1_SignalCompare.png>]
+<img/ObjectsRapidityGap.jpeg, id=219, 288.07625pt x 248.93pt>
 File: img/ObjectsRapidityGap.jpeg Graphic file (type jpg)
 
 <use img/ObjectsRapidityGap.jpeg>
-Package pdftex.def Info: img/ObjectsRapidityGap.jpeg used on input line 369.
+Package pdftex.def Info: img/ObjectsRapidityGap.jpeg used on input line 457.
 (pdftex.def)             Requested size: 229.49844pt x 198.32pt.
- [3 <./img/ObjectsRapidityGap.jpeg>]
-<img/EventDisplay_VBF_HToTauTau_El-Had.png, id=204, 573.14125pt x 784.9325pt>
+
+<img/EventDisplay_VBF_HToTauTau_El-Had.png, id=221, 573.14125pt x 784.9325pt>
 File: img/EventDisplay_VBF_HToTauTau_El-Had.png Graphic file (type png)
 
 <use img/EventDisplay_VBF_HToTauTau_El-Had.png>
 Package pdftex.def Info: img/EventDisplay_VBF_HToTauTau_El-Had.png used on inpu
-t line 384.
+t line 472.
 (pdftex.def)             Requested size: 229.49844pt x 314.3028pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 458.
+ [5 <./img/ObjectsRapidityGap.jpeg> <./img/EventDisplay_VBF_HToTauTau_El-Had.pn
+g>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 546.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 458.
- [4 <./img/EventDisplay_VBF_HToTauTau_El-Had.png>]
-
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 508.
-
-<img/PU28_5e33_RateFBDijetDEtaDPhi00HT100.png, id=222, 798.985pt x 574.145pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 546.
+ [6]
+<img/PU28_5e33_RateFBDijetDEtaDPhi00HT100.png, id=246, 798.985pt x 574.145pt>
 File: img/PU28_5e33_RateFBDijetDEtaDPhi00HT100.png Graphic file (type png)
 
 <use img/PU28_5e33_RateFBDijetDEtaDPhi00HT100.png>
 Package pdftex.def Info: img/PU28_5e33_RateFBDijetDEtaDPhi00HT100.png used on i
-nput line 551.
+nput line 639.
 (pdftex.def)             Requested size: 229.49844pt x 164.9121pt.
 
-<img/sig_eff_l1_ht.png, id=223, 698.61pt x 473.77pt>
+<img/sig_eff_l1_ht.png, id=247, 698.61pt x 473.77pt>
 File: img/sig_eff_l1_ht.png Graphic file (type png)
 
 <use img/sig_eff_l1_ht.png>
-Package pdftex.def Info: img/sig_eff_l1_ht.png used on input line 559.
+Package pdftex.def Info: img/sig_eff_l1_ht.png used on input line 647.
 (pdftex.def)             Requested size: 229.49844pt x 155.63612pt.
- [5 <./img/PU28_5e33_RateFBDijetDEtaDPhi00HT100.png>]
+ [7 <./img/PU28_5e33_RateFBDijetDEtaDPhi00HT100.png> <./img/sig_eff_l1_ht.png>]
 
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 572.
+<img/MET_dijetFrac_htMET_VBFInv.png, id=258, 598.235pt x 574.145pt>
+File: img/MET_dijetFrac_htMET_VBFInv.png Graphic file (type png)
 
-<img/sig122to128_Truth-fPow2_vs_fExp2.png, id=231, 698.61pt x 473.77pt>
-File: img/sig122to128_Truth-fPow2_vs_fExp2.png Graphic file (type png)
-
-<use img/sig122to128_Truth-fPow2_vs_fExp2.png>
-Package pdftex.def Info: img/sig122to128_Truth-fPow2_vs_fExp2.png used on input
- line 603.
-(pdftex.def)             Requested size: 229.49844pt x 155.63612pt.
- [6 <./img/sig_eff_l1_ht.png> <./img/sig122to128_Truth-fPow2_vs_fExp2.png>]
-<img/cosThetaStar_cs_all_Norm1_SignalCompare.png, id=245, 598.235pt x 574.145pt
->
-File: img/cosThetaStar_cs_all_Norm1_SignalCompare.png Graphic file (type png)
- <use img/cosThetaStar_cs_all_Norm1_SignalCompare.png>
-Package pdftex.def Info: img/cosThetaStar_cs_all_Norm1_SignalCompare.png used o
-n input line 632.
+<use img/MET_dijetFrac_htMET_VBFInv.png>
+Package pdftex.def Info: img/MET_dijetFrac_htMET_VBFInv.png used on input line 
+694.
 (pdftex.def)             Requested size: 229.49844pt x 220.25366pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 646--648
-[]\OT1/cmr/m/n/10 Several meth-ods for cal-cu-lat-ing sig-nal sig-nif-i-
- []
+<img/MET_vecSum_htMET_VBFInv.png, id=259, 598.235pt x 574.145pt>
+File: img/MET_vecSum_htMET_VBFInv.png Graphic file (type png)
 
+<use img/MET_vecSum_htMET_VBFInv.png>
+Package pdftex.def Info: img/MET_vecSum_htMET_VBFInv.png used on input line 702
+.
+(pdftex.def)             Requested size: 229.49844pt x 220.25366pt.
+ [8 <./img/MET_dijetFrac_htMET_VBFInv.png> <./img/MET_vecSum_htMET_VBFInv.png>]
 
-Underfull \hbox (badness 2662) in paragraph at lines 646--648
-\OT1/cmr/m/n/10 cance/exclusion are now be-ing in-ves-ti-gated, which
- []
-
-<img/L1TRate_L1_ETM50.png, id=246, 668.4975pt x 452.69125pt>
+<img/L1TRate_L1_ETM50.png, id=266, 668.4975pt x 452.69125pt>
 File: img/L1TRate_L1_ETM50.png Graphic file (type png)
 
 <use img/L1TRate_L1_ETM50.png>
-Package pdftex.def Info: img/L1TRate_L1_ETM50.png used on input line 686.
+Package pdftex.def Info: img/L1TRate_L1_ETM50.png used on input line 761.
 (pdftex.def)             Requested size: 229.49844pt x 155.41191pt.
- [7 <./img/cosThetaStar_cs_all_Norm1_SignalCompare.png>]
-
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 703.
-
-<img/L1TSync_L1_SingleEG22.png, id=253, 668.4975pt x 452.69125pt>
-File: img/L1TSync_L1_SingleEG22.png Graphic file (type png)
-
-<use img/L1TSync_L1_SingleEG22.png>
-Package pdftex.def Info: img/L1TSync_L1_SingleEG22.png used on input line 706.
-(pdftex.def)             Requested size: 229.49844pt x 155.41191pt.
-
-<img/L1TBPTX_Tech_BPTX_AND.png, id=254, 767.86874pt x 627.34375pt>
-File: img/L1TBPTX_Tech_BPTX_AND.png Graphic file (type png)
-
-<use img/L1TBPTX_Tech_BPTX_AND.png>
-Package pdftex.def Info: img/L1TBPTX_Tech_BPTX_AND.png used on input line 723.
-(pdftex.def)             Requested size: 229.49844pt x 187.4962pt.
-
-<img/L1TOccupancy_IsoEmOccEtaPhi.png, id=255, 949.5475pt x 632.3625pt>
-File: img/L1TOccupancy_IsoEmOccEtaPhi.png Graphic file (type png)
-
-<use img/L1TOccupancy_IsoEmOccEtaPhi.png>
-Package pdftex.def Info: img/L1TOccupancy_IsoEmOccEtaPhi.png used on input line
- 743.
-(pdftex.def)             Requested size: 229.49844pt x 152.8315pt.
- [8 <./img/L1TRate_L1_ETM50.png (PNG copy)> <./img/L1TSync_L1_SingleEG22.png (P
-NG copy)> <./img/L1TBPTX_Tech_BPTX_AND.png (PNG copy)>]
-
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 758.
-
-(./JPela_PhDReport18M_Report.bbl) [9 <./img/L1TOccupancy_IsoEmOccEtaPhi.png (PN
-G copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 762.
+ (./JPela_PhDReport18M_Report.bbl) [9 <./img/L1TRate_L1_ETM50.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 771.
  (./JPela_PhDReport18M_Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 762.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 762.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 771.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 771.
 Package rerunfilecheck Info: File `JPela_PhDReport18M_Report.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: 8F6C01DA805DEA75AB7F96A5E9503F79;2372.
+(rerunfilecheck)             Checksum: 36D8A5AE44A575C48F52730460B7D04E;2411.
  ) 
 Here is how much of TeX's memory you used:
- 8678 strings out of 493515
- 121452 string characters out of 3144461
- 235627 words of memory out of 3000000
+ 8680 strings out of 493522
+ 121491 string characters out of 3144760
+ 235802 words of memory out of 3000000
  11749 multiletter control sequences out of 15000+200000
  11694 words of font info for 46 fonts, out of 3000000 for 9000
  953 hyphenation exceptions out of 8191
- 34i,19n,31p,617b,589s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,19n,31p,584b,589s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/t
@@ -862,10 +837,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/symbols/msam10.pfb>
-Output written on JPela_PhDReport18M_Report.pdf (9 pages, 722944 bytes).
+Output written on JPela_PhDReport18M_Report.pdf (9 pages, 683265 bytes).
 PDF statistics:
- 349 PDF objects out of 1000 (max. 8388607)
- 299 compressed objects within 3 object streams
+ 354 PDF objects out of 1000 (max. 8388607)
+ 304 compressed objects within 4 object streams
  73 named destinations out of 1000 (max. 500000)
- 325 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 328 words of extra memory for PDF output out of 10000 (max. 10000000)
 
