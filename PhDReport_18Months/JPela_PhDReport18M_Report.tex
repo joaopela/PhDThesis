@@ -461,7 +461,7 @@ objects in a hypothetical event.}
 \label{figure_VBF_HToTauTau_ObjectsRapidityGap}
 \end{figure}
 
-The CMS detector is ideal for these type of searches since it is an $4\pi$ hermetic detector with calorimeter coverage
+The CMS detector is ideal for these type of searches since it is a $4\pi$ hermetic detector with calorimeter coverage
 from -5 to 5 in pseudo-rapidity. It also has very good capabilities of particle measurement and identification which 
 can be used to identify the forward jets and Higgs decay products or in case of an invisible decay, compute the 
 resulting missing transverse energy. An event display of a simulated Standard Model Higgs (which then decays to 
@@ -482,7 +482,7 @@ signal efficiency while recording an acceptable background.
 
 At the beginning of 2012 the possibility of recording data without promptly reconstruct it was introduced, thus 
 allowing to record up to 1500 $Hz$ of data where only 300 $Hz$ are promptly reconstructed. This is now know as
-\textit{parked data}, and it will only be reconstructed after the beginning of \textit{Long Shutdown 1} in 2013.
+\textit{parked data}, this data was reconstructed after the beginning of \textit{Long Shutdown 1} already in 2013.
 
 A study was initiated on the possibility to use this extra bandwidth to make a set of triggers that would cover 
 record VBF events regardless of final state. 
@@ -601,7 +601,7 @@ yet to be defined models. Thus, it would be a model-independent trigger.
 This trigger can also be used for a WW scattering analysis, aimed at standard model without a new symmetry 
 breaking mechanism exclusion, since the signature is similar.
 
-For such a trigger to work it would have to be based only on the forward dijet which is the defining caracteristic
+For such a trigger to work it would have to be based only on the forward dijet which is the defining characteristic
 of the VBF signature.
 It was decided to study two variables of the dijet system: invariant mass and transverse invariant mass (MT); and an event 
 variable, scalar sum of the hadronic energy (HT). For this study we always require a dijet with $\Delta\eta>3$ and we 
@@ -649,6 +649,68 @@ data from the high pileup special run taken late 2011.}
 Result from R. Lane.}
 \label{figure_sig_eff_l1_ht}
 \end{figure}
+
+\subsection{Study of variables for QCD suppression}
+
+One of the most difficult background to estimatein the VBF Higgs to invisible analysis is QCD. This is mostly due to
+the lack of Monte Carlo sample statistics which are very difficult to produce because of the enormous quantity of events 
+necessary to replicate enough signal like QCD.
+
+A possible approach is to try to reduce QCD levels where it can be considered negligible. In an attempt to use this 
+approach we started to look for possible new variables that with a minimal signal impact would reduce QCD event yields
+by several orders of magnitude. 
+
+Three new variables were studied which try to exploit the correlations of the dijet plus MET system: Scalar Tri-Object 
+Sum, Dijet pT fraction and Vector Tri-Object Sum.  
+  
+\subsubsection{Scalar Tri-Object Sum}
+
+This variable is defined as $|pT(jet1)|+|pT(jet2)|+|MET|$ which is similar to HT but only applied to our objects of
+interest. This implies the higher it is also the better is the average relative object resolution. This variable can also
+be used to relax constrains on individual object but still for minimum global transverse energy of the combined system.
+
+\subsubsection{Dijet \texorpdfstring{$p_{T}$}{pT} fraction}
+
+This variable is defined as $p_{T}(dijet)/(p_{T}(dijet)+MET)$. It reflects the balance of the dijet plus MET system.
+For signal it should peak strongly around 0.5 while this should not be the case for QCD in the case MET is faked.
+
+\subsubsection{Vector Tri-Object Sum}
+
+This variable is defined as $|Vector Sum(pT(jet1)+pT(jet2)+MET)|$. It also reflects the balance of the dijet plus MET
+system. In this case value of the variable for signal should concentrate around zero with the spread defined by the
+jet and MET resolution. The possibility of using jet and MET resolution as an input to this variable is being studied. 
+ 
+\subsubsection{Combining variable}
+
+Based on the method of some CMS SUSY analysis that use and HT cut in conjunction with the $\alpha_T$ variables, a 
+study was performed to evaluate the possibility of combining the scalar sri-object sum with each of dijet plus MET 
+variables. Two dimensional plots for the signal monte carlo after the the MET cut on the official VBF to invisible
+analysis can be seen in fig \ref{figure_MET_dijetFrac_htMET_VBFInv} for dijet $p_T$ fraction versus scalar tri-Object 
+sum and fig \ref{figure_MET_vecSum_htMET_VBFInv} for vector tri-object sum versus scalar tri-object sum.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{img/MET_dijetFrac_htMET_VBFInv.png}
+\caption{Plot of dijet $p_T$ fraction versus scalar tri-object sum for signal monte carlos $m_H=120$ $GeV$ after the
+         MET cut of the official VBF to invisible analysis.}
+\label{figure_MET_dijetFrac_htMET_VBFInv}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{img/MET_vecSum_htMET_VBFInv.png}
+\caption{Plot of vector tri-object sum versus scalar tri-object sum for signal monte carlos $m_H=120$ $GeV$ after the
+         MET cut of the official VBF to invisible analysis.}
+\label{figure_MET_vecSum_htMET_VBFInv}
+\end{figure}
+
+Preliminary studies show that by defining a 2D cut on this pairs of variables could yield a reduction of a factor of
+2.5 on QCD, Z+Jet and W+Jets with a signal loss of less than 30\%. 
+
+This studies may prove specially valuable for use in parked data, since by applying constraints on this type of system
+variables we may be able to relax cut on jet $p_T$ and MET and therefore increase signal yield making use of the lower 
+trigger thresholds for this individual objects. While keeping or oven improving signal to background ratio.
 
 \section{Service work}
 
