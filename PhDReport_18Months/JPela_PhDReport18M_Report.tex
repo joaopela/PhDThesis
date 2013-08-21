@@ -31,23 +31,23 @@ showkeys
 \usepackage{hyperref}
 \usepackage{ulem}
 
-%\usepackage{epstopdf}
+\usepackage{epstopdf}
 
 \usepackage{feynmp}
 \DeclareGraphicsRule{*}{mps}{*}{}
 
-\makeatletter
-\def\endfmffile{%
-\fmfcmd{\p@rcent\space the end.^^J%
-        end.^^J%
-        endinput;}%
-\if@fmfio
-   \immediate\closeout\@outfmf
-\fi
-\ifnum\pdfshellescape=\@ne
-   \immediate\write18{mpost \thefmffile}%
-\fi}
-\makeatother
+% \makeatletter
+% \def\endfmffile{%
+% \fmfcmd{\p@rcent\space the end.^^J%
+%         end.^^J%
+%         endinput;}%
+% \if@fmfio
+%    \immediate\closeout\@outfmf
+% \fi
+% \ifnum\pdfshellescape=\@ne
+%    \immediate\write18{mpost \thefmffile}%
+% \fi}
+% \makeatother
 
 \begin{document}
 
@@ -128,8 +128,8 @@ with a measured mass of $126.0 \pm 0.4 (stat.) \pm 0.4 (syst.)$ $GeV$ \cite{arti
 \subsection{Higgs phenomenology}
 
 The main processes for Standard Model Higgs production are summarized in figure \ref{table_HiggsDiagrams}.
-
-\begin{figure}[ht]
+ 
+\begin{figure}[floatfix]
  
 \begin{tabular}{cc}
 \begin{fmffile}{feynmanDiagram_GFHiggs}
@@ -213,6 +213,7 @@ The main processes for Standard Model Higgs production are summarized in figure 
 (4)
 
 \end{tabular}
+
 \label{table_HiggsDiagrams}
 \caption{Main processes for standard model Higgs production ordered by highest cross section at the LHC. (1) gluon 
 fusion,(2) vector boson fusion, (3) $t\bar{t}$ fusion and (4) $W/Z$ associated production.}
@@ -245,7 +246,7 @@ of these probabilities can be found at figure \ref{figure_SMHiggs_BR} \cite{Taka
 \subsection{Higgs to \texorpdfstring{$\gamma\gamma$}{gamma-gamma}}
 
 The $H \rightarrow \gamma\gamma$ channel main production mechanism is gluon fusion. This process compared with the 
-other possible production mecanisms and decays is the one that presents the biggest potential for discovery at low
+other possible production mechanisms and decays is the one that presents the biggest potential for discovery at low
 masses, since its clean signature and amount of background on the signal area make this channel the most promising.
 
 In the $H \rightarrow \gamma\gamma$ analysis a search is made for a narrow peak in the diphoton invariant mass
@@ -255,7 +256,7 @@ misidentification of jet fragments.
 
 \subsection{Vector boson fusion Higgs to invisible}
 
-The first theoretical motivations for looking for VBF Higgs events is obviosly to observe and measure its
+The first theoretical motivations for looking for VBF Higgs events is obviously to observe and measure its
 cross section and each of the branching ratios for its decays. We can then calculate its coupling to the
 weak bosons and to fermions (including the leptonic sector via $\tau\bar{\tau}$). From the couplings, we may be able 
 to differentiate between a SM Higgs or beyond the standard model (BSM) Higgs like one of the super symmetric
@@ -266,10 +267,11 @@ From the experimental point of view, we can see from figure \ref{figure_SMHiggs_
 one order of magnitude lower than GF, but we should notice from diagram 2 in figure \ref{table_HiggsDiagrams} that
 there are two forward jets produced along with the Higgs and we can use them for tagging. 
 
-Also, we can profit from the lack of colour exchange between the interacting quarks which will result in low hadronic activity in the
-central rapidity region coming from the main interaction. Since the Higgs visible decay products (if any) are most 
-likely produced in the central rapidity region, this means that they will be likely isolated from the forward jets 
-thus allowing better reconstruction/identification efficiency which should allow easier study of the Higgs properties.
+Also, we can profit from the lack of colour exchange between the interacting quarks which will result in low 
+hadronic activity in the central rapidity region coming from the main interaction. Since the Higgs visible decay 
+products (if any) are most likely produced in the central rapidity region, this means that they will be likely 
+isolated from the forward jets thus allowing better reconstruction/identification efficiency which should allow 
+easier study of the Higgs properties.
 
 In the case of a invisible decay we can profit from the large Z to invisible decay branching ratio. On the other hand
 we do not have the Higgs decay products to reconstruct its mass, so we have to rely only on the missing energy and 
@@ -294,18 +296,19 @@ of the order of 28 and a delivering instant luminosity of the order of $5 \times
 \subsection{Compact Muon Solenoid}
 
 The Compact Muon Solenoid experiment (CMS) is a general purpose experiment that is an integrating part of the LHC
-program. It was designed to study the collisions of two intersecting proton beams in its center \cite{article:CMSTDRv12006}.
-This detector was planned with the intention of studying a broad spectrum of physics processes and is made of several
-subsystems, each one designed to take advantage of some characteristics of the particles produced in order to
-measure their energy, momentum and charge. The detector has classical onion structure with several layers. Starting
-from the collision point outwards we have: pixel system, tracker system, electromagnetic calorimeter, 
-hadronic calorimeter, magnet, muon systems and return yoke.
+program. It was designed to study the collisions of two intersecting proton beams in its centre 
+\cite{article:CMSTDRv12006}. This detector was planned with the intention of studying a broad spectrum of physics 
+processes and is made of several subsystems, each one designed to take advantage of some characteristics of the 
+particles produced in order to measure their energy, momentum and charge. The detector has classical onion structure 
+with several layers. Starting from the collision point outwards we have: pixel system, tracker system, electromagnetic 
+calorimeter, hadronic calorimeter, magnet, muon systems and return yoke.
 
 At nominal conditions, forty million collisions are produced in a single second and it would be impossible to
 register all of them. As almost all collisions are uninteresting, the solution is to have some kind of event selection
 already in the machine so we would only save the most interesting events. This is the role of the trigger system,
-which over two levels, each one with more information of what happened, reduces the number of events to a
-manageable rate.
+which over two levels, where the second level benefits from the extra time from the selection at first level to
+access more information of what happened, using this approach by stages we are able to reduce the number of events 
+to a more manageable rate between of under 1500 Hz.
 
 The overall dimensions of CMS detector are a length of 21.6 $m$, a diameter of 14,6 $m$, and total weight of
 12500 $tons$.
@@ -653,8 +656,8 @@ for the experiment.
 It is possible possible to do service work in several ways, from providing direct contribution to the operation of
 the experiment to developing hardware upgrades to future implementation on the experiment itself.
 
-My service work for 2012 is being done in two ways: by doing central shifts and development of monitoring for the
-L1 trigger system.
+My service work for 2012 and 2103 is being done in three ways: by doing central shifts, coordination of the L1 tigger
+data quality monitoring group and finally development of monitoring tools for the L1.
 
 \subsection{Central shifts}
 
@@ -668,18 +671,27 @@ to the relevant experts.
 Before I started my PhD at Imperial College, I worked as a developer for the level 1 trigger data quality monitoring
 (L1T DQM). Building upon this previous experience I took over the coordination of the central L1T DQM software starting
 June 2012. This role involves coordinating the L1T DQM developers in all the stages of the software cycle of the L1TDQM
-cycle, from planning to deprecation.
+cycle, from planning to deprecation. I am also the contact person for the L1 trigger system on the CMS monitoring 
+upgrade taskforce.
 
-New developers joined the L1T DQM group, for which I created a dedicated e-group where coordination and technical
-information is shared. Furthermore I chair weekly meetings for the planning and discussion of the software developments.
+\subsubsection{Development of Monitoring for L1 Trigger System}
 
-\subsubsection{Rates monitoring}
+Continuing the work I developed before the start of my PhD, I have maintained or updated some of the tools
+used to monitor the online running and data quality certification of the L1 Trigger, and even created some new 
+monitoring tools at the request of the L1 trigger management. 
 
-This tool was initially developed by me during last year and now has been improved. It monitors the rate of the
-lowest unprescaled single object trigger of all available L1 trigger object categories by calculating its
-average cross section for each luminosity section as a function of instant luminosity and comparing this value to
-fits preformed in previous runs. New developments currently include using different fits considering specific pairs of
-LHC bunch filling schemes and trigger configuration key in order to ensure reference fits are done in similar conditions.
+The developed tools monitor the several aspects of the L1 trigger operation:
+\begin{itemize}
+  \item Rate: by comparing current rates with fits from previous runs using instantaneous luminosity as the independent
+              variable.
+  \item Synchronization: by comparing when the L1 trigger fires against the LHC bunch structure.
+  \item Occupancy: by using detector symmetry we are able to detect dead or hot areas on the system.
+  \item BPTX: the Beam Pickup for Timing for the eXperiments monitoring (BPTX) is used to veto events of the trigger
+              and therefore its monitoring is necessary, similarly to the synchronization tools we compare it to 
+              the LHC bunch structure.
+  \item: Summary plots: several summary plots are automatically made so allow the online shifter of certification 
+         expert to quickly find problems and their reasons.
+\end{itemize}
 
 \begin{figure}[ht]
 \centering
@@ -689,72 +701,6 @@ monitoring algorithm L1\_ETM50 for the run 207099. In the plots data points are 
 section as a function of instant luminosity and the line is the reference fit done from previous runs.}
 \label{figure_ServiceWork_L1TRate}
 \end{figure}
-
-\subsubsection{Synchronization monitoring}
-
-This tool was initially developed by me during last year and now has been improved and debugged. It monitors
-the synchronization of the lowest unprescaled single object trigger of all available L1 trigger object categories
-by looking at HLT pass-through paths events (no selection at LHC to avoid bias) and looking at the 5 bunch crossing
-L1 trigger information provided by the GT. The trigger records can then be compared with the published LHC bunch
-structure and a fraction of in time events can be calculated. New developments include alteration in the way
-information is retrieved from the database and avoiding the use of HLT pass-throughs and therefore improving statistics
-by looking at events from an object category seeded by an independent object category. As an example: single muon
-trigger can seed calorimeter triggers synchronization tests.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.45\textwidth]{img/L1TSync_L1_SingleEG22.png}
-\caption{Monitoring plot produced by the L1TSync tool for L1 single electron/gamma object category, which is
-automatically monitoring algorithm L1\_SingleEG50 for the run 207099. In the plots data points are the calculated
-trigger cross section as a function of instant luminosity and the line is the reference fit done from previous runs.}
-\label{figure_ServiceWork_L1TSync}
-\end{figure}
-
-\subsubsection{Beam Pickup for Timing for the eXperiments monitoring (BPTX)}
-
-This tool was created during August 2012 to meet a concern of the L1 trigger management. It monitors the Beam
-Pickup for Timing for the eXperiments (BPTX) system by looking at the information present at each event that 
-is analyzed by the DQM system, including the 2 bunch crossings before and after the actual event that fired. Then it 
-compares where the BPTX fired on those 5 bunch crossings with the LHC published bunch structure. The BPTX efficiency 
-and misfire rate are calculated and the rate stability is also monitored.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.45\textwidth]{img/L1TBPTX_Tech_BPTX_AND.png}
-\caption{Monitoring plot produced by the L1TBPTX tool for the run 207269 where a test was executed to demonstrate that 
-this tools works. In the plot the BPTX AND (technical algorithm 0) efficiency is calculated per luminosity section 
-when compared with the LHC published bunch structure. The dip in efficiency corresponds to the disabling of the BPTX 
-related triggers.} 
-\label{figure_ServiceWork_L1TBPTX}
-\end{figure}
-
-\subsubsection{Occupancy monitoring}
-
-This tool was developed initially by me in collaboration with a CERN summer student during last year and has been
-also improved and debugged. It monitors several key occupancy plots from L1 subsystems, by making use of the natural
-$\eta-\phi$ symmetry normally present. It compares each cell to the median of a strip in $\phi$ in the opposite $\eta$
-side of the detector, by applying a $\chi^{2}$ like test tuned to fire when the cell is less than 10\% or more than
-twice the value of the reference median. New developments include the inclusion of new plots which comply with the
-tools specifications (provided by the sub-systems) and include the possibility of masking strips from the test, which 
-will make the tool compare the cell with the median of the $\phi$ strip where it is included.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.45\textwidth]{img/L1TOccupancy_IsoEmOccEtaPhi.png}
-\caption{Monitoring plot produced by the L1TOccupancy tool for the run 207099 while testing GCT plot for isolated
-EM occupancy $\eta-\phi$. In blue are the masked bins, in green the cells that pass the test and in red the cells
-that fail the test. The cells marked as bad are in fact a consequence of the initial plot being produced without
-a cut on minimum $p_T$ on the trigger primitives, so the asymmetries observed are due to pedestal differences between
-difference areas.}
-\label{figure_ServiceWork_L1TOccupancy}
-\end{figure}
-
-
-\subsubsection{Porting tools from online to offline environment}
-
-One of the tasks I am currently coordinating is the porting of the previously developed online tools to the offline DQM
-environment. Since the offline environment is run in steps, this implies the rates and synchronization tests must be
-re-written.
 
 \bibliographystyle{abbrv}
 \bibliography{JPela_PhDReport18M_Bibliography}
