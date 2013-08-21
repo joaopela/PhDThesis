@@ -336,19 +336,104 @@ is less than 1 $\mu s$.
 \subsubsection{Level 1 Trigger Data Quality Monitoring}
 
 The CMS Experiment developed a central data quality monitoring (DQM) System. This system provides online monitoring 
-for the experiment, offline data validation/certification as well as other monitoring capabilities.
+for the experiment, offline data certification and software release validation.
 
 The online DQM system runs in real time in parallel with the data taking and produces plots based on the analysis of a
-fraction (typically 5\%) of the events recorded in stream A (data for prompt reconstruction). The results are shown in 
-an online interface accessible with a normal internet browser.
+fraction (typically 5\% not considering parked data) of the events recorded in stream A (data for prompt reconstruction).
+The results are shown in an online interface accessible with a normal internet browser.
 
-The offline DQM system runs over the full data in the next few days after it has been recorded and produces plots with 
-the full statistics available, thus providing a good handle to determine data quality and provide certification.
+The offline DQM system runs over the full non parked data in the next few days after it has been recorded
+in order to produce plots with the full statistics available, thus providing a good handle to determine data 
+quality and allow certification.
 
-Like other systems on CMS the level 1 trigger also has online and offline DQM areas which are crucial to monitor its 
-proper functioning and provide information for data certification specific for the level 1 trigger.
+Like other systems on CMS the level 1 trigger also has online and offline DQM tools which are crucial to monitor its 
+proper functioning and provide information for data certification specific for this subsystem.
 
 \section{Data Analysis}
+
+\subsection{Higgs to \texorpdfstring{$\gamma\gamma$}{gamma-gamma}}
+
+The Higgs to $\gamma-\gamma$ analysis searches for a peak on the diphoton mass spectrum. Candidate diphoton events are 
+separated into mutually exclusive categories of different expected signal-to-background ratios, based on the properties 
+of the reconstructed photons and on the presence of two jets satisfying criteria aimed at selecting events in which 
+a Higgs boson is produced through the VBF process. The analysis uses multivariate techniques for the selection and 
+classification of the events.
+
+\subsubsection{Background fit function choice systematics study}
+
+In order to extract the signal yield we must perform mass fit to the background in order to estimate its contribution 
+to the signal region. In the side band analysis this fit is done excluding the signal region in order to perform a 
+fit unbiased by the presence of signal.
+
+This choice of function introduces a systematic since we do not know the underlying function in the processes produce 
+and smear our data. Thus, implying the need to study how much this choice changes our background estimation.
+To perform this study we need to choose which candidate functions or function classes are adequate to fit our 
+background. For applicability and simplicity and function classes of polynomials, exponentials and power laws were 
+selected.
+
+If we assume the we are fitting our data with function A and want to study function classes 1,2 and 3, the step of 
+the study are:
+\begin{enumerate}
+ \item Fit A to the data excluding the signal region and obtain a signal estimation.
+ \item Generate toys based on the fit made from A with the same number of events seen in data (all window).
+ \item Fit each toy with every selected function from class 1, 2 and 3. Calculate the number of events in the signal 
+ region. Compare the obtained value with the initial prediction of A over the data and plot them for each selected. 
+ These plots should have a Gaussian distribution where the mean is the difference between A and the selected function, 
+ which will contribute to the global systematic of the signal choice, and the sigma is the statistical error associated 
+ from the initial dataset. An example of such plot can be seen at figure \ref{figure_SystematicAnalysis_Plot}.
+ \item We can combine the plots produced in the previous step by weighting them by the $p-$value of that fit to the 
+ initial data (implying that the functions that fit the data worse will have less weight).
+ \item We can now extract the global mean, which is an approximation of the systematic associated with the choice of 
+ function and global RMS which is an approximation of the statistical error associated with the initial data.
+\end{enumerate}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{img/sig122to128_Truth-fPow2_vs_fExp2.png}
+\caption{Plot of the diference of extimation of background contribution on the signal area, made by fitting toys from a generating
+power law of the second degree function and fitting with a exponential of the second degree. The mean for the gaussian fit to that
+distribution is $-169.95\pm0.55$ (systematic error of choosing power law over exponential) and the RMS is $10.89\pm0.39$ (statistical 
+error associated with the data initial statistics).}
+\label{figure_SystematicAnalysis_Plot}
+\end{figure}
+
+\subsubsection{Spin analysis}
+
+With the observation of a new boson, now the focus turns to properties measurement. One of the important properties
+to measure is the spin of the new particle. We know from the decay channel where it was observed, $\gamma\gamma$ 
+and $Z^0Z^0$ that it must have even value.
+
+The SM Higgs is spin 0 but there are other models that predict particles with Spin 2 like the RS Graviton model.
+
+To measure the spin we need to look into a variable that is sensitive to it. It was chosen to use $cos(\theta^{*})$ 
+which is the angle between the diphoton on the SM Higgs rest frame and a specific z-direction.
+
+For this feasibility study we started from the events selected by the benchmark analysis that was used for claiming 
+discovery of the new boson. Specifically, events that pass the diphoton BDT cut with a score of -0.05 or more.
+
+To determine which is the best frame to measure $cos(\theta^{*})$ we compared MC samples of SM Higgs and RS graviton. 
+The following reference frames where analyzed: Collins-Soper, Helicity, Perpendicular Helicity, Gottfried-Jackson and 
+Vector Addition. It was determined that the best frame to use would be the Collins-Soper, as it shows better the 
+difference between the two models \ref{figure_SpinAnalysis_CosThetaStar}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{img/cosThetaStar_cs_all_Norm1_SignalCompare.png}
+\caption{Plot for the absolute value of $cos(\theta^{*})$ for both Monte-Carlo samples of standard model Higgs and RS graviton. 
+Both distributions are normalized to 1.}
+\label{figure_SpinAnalysis_CosThetaStar}
+\end{figure}
+
+It was decided to use the categories already present at the reference analysis and further split them in two by 
+defining a threshold in $cos(\theta^{*})$. The split point was chosen in the crossing point of each sample 
+$cos(\theta^{*})$ distribution when normalized to one, which make the sum of absolute differences between sample 
+yields maximal.
+
+Now we can create a signal model from Monte-Carlo by fitting each category, and extract signal yields from data, 
+by combining the signal models with an adequate background model.
+
+Several methods for calculating signal significance/exclusion are now being investigated, which attempt to make use 
+of not only the yield but also the relative amount of signal in each bin.
 
 \subsection{Vector Boson Higgs to Invisible}
 
@@ -564,90 +649,6 @@ data from the high pileup special run taken late 2011.}
 Result from R. Lane.}
 \label{figure_sig_eff_l1_ht}
 \end{figure}
-
-\subsection{Higgs to \texorpdfstring{$\gamma\gamma$}{gamma-gamma}}
-
-The Higgs to $\gamma-\gamma$ analysis searches for a peak on the diphoton mass spectrum. Candidate diphoton events are 
-separated into mutually exclusive categories of different expected signal-to-background ratios, based on the properties 
-of the reconstructed photons and on the presence of two jets satisfying criteria aimed at selecting events in which 
-a Higgs boson is produced through the VBF process. The analysis uses multivariate techniques for the selection and 
-classification of the events.
-
-\subsubsection{Background fit function choice systematics study}
-
-In order to extract the signal yield we must perform mass fit to the background in order to estimate its contribution 
-to the signal region. In the side band analysis this fit is done excluding the signal region in order to perform a 
-fit unbiased by the presence of signal.
-
-This choice of function introduces a systematic since we do not know the underlying function in the processes produce 
-and smear our data. Thus, implying the need to study how much this choice changes our background estimation.
-To perform this study we need to choose which candidate functions or function classes are adequate to fit our 
-background. For applicability and simplicity and function classes of polynomials, exponentials and power laws were 
-selected.
-
-If we assume the we are fitting our data with function A and want to study function classes 1,2 and 3, the step of 
-the study are:
-\begin{enumerate}
- \item Fit A to the data excluding the signal region and obtain a signal estimation.
- \item Generate toys based on the fit made from A with the same number of events seen in data (all window).
- \item Fit each toy with every selected function from class 1, 2 and 3. Calculate the number of events in the signal 
- region. Compare the obtained value with the initial prediction of A over the data and plot them for each selected. 
- These plots should have a Gaussian distribution where the mean is the difference between A and the selected function, 
- which will contribute to the global systematic of the signal choice, and the sigma is the statistical error associated 
- from the initial dataset. An example of such plot can be seen at figure \ref{figure_SystematicAnalysis_Plot}.
- \item We can combine the plots produced in the previous step by weighting them by the $p-$value of that fit to the 
- initial data (implying that the functions that fit the data worse will have less weight).
- \item We can now extract the global mean, which is an approximation of the systematic associated with the choice of 
- function and global RMS which is an approximation of the statistical error associated with the initial data.
-\end{enumerate}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.45\textwidth]{img/sig122to128_Truth-fPow2_vs_fExp2.png}
-\caption{Plot of the diference of extimation of background contribution on the signal area, made by fitting toys from a generating
-power law of the second degree function and fitting with a exponential of the second degree. The mean for the gaussian fit to that
-distribution is $-169.95\pm0.55$ (systematic error of choosing power law over exponential) and the RMS is $10.89\pm0.39$ (statistical 
-error associated with the data initial statistics).}
-\label{figure_SystematicAnalysis_Plot}
-\end{figure}
-
-\subsubsection{Spin analysis}
-
-With the observation of a new boson, now the focus turns to properties measurement. One of the important properties
-to measure is the spin of the new particle. We know from the decay channel where it was observed, $\gamma\gamma$ 
-and $Z^0Z^0$ that it must have even value.
-
-The SM Higgs is spin 0 but there are other models that predict particles with Spin 2 like the RS Graviton model.
-
-To measure the spin we need to look into a variable that is sensitive to it. It was chosen to use $cos(\theta^{*})$ 
-which is the angle between the diphoton on the SM Higgs rest frame and a specific z-direction.
-
-For this feasibility study we started from the events selected by the benchmark analysis that was used for claiming 
-discovery of the new boson. Specifically, events that pass the diphoton BDT cut with a score of -0.05 or more.
-
-To determine which is the best frame to measure $cos(\theta^{*})$ we compared MC samples of SM Higgs and RS graviton. 
-The following reference frames where analyzed: Collins-Soper, Helicity, Perpendicular Helicity, Gottfried-Jackson and 
-Vector Addition. It was determined that the best frame to use would be the Collins-Soper, as it shows better the 
-difference between the two models \ref{figure_SpinAnalysis_CosThetaStar}.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.45\textwidth]{img/cosThetaStar_cs_all_Norm1_SignalCompare.png}
-\caption{Plot for the absolute value of $cos(\theta^{*})$ for both Monte-Carlo samples of standard model Higgs and RS graviton. 
-Both distributions are normalized to 1.}
-\label{figure_SpinAnalysis_CosThetaStar}
-\end{figure}
-
-It was decided to use the categories already present at the reference analysis and further split them in two by 
-defining a threshold in $cos(\theta^{*})$. The split point was chosen in the crossing point of each sample 
-$cos(\theta^{*})$ distribution when normalized to one, which make the sum of absolute differences between sample 
-yields maximal.
-
-Now we can create a signal model from Monte-Carlo by fitting each category, and extract signal yields from data, 
-by combining the signal models with an adequate background model.
-
-Several methods for calculating signal significance/exclusion are now being investigated, which attempt to make use 
-of not only the yield but also the relative amount of signal in each bin.
 
 \section{Service work}
 
