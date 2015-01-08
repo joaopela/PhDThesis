@@ -1,4 +1,5 @@
 pdflatex PhDThesis_JoaoPela.tex
 makeglossaries PhDThesis_JoaoPela
+bibtex thesisBibliography
 pdflatex PhDThesis_JoaoPela.tex
 pdflatex PhDThesis_JoaoPela.tex
