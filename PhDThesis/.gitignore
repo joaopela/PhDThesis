@@ -1,5 +1,15 @@
+*.aux
+*.out
+*.bbl
+*.blg
 *.ist
 *.log
-*.aux
 *.glo
+*.glg
+*.gls
 *.toc
+*.xdy
+*.backup
+*.cut
+
+.directory
