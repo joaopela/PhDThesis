@@ -22,17 +22,18 @@
 % \usepackage{caption}               % ?????
 % \usepackage{soul}                  % For text highlights
 % \usepackage{threeparttable}        % Better tables
-\usepackage[xindy,toc]{glossaries} %(recommended) for the indexing phase, as opposed to makeindex (the default)
-% \usepackage{hyperref}              % Need after glossaries (allows links)
+\usepackage[xindy,toc,acronym]{glossaries} %(recommended) for the indexing phase, as opposed to makeindex (the default)
+\usepackage{hyperref}              % Need after glossaries (allows links)
+
+\input{Glossary.tex}
 
 \title{Search for Higgs Decay to Dark Matter and Trigger Studies} 
 \author{João Carlos Arnauth Pela}
 % \email[Contact email: ]{joaopela@gmail.com}
 % \affiliation{Imperial College London}
 % \keywords{Particle Physics}
-\date{08 January 2014}
+\date{22 August 2015}
 
-\include{glossary}
 \makeglossaries
 
 %% Doc-specific PDF metadata
@@ -62,7 +63,7 @@ Is this needed?
 \end{declaration}
 
 \begin{acknowledgements}
-I would like to thank \gls{FCT} for their support of my PhD work through their grant SFRH/BD/77979/2011. 
+I would like to thank \gls{fct} for their support of my PhD work through their grant SFRH/BD/77979/2011. 
 
 \colorbox{red}{TODO: Include FCT symbols}
 
@@ -72,7 +73,7 @@ I would like to thank \gls{FCT} for their support of my PhD work through their g
 Thesis structure and so on...
 \end{preface}
 
-\dedication{To all who study...}
+\dedication{To my grand mother}
 
 %% ToC
 \tableofcontents
