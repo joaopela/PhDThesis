@@ -1,0 +1,20 @@
+# Global ignore rules
+
+# Linux and KDE ignore rules
+**/.directory
+
+# LaTeX products ignore rules
+**/*.kilepr
+**/*.backup
+**/*.log
+**/*.aux
+#**/*.pdf
+**/*.nav
+**/*.out
+**/*.snm
+**/*.toc
+**/*.1
+**/*.mp
+**/*.t1
+**/*.swp
+
