@@ -4,11 +4,11 @@
 **/.directory
 
 # LaTeX products ignore rules
-**/*.kilepr
-**/*.backup
 **/*.log
 **/*.aux
-#**/*.pdf
+**/*.acr
+**/*.acn
+**/*.alg
 **/*.nav
 **/*.out
 **/*.snm
@@ -17,4 +17,9 @@
 **/*.mp
 **/*.t1
 **/*.swp
+
+# Kile files
+**/*.kilepr
+**/*.backup
+
 
