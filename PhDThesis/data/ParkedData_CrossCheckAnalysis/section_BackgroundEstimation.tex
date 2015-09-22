@@ -1,0 +1,199 @@
+\section{Background estimation}
+
+\subsection{W to \texorpdfstring{electron+\MET}{electron+MET}}
+
+The selection consists of the following cuts:
+
+\begin{itemize}
+  \item Vertex cut
+  \item Event quality filters (MET Filters)
+  \item ECAL+HCAL Laser filters
+  \item L1T ETM Filter (L1T\_ETM40 emulation)
+  \begin{itemize}
+    \item $ L1T\_ETM >= 40 $
+  \end{itemize}
+  \item HLT path filter
+  \begin{itemize}
+    \item From run 190456 to 193621 (Run 2012 A) use HLT\_DiPFJet40\_PFMETnoMu65\_MJJ800VBF\_AllJets* 
+    \item From run 193833 to 196531 (Run 2012 B) use HLT\_DiJet35\_MJJ700\_AllJets\_DEta3p5\_VBF*
+    \item From run 198022 to 203742 (Run 2012 C) use HLT\_DiJet35\_MJJ700\_AllJets\_DEta3p5\_VBF*
+    \item From run 203777 to 208686 (Run 2012 D) use HLT\_DiJet30\_MJJ700\_AllJets\_DEta3p5\_VBF*
+  \end{itemize}
+  \item Exactly one $Electron_{Veto}$
+  \begin{itemize}
+    \item Using veto electron defined on this page
+  \end{itemize}
+  \item Exactly one $Electron_{Tight}$
+  \begin{itemize}
+    \item Using tight electron defined on this page
+  \end{itemize}
+  \item Muon Veto
+  \begin{itemize}
+    \item Using veto muons defined on this page (to be done)
+  \end{itemize}
+  \item $ \MET > 90 $ GeV
+  \item $ \MET_{significance} > 4.0 $
+  \item Dijet cut (leading dijet requirements):
+  \begin{itemize}
+    \item Lead dijet $ p_{\perp} > 50$ GeV
+    \item Sub-lead dijet $ p_{\perp} > 45$ GeV
+    \item Jets $ |\eta| < 4.7 $
+    \item Dijet $ \Delta\eta < 3.6 $
+    \item Dijet $ m_{jj} > 1200 $ GeV
+  \end{itemize}
+  \item $ Min(\Delta\phi(MET,Jet_{p_{\perp}>30})))>2.3 $
+\end{itemize}
+
+\input{Region_ElectronMET/Region_ElectronMET_AbsoluteEventYields}
+\input{Region_ElectronMET/Region_ElectronMET_MainAnalysisCompare.tex}
+
+\subsection{W to \texorpdfstring{$\mu$+\MET}{muon+MET}}
+
+The selection consists of the following cuts
+\begin{itemize}
+  \item Vertex cut 
+  \item Event quality filters (MET Filters)
+  \item ECAL+HCAL Laser filters
+  \item L1T ETM Filter (L1T\_ETM40 emulation)
+  \begin{itemize}
+    \item $ L1T\_ETM >= 40 $
+  \end{itemize}
+  \item HLT path filter
+  \begin{itemize}
+    \item From run 190456 to 193621 (Run 2012 A) use HLT\_DiPFJet40\_PFMETnoMu65\_MJJ800VBF\_AllJets* 
+    \item From run 193833 to 196531 (Run 2012 B) use HLT\_DiJet35\_MJJ700\_AllJets\_DEta3p5\_VBF*
+    \item From run 198022 to 203742 (Run 2012 C) use HLT\_DiJet35\_MJJ700\_AllJets\_DEta3p5\_VBF*
+    \item From run 203777 to 208686 (Run 2012 D) use HLT\_DiJet30\_MJJ700\_AllJets\_DEta3p5\_VBF*
+  \end{itemize}
+  \item Electron Veto
+  \begin{itemize}
+    \item Using veto electron defined on this page
+  \end{itemize}
+  \item Exactly one $Muon_{loose}$
+  \begin{itemize}
+    \item Using veto muons defined on this page (to be done)
+  \end{itemize}
+  \item Exactly one $Muon_{tight}$
+  \begin{itemize}
+    \item Using veto muons defined on this page (to be done)
+  \end{itemize}
+  \item $\MET > 90 $ GeV
+  \item $\MET_{significance} > 4.0 $
+  \item Dijet cut (leading dijet requirements):
+  \begin{itemize}
+    \item Lead dijet $ p_{\perp} > 50$ GeV
+    \item Sub-lead dijet $ p_{\perp} > 45$ GeV
+    \item Jets $ |\eta| < 4.7 $
+    \item Dijet $ \Delta\eta < 3.6 $
+    \item Dijet $ m_{jj} > 1200 $ GeV
+  \end{itemize}
+  \item $ Min(\Delta\phi(MET,Jet_{p_{\perp}>30})))>2.3 $
+\end{itemize}
+
+\input{Region_MuonMET/Region_MuonMET_AbsoluteEventYields.tex}
+\input{Region_MuonMET/Region_MuonMET_MainAnalysisCompare.tex}
+
+\subsection{W to \texorpdfstring{$\tau$+\MET}{tau+MET}}
+
+\input{Region_TauMET/Region_TauMET_AbsoluteEventYields.tex}
+\input{Region_TauMET/Region_TauMET_MainAnalysisCompare.tex}
+
+\subsection{Z to \texorpdfstring{$\mu\mu$}{mumu}}
+
+The selection consists of the following cuts:
+\begin{itemize}
+  \item Vertex cut
+  \item Event quality filters (MET Filters)
+  \item ECAL+HCAL Laser filters
+  \item !L1T ETM Filter (L1T\_ETM40 emulation)
+  \begin{itemize}
+    \item $ L1T\_ETM >= 40 $
+  \end{itemize}
+  \item HLT path filter
+  \begin{itemize}
+    \item From run 190456 to 193621 (Run 2012 A) use HLT\_DiPFJet40\_PFMETnoMu65\_MJJ800VBF\_AllJets* 
+    \item From run 193833 to 196531 (Run 2012 B) use HLT\_DiJet35\_MJJ700\_AllJets\_DEta3p5\_VBF*
+    \item From run 198022 to 203742 (Run 2012 C) use HLT\_DiJet35\_MJJ700\_AllJets\_DEta3p5\_VBF*
+    \item From run 203777 to 208686 (Run 2012 D) use HLT\_DiJet30\_MJJ700\_AllJets\_DEta3p5\_VBF*
+  \end{itemize}
+  \item Electron Veto
+  \begin{itemize}
+    \item Using veto electron defined on this page
+  \end{itemize}
+  \item Exactly two $Muon_{loose}$
+  \begin{itemize}
+    \item Using veto muons defined on this page (to be done)
+  \end{itemize}
+  \item Exactly two $Muon_{tight}$
+  \begin{itemize}
+    \item Using veto muons defined on this page (to be done)
+  \end{itemize}
+  \item Dimuon with $60<mass<120$ GeV
+  \item $ \MET > 90 $ GeV
+  \item $ \MET_{significance} > 4.0 $
+  \item Dijet cut (leading dijet requirements):
+  \begin{itemize}
+    \item Lead dijet $ p_{\perp} > 50$ GeV
+    \item Sub-lead dijet $ p_{\perp} > 45$ GeV
+    \item Jets $ |\eta| < 4.7 $
+    \item Dijet $ \Delta\eta < 3.6 $
+    \item Dijet $ m_{jj} > 1200 $ GeV
+  \end{itemize}
+\end{itemize}
+  
+\input{Region_Zmumu/Region_Zmumu_AbsoluteEventYields.tex}
+\input{Region_Zmumu/Region_Zmumu_MainAnalysisCompare.tex}
+
+\subsection{Top}
+
+The selection consists of the following cuts:
+\begin{itemize}
+  \item Vertex cut 
+  \item Event quality filters (MET Filters)
+  \item ECAL+HCAL Laser filters
+  \item L1T ETM Filter (L1T\_ETM40 emulation)
+  \begin{itemize}
+    \item $ L1T\_ETM >= 40 $
+  \end{itemize}
+  \item HLT path filter
+  \begin{itemize}
+    \item From run 190456 to 193621 (Run 2012 A) use HLT\_DiPFJet40\_PFMETnoMu65\_MJJ800VBF\_AllJets* 
+    \item From run 193833 to 196531 (Run 2012 B) use HLT\_DiJet35\_MJJ700\_AllJets\_DEta3p5\_VBF*
+    \item From run 198022 to 203742 (Run 2012 C) use HLT\_DiJet35\_MJJ700\_AllJets\_DEta3p5\_VBF*
+    \item From run 203777 to 208686 (Run 2012 D) use HLT\_DiJet30\_MJJ700\_AllJets\_DEta3p5\_VBF*
+  \end{itemize}
+  \item Exactly one $Electron_{Veto}$
+  \begin{itemize}
+    \item Using veto electron defined on this page
+  \end{itemize}
+  \item Exactly one $Electron_{Tight}$
+  \begin{itemize}
+    \item Using tight electron defined on this page
+  \end{itemize}
+  \item Exactly one $Muon_{loose}$
+  \begin{itemize}
+    \item Using veto muons defined on this page (to be done)
+  \end{itemize}
+  \item Exactly one $Muon_{tight}$
+  \begin{itemize}
+    \item Using veto muons defined on this page (to be done)
+  \end{itemize}
+  \item $\MET > 90 $ GeV
+  \item $\MET_{significance} > 4.0 $
+  \item Dijet cut (leading dijet requirements):
+  \begin{itemize}
+    \item Lead dijet $ p_{\perp} > 50$ GeV
+    \item Sub-lead dijet $ p_{\perp} > 45$ GeV
+    \item Jets $ |\eta| < 4.7 $
+    \item Dijet $ \Delta\eta < 3.6 $
+    \item Dijet $ m_{jj} > 1200 $ GeV
+  \end{itemize}
+\end{itemize}
+    
+\input{Region_Top/Region_Top_AbsoluteEventYields.tex}
+\input{Region_Top/Region_Top_MainAnalysisCompare.tex}
+
+\subsection{QCD}
+
+\input{Region_QCD/Region_QCD_AbsoluteEventYields.tex}
+

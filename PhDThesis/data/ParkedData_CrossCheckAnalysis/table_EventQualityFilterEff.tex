@@ -1,0 +1,23 @@
+\begin{table}[htp]
+\centering
+
+\begin{tabular}{|l||c|c|c|c|}
+\hline
+Filter                             & Prompt A  & Parked B & Parked C & Parked D \\
+\hline \hline
+HBHENoiseFilter                    & 22.900905 & 0.190670 & 0.187739 & 0.170753 \\
+EcalDeadCellTriggerPrimitiveFilter &  0.375381 & 0.009300 & 0.010206 & 0.012526 \\
+eeBadScFilter                      &  0.007852 & 0.000001 & 0.000000 & 0.000009 \\
+trackingFailureFilter              &  3.073876 & 0.000328 & 0.007464 & 0.000290 \\
+manystripclus53X                   &  0.001829 & 0.001319 & 0.002335 & 0.001327 \\
+toomanystripclus53X                &  0.000484 & 0.001149 & 0.002006 & 0.001173 \\
+logErrorTooManyClusters            &  0.000027 & 0.000009 & 0.000021 & 0.000016 \\
+CSCTightHaloFilter                 & 10.263068 & 0.398497 & 0.402936 & 0.508025 \\
+\hline
+Total                              & 28.501208 & 0.598417 & 0.601999 & 0.689380 \\
+\hline
+\end{tabular}
+
+\caption{Percentage of events in data failing each of the event quality filters after requesting on good vertex. For the parked analysis we use prompt A and parked B, C and D datasets.}
+\label{table_EventQualityFilterEff}
+\end{table}

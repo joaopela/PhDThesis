@@ -1,0 +1,209 @@
+\section{Event Filters and object definitions}
+
+%STATUS: Finished
+%TODO: 
+% * Could not find any reference to this recommendations!
+\subsection{Vertex}
+
+The interaction point is normally assumed to be the reconstructed  primary vertex, defined as the vertex with highest sum of associated tracks \pt squared, or if that cannot be determined the beam spot position is assumed. Knowing precisely the interaction point will allow to determine object quantities relative to it which allow for better object identification and pile-up control. At least one good vertex implicitly required by tracking failure event quality filter. And Additionally we require explicitly that a good vertex is reconstructed with the following characteristics. 
+
+\begin{itemize}
+  \item NOT(isFake): We require a real reconstructed vertex from tracks, not the beam spot.
+  \item Number of degrees of freedom: $n_{dof}>4$
+  \item Longitudinal distance: $|z|<=24$
+  \item Radial distance to beam line: $d_{xy}<2$
+\end{itemize}
+
+%STATUS: Finished
+%TODO: 
+% * Add citation for the Jet-MET POG for this filter usage (include data and page version)
+% * QUESTION: Should I include description of what each filter does?
+\subsection{Event quality filters}
+
+During data recording issues may happen with the detector or acquisition which may render some of the events unusable. The groups responsible for each part of the detector and physics object check the data after and was taken and if they find such problems software event filters are made available for analysis to be able to remove this problematic events. This event filters will address issues like detector know problems, miss firing of calibration sequences or failure to reconstruct physics objects. The Jet-MET Particle Object Group (POG) recommends the usage of the following filters which are used in this analysis\cite{CMS:JetMETPOG:MissingETOptionalFilters}.
+
+\begin{itemize}
+  \item CSCTightHaloFilter
+  \item HBHENoiseFilter
+  \item EcalDeadCellTriggerPrimitiveFilter
+  \item trackingFailureFilter
+  \item eeBadScFilter
+  \item ECAL Laser filter (via event list)
+  \item HCAL Laser filter (via event list)
+\end{itemize}
+
+In turn the JetMET group recommend the usage of the following Tracking POG Filter\cite{CMS:TrackingPOG:TrackingPOGFilters}:
+
+\begin{itemize}
+  \item  logErrorTooManyClusters
+  \item  manystripclus53X
+  \item  toomanystripclus53X
+\end{itemize}
+
+The event rejection efficiencies from the all filters except ECAL and HCAL laser event filters can be found at table \ref{table_EventQualityFilterEff}. This values are measured the vertex requirements. 
+
+\input{table_CaloLaserFilterEff}
+
+The values for the ECAL and HCAL laser event filters are present in table \ref{table_CaloLaserFilterEff}. This value are calculated after vertex requirement and the filters in table \ref{table_EventQualityFilterEff}. 
+
+\input{table_EventQualityFilterEff}
+
+It is observed that the HBHENoiseFilter vetos around 22\% of the event for prompt run A but this behaviour is not observed in any of the parked datasets. This specific filter removed events with noise in the HCAL. An example of noise would be a ``hot tower'' reading very high energy values, some times for several events. Since this energy will not be balance in each event this will greatly increase \MET. On the prompt dataset there are \MET only triggers which were fired in such events which then get removed by this filter, those triggers are not present in parked dataset. This can clearly be seen if we apply first our trigger selection (Jets+\MET) and then recalculate the event rejection efficiencies, this values can be found in table \ref{table_EventQualityFilterEff_PostTrigger}.
+
+\input{table_EventQualityFilterEff_PostTrigger}
+
+Both tables \ref{table_EventQualityFilterEff} and \ref{table_CaloLaserFilterEff} can be directly compared with the values produced by the main analysis and presented in AN-14-243\cite{CMS_AN_2014-243}. No differences are observed.
+
+%STATUS: In progress
+%TODO:  
+\subsection{Jets}
+
+In this analysis we use particle flow  jets clustered with the $anti-k_{T}$ algorithm with a cone size of 0.5. 
+
+The correction L1FastJet, L2Relative and L3Absolute are applied to both data and monte carlo (MC) and additionally we apply L2L3Residual to data.
+
+The to correct Jet Energy Scale we apply global tag FT53\_V21A\_AN6::All for data and START53\_V27::All for monte carlo.
+
+The jets with this characteristics and corrections are available in the ntuples produced by the main analysis as the "standard" jets collection. We further require that our selected jets pass PFJet ID and pileup ID. And we clean the jet collection by removing all jets that closer then $\Delta R < 0.5$ to any veto electron or loose muon (relevant for control regions).
+
+%Out of this jets we select the ones passing loose PFJet ID and pileup ID. We also clean the jet collection by removing all jets that closer then %$\Delta R < 0.5$% to any veto electron or loose muon (relevant for control regions).
+ 
+%% FOR MY PHD THESIS 
+%% Details on 
+%  
+% As a selection condition for out jets we use the PFJet ID described at [[CMS/JetID.Recommendations_for_8_TeV_data_a][JetID page]].
+% 
+% The jet requirements are:
+%    * Neutral Hadron Fraction %$ <0.99 $%
+%    * Neutral EM Fraction %$ <0.99 $%
+%    * Number of Constituents  %$ >1 $%
+% Additionally for %$|\eta| < 2.4$% we require:
+%    * Charged Hadron Fraction %$  >0 $%
+%    * Charged Multiplicity %$ >0 $%
+%    * Charged EM Fraction %$ 0.99 $%
+% 
+% ---+++ Pileup ID 
+% 
+% Using the prescription at the [[CMS.PileupJetID][PileupJetID page]] we reject pileup jets cutting at loose working point of a BDT with Dec2012 weights and package recojets/jetproducers with version METPU_5_3_X_v4. The computation of the MVA value per jet is made when the ntuples are produced and this values are stored within each jet. We cut on the BDT score categorizing in %$p_{\perp}$% and %$|\eta|$% as follows:
+% 
+% %BEGINLATEX%
+% \begin{tabular}{|c|c|c|}
+% \hline
+% Jet $p_{\perp}$ & Jet $|\eta|$ & $BDT_{score}$ \\
+% \hline \hline
+% $20 < p_{\perp} \leq 30$ & $|\eta| < 2.5$ & $BDT_{score} > -0.80$ \\
+% $20 < p_{\perp} \leq 30$ & $2.50 \leq |\eta| < 2.75$ & $BDT_{score} > -0.85$ \\
+% $20 < p_{\perp} \leq 30$ & $2.75 \leq |\eta| < 3.00$ & $BDT_{score} > -0.84$ \\
+% $20 < p_{\perp} \leq 30$ & $3.00 \leq |\eta| < 5.00$ & $BDT_{score} > -0.85$ \\
+% $30 < p_{\perp}$ & $|\eta| < 2.5$ & $BDT_{score} > -0.80$ \\
+% $30 < p_{\perp}$ & $2.50 \leq |\eta| < 2.75$ & $BDT_{score} > -0.74$ \\
+% $30 < p_{\perp}$ & $2.75 \leq |\eta| < 3.00$ & $BDT_{score} > -0.68$ \\
+% $30 < p_{\perp}$ & $3.00 \leq |\eta| < 5.00$ & $BDT_{score} > -0.77$ \\
+% \hline
+% \end{tabular}
+% %ENDLATEX%
+
+%STATUS: In progress
+%TODO:  
+\subsection{Missing transverse energy \texorpdfstring{(\MET)}{}}
+
+
+%STATUS: In progress
+%TODO: 
+% Convert base cut based ID to a table  
+\subsection{Electrons}
+
+% Make citation for CMS.EgammaCutBasedIdentification
+For this analysis we use two categories of electrons "veto electrons" and "tight electrons". Both this categories of particles are based on standard EGamma POG cut based object definition which can be found at (TODO:CITATION). Additionally, we require some additional cuts to each category (TODO:WHY).
+
+\subsubsection{Veto electrons}
+ 
+The "veto electrons" are defined by the base requirements of the cut based electron ID veto working point of the EGamma POG with some additional cuts on top. 
+ 
+Requirements of the cut based electron ID veto working point:
+
+Barrel Cuts ( $ |\eta_{supercluster}|<=1.479 $ )
+\begin{itemize}
+  \item $ | \Delta\eta(track,supercluster) | < 0.007 $
+  \item $ | \Delta\phi(track,supercluster) | < 0.8 $
+  \item $ \sigma(i\eta,i\eta) < 0.01 $
+  \item $ H/E < 0.15 $
+  \item $ |d_{0}(vertex)| < 0.04 $
+  \item $ |d_{Z}(vertex)| < 0.2 $
+  \item $ \frac{PF_{isolation}}{p_{\perp}} < 0.15 $ for $ \Delta R_{cone}=0.3 $
+\end{itemize}
+
+Endcap Cuts ( $ 1.479 < |\eta_{supercluster}| < 2.5 $ )
+\begin{itemize}
+  \item $ | \Delta\eta(track,supercluster) | < 0.1 $
+  \item $ | \Delta\phi(track,supercluster) | < 0.7 $
+  \item $ \sigma(i\eta,i\eta) < 0.03 $
+  \item $ |d_{0}(vertex)| < 0.04 $
+  \item $ |d_{Z}(vertex)| < 0.2 $
+  \item $ \frac{PF_{isolation}}{p_{\perp}} < 0.15 $ for $ \Delta R_{cone}=0.3 $
+\end{itemize}
+
+Additional requirements for this analysis
+\begin{itemize}
+  \item $ p_{\perp} > 10 $ GeV
+  \item $ |\eta| < 2.4 $
+  \item $ Effective-Area-Corrected-Isolation < 0.15 $ (is stated in the note as additional requirement but does not look like it is)
+  \item $d_{xy}<0.04$ cm (is stated in the note as additional requirement but does not look like it is)
+  \item $d_{z} < 0.2 $ cm (is stated in the note as additional requirement but does not look like it is)
+\end{itemize}
+
+\subsubsection{Tight electrons}
+
+The "tight electrons" are defined by using the base requirements of the cut based electron ID tight working point (similar to 2011 very tight WP70) of the EGamma POG with some additional cuts on top.
+ 
+Requirements of the cut based electron ID tight working point (similar to 2011 very tight WP70):
+
+Barrel Cuts ( $ |\eta_{supercluster}|<=1.479 $ )
+\begin{itemize}
+  \item $ | \Delta\eta(track,supercluster) | < 0.004 $
+  \item $ | \Delta\phi(track,supercluster) | < 0.3  $
+  \item $ \sigma(i\eta,i\eta) < 0.01 $
+  \item $ H/E < 0.12 $
+  \item $ |d_{0}(vertex)| < 0.02 $
+  \item $ |d_{Z}(vertex)| < 0.1 $
+  \item $ |\frac{1}{E}-\frac{1}{p}| < 0.05 $
+  \item $ \frac{PF_{isolation}}{p_{\perp}} < 0.10 $ for $ \Delta R_{cone}=0.3 $
+  \item Conversion rejection: vertex fit probability: 1e-6
+  \item Conversion rejection: missing hits $<= 0$
+\end{itemize}
+
+Endcap Cuts ( $ 1.479 < |\eta_{supercluster}| < 2.5 $ )
+\begin{itemize}
+  \item $ | \Delta\eta(track,supercluster) | < 0.005 $
+  \item $ | \Delta\phi(track,supercluster) | < 0.2  $
+  \item $ \sigma(i\eta,i\eta) < 0.03 $
+  \item $ H/E < 0.10 $
+  \item $ |d_{0}(vertex)| < 0.02 $
+  \item $ |d_{Z}(vertex)| < 0.1 $
+  \item $ |\frac{1}{E}-\frac{1}{p}| < 0.05 $
+  \item $ \frac{PF_{isolation}}{p_{\perp}} < 0.10(0.07) $ for $ p_{\perp} > 20 (p_{\perp} <= 20) $ and $ \Delta R_{cone}=0.3 $
+  \item Conversion rejection: vertex fit probability: 1e-6
+  \item Conversion rejection: missing hits $<= 0$
+\end{itemize}
+
+Additional requirements for this analysis:
+\begin{itemize}
+  \item $ p_{\perp} > 20 $ GeV
+  \item $ |\eta| < 2.4 $
+  \item $ Effective-Area-Corrected-Isolation < 0.10 $
+  \item $d_{xy}<0.02 $ cm
+  \item $d_{z} < 0.1 $ cm
+\end{itemize}
+
+
+%STATUS: In progress
+%TODO: 
+\subsection{Muons}
+
+
+
+
+%STATUS: In progress
+%TODO: 
+\subsection{Taus}
+
