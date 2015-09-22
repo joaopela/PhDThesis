@@ -42,15 +42,15 @@ In turn the JetMET group recommend the usage of the following Tracking POG Filte
 
 The event rejection efficiencies from the all filters except ECAL and HCAL laser event filters can be found at table \ref{table_EventQualityFilterEff}. This values are measured the vertex requirements. 
 
-\input{table_CaloLaserFilterEff}
+\input{data/ParkedData_CrossCheckAnalysis/table_CaloLaserFilterEff}
 
 The values for the ECAL and HCAL laser event filters are present in table \ref{table_CaloLaserFilterEff}. This value are calculated after vertex requirement and the filters in table \ref{table_EventQualityFilterEff}. 
 
-\input{table_EventQualityFilterEff}
+\input{data/ParkedData_CrossCheckAnalysis/table_EventQualityFilterEff}
 
 It is observed that the HBHENoiseFilter vetos around 22\% of the event for prompt run A but this behaviour is not observed in any of the parked datasets. This specific filter removed events with noise in the HCAL. An example of noise would be a ``hot tower'' reading very high energy values, some times for several events. Since this energy will not be balance in each event this will greatly increase \MET. On the prompt dataset there are \MET only triggers which were fired in such events which then get removed by this filter, those triggers are not present in parked dataset. This can clearly be seen if we apply first our trigger selection (Jets+\MET) and then recalculate the event rejection efficiencies, this values can be found in table \ref{table_EventQualityFilterEff_PostTrigger}.
 
-\input{table_EventQualityFilterEff_PostTrigger}
+\input{data/ParkedData_CrossCheckAnalysis/table_EventQualityFilterEff_PostTrigger}
 
 Both tables \ref{table_EventQualityFilterEff} and \ref{table_CaloLaserFilterEff} can be directly compared with the values produced by the main analysis and presented in AN-14-243\cite{CMS_AN_2014-243}. No differences are observed.
 
