@@ -5,9 +5,10 @@ CHAPTERS=frontmatter.tex theory.tex detector.tex objects.tex technical.tex physi
 all: thesis.pdf
 
 thesis.bbl: thesis.tex thesis.bib
+	pdflatex thesis.tex
 	bibtex thesis
 
-thesis.acr: thesis.tex Glossary.tex
+thesis.acr: $(CHAPTERS) thesis.tex Glossary.tex
 	pdflatex thesis.tex
 	makeglossaries thesis
 
