@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{parskip}
 \usepackage{hepnames}
-\usepackage[printonlyused]{acronym}
+% \usepackage[printonlyused]{acronym}
 \usepackage{thesis}
 \usepackage{ptdr-definitions}
 \usepackage{hepnicenames}
@@ -12,7 +12,6 @@
 \usepackage{slashed}
 \usepackage{multirow}
 %end%
-
 %\documentclass[hyperpdf]{hepthesis}
 %\documentclass[a4paper,10pt]{book}
 %\usepackage{fullpage}
@@ -35,10 +34,11 @@
 % \usepackage{caption}               % ?????
 % \usepackage{soul}                  % For text highlights
 % \usepackage{threeparttable}        % Better tables
-% \usepackage[xindy,toc,acronym]{glossaries} %(recommended) for the indexing phase, as opposed to makeindex (the default)
-% \usepackage{hyperref}              % Need after glossaries (allows links)
 
-% \input{Glossary.tex}
+% \usepackage{hyperref}              % Need after glossaries (allows links)
+\usepackage[toc,acronym]{glossaries} %(recommended) for the indexing phase, as opposed to makeindex (the default)
+\makeglossaries
+\input{Glossary.tex}
 
 \title{Search for Higgs Decay to Dark Matter and Trigger Studies} 
 \author{João Carlos Arnauth Pela}
@@ -46,6 +46,7 @@
 % \affiliation{Imperial College London}
 % \keywords{Particle Physics}
 \date{21 September 2015}
+
 
 %% Doc-specific PDF metadata
 \makeatletter
