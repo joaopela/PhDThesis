@@ -1,6 +1,6 @@
 .PHONY: clean all
 
-CHAPTERS=frontmatter.tex theory.tex detector.tex objects.tex technical.tex physics.tex conclusions.tex backmatter.tex
+CHAPTERS=frontmatter.tex theory.tex Chapter02_ExperimentalApparatus/ExperimentalApparatus.tex objects.tex technical.tex physics.tex conclusions.tex backmatter.tex
 
 all: thesis.pdf
 
