@@ -17,6 +17,9 @@
 **/*.mp
 **/*.t1
 **/*.swp
+**/*.lof
+**/*.lot
+
 
 # Kile files
 **/*.kilepr
