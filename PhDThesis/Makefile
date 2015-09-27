@@ -2,8 +2,9 @@
 
 CHAPTERS =frontmatter.tex 
 CHAPTERS+=Chapter01/Theory.tex 
-CHAPTERS+=Chapter02_ExperimentalApparatus/ExperimentalApparatus.tex
-CHAPTERS+=objects.tex technical.tex physics.tex conclusions.tex backmatter.tex
+CHAPTERS+=Chapter02/ExperimentalApparatus.tex
+CHAPTERS+=objects.tex technical.tex physics.tex conclusions.tex 
+CHAPTERS+=backmatter.tex
 
 all: thesis.pdf
 
