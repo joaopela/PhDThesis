@@ -1,6 +1,9 @@
 \chapter{Experimental Apparatus}
 \label{CHAPTER:ExperimentalApparatus}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Large Hadron Collider}
 \label{SECTION:ExperimentalApparatus_LHC}
 
@@ -63,7 +66,9 @@ L=\frac{N_{b}^{2}n_{b}f_{\text{rev}}\gamma}{4\pi\epsilon_{n}\beta^{*}}F,
 
 where $N_{b}$ is the number of protons per bunch, $n_{b}$ is the number of bunches, $f_{\text{rev}}$ is the frequency of revolution, $\gamma$ is the Lorentz factor, $\epsilon_{n}$ is the normalized emittance, $f_{\text{rev}}$ is the beta function at the collision point and $F$ is the reduction factor due to the crossing angle.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Delivered Luminosity}
 
 \begin{figure}[!htb]
@@ -86,19 +91,49 @@ where $N_{b}$ is the number of protons per bunch, $n_{b}$ is the number of bunch
 The \gls{CMS} experiment is a general purpose experiment located at point 5 of the \gls{LHC}. It was designed to study collisions at its centre and is composed os several sub-systems in an classic onion shaped structure.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Geometry and conventions}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Inner tracking system}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Tracker}
+
+% Writing points:
+% * Closest detector to beam, measures trajectories of charged particles
+% * With magnetic field measures momentum and charge of this particles
+% * Allows vertexing (primary and secundary)
+% * Different regions different occupancy
+% * Final arranagement
+
+The inner tracking system is the closest detector to the beam axis and the interaction region. Its function is to measure the trajectory of all charged particles, like electrons, charged hadrons and muons with momentum above 1 $GeV$ being produced at each \gls{LHC} collision. With the help of the strong magnetic field produced by the \gls{CMS} magnet particle trajectory is bent allowing for charge and momentum determination. With the resulting tracks is it then possible to determine the primary vertex of interaction as well as vertexes of other interactions or even displaced vertexes from the decay of long lived particles like B mesons. 
+
+Building a tracking system for a \gls{LHC} experiment is very challenging. At design luminosity an average of 1000 particles will hit such system at a rate approaching 40 $MHz$ , leading to high hit density and high rate. It is therefore desirable to have a fast, efficient and high granularity system where at each layer the occupancy should be at or below $1\%$. On the other hand each layer should be as thin as possible in order to not change the incoming particles trajectory or make them lose too much energy. The detector should also be radiation hard and survive for a period of at least 10 years due to its importance and location. This design requirements lead to a tracker design entirely based on silicon detector technology. 
 
 The volume near the interaction point can be split according to the charged particle flux into three regions depending on the charged particle flux.
 
 \begin{itemize}
-  \item one
-  \item two
-  \item three
+  \item $r<10$ $cm$: highest particle flux, up to $\approx 10^8 $ $cm^{-2}s^{-1}$ at $r \approx 4$ $cm$, pixel detectors are used. The pixel size is $\approx 100 \times 150$ $\mu m^2$, which translates into an occupancy of $10^{-4}$ per \gls{LHC} bunch crossing.
+  \item $20<r<55$ $cm$: particle flux decreases enough to use silicon micro-strips with a minimum cell size of 10 cm $\times$ 80 $\mu m$, leading to an occupancy of $\approx 2-3\%$ per \gls{LHC} bunch crossing.
+  \item $50<r<110$ $cm$: most outer region of the tracker, particle flux is low enough the larger pitch silicon micro-strips can be used. The maximum cell size is of 25 $cm$ $\times$ 180 $\mu m$, occupancy is of the order of $\approx 1\%$.
 \end{itemize}
 
+The \gls{CMS} tracker final configuration is composed of a pixel detector with three barrel layers at radii between 4.4 $cm$ and 10.2 $cm$ and 2 disks on each side of the barrel. And a silicon strip tracker with 10 barrel detection layers extending up to 1.1 $m$ with 3 plus 9 disks on each side of the barrel. A schematic of the detector module distribution can be found in figure \ref{FIGURE:ExperimentalApparatus_CMS_Tracker_Layout}. This detector has an acceptance covering up to pseudorapidity of $|\eta|<2.5$ and has a total active area of about 200 $m^2$ making the largest silicon tracker ever built. 
 
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=1.0\textwidth]{Chapter02/CMS/Images/CMS_Tracker_Layout.png}
+  \caption{Schematic cross section of the CMS tracker. Each line represent a detector module. Double lines represent dual surface back-to-back detector modules.}
+  \label{FIGURE:ExperimentalApparatus_CMS_Tracker_Layout}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electromagnetic Calorimeter}
 \label{SUBSECTION:ExperimentalApparatus_CMS_ECAL}
 % STATUS: DONE (just with MSc input, and needs review)
@@ -111,34 +146,55 @@ The barrel section, the \gls{EB}, has an inner radius of 129 $cm$ and is compose
 
 The endcap section, the \gls{EE}, is at a distance of 314 cm from the vertex and covering a pseudorapidity range of $1.479<|\eta|<3.0$, are each structured as 2 “Dees”, consisting of semi-circular aluminium plates from which are cantilevered structural units of $5\times5$ crystals, known as “supercrystals”.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hadronic Calorimeter}
 \label{SUBSECTION:ExperimentalApparatus_CMS_HCAL}
 
 The \gls{HCAL}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Solenoid Magnet}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Magnet}
 
 \input{Chapter02/CMS/Tables/CMSMagnetParameters.tex}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Muon System}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Mouns}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data Acquisition System}
 \label{SUBSECTION:ExperimentalApparatus_CMS_DAQ}
 
 The \gls{DAQ}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trigger System}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Trigger}
 
 The \gls{L1T} and \gls{HLT}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Computing}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Computing}
 
 The \gls{DQM} 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Run II Updgrades}
 \label{SUBSECTION:ExperimentalApparatus_CMS_RUNII}
 
