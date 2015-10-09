@@ -7,19 +7,20 @@
 \section{The Large Hadron Collider}
 \label{SECTION:ExperimentalApparatus_LHC}
 
-\colorbox{red}{
-\begin{minipage}{0.95\linewidth}
-TODO: 
+% Status: Writing
+%
+% TODO:
+% * DONE: LHC location, size, particles used, energy usage.
+% * Basics of machine and operation
+% * How instantaneous luminosity is calculated include Instantaneous luminosity equation
+% * Delivered instantaneous luminosity Run I (proton-Proton)
 
-\begin{itemize}
-  \item DONE: LHC location, size, particles used, energy usage.
-  \item Basics of machine and operation
-  \item How instantaneous luminosity is calculated include Instantaneous luminosity equation
-  \item Delivered instantaneous luminosity Run I (proton-Proton)
-\end{itemize}
-
-\end{minipage}
-}
+% \colorbox{red}{
+% \begin{minipage}{0.95\linewidth}
+%  
+% \begin{itemize}\item\end{itemize}
+% \end{minipage}
+%}
 
 The \gls{LHC}\cite{ARTICLE:LHC Machine} is currently the world's largest particle accelerator and is capable to produce the highest energy particle beam ever made by mankind. This gigantic machine with a total perimeter of 26.7 kilometer was built at \gls{CERN} in a circular tunnel at an average depth of 100 meters below ground under the Franco-Swiss border near Geneva, Switzerland. I Diagram of the LHC tunnel can be found in figure \ref{FIGURE:ExperimentalApparatus_LHCLayoutUnderground}.
 
@@ -138,7 +139,8 @@ The \gls{CMS} tracker final configuration is composed of a pixel detector with t
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electromagnetic Calorimeter}
 \label{SUBSECTION:ExperimentalApparatus_CMS_ECAL}
-% STATUS: DONE (just with MSc input, and needs review)
+
+% Status: DONE (just with MSc input, and needs review)
 
 The \gls{ECAL} is an hermetic energy measurement system comprised of 61200 lead tungstate ($PbWO_4$) crystals mounted in the barrel and 7324 crystals in each of the 2 endcaps.
 
@@ -165,21 +167,11 @@ figure \ref{FIGURE:ExperimentalApparatus_CMS_ECAL_Layout}
 \label{SUBSECTION:ExperimentalApparatus_CMS_HCAL}
 
 % STATUS: Writing
-%
-% Writing points:
-%
-%
-%
 
+The \gls{HCAL} is a sampling calorimeter which is designed to measure the properties of hadron jets and indirectly neutrinos or other undiscovered particles that would result in apparent missing energy\cite{ARTICLE:CMSTechnicalProposal}. 
 
-The \gls{HCAL} is a sampling calorimeter which is designed to measure the properties of hadron jets and indirectly neutrinos or other undiscovered particles that would result in apparent missing energy. %quote CMS technical proposal?
-
-
-
-The design of the \gls{HCAL} was strongly influenced by the choice of the magnet parameters since most of the calorimetry is inside of the magnet.
-
-
-figure \ref{FIGURE:ExperimentalApparatus_CMS_HCAL_Layout}
+The design of the \gls{HCAL} was strongly influenced by the choice of the magnet parameters since most of the calorimetry is inside of the magnet. The \gls{HB} is limited from the beam side by the \gls{ECAL} at radius $r=1.77$ $m$ and outwards by the magnet at radius $r=2.95$ $m$. This is a strict limitation on the amount of absorber material to be used. To improve the measurement capability, an outer calorimeter, the \gls{HO}, is placed outside of the magnet as a \textit{tail catcher} outside of the solenoid magnet. Closing the barrel in each side the \gls{HE} are present with acceptance up to pseudorapidity $|\eta|<3$.  
+Additionally, to extend acceptance to $|\eta|<5.2$ the \gls{HF} is installed at 11.2 $m$ from the interaction point providing excellent hermeticity for $E_{\perp}^{miss}$ measurement. A diagram of the \gls{HCAL} subsystems and their location inside \gls{CMS} can be found in figure \ref{FIGURE:ExperimentalApparatus_CMS_HCAL_Layout}.
 
 \begin{figure}[!htb]
   \centering
@@ -188,6 +180,35 @@ figure \ref{FIGURE:ExperimentalApparatus_CMS_HCAL_Layout}
   \label{FIGURE:ExperimentalApparatus_CMS_HCAL_Layout}
 \end{figure}
 
+The \gls{HB} covers the region up to $|\eta|<1.3$ and divided into towers with segmentation of $\Delta\eta \times \Delta\phi = 0.087 \times 0.087$ which corresponds to the same area of a $5 \times 5$ arrays of \gls{ECAL} crystals. 
+% Alternated layers of scintillators and absorver
+% Brass absorver (shoter interaction lenght (16.42 cm ref?) and is non magnetic.
+% Hadrons cause light pulses in the plastic fibers which go to hybrid photo diodes via wavelenght-shifting fibers.
+
+
+The \gls{HO}
+
+
+The \gls{HB} covers the range of $1.3<|\eta|<3.0$...
+
+
+The \gls{HF} covers the range of $3.0<|\eta|<5.2$...
+% higest flux
+% made of radiation hard quartz fibers (active medium), steel absorver
+% Cherenkov radiation from particles in fibers gives signal
+
+
+% Brass has been chosen as absorber material as it has a reasonably short interaction length, is easy to machine and is non-magnetic. The overall assembly enables the HCAL to be built with essentially no uninstrumented cracks or dead
+% areas in φ. The gap between the barrel and the endcap HCAL, through which the services of the ECAL and the inner tracker pass, is inclined at 53o and points away from the center of the detector. The hadron barrel (HB) part of HCAL consists of 32 towers covering the pseudorapidity region −1.4 <
+% η < 1.4, resulting in 2304 towers with a segmentation ∆η×∆φ = 0.087×0.087. The HB is constructed in 2 half barrels.
+% 10
+% The hadron outer (HO) detector contains scintillators with a thickness of 10 mm, which line the outside
+% of the outer vacuum tank of the coil and cover the region −1.26 < η < 1.26. The tiles are grouped in 30o-sectors, matching the φ segmentation of the DT chambers. They sample the energy from penetrating
+% hadron showers leaking through the rear of the calorimeters and so serve as a “tail-catcher” after the magnet coil.
+% Each hadron endcap (HE) of HCAL consists of 14 η towers with 5o φ segmentation, covering the pseudo-
+% rapidity region 1.3 < |η| < 3.0. For the 5 outermost towers (at smaller η) the φ segmentation is 5o and the η segmentation is 0.087. For the 8 innermost towers the φ segmentation is 10o , whilst the η segmentation
+% varies from 0.09 to 0.35 at the highest η. The total number of HE towers is 2304. Coverage between pseudorapidities of 3.0 and 5.0 is provided by the steel/quartz fibre Hadron Forward
+% (HF) calorimeter. Because the neutral component of the hadron shower is preferentially sampled in the HF technology, this design leads to narrower and shorter hadronic showers and hence is ideally suited for the congested environment in the forward region. The front face is located at 11.2 m from the interaction point. The depth of the absorber is 1.65 m.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -228,6 +249,15 @@ The \gls{DAQ}
 
 The \gls{L1T} and \gls{HLT}
 
+CMS Tridas TDR\cite{CMSTDR:CMSTridasTDR} 
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics{Chapter02/CMS/Images/CMS_L1T_Layout.png}
+  \caption{TODO}
+  \label{FIGURE:ExperimentalApparatus_CMS_L1T_Layout}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -242,4 +272,4 @@ The \gls{DQM}
 \subsection{Run II Updgrades}
 \label{SUBSECTION:ExperimentalApparatus_CMS_RUNII}
 
-The upgrade tdr \cite{CMSTDR:CMSL1Upgrade}.
+CMS L1 Trigger Upgrade TDR\cite{CMSTDR:CMSL1Upgrade}
