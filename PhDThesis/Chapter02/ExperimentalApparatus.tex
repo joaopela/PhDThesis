@@ -111,14 +111,31 @@ In order to achieve high integrated luminosity the \gls{LHC} collides particle b
 \section{The Compact Muon Solenoid Experiment}
 \label{SECTION:ExperimentalApparatus_CMS}
 
-The \gls{CMS} experiment is a general purpose experiment located at point 5 of the \gls{LHC}. It was designed to study collisions at its centre and is composed os several sub-systems in an classic onion shaped structure.
+%Status: Done (needs review)
+
+The \glsreset{CMS} experiment is a general purpose experiment located at point 5 of the \gls{LHC}. It was designed to be a high performance detector to study collisions at its centre. It is composed os several sub-systems in an classic onion shaped structure. A diagram of the experiment can be found in figure \ref{FIGURE:ExperimentalApparatus_CMS_Layout_Diagram}.
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=1.00\textwidth]{Chapter02/CMS/Images/CMS_Slice.png}
-  \caption{Diagram of a cross section of the \gls{CMS} experiment. Illustration of each particle category interaction with the detector is showed.}
-  \label{FIGURE:ExperimentalApparatus_CMS_Slice}
+  \includegraphics[width=1.00\textwidth]{Chapter02/CMS/Images/CMS_Layout_Diagram.pdf}
+  \caption{Diagram of \gls{CMS} experiment showing the experiment in an open configuration and highlighting the position of its sub-detectors.}
+  \label{FIGURE:ExperimentalApparatus_CMS_Layout_Diagram}
 \end{figure}
+
+The main driving motivation for its design is to investigate the electroweak symmetry breaking for which the Higgs mechanism at the design time was presumed to be the most likely explanation. Many other alternative theories to the standard model predict new particles which could be observed at the $\TeV$ scale, \gls{CMS} as a multi-purpose experiment is well suited to search for new scenarios. If found, such new physics may allow us to understand some currently open particle physics issues, like providing particle candidates for dark dark matter. Further, some of this possible new physics signals could point the way towards a grand unified theory. \gls{CMS} is also capable of operating while the \gls{LHC} is colliding heavy ions and has a rich program covering the study of \gls{QCD} matter at extreme temperatures, density and parton momentum fraction (low-x).
+
+The requirements imposed to \gls{CMS} design to meet its physics goals can be summarized in the following table\cite{ARTICLE:TheCMSExperiment}:
+
+\begin{itemize}
+  \item Good muon identification and momentum resolution over a wide range of momenta and angles, good dimuon mass resolution ($\approx 1\%$ at $100\,GeV$), and the ability to determine un-ambiguously the charge of muons with $\pt<1\,\TeV$;
+  \item Good charged-particle momentum resolution and reconstruction efficiency in the inner tracker. Efficient triggering and offline tagging of $\tau$'s and b-jets, requiring pixel detectors close to the interaction region;
+  \item Good electromagnetic energy resolution, good diphoton and dielectron mass resolution ($\approx 1\%$ at $100\,\GeV$), wide geometric coverage, $\pi^0$ rejection, and efficient photon and lepton
+isolation at high luminosities;
+  \item Good missing-transverse-energy and dijet-mass resolution, requiring hadron calorimeters with with a large hermetic geometric coverage and with fine lateral segmentation.
+\end{itemize}
+
+%TODO: Maybe re-write this!!!
+The chosen detector design fulfils all this requirements. The experiment is compact compared with the other \gls{LHC} experiments being $22\,\meter$ long and $15\,\meter$ in diameter. But, it is the heaviest of the four big detectors at $12500\,\ton$. Its high density is a direct consequence of it producing the highest magnetic field at $4\,\tesla$ and therefore needing more material to serve as a return yoke. On the next section we will go in detail over the features and technologies used.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -126,8 +143,6 @@ The \gls{CMS} experiment is a general purpose experiment located at point 5 of t
 \subsection{Geometry and conventions}
 
 % STATUS: DONE 
-
-The \gls{CMS} detector is compact compared with the other \gls{LHC} experiments being $22\,\meter$ long and $15\,\meter$ in diameter. But, it is the heaviest of the four big detector at $12500\,\ton$. This comes as a direct consequence of it producing also the highest magnetic field at $4\,\tesla$ and therefore needing more material to serve as the return yoke.
 
 The adopted coordinate system has it origin in the center of \gls{CMS} where the nominal collision point is located, the y-axis points vertically upwards, and the x-axis points radially inward in the direction of the center of the \gls{LHC}. The z-axis points along the beam line towards the Jura mountains from the \gls{LHC} point 5. The azimuthal angle $\phi$ is measured from the x-axis in the x-y plane. The polar angle $\theta$ is measured from the z-axis.
 
@@ -258,6 +273,14 @@ The \gls{HF} covers the range of $3.0<|\eta|<5.2$...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Muon System}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Moun}
+
+The muon detection is an important part of the mission of \gls{CMS} as the middle name of the experiment indicates. Muons are 
+
+\gls{DT}
+
+\gls{CSC}
+
+\gls{RPC}
 
 figure \ref{FIGURE:ExperimentalApparatus_CMS_Muon_Layout}
 
