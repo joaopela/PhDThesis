@@ -294,9 +294,14 @@ The combined muon system offline momentum resolution is of the order of 9\% for 
 
 %Status: DONE (needs review)
 
-The \gls{CMS} \gls{DAQ} system is designed to process, analyses and ultimately store the information collected by the detector. The \gls{LHC} produces bunch crossings at a rate of $40\,\mega\hertz$ but we are only capable of storing between $10^2-10^3$ events per second. At design luminosity each collision will have an average of 20 simultaneous collisions. Each collision will produce a zero-suppressed data payload of around $1\,\mega\byte$. To reduce the initial incoming rate a first level of trigger was designed in order to reduce the amount of events to be processed to a maximum of $100 \kilo\hertz$. Even with this event suppression the \gls{DAQ} will have to handle a $\approx 100 \giga\byte\second^{-1}$ which come from approximately 650 data sources. The information is collected and passed to a computer farm where a software filter is installed which serves as a second level of trigger, and is known as the \gls{HLT}. In this system the event rate is further reduced by a factor of 1000 and the resulting events are saved into permanent storage. A diagram of this system can be found on figure TODO:XXX.
+The \gls{CMS} \gls{DAQ} system is designed to process, analyses and ultimately store the information collected by the detector. The \gls{LHC} produces bunch crossings at a rate of $40\,\mega\hertz$ but we are only capable of storing between $10^2-10^3$ events per second. At design luminosity each collision will have an average of 20 simultaneous collisions. Each collision will produce a zero-suppressed data payload of around $1\,\mega\byte$. To reduce the initial incoming rate a first level of trigger was designed in order to reduce the amount of events to be processed to a maximum of $100 \kilo\hertz$. Even with this event suppression the \gls{DAQ} will have to handle a $\approx 100 \giga\byte\second^{-1}$ which come from approximately 650 data sources. The information is collected and passed to a computer farm where a software filter is installed which serves as a second level of trigger, and is known as the \gls{HLT}. In this system the event rate is further reduced by a factor of 1000 and the resulting events are saved into permanent storage. A diagram of this system can be found on figure \ref{FIGURE:ExperimentalApparatus_CMS_DAQ_Diagram}.
 
-%TODO: Image of the DAQ arragement
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.80\textwidth]{Chapter02/CMS/Images/CMS_DAQ_Diagram.png}
+  \caption{Diagram of the \gls{CMS} \gls{DAQ} system. Data flow is showed as the lines connecting each electronics or computing units.}
+  \label{FIGURE:ExperimentalApparatus_CMS_DAQ_Diagram}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -310,7 +315,7 @@ CMS Tridas TDR\cite{CMSTDR:CMSTridasTDR}
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics{Chapter02/CMS/Images/CMS_L1T_Layout.png}
+  \includegraphics[width=0.50\textwidth]{Chapter02/CMS/Images/CMS_L1T_Layout.png}
   \caption{TODO}
   \label{FIGURE:ExperimentalApparatus_CMS_L1T_Layout}
 \end{figure}
