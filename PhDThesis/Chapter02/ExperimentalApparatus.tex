@@ -266,6 +266,12 @@ The \gls{HF} covers the range of $3.0<|\eta|<5.2$...
 \subsection{Solenoid Magnet}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Magnet}
 
+%Status: DONE
+
+The design requirements for correct charge assignment and \pt determination for charge particles and specially muons imply drive the magnet parameters choice. For muons, unambiguously charge determination requires momentum resolution of $\Delta p/p \approx 10\%$ at $p = 1 \TeV$. This requirements are specially difficult to obtain in the forward regions but with the correct length/radius ratio can be obtained with a modestly sized solenoid magnet but with large field\cite{CMSTDR:CMSUpgradeTDR}.
+
+The choice of the \gls{CMS} collaboration was to build a Niobium-Titanium (NbTi) superconducting solenoid magnet which has been design to operate at fields up to $4\,\tesla$ it has a diameter of $6\,\meter$ and a length of $12.5\,\meter$ at maximum field the stored energy reaches $2.7\,\giga\joule$. Typically, the magnet is only run at $3.8\,\tesla$ in order to maximize its lifetime. To contain such an enormous magnetic flux $10\,\kilo\ton$ return yoke envelopes the magnet with 5 wheels in the barrel region and 2 endcaps composed of 3 disks closing the sides\cite{ARTICLE:TheCMSExperiment}. A summary of the most important magnet parameters can be found at table \ref{TABLE:ExperimentalApparatus_CMSMagnetParameters}.
+
 \input{Chapter02/CMS/Tables/CMSMagnetParameters.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -274,22 +280,24 @@ The \gls{HF} covers the range of $3.0<|\eta|<5.2$...
 \subsection{Muon System}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Moun}
 
-The muon detection is an important part of the mission of \gls{CMS} as the middle name of the experiment indicates. Muons are 
+%Status: DONE
 
-\gls{DT}
-
-\gls{CSC}
-
-\gls{RPC}
-
-figure \ref{FIGURE:ExperimentalApparatus_CMS_Muon_Layout}
+The muon detection is an important part of the mission of \gls{CMS} as the middle name of the experiment indicates. Muons are fairly easy to detect when compared with other elementary particles and are only rarely produced in proton-proton collisions. Lets take the example of the \gls{SM} Higgs boson, while the decay mode involving a pair of Z bosons is fairly unlikely compared with other decays the Z bosons can decay into 4 mouns. This decay while rare does not have significant backgrounds making it a ''golden channel`` for discovery, which indeed was proven the case. Many other models, like SUSY, use muon final states in their searches exactly for the same reason. The \gls{CMS} muon system is composed of 3 types of gaseous detectors depending on they location and momentum reconstruction needs. A diagram of the disposition of this system inside \gls{CMS} can be found on figure \ref{FIGURE:ExperimentalApparatus_CMS_Muon_Layout}.
 
 \begin{figure}[!htb]
   \centering
   \includegraphics{Chapter02/CMS/Images/CMS_Muon_Layout.png}
-  \caption{TODO}
+  \caption{Diagram of the \gls{CMS} muon systems. The location of each muon chamber for each subsystem is showed.}
   \label{FIGURE:ExperimentalApparatus_CMS_Muon_Layout}
 \end{figure}
+
+In the barrel and up to $|\eta|<1.2$, \gls{DT} are used. since the neutron background is small and the field is constant. This system is composed 250 chambers and is arranged in 4 concentric cylindrical layers which are installed inside of the return yoke. This chambers have a total of 172000 wires with a length of $2.4\,\meter$ which are housed inside of tubes filled with a mixture of argon and carbon-dioxide. Each of the wheels of the barrel is split into 12 sectors covering an angle of 30º azimuthal angle. The maximum gas ionization drift is of $2.0 \centi\meter$ and results in a single point resolution is $\approx 200\,\micro\meter$ per wire. For each station for each measured muon the $\phi$ resolution is better than $200\,\micro\meter$ and direction resolution is $\approx 1\,\milli\radian$.
+
+In the endcaps the region between $2.4>|\eta|>0.9$, \gls{CSC} are used. In the region the muon and background rates are high and the magnetic field is not uniform. This systems have fast response and are radiation resistant and is composed by 468 chambers arranged in 4 stations per side. Each chamber is trapezoidal in shape and made of 6 gas gaps and covers either 10º or 20º in $\phi$. Each gap contains a plane of cathode strips and a plane of anode wires. For each chamber the spacial resolution is of the order of $200\,\micro\meter$ and the angular resolution is $\approx 10\,\milli\radian$ in $\phi$.
+
+Finally the \gls{RPC} cover the $|\eta|<1.6$ range. This system overlaps with the 2 other muon systems. This system is very fast with an ionization event being much faster than the bunch crossing time. This fast response allows in conjunction with a dedicated trigger system to select the correct bunch crossing associated with the detection of a muon. In the barrel there 480 rectangular chambers arranged in 4 stations with 6 \gls{RPC} layers (2 layers are present in the 2 stations closeste to the beam pipe). In the endcaps there are 3 \gls{RPC} disk shaped stations on each side which are composed by trapezoidal shaped detectors.
+
+The combined muon system offline momentum resolution is of the order of 9\% for small values of $\eta$ and $p$ for transverse momenta of up to $200\,\GeV$. At higher energies of around $1\,\TeV$ the standalone momentum resolution is in the range of 15-40\% depending on $|\eta|$. This values are limited by the muon multiple-scattering before arriving to the muon system. If we combine the tracker information into a global fit the resolution for lower \pt tracks improves an order of magnitude while higher momenta (around $1\,\TeV$) it is of about 5\% which is well inside the \gls{CMS} design requirements.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
