@@ -202,13 +202,18 @@ The endcap section, the \gls{EE}, is at a distance of $314\,\centi\meter$ from t
 
 figure \ref{FIGURE:ExperimentalApparatus_CMS_ECAL_Layout}
 
-\begin{figure}[!htb]
-  \centering
-  \includegraphics[width=1.0\textwidth]{Chapter02/CMS/Images/CMS_ECAL_Layout.png}
-  \caption{}
-  \label{FIGURE:ExperimentalApparatus_CMS_ECAL_Layout}
-\end{figure}
-
+% \begin{figure}[!htb]
+%   \centering
+%   \includegraphics[width=1.0\textwidth]{Chapter02/CMS/Images/CMS_ECAL_Layout.png}
+%   \caption{}
+%   \label{FIGURE:ExperimentalApparatus_CMS_ECAL_Layout}
+% \end{figure}
+% 
+% The energy resolution of the ECAL can be parameterized as:
+% \begin{equation}
+% \frac{\sigma}{E} = \frac{S}{\sqrt{E}} \oplus \frac{N}{E} \oplus C
+% \end{equation}
+% where $E$ is the energy of the incident particle and $S$, $N$ and $C$ are known as the stochastic, noise and constant terms respectively. The stochastic term encapsulates fluctuations in the scintillation and lateral containment of the shower; the noise term originates from the electronics and digitisation; and the constant term from non-uniform longitudinal response and inter-calibration errors. These have been measured in an electron beam test as $S=0.028\,\GeV^{1/2}$, $N=0.12\,\GeV$ and $C=0.003$, although without the presence of a magnetic field or material in front of the \ac{ECAL}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -216,12 +221,9 @@ figure \ref{FIGURE:ExperimentalApparatus_CMS_ECAL_Layout}
 \subsection{Hadronic Calorimeter}
 \label{SUBSECTION:ExperimentalApparatus_CMS_HCAL}
 
-% STATUS: Writing
+% STATUS: DONE
 
-The \gls{HCAL} is a sampling calorimeter which is designed to measure the properties of hadron jets and indirectly neutrinos or other undiscovered particles that would result in apparent missing energy\cite{ARTICLE:CMSTechnicalProposal}. 
-
-The design of the \gls{HCAL} was strongly influenced by the choice of the magnet parameters since most of the calorimetry is inside of the magnet. The \gls{HB} is limited from the beam side by the \gls{ECAL} at radius $r=1.77\,\meter$ and outwards by the magnet at radius $r=2.95\,\meter$. This is a strict limitation on the amount of absorber material to be used. To improve the measurement capability, an outer calorimeter, the \gls{HO}, is placed outside of the magnet as a \textit{tail catcher} outside of the solenoid magnet. Closing the barrel in each side the \gls{HE} are present with acceptance up to pseudorapidity $|\eta|<3$.  
-Additionally, to extend acceptance to $|\eta|<5.2$ the \gls{HF} is installed at $11.2\,\meter$ from the interaction point providing excellent hermeticity for $E_{\perp}^{miss}$ measurement. A diagram of the \gls{HCAL} subsystems and their location inside \gls{CMS} can be found in figure \ref{FIGURE:ExperimentalApparatus_CMS_HCAL_Layout}.
+The \glsreset{HCAL} is a sampling calorimeter which is designed to measure the properties of hadron jets and indirectly neutrinos or other undiscovered particles that would result in apparent missing energy\cite{ARTICLE:CMSTechnicalProposal}. The design of the \gls{HCAL} was strongly influenced by the choice of the magnet parameters since most of the calorimetry is inside of the magnet. A diagram of the \gls{HCAL} subsystems and their location inside \gls{CMS} can be found in figure \ref{FIGURE:ExperimentalApparatus_CMS_HCAL_Layout}.
 
 \begin{figure}[!htb]
   \centering
@@ -230,35 +232,20 @@ Additionally, to extend acceptance to $|\eta|<5.2$ the \gls{HF} is installed at 
   \label{FIGURE:ExperimentalApparatus_CMS_HCAL_Layout}
 \end{figure}
 
-The \gls{HB} covers the region up to $|\eta|<1.3$ and divided into towers with segmentation of $\Delta\eta \times \Delta\phi = 0.087 \times 0.087$ which corresponds to the same area of a $5 \times 5$ arrays of \gls{ECAL} crystals. 
-% Alternated layers of scintillators and absorver
-% Brass absorver (shoter interaction lenght (16.42 cm ref?) and is non magnetic.
-% Hadrons cause light pulses in the plastic fibers which go to hybrid photo diodes via wavelenght-shifting fibers.
+The \glsreset{HB} covers the region up to $|\eta|<1.3$ and is limited from the beam side by the \gls{ECAL} at radius $r=1.77\,\meter$ and outwards by the magnet at radius $r=2.95\,\meter$. This is a strict limitation on the amount of absorber material to be used. This detector is composed of 36 identical azimuthal wedges with for two half-barrels. They are constructed of brass absorber plates alternated with plastic scintillator. Brass has a short interaction length ($X_0=16.42\,\centi\meter$) and ins non-magnetic. The detector is composed of 2304 towers with a segmentation of $\Delta\eta \times \Delta\phi = 0.087 \times 0.087$ which corresponds to the same area of a $5 \times 5$ arrays of \gls{ECAL} crystals.
 
+To improve the measurement capability, an outer calorimeter, the \glsreset{HO}, is placed outside of the magnet as a \textit{tail catcher}. It increases the effective thickness of the hadronic calorimeter by over 10 interaction lengths. This detector covers the range $|\eta|<1.26$, it is composed or iron absorber and scintillator and is subdivided into sectors that cover 30º azimuthal angle in each of the barrel wheels. 
 
-The \gls{HO}
+The \glsreset{HE} covers the range of $1.3<|\eta|<3.0$. It is composed by 2034 towers with a 14 towers segmentation in $\eta$ and 5º segmentation in $\phi$. The 8 inner most towers the segmentation is 10º in $\phi$, whilst the $\eta$ segmentation increases in $\eta$ from 0.09 to 0.35.
 
+Additionally, to extend acceptance to $|\eta|<5.2$ the \gls{HF} is installed at $11.2\,\meter$ from the interaction point providing excellent hermeticity for $E_{\perp}^{miss}$ measurement. Its steel absorber is $1.65\,\meter$ deep and had quartz fibers running through it parallel to the beam line. The energy measurement is made via Cerenkov light produced by the incoming particles inside the fibers. There are 13 tower in $\eta$ with segmentation of $\approx \Delta\eta=0.175$ except the lowest $\eta$ tower with $\approx \Delta\eta=0.1$ and highest $\eta$ tower with $\approx \Delta\eta=0.3$. The segmentation in $\phi$ is of $\Delta\phi=10º$ except in the highest $\eta$ towers which is $\Delta\phi=20º$. There are a total of tower 900 per \gls{HF} module. 
 
-The \gls{HB} covers the range of $1.3<|\eta|<3.0$...
+% The HCAL is designed to provide good energy resolution for the measurement of hadronic jets, with single charged pion resolution measured in a test beam \cite{Abdullin:2009zz} and found to be approximately
+% \begin{equation}
+% \frac{\sigma}{E} = \frac{94.3\%}{\sqrt{E}} \oplus 8.4\%.
+% \end{equation}
+% The hermetic design and shower containment of the HCAL is driven by the need for accurate measurement of the transverse energy balance in an event and to ensure unambiguous identification of muons by minimising hadronic punch-through into the muon chambers.
 
-
-The \gls{HF} covers the range of $3.0<|\eta|<5.2$...
-% higest flux
-% made of radiation hard quartz fibers (active medium), steel absorver
-% Cherenkov radiation from particles in fibers gives signal
-
-
-% Brass has been chosen as absorber material as it has a reasonably short interaction length, is easy to machine and is non-magnetic. The overall assembly enables the HCAL to be built with essentially no uninstrumented cracks or dead
-% areas in φ. The gap between the barrel and the endcap HCAL, through which the services of the ECAL and the inner tracker pass, is inclined at 53o and points away from the center of the detector. The hadron barrel (HB) part of HCAL consists of 32 towers covering the pseudorapidity region −1.4 <
-% η < 1.4, resulting in 2304 towers with a segmentation ∆η×∆φ = 0.087×0.087. The HB is constructed in 2 half barrels.
-% 10
-% The hadron outer (HO) detector contains scintillators with a thickness of 10 mm, which line the outside
-% of the outer vacuum tank of the coil and cover the region −1.26 < η < 1.26. The tiles are grouped in 30o-sectors, matching the φ segmentation of the DT chambers. They sample the energy from penetrating
-% hadron showers leaking through the rear of the calorimeters and so serve as a “tail-catcher” after the magnet coil.
-% Each hadron endcap (HE) of HCAL consists of 14 η towers with 5o φ segmentation, covering the pseudo-
-% rapidity region 1.3 < |η| < 3.0. For the 5 outermost towers (at smaller η) the φ segmentation is 5o and the η segmentation is 0.087. For the 8 innermost towers the φ segmentation is 10o , whilst the η segmentation
-% varies from 0.09 to 0.35 at the highest η. The total number of HE towers is 2304. Coverage between pseudorapidities of 3.0 and 5.0 is provided by the steel/quartz fibre Hadron Forward
-% (HF) calorimeter. Because the neutral component of the hadron shower is preferentially sampled in the HF technology, this design leads to narrower and shorter hadronic showers and hence is ideally suited for the congested environment in the forward region. The front face is located at 11.2 m from the interaction point. The depth of the absorber is 1.65 m.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -280,7 +267,7 @@ The choice of the \gls{CMS} collaboration was to build a Niobium-Titanium (NbTi)
 \subsection{Muon System}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Moun}
 
-%Status: DONE
+%Status: DONE (needs review)
 
 The muon detection is an important part of the mission of \gls{CMS} as the middle name of the experiment indicates. Muons are fairly easy to detect when compared with other elementary particles and are only rarely produced in proton-proton collisions. Lets take the example of the \gls{SM} Higgs boson, while the decay mode involving a pair of Z bosons is fairly unlikely compared with other decays the Z bosons can decay into 4 mouns. This decay while rare does not have significant backgrounds making it a ''golden channel`` for discovery, which indeed was proven the case. Many other models, like SUSY, use muon final states in their searches exactly for the same reason. The \gls{CMS} muon system is composed of 3 types of gaseous detectors depending on they location and momentum reconstruction needs. A diagram of the disposition of this system inside \gls{CMS} can be found on figure \ref{FIGURE:ExperimentalApparatus_CMS_Muon_Layout}.
 
@@ -305,7 +292,11 @@ The combined muon system offline momentum resolution is of the order of 9\% for 
 \subsection{Data Acquisition System}
 \label{SUBSECTION:ExperimentalApparatus_CMS_DAQ}
 
-The \gls{DAQ}
+%Status: DONE (needs review)
+
+The \gls{CMS} \gls{DAQ} system is designed to process, analyses and ultimately store the information collected by the detector. The \gls{LHC} produces bunch crossings at a rate of $40\,\mega\hertz$ but we are only capable of storing between $10^2-10^3$ events per second. At design luminosity each collision will have an average of 20 simultaneous collisions. Each collision will produce a zero-suppressed data payload of around $1\,\mega\byte$. To reduce the initial incoming rate a first level of trigger was designed in order to reduce the amount of events to be processed to a maximum of $100 \kilo\hertz$. Even with this event suppression the \gls{DAQ} will have to handle a $\approx 100 \giga\byte\second^{-1}$ which come from approximately 650 data sources. The information is collected and passed to a computer farm where a software filter is installed which serves as a second level of trigger, and is known as the \gls{HLT}. In this system the event rate is further reduced by a factor of 1000 and the resulting events are saved into permanent storage. A diagram of this system can be found on figure TODO:XXX.
+
+%TODO: Image of the DAQ arragement
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -313,7 +304,7 @@ The \gls{DAQ}
 \subsection{Trigger System}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Trigger}
 
-The \gls{L1T} and \gls{HLT}
+The \gls{L1T} and \glsreset{HLT}
 
 CMS Tridas TDR\cite{CMSTDR:CMSTridasTDR} 
 
@@ -338,4 +329,9 @@ The \gls{DQM}
 \subsection{Run II Upgrades}
 \label{SUBSECTION:ExperimentalApparatus_CMS_RUNII}
 
-CMS L1 Trigger Upgrade TDR\cite{CMSTDR:CMSL1Upgrade}
+%Status: Writing
+
+An extensive upgrade program for the \gls{L1T} electronics was planed and is being executed in order to cope with the increase of luminosity and pile-up predicted for the period after \gls{LS1}\cite{CMSTDR:CMSL1Upgrade}. It is expected that center-of-mass energy will almost double from $8\,\TeV$ to $13\,\TeV$, instantaneous luminosity will also increase as will average pile-up. With the change from bunch separation from $50\,\nano\second$ to $25\,\nano\second$ out-of-time pile-up will also become a significant problem. 
+
+To ensure physics performance during 2015 only a partial upgrade is planned for the 2015 run, which is known at the \textit{Stage-1} upgrade system. 
+
