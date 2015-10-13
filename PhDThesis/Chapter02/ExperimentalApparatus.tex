@@ -198,22 +198,22 @@ Lead tungstate has a fairly high density ($8.28\,\gram/\centi\meter^3$), has a s
 
 The barrel section, the \gls{EB}, has an inner radius of $129\,\centi\meter$ and is composed of 36 identical ``supermodules``, each covers the barrel length and corresponding to a pseudo-rapidity interval of $0<|\eta|<1.479$. The crystals are quasi-projective (the axes are tilted at 3º with respect to the line from the nominal vertex position) and cover 0.0174 (i.e. 1º ) in $\Delta\phi$ and $\Delta\eta$. The crystals have a front face cross-section of $\approx 22 \times 22\,\milli\meter^2$ and a length of $230\,\milli\meter$, corresponding to 25.8 $X_0$.
 
-The endcap section, the \gls{EE}, is at a distance of $314\,\centi\meter$ from the vertex and covering a pseudorapidity range of $1.479<|\eta|<3.0$, are each structured as 2 “Dees”, consisting of semi-circular aluminium plates from which are cantilevered structural units of $5\times 5$ crystals, known as “supercrystals”.
+The endcap section, the \gls{EE}, is at a distance of $314\,\centi\meter$ from the vertex and covering a pseudorapidity range of $1.479<|\eta|<3.0$, are each structured as 2 “Dees”, consisting of semi-circular aluminium plates from which are cantilevered structural units of $5\times 5$ crystals, known as “supercrystals”. A diagram of the \gls{ECAL} can be found on figure \ref{FIGURE:ExperimentalApparatus_CMS_ECAL_Layout}.
 
-figure \ref{FIGURE:ExperimentalApparatus_CMS_ECAL_Layout}
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Chapter02/CMS/Images/CMS_ECAL_Layout.png}
+  \caption{Diagram of the ECAL layout illustrating the positions of its components.}
+  \label{FIGURE:ExperimentalApparatus_CMS_ECAL_Layout}
+\end{figure}
+ 
+The energy resolution of the \gls{ECAL} can be can be expressed as: 
 
-% \begin{figure}[!htb]
-%   \centering
-%   \includegraphics[width=1.0\textwidth]{Chapter02/CMS/Images/CMS_ECAL_Layout.png}
-%   \caption{}
-%   \label{FIGURE:ExperimentalApparatus_CMS_ECAL_Layout}
-% \end{figure}
-% 
-% The energy resolution of the ECAL can be parameterized as:
-% \begin{equation}
-% \frac{\sigma}{E} = \frac{S}{\sqrt{E}} \oplus \frac{N}{E} \oplus C
-% \end{equation}
-% where $E$ is the energy of the incident particle and $S$, $N$ and $C$ are known as the stochastic, noise and constant terms respectively. The stochastic term encapsulates fluctuations in the scintillation and lateral containment of the shower; the noise term originates from the electronics and digitisation; and the constant term from non-uniform longitudinal response and inter-calibration errors. These have been measured in an electron beam test as $S=0.028\,\GeV^{1/2}$, $N=0.12\,\GeV$ and $C=0.003$, although without the presence of a magnetic field or material in front of the \ac{ECAL}.
+\begin{equation}
+\frac{\sigma}{E} = \frac{S}{\sqrt{E}} \oplus \frac{N}{E} \oplus C
+\end{equation}
+
+Here $E$ is the energy of the incoming particle, $S$ is the stochastic term which quantifies the fluctuations in scintillation and lateral containment of the shower, $N$ the noise term which relates with electronics and digitisation process and finally $C$ is a constant term that quantifies the non-uniform longitudinal response and inter-calibration errors. These parameters have been measured to be  $S=0.028\,\GeV^{1/2}$, $N=0.12\,\GeV$ and $C=0.003$ with the help of an electron beam\cite{ARTICLE:CMSECALTestBeam} and in the absence of magnetic field.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -240,12 +240,11 @@ The \glsreset{HE} covers the range of $1.3<|\eta|<3.0$. It is composed by 2034 t
 
 Additionally, to extend acceptance to $|\eta|<5.2$ the \gls{HF} is installed at $11.2\,\meter$ from the interaction point providing excellent hermeticity for $E_{\perp}^{miss}$ measurement. Its steel absorber is $1.65\,\meter$ deep and had quartz fibers running through it parallel to the beam line. The energy measurement is made via Cerenkov light produced by the incoming particles inside the fibers. There are 13 tower in $\eta$ with segmentation of $\approx \Delta\eta=0.175$ except the lowest $\eta$ tower with $\approx \Delta\eta=0.1$ and highest $\eta$ tower with $\approx \Delta\eta=0.3$. The segmentation in $\phi$ is of $\Delta\phi=10º$ except in the highest $\eta$ towers which is $\Delta\phi=20º$. There are a total of tower 900 per \gls{HF} module. 
 
-% The HCAL is designed to provide good energy resolution for the measurement of hadronic jets, with single charged pion resolution measured in a test beam \cite{Abdullin:2009zz} and found to be approximately
-% \begin{equation}
-% \frac{\sigma}{E} = \frac{94.3\%}{\sqrt{E}} \oplus 8.4\%.
-% \end{equation}
-% The hermetic design and shower containment of the HCAL is driven by the need for accurate measurement of the transverse energy balance in an event and to ensure unambiguous identification of muons by minimising hadronic punch-through into the muon chambers.
+Similarly to the \gls{ECAL} the energy resolution \gls{HCAL} was tested using a test beam of single charged pions\cite{ARTICLE:CMSECALTestBeam}, and it was obtained.
 
+\begin{equation}
+\frac{\sigma}{E} = \frac{94.3\%}{\sqrt{E}} \oplus 8.4\%.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -278,7 +277,7 @@ The muon detection is an important part of the mission of \gls{CMS} as the middl
   \label{FIGURE:ExperimentalApparatus_CMS_Muon_Layout}
 \end{figure}
 
-In the barrel and up to $|\eta|<1.2$, \gls{DT} are used. since the neutron background is small and the field is constant. This system is composed 250 chambers and is arranged in 4 concentric cylindrical layers which are installed inside of the return yoke. This chambers have a total of 172000 wires with a length of $2.4\,\meter$ which are housed inside of tubes filled with a mixture of argon and carbon-dioxide. Each of the wheels of the barrel is split into 12 sectors covering an angle of 30º azimuthal angle. The maximum gas ionization drift is of $2.0 \centi\meter$ and results in a single point resolution is $\approx 200\,\micro\meter$ per wire. For each station for each measured muon the $\phi$ resolution is better than $200\,\micro\meter$ and direction resolution is $\approx 1\,\milli\radian$.
+In the barrel and up to $|\eta|<1.2$, \gls{DT} are used. since the neutron background is small and the field is constant. This system is composed 250 chambers and is arranged in 4 concentric cylindrical layers which are installed inside of the return yoke. This chambers have a total of 172000 wires with a length of $2.4\,\meter$ which are housed inside of tubes filled with a mixture of argon and carbon-dioxide. Each of the wheels of the barrel is split into 12 sectors covering an angle of 30º azimuthal angle. The maximum gas ionization drift is of $2.0\,\centi\meter$ and results in a single point resolution is $\approx 200\,\micro\meter$ per wire. For each station for each measured muon the $\phi$ resolution is better than $200\,\micro\meter$ and direction resolution is $\approx 1\,\milli\radian$.
 
 In the endcaps the region between $2.4>|\eta|>0.9$, \gls{CSC} are used. In the region the muon and background rates are high and the magnetic field is not uniform. This systems have fast response and are radiation resistant and is composed by 468 chambers arranged in 4 stations per side. Each chamber is trapezoidal in shape and made of 6 gas gaps and covers either 10º or 20º in $\phi$. Each gap contains a plane of cathode strips and a plane of anode wires. For each chamber the spacial resolution is of the order of $200\,\micro\meter$ and the angular resolution is $\approx 10\,\milli\radian$ in $\phi$.
 
@@ -309,16 +308,27 @@ The \gls{CMS} \gls{DAQ} system is designed to process, analyses and ultimately s
 \subsection{Trigger System}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Trigger}
 
-The \gls{L1T} and \glsreset{HLT}
+%Status: DONE (needs review)
 
-CMS Tridas TDR\cite{CMSTDR:CMSTridasTDR} 
+At the nominal \gls{LHC} running conditions the luminosity will be of the order of $10^{34}\,\centi\meter^{-2}\second^{-1}$ where 20 simultaneous collisions will happen at a rate of $40\,\mega\hertz$ spaced only by $25\,\nano\meter$. This means we have every second $10^9$ interaction but we can only save $10^2-10^3$ events per second with out computer systems. This implies that our trigger system needs to obtain a data reduction of a factor of $10^6-10^7$. This is achieved with a two level trigger system the first is a dedicated hardware system named \glsreset{L1T} and the second is a commercial computer system running dedicated software called the \glsreset{HLT}\cite{CMSTDR:CMSTridasTDR}.
+
+Initially, all data store for 128 bunch crossing which is $3.2\,\micro\second$. this is the time we have to make a first decision to keep or discard each event. This is the task of the \gls{L1T} which has the target to reduced the data to a maximum of $100\,\kilo\hertz$. In the allocated time there isn't enough time to get all the data from the detector, so only a coarse version of the calorimetry and muon systems data and some correlation between them is accessed. With this information the \gls{L1T} produces a set of particle candidates and energy sums over which custom user defined algorithm can filter the events. A diagram of the \gls{L1T} trigger components and the data flow across the system is present on figure \ref{FIGURE:ExperimentalApparatus_CMS_L1T_Layout}.
 
 \begin{figure}[!htb]
   \centering
-  \includegraphics[width=0.50\textwidth]{Chapter02/CMS/Images/CMS_L1T_Layout.png}
-  \caption{TODO}
+  \includegraphics[width=0.80\textwidth]{Chapter02/CMS/Images/CMS_L1T_Layout.png}
+  \caption{Diagram of the \gls{L1T} system. The arrows indicate data flow and the number of particle candidates at each step is indicate.}
   \label{FIGURE:ExperimentalApparatus_CMS_L1T_Layout}
 \end{figure}
+
+The \gls{HLT} has as it input the events coming from the \gls{L1T} and needs to preform further event reduction of 
+$\mathcal{O}(10^{5})$ to a final output rate of $\mathcal{O}(10^{2-3})\,\hertz$ . This system is composed of standard computing hardware in the form of computing farm with several thousands of \gls{CPU}. This system, using the additional latency created by the \gls{L1T} event selection, is able to make use of the complete detector information including the tracker data. More sophisticated and precise algorithms are therefore possible which can be tailored to any desired physical final state. 
+
+Both event selection algorithms at the \gls{L1T} and \gls{HLT} are constantly updated during data taking. Many times it necessary to update the selection thresholds in order to control the rate with the increase of \gls{LHC} luminosity, but such changes can also be due to the development of novel methods or strategies to identify particles more efficiently or the interest for new final final states. A set of algorithms used for data taking is normally referred as the \textit{trigger menu}. 
+
+After events passing both levels of trigger they are recorded in permanent storage. During 2012-13 operation two output streams were saved. The \textit{prompt data stream}, with a rate of approximately $300\,\hertz$, was composed of high priority trigger paths would be immediately reconstructed. And the \textit{parked data stream}, with a rate up to $1\,\kilo\hertz$, was stored without reconstruction. This data would wait until computing resourced would be free to go through reconstruction\cite{ARTICLE:CMSDataParking}. This process was finished a few months after run I was finished.
+
+Even with such measure to reduce the data to be stored, each \gls{LHC} experiment record several petabytes of data every year in addition to similarly sized amounts of simulated events.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -350,5 +360,11 @@ Individual computers or local clusters without any formal engagement with the Gr
 
 An extensive upgrade program for the \gls{L1T} electronics was planed and is being executed in order to cope with the increase of luminosity and pile-up predicted for the period after \gls{LS1}\cite{CMSTDR:CMSL1Upgrade}. It is expected that center-of-mass energy will almost double from $8\,\TeV$ to $13\,\TeV$, instantaneous luminosity will also increase as will average pile-up. With the change from bunch separation from $50\,\nano\second$ to $25\,\nano\second$ out-of-time pile-up will also become a significant problem. 
 
-To ensure physics performance during 2015 only a partial upgrade is planned for the 2015 run, which is known at the \textit{Stage-1} upgrade system. 
+To ensure physics performance during 2015 only a partial upgrade is planned for the 2015 run, which is known at the \textit{Stage-1} upgrade system. The main feature of this upgrade is the replacement of the existing \gls{GCT}. Two key enhancements will be possible from the upgrade: 
 
+\begin{itemize}
+  \item Event-by-event pile-up energy subtraction for jets reconstruction, $e/\gamma$ isolation, $\tau$ isolation.
+  \item Smaller feature size $\tau$ candidates, which will have significantly better energy estimation and background rejection.
+\end{itemize}
+
+The intermediate system will have significantly better performance than the now legacy system. The full 2016 calorimeter trigger system will additionally provide finer granularitym which will lead to increased position and energy resolution. 
