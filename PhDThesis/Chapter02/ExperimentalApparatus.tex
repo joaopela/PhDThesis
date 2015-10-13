@@ -321,7 +321,19 @@ CMS Tridas TDR\cite{CMSTDR:CMSTridasTDR}
 \subsection{Computing}
 \label{SUBSECTION:ExperimentalApparatus_CMS_Computing}
 
-The \gls{DQM} 
+%Status: DONE
+
+The quantity of data produced by \gls{LHC} and the processing necessary are so big that it would be difficult to have all computing resources in a single place. For this reason a tiered system was developed all computing sites are connected and have specific roles and responsibilities in the data taking and processing.
+
+The \gls{CERN} Data Centre is the tier 0 of this network, know as the Grid, All data produced by the \gls{LHC} passes through it. Only about 20\% of the total capacity of the Grid is hosted here, but \gls{CERN} had the very important mission of safe keeping all the raw data produced by the \gls{LHC} experiments. It also has the task of doing the first attempt at reconstructing this data into meaningful physics objects. 
+
+There are 13 tier 1 computer centres around the world. They are responsible to store a proportional amount of raw and reconstructed data among them. If any reprocessing of the data is needed, this centres are responsible for this task and storing the resulting output as well. Tier 1 centres also host simulated data and distribute their data to affiliated tier 2 centres. 
+
+Local research centres like universities of scientific laboratories are normally at the tier 2 level. They should have enough computing power and storage space to the analysis those centres are involved. This centres will have the responsibility of handling a proportional share of simulated data production and reconstruction. Currently there are over 150 tier 2 centres around the world
+
+Individual computers or local clusters without any formal engagement with the Grid structure, are at the so called tier 3 level.
+
+% The \gls{DQM} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
