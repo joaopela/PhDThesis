@@ -22,7 +22,7 @@ thesis.acr: $(CHAPTERS) thesis.tex Glossary.tex
 	pdflatex thesis.tex
 	makeglossaries thesis
 
-thesis.pdf: $(CHAPTERS) thesis.tex thesis.bbl thesis.acr
+thesis.pdf: thesis.tex thesis.bbl thesis.acr $(CHAPTERS)
 	pdflatex thesis.tex
 	pdflatex thesis.tex
 
