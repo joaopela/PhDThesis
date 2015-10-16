@@ -1,6 +1,29 @@
-\chapter{Physics Objects and Monte Carlo simulation}
+\chapter{Event Reconstruction and Physics Objects}
+\label{CHAPTER:EventReconstructionPhysicsObjects}
 
-\section{Physics objects definition}
+\glsresetall % Resetting all acronyms
+
+This chapter describes how the \gls{CMS} detector produces physics objects from the information collected at each event. The \glsreset{VBF} Higgs to invisible analysis uses almost all the physics objects produced by the detector and for this uses information from all the experiment sub-detectors. The following sections detail for each of these objects how they are reconstructed and what are the choices made to filter them.
+
+\section{Primary Vertex Reconstruction}
+
+%Status: Writing
+
+The \gls{LHC} can produce extreme collision intensities which are obtained partially by having multiple collisions happening at each bunch crossing. As it has been discussed in section \ref{SUBSECTION:ExperimentalApparatus_CMS_RunningAndPerformance} an average of 21 simultaneous collisions happened per bunch crossing in the \gls{CMS} experiment during 2012. In this environment, it is crucial to identify the \gls{PV} and the particles that come from it. This information can then be used to reject particles coming from other additional collisions and to identify displaced vertices which can be the signature of long lived particles like b-mesons.
+
+The \gls{PV} is defined as the vertex with highest sum of associated tracks \pt squared. If this quantity cannot be determined the beam spot position is assumed. Knowing precisely the interaction point allows to determine particle candidate quantities relative to it which allow for better object identification and pile-up control. At least one good vertex is required by tracking failure event quality filter. And Additionally we require explicitly that a good vertex is reconstructed with the following characteristics. 
+
+\begin{itemize}
+  \item We require a real reconstructed vertex from tracks, not the beam spot.
+  \item Number of degrees of freedom: $n_{dof}>4$
+  \item Longitudinal distance: $|z|<=24$         %units?
+  \item Radial distance to beam line: $d_{xy}<2$ %units?
+\end{itemize}
+
+\subsection{Event quality filters}
+
+
+
 
 \subsection{Electron}
 
