@@ -5,6 +5,16 @@
 
 This chapter describes how the \gls{CMS} detector produces physics objects from the information collected at each event. The \glsreset{VBF} Higgs to invisible analysis uses almost all the physics objects produced by the detector and for this uses information from all the experiment sub-detectors. The following sections detail for each of these objects how they are reconstructed and what are the choices made to filter them.
 
+\section{Tracks}
+
+%Writing
+
+\cite{ARTICLE:CMSTrackReconstruction}
+
+\cite{ARTICLE:KalmanFilteringTrackVertexFitting}
+
+\cite{ARTICLE:CMSMeasurmentTrackEfficiency}
+
 \section{Primary Vertex Reconstruction}
 
 %Status: DONE
@@ -38,28 +48,50 @@ Most \gls{CMS} analysis, including the ones presented in this thesis, require ex
 
 In the \gls{CMS} experiment electrons are reconstructed by matching energy clusters in the \gls{ECAL} with tracks coming from the inner tracking system. Unfortunately, electrons can loose and disperse significant amounts of energy until they reach the \gls{ECAL}. While they transverse the inner tracker they may emit photons through bremsstrahlung and in turn this photon can convert to $e^+e^-$ pairs. About 35\% of the electron radiate at least 70\% of their energy in this way \cite{ARTICLE:CMSElectronReconstruction}. This spread of energy is mostly in $\phi$ due to the applied magnetic field. \cite{ARTICLE:CMSElectronReconstructionECAL}. Dedicated algorithms were developed to combine the the \gls{ECAL} energy deposits, into a so called \textit{super-clustering algorithm}, of the initial electron and its emissions.
 
-Different algorithms are used in the barrel and endcaps regions. In the barrel the region we explore the simple $\eta-\phi$ geometry with the \textit{hybrid clustering algorithm}. The procedure started by identifying \textit{seed crystals} with $E_\perp>1\,\GeV$. We form a domino around this seed in the $\eta$ direction of $3 \times 1$ or $5 \times 1$ crystals centred at the seed. Additional dominoes are added in both $\phi$ direction in an attempt to collect the bremsstrahlung emissions up to $\Delta\phi \approx 0.3$. Any domino with energy below $100\,\MeV$ is disregarded. The resulting additional sub-clusters must have its own seed with $E_\perp>350\,\MeV$ and they are combined to for the final \textit{supercluster}
+Different algorithms are used in the barrel and endcaps regions. In the barrel region we explore the simple $\eta-\phi$ geometry with the ``hybrid clustering algorithm''. The procedure started by identifying \textit{seed crystals} with $E_\perp>1\,\GeV$. We form a domino around this seed in the $\eta$ direction of $3 \times 1$ or $5 \times 1$ crystals centred at the seed. Additional dominoes are added in both $\phi$ direction in an attempt to collect the bremsstrahlung emissions up to $\Delta\phi \approx 0.3\,\radian$. Any domino with energy below $100\,\MeV$ is disregarded. The resulting additional sub-clusters must have its own seed with $E_\perp>350\,\MeV$ and they are all combined to form the final \textit{supercluster}. 
 
+In the encaps the ``$\text{Multi-}5 \times 5$'' is used. In the region of the detector the geometry is more complex and does not follow a simple $\eta-\phi$ symmetry. We start by selecting for seeds the crystals which are local maxima over their four direct neighbours and have a deposit of $E_\perp>0.18\,\GeV$. Then, and starting with the seeds with highest $E_\perp$, we collect the energy around them into clusters of $5 \times 5$ crystals. We then search for similar seeds and form clusters that can overlap within $\Delta\eta<0.07$ and $\Delta\phi<0.3\,\radian$ of the initial seed. Those clusters are then combined into a single \textit{supercluster} which needs to have at least $E_\perp>1\,\GeV$. The \textit{supercluster} is then extrapolated to the \gls{ECAL} preshower
+by clustering the energy within $\Delta\eta<0.15$ and $\Delta\phi<0.45$ around the most energetic cluster and adding it to the \textit{supercluster} itself\cite{ARTICLE:CMSElectronReconstruction8TeV}.
 
-In the encaps the \textit{island algorithm} is used, 
+%Tracking
+\gls{CTF}
 
-\cite{ARTICLE:CMSElectronReconstruction8TeV}
 
 \section{Muon}
 
-\section{Tau}
+\cite{ARTICLE:CMSMuonReconstruction7TeV}
+
+\section{Particle Flow}
+
+\cite{ARTICLE:CMSComissioningOfParticleFlow}
+
+\cite{ARTICLE:CMSParticleFlowEventRecontruction}
+
+\cite{ARTICLE:CMSComissioningOfParticleFlowWithMinBias}
 
 \section{Jets}
 
-\subsection{Particle Flow}
-
 \subsection{Jet Clustering}
+
+\cite{ARTICLE:TowardsJetography}
+
+\cite{ARTICLE:AntiKtAlgorithm}
+
+\cite{ARTICLE:FastJetUserManual}
 
 \subsection{Jet Energy Corrections}
 
+\cite{ARTICLE:CMSDeterminationJetEnergyCalibration}
+
+\cite{ARTICLE:PileupSubtractionJetAreas}
+
+\section{Taus}
+
 \section{Missing Transverse Energy}
 
+\cite{ARTICLE:CMSMissingTransverseEnergyPerformance}
 
+\cite{ARTICLE:CMSMETPerformance8TeV}
 
 
 % \clearpage
