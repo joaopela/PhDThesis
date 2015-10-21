@@ -34,11 +34,16 @@ Most \gls{CMS} analysis, including the ones presented in this thesis, require ex
 
 \section{Electron}
 
-In the \gls{CMS} experiment electrons are reconstructed by matching energy clusters in the \gls{ECAL} with tracks coming from the inner tracking system. Unfortunately, electrons can loose and disperse significant amounts of energy until they reach the \gls{ECAL}. While they transverse the inner tracker they may emit photons through bremsstrahlung and in turn this photon can convert to $e^+e^-$ pairs. About 35\% of the electron radiate at least 70\% of their energy in this way \cite{ARTICLE:CMSElectronReconstruction}. This spread of energy is mostly in $\phi$ due to the applied magnetic field. \cite{ARTICLE:CMSElectronReconstructionECAL}. Dedicated algorithms were developed to combine the the \gls{ECAL} energy deposits, into a so called ``super-cluster'', of the initial electron and its emissions.
+%Status: Writing
 
-Separate algorithms are used in the barrel and endcaps regions. In the barrel 
+In the \gls{CMS} experiment electrons are reconstructed by matching energy clusters in the \gls{ECAL} with tracks coming from the inner tracking system. Unfortunately, electrons can loose and disperse significant amounts of energy until they reach the \gls{ECAL}. While they transverse the inner tracker they may emit photons through bremsstrahlung and in turn this photon can convert to $e^+e^-$ pairs. About 35\% of the electron radiate at least 70\% of their energy in this way \cite{ARTICLE:CMSElectronReconstruction}. This spread of energy is mostly in $\phi$ due to the applied magnetic field. \cite{ARTICLE:CMSElectronReconstructionECAL}. Dedicated algorithms were developed to combine the the \gls{ECAL} energy deposits, into a so called \textit{super-clustering algorithm}, of the initial electron and its emissions.
+
+Different algorithms are used in the barrel and endcaps regions. In the barrel the region we explore the simple $\eta-\phi$ geometry with the \textit{hybrid clustering algorithm}. The procedure started by identifying \textit{seed crystals} with $E_\perp>1\,\GeV$. We form a domino around this seed in the $\eta$ direction of $3 \times 1$ or $5 \times 1$ crystals centred at the seed. Additional dominoes are added in both $\phi$ direction in an attempt to collect the bremsstrahlung emissions up to $\Delta\phi \approx 0.3$. Any domino with energy below $100\,\MeV$ is disregarded. The resulting additional sub-clusters must have its own seed with $E_\perp>350\,\MeV$ and they are combined to for the final \textit{supercluster}
 
 
+In the encaps the \textit{island algorithm} is used, 
+
+\cite{ARTICLE:CMSElectronReconstruction8TeV}
 
 \section{Muon}
 
