@@ -1,6 +1,11 @@
 \chapter{Parked Data Analysis}
+\label{CHAPTER:ParkedDataAnalysis}
 
+\glsresetall % Resetting all acronyms
 
+This chapter describes the analysis performed over the \gls{CMS} Run I parked data collected over 2012 and 2013. This data was collected and stored without reconstruction and only became fully available a few months after data taking was finished. The advantage of this dataset is the possibility to use lower threshold triggers which can collect more signal but also more backgrounds. To take full advantage of this data the analysis had to be redesigned and extended with new control regions.
+
+%TODO: references? previous chapter?
 
 \section{Event quality filters}
 
@@ -19,7 +24,9 @@ The Jet-MET Particle Object Group (POG) recommends the usage of the following fi
   \item HCAL Laser filter
 \end{itemize}
 
-In turn the JetMET group recommend the usage of the following Tracking POG Filter\cite{CMS:TrackingPOG:TrackingPOGFilters}:
+In turn the JetMET group recommend the usage of the following Tracking POG Filter:
+%\cite{CMS:TrackingPOG:TrackingPOGFilters}
+
 
 \begin{itemize}
   \item logErrorTooManyClusters
@@ -57,11 +64,11 @@ $\frac{PF_{isolation}}{p_{\perp}}$ for $ \Delta R_{cone}=0.3$  & $<0.15 $ & $<0.
  
 Additional requirements for this analysis
 \begin{itemize}
-  \item $ p_{\perp} > 10 $ GeV
+  \item $ p_{\perp} > 10\,\GeV$
   \item $ |\eta| < 2.4 $
   \item $ Effective-Area-Corrected-Isolation < 0.15 $ (is stated in the note as additional requirement but does not look like it is)
-  \item $d_{xy}<0.04$ cm (is stated in the note as additional requirement but does not look like it is)
-  \item $d_{z} < 0.2 $ cm (is stated in the note as additional requirement but does not look like it is)
+  \item $d_{xy}<0.04\,\centi\meter$ (is stated in the note as additional requirement but does not look like it is)
+  \item $d_{z} < 0.2\,\centi\meter$ (is stated in the note as additional requirement but does not look like it is)
 \end{itemize}
  
 
@@ -94,11 +101,11 @@ Conversion rejection: missing hits                             & $<=0$ & $<=0$ \
 
 Additional requirements for this analysis:
 \begin{itemize}
-  \item $ p_{\perp} > 20 $ GeV
+  \item $ p_{\perp} > 20\,\GeV$
   \item $ |\eta| < 2.4 $
   \item $ Effective-Area-Corrected-Isolation < 0.10 $
-  \item $d_{xy}<0.02 $ cm
-  \item $d_{z} < 0.1 $ cm
+  \item $d_{xy}<0.02\,\centi\meter$
+  \item $d_{z} < 0.1\,\centi\meter$
 \end{itemize}
 
 
