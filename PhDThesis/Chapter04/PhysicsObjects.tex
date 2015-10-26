@@ -90,10 +90,14 @@ Distributions of the variables for simulated electrons and jets can be found in 
 
 %Status: Writing
 
-Muon track reconstruction starts independently at the tracker and muon systems.
+Muon track reconstruction starts independently at the inner-tracker (\textit{tracker track} and in the muon systems (\textit{standalone-muon track}) \cite{ARTICLE:CMSMuonReconstruction7TeV}. Then this information can be combined into a single muon track in two possible ways.
+
+\textit{Global Muon reconstruction} is an \textit{outside-in algorithm}. We starts by finding tracker track match for each stand-alone muon track. This is done by propagating the match candidate pair to a common surface and comparing track parameters. For each matched pair, a \textit{global-muon fit} is performed using all hits from the two tracks using a a Kalman-filter algorithm \cite{ARTICLE:KalmanFilteringTrackVertexFitting}. For muons of $\pt\gtrsim 200\,\GeV/c$, it has been showed that a \textit{global-muon fit} improves the momentum resolution compared to a \textit{tracker-only fit} \cite{CMSTDR:CMSPhysicsVol1, ARTICLE:CMSPerformanceMuonReconstructionCosmicRay}.
+
+\textit{Tracker Muon reconstruction} is an \textit{inside-out algorithm}. 
 
 
-\cite{ARTICLE:CMSMuonReconstruction7TeV}
+%\cite{ARTICLE:CMSMuonReconstruction7TeV} %AG 72
 
 \section{Particle Flow}
 
