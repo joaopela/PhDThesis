@@ -96,11 +96,12 @@ Additional requirements for this analysis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Tight electrons}
+\subsection{Tight electrons}
 
 % More information at: 
 %  * https://twiki.cern.ch/twiki/bin/viewauth/CMS/EgammaIDRecipes
 %  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaCutBasedIdentification
+%  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaEARhoCorrection
 
 The "tight electrons" are defined by using the base requirements of the cut based electron ID tight working point (similar to 2011 very tight WP70) of the EGamma POG with some additional cuts on top.
   
@@ -131,6 +132,14 @@ Additional requirements for this analysis:
 % Is Global OR Tracker Muon & recoMu.isGlobalMuon() || recoMu.isTrackerMuon() & Avoid using muons which are only Standalone Muons. (~0.01% of PF muons) 
 % REFERENCE: MUO-10-004
 
+Requirements:
+\begin{itemize}
+  \item $\pt>10\,\GeV$
+  \item $|\eta|<2.1$
+  \item Relative Combined Isolation $<0.2$
+\end{itemize}
+
+POG Loose ID:
 \begin{itemize}
   \item Particle-Flow muon ID
   \item Global or Tracker Muon
@@ -142,6 +151,16 @@ Additional requirements for this analysis:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Tight Muons}
 
+Requirements:
+\begin{itemize}
+  \item $\pt>20\,\GeV$
+  \item $|\eta|<2.1$
+  \item Relative Combined Isolation $<0.12$
+  \item $d_{xy}<0.045$
+  \item $d_z < 0.2$
+\end{itemize}
+
+POG Tight ID:
 \begin{itemize}
   \item Global Muon
   \item Particle-Flow muon id 
