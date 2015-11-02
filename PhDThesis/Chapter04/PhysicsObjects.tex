@@ -100,7 +100,7 @@ Distributions of the variables for simulated electrons and jets can be found in 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Muon}
 
-%Status: Writing
+%Status: DONE
 
 Muon track reconstruction starts independently at the inner-tracker (\textit{tracker track} and in the muon systems (\textit{standalone-muon track}) \cite{ARTICLE:CMSMuonReconstruction7TeV}. Then this information can be combined into a single muon track in two possible ways.
 
@@ -110,7 +110,52 @@ Muon track reconstruction starts independently at the inner-tracker (\textit{tra
 
 Tracker muon reconstructions is more efficient than the global muon reconstruction at low momenta at $p\lesssim 5\,\GeV$. This difference is due to tracker muons reconstruction only requiring one segment on the muon system. While global muon reconstruction is more efficient for higher energies where the muons are more likely to pass several muon stations.
 
-%TODO: Needs more stuff here
+Muons can be also be classified as prompt of non-prompt. The prompt muons are the ones produced directly in the hard process like the decays of vector bosons or quarkonia particle decays. On the other hand, non-prompt muons typically come from in-flight decays light hadrons, from taus or heavy quark decays. 
+
+When reconstructing global muons, its unlikely to find non-prompt muons but we may have hadronic activity ``punching-through'' the calorimeter system and appearing in the muon system. To reduce this types of background we can use different muon identification criteria. We can define a ``tight muon'' as global fit track using tracker and muon chamber hits with a $\chi^2$ per degree of freedom os less than 10. This fit must include at least one segment in the muon chamber, track segments in at least 2 muon stations, use more than 10 hits in the inner tracker of which at least one in the a pixel layer and finally a small transverse impact paramenter $|d_{xy}|< 2\,\milli\meter$. The efficiency for such a criteria has been measured both in data and Monte Carlo using $J/\psi \rightarrow \mu^+ \mu^-$ and $Z \rightarrow \mu^+ \mu^-$ and for $\pt > 10 \,\GeV$ it plataus at 96-99\% \cite{ARTICLE:CMSMuonReconstruction7TeV}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lepton Isolation}
+
+To reduce the the probability of misidentification of a lepton coming from \gls{QCD} jets as one coming from the hard scattering we can require isolation \cite{ARTICLE:CMSElectronReconstruction8TeV, ARTICLE:CMSMuonReconstruction7TeV}. We compute the isolation by summing the transverse momenta of all particles inside a cone around the selected lepton. In this sum we include all charged particles, neutral hadrons and photons. But we do not want to include the \gls{PU} contribution to this sum so we only include the charged candidates with an impact parameter smaller than $0.1 \,\centi\,\meter$. Different methods can be used to subtract the neutral component of the \gls{PU}.
+
+Normally, for physics analysis we defined the more meaningful \textit{relative isolation} as $I_{rel} = I/\pt^{lepton}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Electrons Isolation}
+
+% More information
+%  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaCutBasedIdentification#Detector_Isolation
+%  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaEARhoCorrection#Isolation_cone_R_0_3
+
+For electrons we calculate the \textit{effective area corrected isolation} over a cone of $\Delta R<0.3$ around the electron. For the neutral \gls{PU} subtraction we uses a look-up table of effective areas according to electron $|eta|$ which is multiplied by the estimated neutral \gls{PU} energy density by unit of effective area. The definition for this isolation can be found in equation \ref{EQUATION:ElectronIsolation}.
+
+\begin{equation}
+I = \sum^{\substack{\text{charged} \\ \text{non-pileup}}}\pT +
+\text{max}\left(0,\sum^{\text{neutral}}\pT+\sum^{\text{photon}}\pT - \rho(\text{lepton}) \times \text{Eff. Area}(\text{lepton})\right)
+\label{EQUATION:ElectronIsolation}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Muons Isolation}
+
+% More information:
+%  * https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId#Muon_Isolation
+
+For muons we use the \textit{combined isolation} over a cone of $\Delta R < 0.4$ around the muon. For neutral \gls{PU} subtraction we use the determined charged \gls{PU} component inside the cone and multiply it by a factor of 0.5 which is determined from simulation. The definition for this isolation can be found in equation \ref{EQUATION:MuonIsolation}.
+
+\begin{equation}
+I = \sum^{\substack{\text{charged} \\ \text{non-pileup}}}\pT +
+\text{max}\left(0,\sum^{\text{neutral}}\pT+\sum^{\text{photon}}\pT-\frac{1}{2}\sum^{\substack{\text{charged}
+\\ \text{pileup}}}\pT\right)
+\label{EQUATION:MuonIsolation}
+\end{equation}
 
 %\cite{ARTICLE:CMSMuonReconstruction7TeV} %AG 72
 
