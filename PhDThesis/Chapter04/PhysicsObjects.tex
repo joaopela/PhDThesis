@@ -73,7 +73,7 @@ The \gls{PF} algorithm \cite{ARTICLE:CMSComissioningOfParticleFlow, ARTICLE:CMSP
 
 The \gls{CMS} experiment is very well suited for this approach since we can is equipped with a high precision silicon tracker which is immersed in uniform axial magnetic field and its dual calorimeter design with high hermeticity and resolution. The tracker system allows Very precise direction/momentum reconstruction for charged particles down to transverse momentum as low as $150\,\MeV$. The high granularity of the \gls{ECAL} allows for photons to be identified through deposit separation even inside high energy jets. In turn electrons can be reconstructed by combining their track and the energy deposits of the electron itself and its emissions, this algorithm will be explained further in section \ref{SECTION:EventReconstructionPhysicsObjects_Electrons}. The tracker information also allows to separate charged and neutral hadrons in close proximity, a task which is not possible with just the \gls{HCAL} due to its coarser granularity. We can determine the charged hadron momentum from the track information, and then, by removing its deposit from the calorimeter system we can determine the neutral hadron deposits. In areas outside the tracker and/or \gls{ECAL} coverage measurements are more coarse Since we less information available.
 
-The clustering is performed separately in the \gls{ECAL} and \gls{HCAL} algorithm. We start by identifying \textit{seed clusters} which are local maxima of calorimeter cell energy deposits. We add neighbouring cell into \textit{topological clusters} if their energy deposit is bigger than two standard deviations of the electronics noise. This value was determined to be $80\,\MeV$ for the \gls{ECAL} barrel, up to$300\,\MeV$ for the \gls{ECAL} endcap and $800\,\MeV$ for the \gls{HCAL}. The energy of each cell may be shared between multiple clusters.
+The clustering is performed separately in the \gls{ECAL} and \gls{HCAL} algorithm. We start by identifying \textit{seed clusters} which are local maxima of calorimeter cell energy deposits. We add neighbouring cell into \textit{topological clusters} if their energy deposit is bigger than two standard deviations of the electronics noise. This value was determined to be $80\,\MeV$ for the \gls{ECAL} barrel, up to $300\,\MeV$ for the \gls{ECAL} endcap and $800\,\MeV$ for the \gls{HCAL}. The energy of each cell may be shared between multiple clusters.
 
 Tracks and clusters \gls{PF} elements that need to be linked together to reconstruct the particle that originate them and also to avoid particle double counting. We pair elements based on a metric of distance between elements and if compatible we merge them into \textit{blocks} which can interpreted as particle candidates. As an example, a pair of a track and energy cluster on the calorimeter system would be linked if you could extrapolate the track to the cluster volume.
 
@@ -193,17 +193,34 @@ I = \sum^{\substack{\text{charged} \\ \text{non-pileup}}}\pT +
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Jets}
 
-%Status: Writing
+%Status: DONE
+
+When we collide hadrons the most probable hard processes will produce quarks and gluons. However, these do not reach our detectors. They quickly hadronise and fragment generating a collimated spray of particles which is commonly referrer to as a jet. To determine the properties of this outgoing quarks and gluons we need therefore to look at the characteristics of their associated jets. To achieve this goal we need to combine the measured jet remnants in a way that preserves the physical properties of the original particle.
 
 \subsection{Jet Clustering}
 
-\cite{ARTICLE:TowardsJetography}
+%Status: WRITING
 
-\cite{ARTICLE:AntiKtAlgorithm}
+Jet clustering algorithms are sets of rules that allows us to combine a particle candidates into a jets \cite{ARTICLE:TowardsJetography}. These algorithms normally are controlled by parameters that define how close particles need to be in order to be associated into a jet and a way to combine their momentums. However jet definition should be robust and provide consistent measurements about the parton. There are two major problems that may affect a jet algorithm. This problems appear when the number of jets in an event changes by adding a soft collinear gluon emissions (collinear safety) or by parton splitting (infrared safety). 
 
-\cite{ARTICLE:FastJetUserManual}
+In \gls{CMS} we used a sequential recombination algorithm known as \textit{anti-$k_T$} \cite{ARTICLE:AntiKtAlgorithm} which is both infrared and collinear safe. 
+
+\begin{align}
+d_{ij} &= \text{min}({\pT}_{i}^{2p},{\pT}_{j}^{2p})\frac{\Delta R_{ij}^{2}}{R^{2}} \\
+d_{iB} &= {\pT}_{i}^{2p}\, 
+\end{align}
+
+
+%\cite{ARTICLE:TowardsJetography} %AG 76
+%\cite{ARTICLE:AntiKtAlgorithm}   %AG 77
+\cite{ARTICLE:FastJetUserManual} %AG 78
 
 \subsection{Jet Energy Corrections}
+
+
+\begin{equation}
+P_{\text{corr}}^{\mu} = C_{\text{offset}}(\pT^{\text{raw}},\eta) \cdot C_{\text{rel}}(\pT^{''},\eta) \cdot C_{\text{abs}}(\pT^{'},\eta) \cdot P_{\text{raw}}^{\mu}\, ,
+\end{equation}
 
 \cite{ARTICLE:CMSDeterminationJetEnergyCalibration}
 
