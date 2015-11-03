@@ -9,6 +9,7 @@ This chapter describes how the \gls{CMS} detector produces physics objects from 
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tracks}
+\label{SECTION:EventReconstructionPhysicsObjects_Tracks}
 
 %Status: DONE
 
@@ -27,6 +28,7 @@ The process of track finding is repeated up to six times where the hits for each
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Vertex Reconstruction}
+\label{SECTION:EventReconstructionPhysicsObjects_Vertex}
 
 %Status: DONE
 
@@ -62,7 +64,28 @@ Most \gls{CMS} analysis, including the ones presented in this thesis, require ex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Electron}
+\section{Particle Flow}
+\label{SECTION:EventReconstructionPhysicsObjects_ParticleFlow}
+
+%Status: Writing
+
+The \gls{PF} algorithm \cite{ARTICLE:CMSComissioningOfParticleFlow, ARTICLE:CMSParticleFlowEventRecontruction, ARTICLE:CMSComissioningOfParticleFlowWithMinBias} is used in the \gls{CMS} experiment with the objective of reconstructing every stable particle produced in the event. This is achieved by combining information from all \gls{CMS} sub-detectors in order to identify electrons, photons, muons, charged hadrons and neutral hadrons and measure their direction, energy and type. The identified particles can in turn be used in jet clustering, to determine the missing transverse energy, to reconstruct and identify taus, to calculate particle isolation, for identify b-quark jets, etc.
+
+The \gls{CMS} experiment is very well suited for this approach since we can is equipped with a high precision silicon tracker which is immersed in uniform axial magnetic field and its dual calorimeter design with high hermeticity and resolution. The tracker system allows Very precise direction/momentum reconstruction for charged particles down to transverse momentum as low as $150\,\MeV$. The high granularity of the \gls{ECAL} allows for photons to be identified through deposit separation even inside high energy jets. In turn electrons can be reconstructed by combining their track and the energy deposits of the electron itself and its emissions, this algorithm will be explained further in section \ref{SECTION:EventReconstructionPhysicsObjects_Electrons}. The tracker information also allows to separate charged and neutral hadrons in close proximity, a task which is not possible with just the \gls{HCAL} due to its coarser granularity. We can determine the charged hadron momentum from the track information, and then, by removing its deposit from the calorimeter system we can determine the neutral hadron deposits. In areas outside the tracker and/or \gls{ECAL} coverage measurements are more coarse Since we less information available.
+
+The clustering is performed separately in the \gls{ECAL} and \gls{HCAL} algorithm. We start by identifying \textit{seed clusters} which are local maxima of calorimeter cell energy deposits. We add neighbouring cell into \textit{topological clusters} if their energy deposit is bigger than two standard deviations of the electronics noise. This value was determined to be $80\,\MeV$ for the \gls{ECAL} barrel, up to$300\,\MeV$ for the \gls{ECAL} endcap and $800\,\MeV$ for the \gls{HCAL}. The energy of each cell may be shared between multiple clusters.
+
+Tracks and clusters \gls{PF} elements that need to be linked together to reconstruct the particle that originate them and also to avoid particle double counting. We pair elements based on a metric of distance between elements and if compatible we merge them into \textit{blocks} which can interpreted as particle candidates. As an example, a pair of a track and energy cluster on the calorimeter system would be linked if you could extrapolate the track to the cluster volume.
+
+% \cite{ARTICLE:CMSComissioningOfParticleFlow}            AG 73
+% \cite{ARTICLE:CMSParticleFlowEventRecontruction}        AG 74
+% \cite{ARTICLE:CMSComissioningOfParticleFlowWithMinBias} AG 75
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Electrons}
+\label{SECTION:EventReconstructionPhysicsObjects_Electrons}
 
 %Status: DONE
 
@@ -95,10 +118,13 @@ Distributions of the variables for simulated electrons and jets can be found in 
 \label{FIGURE:EventReconstructionPhysicsObjects_Electrons}
 \end{figure}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Muon}
+\section{Muons}
+\label{SECTION:EventReconstructionPhysicsObjects_Muons}
 
 %Status: DONE
 
@@ -118,6 +144,7 @@ When reconstructing global muons, its unlikely to find non-prompt muons but we m
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Lepton Isolation}
+\label{SECTION:EventReconstructionPhysicsObjects_LeptonIsolation}
 
 To reduce the the probability of misidentification of a lepton coming from \gls{QCD} jets as one coming from the hard scattering we can require isolation \cite{ARTICLE:CMSElectronReconstruction8TeV, ARTICLE:CMSMuonReconstruction7TeV}. We compute the isolation by summing the transverse momenta of all particles inside a cone around the selected lepton. In this sum we include all charged particles, neutral hadrons and photons. But we do not want to include the \gls{PU} contribution to this sum so we only include the charged candidates with an impact parameter smaller than $0.1 \,\centi\,\meter$. Different methods can be used to subtract the neutral component of the \gls{PU}.
 
@@ -127,6 +154,7 @@ Normally, for physics analysis we defined the more meaningful \textit{relative i
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Electrons Isolation}
+\label{SUBSECTION:EventReconstructionPhysicsObjects_LeptonIsolation_ElectronsIsolation}
 
 % More information
 %  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaCutBasedIdentification#Detector_Isolation
@@ -144,6 +172,7 @@ I = \sum^{\substack{\text{charged} \\ \text{non-pileup}}}\pT +
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Muons Isolation}
+\label{SUBSECTION:EventReconstructionPhysicsObjects_LeptonIsolation_MuonsIsolation}
 
 % More information:
 %  * https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId#Muon_Isolation
@@ -158,22 +187,6 @@ I = \sum^{\substack{\text{charged} \\ \text{non-pileup}}}\pT +
 \end{equation}
 
 %\cite{ARTICLE:CMSMuonReconstruction7TeV} %AG 72
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Particle Flow}
-
-%Status: Writing
-
-The \gls{PF} algorithm \cite{ARTICLE:CMSComissioningOfParticleFlow, ARTICLE:CMSParticleFlowEventRecontruction, ARTICLE:CMSComissioningOfParticleFlowWithMinBias} is used in the \gls{CMS} experiment as a way to combine all available information in an attempt to reconstruct every particle produced in the event. 
-
-
-
-% \cite{ARTICLE:CMSComissioningOfParticleFlow}            AG 73
-% \cite{ARTICLE:CMSParticleFlowEventRecontruction}        AG 74
-% \cite{ARTICLE:CMSComissioningOfParticleFlowWithMinBias} AG 75
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
