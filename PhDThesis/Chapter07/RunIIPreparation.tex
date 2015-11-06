@@ -32,8 +32,28 @@ This study investigates the alternatives and attempts to quantify the costs of o
 
 
 
+\subsection{Final sample proposal}
 
+%Status: Writing
 
+Proposal to the Higgs sample generation contacts consists on the production of a MadGraph QCD sample with VBF characteristics and no missing transverse energy cut.
+
+This sample is to be produced in two steps. The parton level simulation which is to be done with the MadGraph event generator. The base processes will be proton-proton to 2, 3, and 4 jets. Here a jet is defined as the hard process outgoing particle which can be a gluon or a quark (u, d, c, s or b). Only events with at least one outgoing di-parton where both parton have more than $30\,\GeV$ and at least $800\,\GeV$ are kept. 
+
+The estimated cross section for this processes and selection is $1.11e+07 \pm 1.799e+04 \,\pico\barn$ and we request the production of $1.2 \time 10^{10}$ events. The corresponds to an equivalent luminosity of just over $1\,\femto\barn^{-1}$ of equivalent integrated luminosity.
+
+The second step comprises the parton hadronization and event filtering. The objective is to further reduce the number of events without prejudice of physics usefulness of this sample. Hadronization is to be preformed with the \gls{MC} generator Pythia8 efficiency where the efficiency of the post hadronization event matching has been estimated of $9.0\% \pm 0.3\%$, leading to an sample cross section of $9.993e+05 \pm 3.127e+04 \pico\barn$. At this point we propose to separate the sample into two sub-samples according using a generator level filter. 
+
+The first sample would be the result of running over all the events produced up to the hadronization step and select only the events with at least on generator level anti-$k_T^{\Delta T < 0.4}$ dijet where both jets have at least $\pt > 40\,\GeV$, $\Delta\eta > 3.0$, $m_{jj} > 1000\,\GeV$ and $\Delta\Phi<=2.15$. The estimated filter efficiency is $2.592e-02 \pm 2.541e-03$
+which would lead to a sample since of approximately 26 million events and corresponding to an equivalent luminosity of over $1\,\femto\barn^{-1}$.
+
+The second sample would be the result of running over only 10\% of the events available at the hadronization step. Here we reverse the $\delta\phi$ cut while keeping all that other cuts from the first sample. This filter has an efficiency of $2.592e-02 \pm 2.541e-03$  and would lead to sample of about 12 million events, corresponding to an equivalent luminosity of over $100\,\pico\barn$. If additional computing resources would become available this sample could be expanded up to 100\% of the base sample to a total of 120 million events and equivalent luminosity over $1\,\femto\barn^{-1}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Gridpack Validation}
+\label{SUBSECTION:GridpackValidation}
 
 % Total number of events: 17871
 % 
@@ -43,13 +63,7 @@ This study investigates the alternatives and attempts to quantify the costs of o
 % 
 % pt>30 : 687 : 14 : 0.0203785 
 % 
-% pt>30 : 1467 : 49 : 0.0334015   
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Gridpack Validation}
-\label{SUBSECTION:GridpackValidation}
+% pt>30 : 1467 : 49 : 0.0334015 
 
 \input{Chapter07/QCDVBF/Gridpack/Tables/table_GridPack_HadronizationResults.tex}
 
@@ -103,7 +117,7 @@ This study investigates the alternatives and attempts to quantify the costs of o
 \label{FIGURE:TODO}
 \end{figure}
 
-
+\subsection{Migration study}
 
 
 
