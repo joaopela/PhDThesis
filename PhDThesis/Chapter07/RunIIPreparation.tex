@@ -3,11 +3,204 @@
 
 \glsresetall % Resetting all acronyms
 
+After the successful completion of the the first data taking period, the \gls{LHC} Run I, the accelerator and detectors went through a two year long technical shut-down which was designated the \gls{LS1}. During the period the accelerator completed a consolidation and improvement program to allow a ramp up of the beams energy up to the design value of $7\,\TeV$ per beam in proton-proton mode. At the same time the experiments also performed maintenance, repair and improvement programs. 
+
+Data analysis continued during this period of no data taking using the datasets already available or the newly reconstructed parked data. After this final work over $8\,\TeV$ data was completed most \gls{CMS} physics analysis started their preparation for the \gls{LHC} Run II, where higher collision energies, even higher values of \gls{PU} and more recorded integrated luminosity are expected. Following this global effort the \gls{CMS} \gls{VBF} Higgs to invisible analysis also started its own preparation work. 
+
+The first step is always the definition of a trigger condition for data taking. The effort made to create and study such an adequate set of trigger for the use of this analysis during run II is documented in section \ref{SECTION:RunIITriggerStudies}. Additionally, work was made to study and propose the creation of a dedicated \gls{QCD} \gls{MC} sample with signal like characteristics expanding on the one already created for Run I. This study can be found in section \ref{SECTION:RunIIQCDMonteCarloSamples}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Run II trigger studies}
 \label{SECTION:RunIITriggerStudies}
+
+The first step of any \gls{CMS} physics analysis is to define which trigger to use for data taking. The \gls{TSG} develops generic usage trigger conditions, know as trigger paths, which can be used by any analysis. Typically this conditions cover all possible single objects (single electron, single jets, etc), multiple objects (double electron, triple muon, etc), cross triggers, (single electron $+$ sigle muon, etc). In some cases, like for our analysis, it with better to define a custom condition to obtain maximum physics content. The following reasons drove the decision to create a set dedicated trigger paths.
+
+\begin{itemize}
+  \item Maximize signal collection efficiency by selecting our signal topology with reduced trigger cuts while compared with generic triggers;
+  \item Use again a trigger condition with $MET_{\text{no muon}}$ instead of $MET$ to study \gls{EWK} Z irreducible background;
+  \item Create a new dedicate pre-scaled trigger path with reduced thresholds with objective of reducing systematics;
+\end{itemize}
+
+For the proposal of our triggers it was decided to produce numbers for conservative and aggressive scenarios in terms of available \gls{HLT} bandwidth. For the signal trigger path rate $1.5\,\hertz$ and $5.0\,\hertz$ were considered. While for the systematics paths rate $0.1\,\hertz$ and $0.1\,\hertz$ were considered.
+
+\subsection{Methodology}
+
+
+
+\subsection{Signal path}
+
+
+% 2a) lowest MET cut (with >3% efficiency)
+% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF60-60_DEta3.5_MJJ700 + pf_met=144 rate=1.5Hz signalEff=0.0303
+% * 5.0Hz - L1T_ETM + HLT_DijetVBF100-40_DEta2.5_MJJ1100 + pf_met=122 rate=4.96 signalEff=0.0301 (this is the highest MJJ point I have maybe it can go higher)
+% * 5.0Hz - L1T_ETM + HLT_DijetVBF60-60_DEta3.9_MJJ700 + pf_met=125 rate=4.91 signalEff=0.031
+% 
+% 2b. best efficiency for dijet pT>40 GeV (other cuts can vary)
+% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta2.5_MJJ500 + pf_met=164 rate=1.08 signalEff=0.0476
+% * 5.0Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta2.5_MJJ500 + pf_met=152 rate=4.83   Hz signalEff=0.0546
+% 
+% 4a) run plot making on 3. and search for working points with maximum additional efficiency
+% Sadly value are a bit low:
+% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF60-40_DEta3.7_MJJ500 + pf_met=152 rate=1.46 signalEff(NOT HLT_PFMET170)=0.009 (asymmetric)
+% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta3.5_MJJ600 + pf_met=152 rate=1.42 signalEff(NOT HLT_PFMET170)=0.0087 (symmetric)
+% * 5.0Hz - L1T_ETM70 + HLT_DijetVBF60-40_DEta3.7_MJJ500 + pf_met=140 rate=4.36 signalEff(NOT HLT_PFMET170)=0.0155 (asymmetric)
+% * 5.0Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta3.5_MJJ600 + pf_met=140 rate=4.21 signalEff(NOT HLT_PFMET170)=0.0149 (symmetric)
+% 
+% So with 5.0Hz we go for 9.4% from HLT_PFMET170 to 10.9% so an improvement of about 16%.
+
+\subsection{Systematics path}
+
+% From our discussion yesterday, I was asked to look at the path with no L1 seeded (HLT_PFMET_PFVBF_Unseeded_v1) for control trigger, so I only have results without L1 seeded for now (see below).
+% 
+% Here are the unprescaled rates from several (lower) PFMET thresholds 
+% 
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET60
+% unprescaled rate = 12553.82 Hz
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET70
+% unprescaled rate = 8139.73 Hz
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET80
+% unprescaled rate = 4831.11 Hz
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET90 
+% unprescaled rate = 2675.93 Hz 
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET100 
+% unprescaled rate = 1394.83 Hz 
+% 
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET60
+% unprescaled rate = 9001.48 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET70
+% unprescaled rate = 5873.20 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET80
+% unprescaled rate = 3495.69 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET90 
+% unprescaled rate = 1949.82 Hz 
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET100 
+% unprescaled rate = 1033.37 Hz 
+% 
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET60
+% unprescaled rate = 6905.91 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET70
+% unprescaled rate = 4525.34 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80
+% unprescaled rate = 2690.04 Hz <=========================
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET90 
+% unprescaled rate = 1504.46 Hz 
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET100 
+% unprescaled rate = 795.24 Hz 
+% 
+% If we aimed for 0.5 Hz, we need prescale N ~5000 from path you suggest.
+% 
+% You can find rate plots of these working points in attachment. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% See below with L1_ETM70 seeded and attached plot for HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET. 
+% 
+% Yes. I got your points but to include other L1 seeds (not L1_ETM70), as you said, I need to modified Joao’s code and I haven’t figured out how to do this yet (it’s in my next to do list), so we decided to look at the path without L1 seeded first. And I agree that producing ntuples which contain L1/HLT jets and MET would make our life easier :) I will do that.
+% 
+% Cheers,
+% Chayanit
+% 
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET60 
+% unprescaled rate = 152.28 Hz
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET70
+% unprescaled rate = 134.91 Hz
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET80
+% unprescaled rate = 112.70 Hz
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET90 
+% unprescaled rate = 86.90 Hz 
+% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET100 
+% unprescaled rate = 62.25 Hz 
+% 
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET60
+% unprescaled rate = 139.66 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET70
+% unprescaled rate = 123.25 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET80
+% unprescaled rate = 101.64 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET90 
+% unprescaled rate = 76.71 Hz 
+% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET100 
+% unprescaled rate = 53.77 Hz 
+% 
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET60
+% unprescaled rate = 117.72 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET70
+% unprescaled rate = 103.05 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80
+% unprescaled rate = 84.18 Hz
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET90 
+% unprescaled rate = 62.24 Hz 
+% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET100 
+% unprescaled rate = 44.08 Hz 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% I just got the rates from L1_ETM50 (requiring L1 MET > 50) with unseeded PF HLT.
+% 
+% L1_ETM50 + HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80 : unprescaled rate = 505.75 Hz
+% 
+% For 0.5 Hz, we need HLT prescale = 1
+% 
+% For 0.1 Hz, we need HLT prescale = 5
+% 
+% And see unprescaled rate plot in attachment.
+% 
+% PS. I found something’s a bit odd when I checked the rates between these two : 
+% L1 MET > 70 + HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80 (from unseeded path) rate = 182.03 Hz
+% L1ETM70_HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80 (using seeded path) rate = 84.18 Hz
+% 
+% Why are the rates different? Do I miss anything here?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% OK, numbers are out:
+% 
+% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF100-40_DEta3.7_MJJ500 + pf_met=150 rate=1.45Hz signalEff(NOT HLT_PFMET170)=0.008 (best eff asymmetric, different working point) 
+% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta3.7_MJJ600 + pf_met=154 rate=1.46Hz signalEff(NOT HLT_PFMET170)=0.0075 (best eff symmetric, slight increase in thresholds) 
+% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF60-60_DEta3.7_MJJ1100 + pf_met=129 rate=1.44Hz signalEff(NOT HLT_PFMET170)=0.0062 (lowest met, now showed before)
+% 
+% * 5Hz - L1T_ETM70 + HLT_DijetVBF60-40_DEta3.7_MJJ500 + pf_met=140 rate=4.84Hz signalEff(NOT HLT_PFMET170)=0.0155 (best eff asymmetric, same WP with same sigEff and MET but rate increased)
+% * 5Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta3.5_MJJ600 + pf_met=140 rate=4.68 signalEff(NOT HLT_PFMET170)=0.0149 (best eff symmetric, same WP with same sigEff and MET but rate increased)
+% * 5Hz - L1T_ETM70 + HLT_DijetVBF60-40_DEta3.5_MJJ600 + pf_met=140 rate=4.48Hz signalEff(NOT HLT_PFMET170)=0.0148 (your request WP, same WP with same sigEff and MET but rate increased)
+% * 5Hz - L1T_ETM70 + HLT_DijetVBF60-60_DEta4.1_MJJ800 + pf_met=119 rate=4.99Hz signalEff(NOT HLT_PFMET170)=0.0104 (lowest met, now showed before)
+% 
+% Code for additional L1T rate has run and first results will be computed as soon as I arrive to IC.
+% 
+% P.S.: I include the plot for your request WP which now shows no kink on rates.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% General points:
+% * Control plots are unaffected. 
+% * I think there may be a problem on my additional rate code. Its returning a total L1T rate of 130 kHz and some unexpected (higher than before) rates for the proposed dijet triggers. So I will do some debugging.
+% 
+% Will make some quick code to extract the individual efficiency of those proposed paths/
+% 
+% As for the default HLT:
+% HLT_PFMET170_NoiseCleaned_v1 sigEff: 0.094 qcdRate: 4.515Hz
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% => L1T_NoCuts/HLT_DijetVBF40-40_DEta3.5_MJJ600 + pf_met140=> Signal eff: 0.0515843 Total QCD Rate :4.67692
+% => L1T_NoCuts/HLT_DijetVBF60-40_DEta3.5_MJJ600 + pf_met140=> Signal eff: 0.0512509 Total QCD Rate :4.48162
+
+
+\section{Additional L1 trigger}
+
+% Some new results for the "new L1T seed" DijetVBF30 + DEta3p5 + ETM50:
+% 
+% * 1.5Hz - HLT_DijetVBF100-40_DEta4.3_MJJ500 + pf_met=142 rate=1.49 signalEff(NOT HLT_PFMET170)=0.0101 (max efficiency)
+% * 1.5Hz - HLT_DijetVBF60-60_DEta4.3_MJJ1100 + pf_met=132 rate=1.44 signalEff(NOT HLT_PFMET170)=0.0077 (lowest MET)
+% 
+% * 5.0Hz - HLT_DijetVBF60-40_DEta4.1_MJJ500 + pf_met=140 rate=4.77Hz signalEff(NOT HLT_PFMET170)=0.0171 (max efficiency)
+% * 5.0Hz - HLT_DijetVBF60-60_DEta4.5_MJJ1000 + pf_met=122 rate=4.93Hz signalEff(NOT HLT_PFMET170)=0.0102 (lowest MET)
+% 
+% As expected with this seed we can get a bit more efficiency and go up to 11.1% an increase of 18.2% to just HLT_PFMET170
+% 
+% I will add tomorrow morning the study for the extra seed that had no L1T_ETM.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -118,6 +311,8 @@ The second sample would be the result of running over only 10\% of the events av
 \end{figure}
 
 \subsection{Migration study}
+
+A second gridpack was setup with lower parton cuts in order to study event migrations between the thresholds of the parton filter and the generator jets filter.
 
 
 
