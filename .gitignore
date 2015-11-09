@@ -9,6 +9,8 @@
 **/*.acr
 **/*.acn
 **/*.alg
+**/*.bbl
+**/*.blg
 **/*.nav
 **/*.out
 **/*.snm
