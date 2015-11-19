@@ -222,7 +222,12 @@ In the preparation for Run II it was considered once again to be useful to have 
 
 \glsreset{MC} methods are a class of computer algorithms that rely on random sampling to obtain numerical results. This type of methods is especially useful in problems with many coupled degrees of freedom where it is difficult to perform analytical calculations. In particle physics these methods are often used to simulate physics processes, their interaction with detectors and the obtained measurements.
 
-To simulate one event on the \gls{CMS} experiment we first start by simulating the physics process itself. We can split this into two sub-processes: hard scattering and hadronizations. There are many purpose developed software programs that will perform each one of this steps of even both. 
+To simulate one event on the \gls{CMS} experiment we first start by simulating the physics process itself. We can split this into two sub-processes: hard scattering and hadronization. There are many purpose developed software programs that will perform each one of this steps of even both. 
+
+General purpose software like Pythia8 \cite{ARTICLE:Pythia6p4PhysicsAndManual,ARTICLE:Pythia8p1Introduction} or Herwig++ \cite{ARTICLE:HERWIGPhysicsAndManual} are able to do both hard scattering and hadronization. Typically these programs are restricted to 2 by 2 hard processes which are calculated at leading order. 
+
+There are many other hard process only simulation programs 
+
 
 \subsection{Final sample proposal}
 
