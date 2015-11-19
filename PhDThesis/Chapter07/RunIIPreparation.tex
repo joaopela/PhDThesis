@@ -208,22 +208,21 @@ For the proposal of our triggers it was decided to produce numbers for conservat
 \section{Run II QCD Monte Carlo samples}
 \label{SECTION:RunIIQCDMonteCarloSamples}
 
-Simulating and reconstructing quantities of \gls{QCD} events comparable to the ones produced at the \gls{LHC} experiments is impractical. At every second of \gls{LHC} physics operation several millions of bunch crossings happen, each one able to provoke several simultaneous collisions. With the currently available hardware it takes in excess of one minute to fully simulate one of such bunch crossings. 
+Simulating and reconstructing quantities of \gls{QCD} events comparable to the ones produced at the \gls{LHC} experiments is impractical. At every second of \gls{LHC} physics operation several millions of bunch crossings happen, each one able to create several simultaneous collisions. With the currently available hardware it takes in excess of one minute to fully simulate one of such bunch crossings. Further more, most of this events have very low energy collisions and are unlikely to be picked up by any physics analysis.  
 
+This constraints lead to \gls{QCD} events being simulated in $p_\perp$ hats, where the first collision outgoing particles summed $p_\perp$ generated within a predefined rangee. Then several other collisions are added to the event as \gls{PU}. This additional collisions are generated without any constraints in $p_\perp$. 
 
-This constraints lead to \gls{QCD} events being simulated in $p_\perp$ hats, where the first collision is generated within range where the outgoing particles summed $p_\perp$ is in a predefined range. Then several other collisions are added to the event as \gls{PU}. This additional collisions are generated without any constraints in $p_\perp$. 
+This bin method allows the user to have \gls{QCD} hard scattering samples with increasing energies and study the influence of each one of them in their own analysis. As a practical example we do not need to look over millions of \gls{QCD} events to find high energy jets. We can just start from the higher \gls{QCD} $p_\perp$ hats add lower ones until the contributing to our selection is negligible. On the other hand, analysis like the \gls{CMS} \gls{VBF} Higgs to invisible analysis, search for event topologies with low energy jets and/or \gls{MET}. In this cases available inclusive \gls{QCD} samples will not have enough statistics to provide insight into this backgrounds behaviour. 
 
-This bin method allows the user to have samples with increasing energy and study the influence of each of them in their own analysis. As a practical example we do not need to look over millions of \gls{QCD} events, most of them with only low energy particles, to find high energy jets. We can just start from the higher \gls{QCD} $p_\perp$ hats add lower ones until the stop contributing to our selection. On the other hand, there are some analysis that require jets and/or \gls{MET} with very low values where inclusive \gls{QCD} samples will not have enough statistics to provide insight into the \gls{QCD} behaviour. The \gls{CMS} \gls{VBF} Higgs to invisible analysis is one of them.
+During the preparation of the Run I the \gls{VBF} Higgs to invisible analysis privately produced a set of \gls{QCD} samples with \gls{VBF} like jets and real \gls{MET}. This samples allowed to understand the mechanisms that create real \gls{MET} in \gls{QCD} and how those could be mitigated. 
 
-During the preparation of the Run I \gls{VBF} Higgs to invisible analysis a set of \gls{QCD} samples with \gls{VBF} like jets and real \gls{MET} was generated. This samples allowed to understand the mechanisms that create real \gls{MET} in \gls{QCD} and how those could be mitigated.
+In the preparation for Run II it was considered once again to be useful to have similar samples remade and possibly extended. It was identified that not only real \gls{MET} is significant but also fake \gls{MET} coming from detector miss-measurement. The \gls{QCD} background is currently the only background we do not have any \gls{MC} event sample. If such a sample could be produced it could allow the analysis to evolve to a shape based analysis or to use machine learning techniques, since we would have signal and all backgrounds simulations. 
 
-Our analysis is now preparing for Run II it was considered once again to be useful to have similar samples remade and possibly extended. It was identified that not only real \gls{MET} is significant but also fake \gls{MET} coming from detector miss-measurement. If such a sample could be produced and simulate such effects would be of great interest, allowing the analysis to possibly evolve to a shape based analysis or event to use machine learning techniques.
+\subsection{Monte Carlo sample simulation}
 
-This study investigates the alternatives and attempts to quantify the costs of of producing such samples.
+\glsreset{MC} methods are a class of computer algorithms that rely on random sampling to obtain numerical results. This type of methods is especially useful in problems with many coupled degrees of freedom where it is difficult to perform analytical calculations. In particle physics these methods are often used to simulate physics processes, their interaction with detectors and the obtained measurements.
 
-
-
-
+To simulate one event on the \gls{CMS} experiment we first start by simulating the physics process itself. We can split this into two sub-processes: hard scattering and hadronizations. There are many purpose developed software programs that will perform each one of this steps of even both. 
 
 \subsection{Final sample proposal}
 
@@ -258,54 +257,54 @@ The second sample would be the result of running over only 10\% of the events av
 % 
 % pt>30 : 1467 : 49 : 0.0334015 
 
-\input{Chapter07/QCDVBF/Gridpack/Tables/table_GridPack_HadronizationResults.tex}
+\input{Chapter07/QCDVBFSamples/Gridpack/Tables/table_GridPack_HadronizationResults.tex}
 
-\input{Chapter07/QCDVBF/Gridpack/Tables/table_Gridpack_PartonGenJetMatchingResults.tex}
+\input{Chapter07/QCDVBFSamples/Gridpack/Tables/table_Gridpack_PartonGenJetMatchingResults.tex}
 
 \begin{figure}[htp]%
 \centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_Parton1_Pt.pdf}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_Parton2_Pt.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_Parton1_Pt.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_Parton2_Pt.pdf}}\\
 \caption[TODO]{TODO}
 \label{FIGURE:TODO}
 \end{figure}
 
 \begin{figure}[htp]%
 \centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_Parton1_Eta.pdf}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_Parton2_Eta.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_Parton1_Eta.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_Parton2_Eta.pdf}}\\
 \caption[TODO]{TODO}
 \label{FIGURE:TODO}
 \end{figure}
 
 \begin{figure}[htp]%
 \centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_DEta.pdf}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_Mjj.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_DEta.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_Mjj.pdf}}\\
 \caption[TODO]{TODO}
 \label{FIGURE:TODO}
 \end{figure}
 
 \begin{figure}[htp]%
 \centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_MatchedGenJet_Parton1_Pt.pdf}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_MatchedGenJet_Parton2_Pt.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Parton1_Pt.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Parton2_Pt.pdf}}\\
 \caption[TODO]{TODO}
 \label{FIGURE:TODO}
 \end{figure}
 
 \begin{figure}[htp]%
 \centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_MatchedGenJet_Parton1_Eta.pdf}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_MatchedGenJet_Parton2_Eta.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Parton1_Eta.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Parton2_Eta.pdf}}\\
 \caption[TODO]{TODO}
 \label{FIGURE:TODO}
 \end{figure}
 
 \begin{figure}[htp]%
 \centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_MatchedGenJet_DEta.pdf}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBF/Gridpack/Images/SelDiParton_MatchedGenJet_Mjj.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_DEta.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Mjj.pdf}}\\
 \caption[TODO]{TODO}
 \label{FIGURE:TODO}
 \end{figure}
@@ -336,17 +335,20 @@ Double variable migration
 
 \subsubsection{Generator level cuts}
 
-girdpack2
-\begin{itemize}
-  \item Starting 30699
-  \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000          - 4159 (from analysis code)
-  \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000          - 4159 (from filter code)
-  \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000_DPhi2.15 - 867 (from analysis code)
-  \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000_DPhi2.15 - 867 (from filter code)
-  \item Events above cuts 867 (eff 0.028241962 +/- 0.00095914732)
-  \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000_BiggerDPhi2.15 - 3448 (from filter code)
-  \item Events above cuts 3448 (eff 0.11231636 +/- 0.0019127552)
-  \item Dijet40_Eta4p8_DEta3p0_Mjj1000_DPhi2.15       - 867  (from filter code)
-  \item Dijet40_Eta4p8_DEta3p0_Mjj1000_BiggerDPhi2.15 - 3452 (from filter code)
-\end{itemize}
+% girdpack2
+% \begin{itemize}
+%   \item Starting 30699
+%   \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000          - 4159 (from analysis code)
+%   \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000          - 4159 (from filter code)
+%   \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000_DPhi2.15 - 867 (from analysis code)
+%   \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000_DPhi2.15 - 867 (from filter code)
+%   \item Events above cuts 867 (eff 0.028241962 +/- 0.00095914732)
+%   \item OppSide_Dijet40_Eta4p8_DEta3p0_Mjj1000_BiggerDPhi2.15 - 3448 (from filter code)
+%   \item Events above cuts 3448 (eff 0.11231636 +/- 0.0019127552)
+%   \item Dijet40_Eta4p8_DEta3p0_Mjj1000_DPhi2.15       - 867  (from filter code)
+%   \item Dijet40_Eta4p8_DEta3p0_Mjj1000_BiggerDPhi2.15 - 3452 (from filter code)
+% \end{itemize}
+ 
+\input{Chapter07/QCDVBFSamples/GeneratorFilter/Tables/GeneratorJets_PassFilter_NJets_Dphi.tex}
 
+\input{Chapter07/QCDVBFSamples/GeneratorFilter/Tables/GeneratorJets_PassFilter_NDijets_Dphi.tex}
