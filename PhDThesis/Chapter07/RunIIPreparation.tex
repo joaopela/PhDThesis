@@ -218,6 +218,9 @@ During the preparation of the Run I the \gls{VBF} Higgs to invisible analysis pr
 
 In the preparation for Run II it was considered once again to be useful to have similar samples remade and possibly extended. It was identified that not only real \gls{MET} is significant but also fake \gls{MET} coming from detector miss-measurement. The \gls{QCD} background is currently the only background we do not have any \gls{MC} event sample. If such a sample could be produced it could allow the analysis to evolve to a shape based analysis or to use machine learning techniques, since we would have signal and all backgrounds simulations. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Monte Carlo sample simulation}
 
 %Status: DONE
@@ -226,7 +229,7 @@ In the preparation for Run II it was considered once again to be useful to have 
 
 To simulate one event on the \gls{CMS} experiment we first start by simulating the physics process itself. We can split this into two sub-processes: hard scattering and hadronization. There are many purpose developed software programs that will perform each one of this steps of even both. 
 
-General purpose particle physics event generators like Pythia8 \cite{ARTICLE:Pythia6p4PhysicsAndManual,ARTICLE:Pythia8p1Introduction}, Herwig++ \cite{ARTICLE:HERWIGPhysicsAndManual} or Sherpa \cite{ARTiCLE:SherpaEventGenerator} are able to do both hard scattering and hadronization steps. Typically these programs are restricted to 2 by 2 hard processes which are calculated at leading order. 
+General purpose particle physics event generators like Pythia8 \cite{ARTICLE:Pythia6p4PhysicsAndManual,ARTICLE:Pythia8p1Introduction}, Herwig++ \cite{ARTICLE:HERWIGPhysicsAndManual} or Sherpa \cite{ARTiCLE:SherpaEventGenerator} are able to do both hard scattering and hadronization steps. Typically these programs are restricted to 2 by 2 hard processes which are calculated at \gls{LO}. 
 
 There are many other event  matrix-element generators, like MadGraph5\_aMC@NLO \cite{ARTICLE:aMCatNLO} and Alpgen \cite{ARTICLE:ALPGENGenerator} that focus on the hard process simulation programs providing events from 2 by X hard scattering with some implementing \gls{NLO} calculations. This parton level events then need to be passed to a one of the general purpose event generators for further hadronization. 
 
@@ -238,11 +241,25 @@ After the physics event is simulated, the interaction with the detector and the 
 
 When the detector response is obtained we can proceed with the same event reconstruction algorithms already described in chapter \ref{CHAPTER:EventReconstructionPhysicsObjects}. 
 
-\subsection{Final sample proposal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Goals and first attempt}
+
+%Status: DONE
+
+Building on the knowledge gained from the samples produced during Run I we can defined the goals for this new samples. Cuts at generator level involving \gls{MET} should be avoided in order to not filter out events where the \gls{MET} comes from miss-measurement. Variables that my bias $\Delta\phi(jet-jet)$ cuts should also avoided since the Run I analysis uses inverted cuts in this variable to perform data-driven \gls{QCD} estimation. The sample to be simulated should be of a size comparable with the current official \gls{QCD} Inclusive sample. This last requirement is to ensure that the computing resources necessary for making such sample do not go above what currently is used to produce similar purpose samples. 
+
+The first attempt to produce a proposal for the production of this QCD VBF-like samples was based on filtering events produced by Pythia 8. The filtering of this events was made by first clustering the generator particles in anti-$k_T$ jets with $\Delta R<0.4$ where muons were ignored. Only the events where at least one dijet with \gls{VBF} characteristics would kept. Unfortunately, this approach lead to a very large number of event being generated (hard scattering and hadronization) and clustered only do be discarded. The computing time was considered too large to be feasible considering the physics case by the \gls{CMS} team responsible for official sample production. However, is was recommended to take a different approach by using a \gls{ME} generator, like MadGraph and cut already at the parton level, before any hadronization or clustering. After this initial event selection a second layer of cuts could be applied after hadronization to ensure the actual outgoing jets would pass out criteria. Furthermore, using a \gls{ME} generator should provide a more accurate description of multi-jet events while the two steps approach should allow a significant reduction of the necessary computing time. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{MadGraph parton level simulation}
 
 %Status: Writing
 
-Proposal to the Higgs sample generation contacts consists on the production of a MadGraph QCD sample with VBF characteristics and no missing transverse energy cut.
+Proposal to the Higgs sample generation contacts consists on the production of a MadGraph QCD sample with \gls{VBF} characteristics and no missing transverse energy cut.
 
 This sample is to be produced in two steps. The parton level simulation which is to be done with the MadGraph event generator. The base processes will be proton-proton to 2, 3, and 4 jets. Here a jet is defined as the hard process outgoing particle which can be a gluon or a quark (u, d, c, s or b). Only events with at least one outgoing di-parton where both parton have more than $30\,\GeV$ and at least $800\,\GeV$ are kept. 
 
