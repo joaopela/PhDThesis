@@ -309,9 +309,28 @@ Efficiency of the post hadronization event matching has been estimated of $9.45\
 
 After hadronization we cluster the outgoing stable particles with the anti-$k_T$ algorithm with $\Delta R<0.4$ while ignoring muons. The reason to ignore muons is that \gls{CMS} muon detector coverage only goes up to $|\eta|<2.4$ so all muons outside this region will not be seen by the experiment and therefore will not be clustered into jets. Most of our signal like events will have at least one jet in the region $|\eta|>2.4$. 
 
-We start by making an initial selection of the events with at least one generator level dijet passing $\Delta\eta > 3.0$, $m_{jj} > 1000\,\GeV$ where both jets pass $\pt > 40\,\GeV$ and $|\eta|<4.8$. The events passing this cuts are split into two sub-samples. Sub-sample A will have the events where the selected dijet passes $\Delta\phi<=2.15$ and sub-sample B where at least on dijet passing all initial conditions and an inverted $\Delta\phi$ cut.
+We start by making an initial selection of the events with at least one generator level dijet passing $\Delta\eta > 3.0$, $m_{jj} > 1000\,\GeV$ where both jets pass $\pt > 40\,\GeV$ and $|\eta|<4.8$. The events passing this cuts are split into two sub-samples. Sub-sample A will have the events where the selected dijet passes $\Delta\phi<=2.15$ and sub-sample B where at least on dijet passing all initial conditions and an inverted $\Delta\phi$ cut. Plots over all the relevant variable before the $\Delta\phi$ cut and for the leading dijet passing the cuts can be found in figure \ref{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions1} and \ref{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions2}.
 
+\begin{figure}[!htp]%
+\centering
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/GeneratorFilter/Pt40_Eta4p8_DEta3p0_Mjj1000/Images/LeadDijet_Jet0_Pt.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/GeneratorFilter/Pt40_Eta4p8_DEta3p0_Mjj1000/Images/LeadDijet_Jet1_Pt.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/GeneratorFilter/Pt40_Eta4p8_DEta3p0_Mjj1000/Images/LeadDijet_Jet0_Eta.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/GeneratorFilter/Pt40_Eta4p8_DEta3p0_Mjj1000/Images/LeadDijet_Jet1_Eta.pdf}}\\
+\caption[]{}
+\label{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions1}
+\end{figure}
 
+All the distributions show the expected features of the generator level filter cuts. As expected the peak of the $\Delta\phi$ distribution is at \pi when the 2 jets are back to back, but a tail of events is visible down to zero. A similar shape was observed in the Run I analysis before applying a cut on $min(\Delta\phi(jets,MET))$ in QCD dominated regions.
+
+\begin{figure}[!htp]%
+\centering
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/GeneratorFilter/Pt40_Eta4p8_DEta3p0_Mjj1000/Images/LeadDijet_DEta.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/GeneratorFilter/Pt40_Eta4p8_DEta3p0_Mjj1000/Images/LeadDijet_DPhi.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/GeneratorFilter/Pt40_Eta4p8_DEta3p0_Mjj1000/Images/LeadDijet_Mjj.pdf}}\\
+\caption[]{}
+\label{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions2}
+\end{figure}
 
 Sub-sample A will be produced by running over all the events produced up to the hadronization step. Its estimated filter efficiency is of $2.938 \times 10^{-1} \pm 4.67 \time 10^{-4}$ which would lead to a sample since of approximately 29 million events and corresponding to an equivalent luminosity of over $1.1\,\femto\barn^{-1}$.
 
