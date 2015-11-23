@@ -208,6 +208,8 @@ For the proposal of our triggers it was decided to produce numbers for conservat
 \section{Run II QCD Monte Carlo samples}
 \label{SECTION:RunIIPreparation_RunIIQCDMonteCarloSamples}
 
+%Status: DONE
+
 Simulating and reconstructing quantities of \gls{QCD} events comparable to the ones produced at the \gls{LHC} experiments is impractical. At every second of \gls{LHC} physics operation several millions of bunch crossings happen, each one able to create several simultaneous collisions. With the currently available hardware it takes in excess of one minute to fully simulate one of such bunch crossings. Further more, most of this events have very low energy collisions and are unlikely to be picked up by any physics analysis.  
 
 This constraints lead to \gls{QCD} events being simulated in $p_\perp$ hats, where the first collision outgoing particles summed $p_\perp$ generated within a predefined rangee. Then several other collisions are added to the event as \gls{PU}. This additional collisions are generated without any constraints in $p_\perp$. 
@@ -295,84 +297,113 @@ The parton level events that have passed the initial filter now have to be hadro
 
 \input{Chapter07/QCDVBFSamples/Hadronization/Table/Pythia8_HadronizationResults.tex}
 
-Efficiency of the post hadronization event matching has been estimated of $9.45 \pm 0.03\%$, leading to an sample cross section of $9.718 \time 10^5 \pm 2.903 \time 10^3\,\pico\barn$. The lower matching efficiency in the 3 and 4 jets final states is due to the absence of a restriction on minimum jet \pt on any additional jets to the dijet passing the parton level cuts. This jets, if low enough on energy will hardly be clusters into a jet and therefore cannot be match to its seed parton.
+Efficiency of the post hadronization event matching has been estimated of $9.45\% \pm 0.03\%$, leading to an sample cross section of $9.718 \times 10^5 \pm 2.903 \times 10^3\,\pico\barn$. The lower matching efficiency in the 3 and 4 jets final states is due to the absence of a restriction on minimum jet \pt on any additional jets to the dijet passing the parton level cuts. This jets, if low enough on energy will hardly be clusters into a jet and therefore cannot be match to its seed parton.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Generator level cuts}
+\label{SUBSECTION:RunIIPreparation_GeneratorLevelCuts}
 
-After hadronization we cluster the outgoing stable particles with the anti-$k_T$ algorithm with $\Delta R<0.4$ while muons ignoring muons. The reason to ignore muons is that \gls{CMS} muon detector coverage only goes up to $|\eta|<2.4$ so all jets outside this region will not be seen by the experiment. Most of our signal like events will have at least one jet in the region $|\eta|>2.4$. At this point we separate the sample into two sub-samples according using a generator level filter. 
+%Status: DONE
 
-The first sample results of running over all the events produced up to the hadronization step. We select only the events with at least one generator level dijet passing $\Delta\eta > 3.0$, $m_{jj} > 1000\,\GeV$ and $\Delta\phi<=2.15$ where both jets pass $\pt > 40\,\GeV$ and $|\eta|<4.8$. The estimated filter efficiency is $2.938 \times 10^{-1} \pm 4.67 \time 10^{-4}$ which would lead to a sample since of approximately 29 million events and corresponding to an equivalent luminosity of over $1.1\,\femto\barn^{-1}$.
+After hadronization we cluster the outgoing stable particles with the anti-$k_T$ algorithm with $\Delta R<0.4$ while ignoring muons. The reason to ignore muons is that \gls{CMS} muon detector coverage only goes up to $|\eta|<2.4$ so all muons outside this region will not be seen by the experiment and therefore will not be clustered into jets. Most of our signal like events will have at least one jet in the region $|\eta|>2.4$. 
 
-The second sample would be the result of running over only 10\% of the events available at the hadronization step. Here we reverse the $\delta\phi$ cut while keeping all that other cuts from the first sample. This filter has an efficiency of $1.125 \time 10^{-1} \pm 9.13 \time 10^{-4}$  and would lead to sample of about 14 million events, corresponding to an equivalent luminosity of over $110\,\pico\barn$. If additional computing resources would become available this sample could be expanded up to 100\% of the base sample to a total of 141 million events and equivalent luminosity over $1.1\,\femto\barn^{-1}$.
+We start by making an initial selection of the events with at least one generator level dijet passing $\Delta\eta > 3.0$, $m_{jj} > 1000\,\GeV$ where both jets pass $\pt > 40\,\GeV$ and $|\eta|<4.8$. The events passing this cuts are split into two sub-samples. Sub-sample A will have the events where the selected dijet passes $\Delta\phi<=2.15$ and sub-sample B where at least on dijet passing all initial conditions and an inverted $\Delta\phi$ cut.
 
+
+
+Sub-sample A will be produced by running over all the events produced up to the hadronization step. Its estimated filter efficiency is of $2.938 \times 10^{-1} \pm 4.67 \time 10^{-4}$ which would lead to a sample since of approximately 29 million events and corresponding to an equivalent luminosity of over $1.1\,\femto\barn^{-1}$.
+
+Sub-sample B will result from running over only 10\% of the events available at the hadronization step. This filter has an efficiency of $1.125 \time 10^{-1} \pm 9.13 \time 10^{-4}$  and would lead to sample of about 14 million events, corresponding to an equivalent luminosity of over $110\,\pico\barn$. If additional computing resources would become available this sample could be expanded up to 100\% of the base sample to a total of 141 million events and equivalent luminosity over $1.1\,\femto\barn^{-1}$.
+
+It is necessary to determine the overlap between this two sub-samples. From table \ref{TABLE:RunIIPreparation_PassFilterNJetsDphi} we can see that a significant amount of events on each sub-sample have additional jets, passing all required jet conditions. 
 
 \input{Chapter07/QCDVBFSamples/GeneratorFilter/Tables/GeneratorJets_PassFilter_NJets_Dphi.tex}
 
+This additional jets lead to additional combinations that may pass the criteria of the opposite sub-sample. As it can be seen in table \ref{TABLE:RunIIPreparation_PassFilterNDijetsDphi} in as much as 5\% of the events in the $\Delta\phi<=2.15$ sub-sample there is a second combination of two jets that would pass the criteria to be in that sub-sample.
+
 \input{Chapter07/QCDVBFSamples/GeneratorFilter/Tables/GeneratorJets_PassFilter_NDijets_Dphi.tex}
 
+The overlap between the two sub-samples has been determined to be $3.95\% \pm 0.14\%$ of the events passing the initial selection. Since this number is relevant, and to to avoid event double counting, events with combinations that would pass both sub-sample definitions should be vetoed in one of the samples.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Migration study}
+\label{SUBSECTION:RunIIPreparation_MigrationStudy}
 
-On concern when making cuts at steps below event reconstruction is the possibility of cutting events that may pass analysis event selections. This migration of events needs to be taken into account while defining the cuts at parton and generator levels. If we take the relevant variables of signal region selection used during the 2012-13 parked data analysis, we selected a dijet with jet $\pt > 45\,\GeV$, $\Delta\eta>3.5$ and dijet $m_{jj}>1100\,\GeV$. %TODO
-It is unlikely that the Run II offline selection would be able to cut below jet $\pt > 50\,\GeV$.
+%Status: DONE
+
+On concern when making cuts at steps below event reconstruction is the possibility of cutting events that may pass analysis event selections. This migration of events needs to be taken into account while defining the cuts at parton and generator levels. If we take the relevant variables of signal region selection used during the 2012-13 parked data analysis, we selected a dijet with   $\Delta\eta>3.6$ and dijet $m_{jj}>1200\,\GeV$ where the lead jet $\pt > 50\,\GeV$ and sub-lead jet $\pt > 45\,\GeV$ and both have $|\eta|<4.7$ (condition to guarantee the used AK5 jets are fully contained in the detector). It is unlikely that the Run II offline selection would be able to cut below jet $\pt > 50\,\GeV$.
 
 In order to study migration a second \gls{MC} sample with lower parton cuts was generated. We also used MadGraph as an event generator with all the same parameters with the only difference being the dijet cuts. We now select events with at least a pair of outgoing partons with invariant mass of $600\,\GeV$, where both parton are inside the detector volume with $|\eta|<5.0$ and have more than $p_{T}>10\,\GeV$. Hadronization was then performed with the same procedure described in the previous section.
 
+In order to compare generator jets to the partons that created them we need to match them. For each parton we select all generator jet which are located at $\Delta R < 0.4$ and from those we select the generator jet with less difference of \pt to our parton. This procedure attempts to account for situation where more than one jet is within the matching distance but the best match in \pt is not the closest one in $\Delta R$. Using this procedure we can find a match for the di-parton passing the imposed cuts for 73.24\% of the events and we also find that the matched generator jet is not the closest one in $\Delta R$ for 3.45\% of the partons. A table of the matching efficiency for discriminated by physics process can be found in table \ref{TABLE:RunIIPreparation_PartonGenJetMatchingEfficiency}. 
 
-\input{Chapter07/QCDVBFSamples/Gridpack/Tables/table_Gridpack_PartonGenJetMatchingResults.tex}
+\input{Chapter07/QCDVBFSamples/Migrations/Tables/PartonGenJetMatchingEfficiency.tex}
+
+Since we are simulating partons with fairly low \pt, two jets with $\pt > 10\,\GeV$ and up to two more with no restriction on energy. It is not a surprise that in significant amount of events we cannot match all partons to generator jets. This is due to the spread of energy over a larger area then the jet algorithm can cluster and due to the default AK4 minimum \pt necessary to form a jet of $3\,\GeV$. A set of plots of the of the relevant variable are plotted in figure \ref{FIGURE:RunIIPreparation_VariablesPartonVsGenJet}. Here we take the selected di-parton and plot each variable against the matched dijet.
 
 
-In order to compare partons to generator jets we need to match them. To this effect, we start by 
-
-
-\begin{figure}[htp]%
+\begin{figure}[!htp]%
 \centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Parton1_Pt.pdf}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Parton2_Pt.pdf}}\\
-\caption[TODO]{TODO}
-\label{FIGURE:TODO}
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/Migrations/Images/SelDiParton_MatchedGenJet_Parton1_Pt.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/Migrations/Images/SelDiParton_MatchedGenJet_Parton2_Pt.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/Migrations/Images/SelDiParton_MatchedGenJet_Parton1_Eta.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/Migrations/Images/SelDiParton_MatchedGenJet_Parton2_Eta.pdf}}\\
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/Migrations/Images/SelDiParton_MatchedGenJet_DEta.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter07/QCDVBFSamples/Migrations/Images/SelDiParton_MatchedGenJet_Mjj.pdf}}\\
+\caption[]{Plots for relevant variables of the selected di-parton against its matched dijet. On plot a) lead parton \pt b) sub-leading parton \pt c) lead parton $\eta$ d) sub-lead parton $\eta$ e) di-parton $\Delta\eta$ d) di-parton $m_{jj}$}
+\label{FIGURE:RunIIPreparation_VariablesPartonVsGenJet}
 \end{figure}
 
-\begin{figure}[htp]%
-\centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Parton1_Eta.pdf}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Parton2_Eta.pdf}}\\
-\caption[TODO]{TODO}
-\label{FIGURE:TODO}
-\end{figure}
+On plots \ref{FIGURE:RunIIPreparation_VariablesPartonVsGenJet} a), b) and f) we can see two populations. In the parton \pt plots they are along the diagonal and and along the line of generator jet \pt equal to zero and in the $m_{jj}$ plot along the diagonal and along the line of $y=x/2$.  This is due to the fact that at parton level the partons are perfectly matched in energy and momentum but if they are matched to only one correct generator jet and second jet with \pt close to zero, the system will have half the energy of the correctly assigned events.
 
-\begin{figure}[htp]%
-\centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_DEta.pdf}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/QCDVBFSamples/Gridpack/Images/SelDiParton_MatchedGenJet_Mjj.pdf}}\\
-\caption[TODO]{TODO}
-\label{FIGURE:TODO}
-\end{figure}
+We can now calculate the event migrations from events that did not pass will not pass the parton event selection but could have passed the generator level selection. This effect can be from jet dispersion or overlap, and clustering artefacts. Let's first consider the migrations on each variable separately, lead jet \pt (eq. \ref{EQUATION:RunIIPreparation_SigleVariableMigrationLeadPt}), sub-lead jet \pt (eq. \ref{EQUATION:RunIIPreparation_SigleVariableMigrationSubleadPt}) and dijet $m_{jj}$ (eq. \ref{EQUATION:RunIIPreparation_SigleVariableMigrationMjj}).
 
-A second gridpack was setup with lower parton cuts in order to study event migrations between the thresholds of the parton filter and the generator jets filter.
-
-Single variable migration (Lead $p_T$)
+\small
 \begin{equation}
-\frac{p_{\perp}^{Parton}<30 \text{ AND } p_{\perp}^{GenJet} \geq 40}{p_{\perp}^{GenJet} \geq 40}=0.27\% \pm 0.04\%
+\label{EQUATION:RunIIPreparation_SigleVariableMigrationLeadPt}
+\frac{p_{T}^{Parton}<30 \wedge p_{T}^{GenJet} \geq 40}{p_{T}^{GenJet} \geq 40}=0.27\% \pm 0.04\%
 \end{equation}
 
-Single variable migration (Sub-lead $p_T$)
 \begin{equation}
-\frac{p_{\perp}^{Parton}<30 \text{ AND } p_{\perp}^{GenJet} \geq 40}{p_{\perp}^{GenJet} \geq 40}=0.56\% \pm 0.08\%
+\label{EQUATION:RunIIPreparation_SigleVariableMigrationSubleadPt}
+\frac{p_{T}^{Parton}<30 \wedge p_{T}^{GenJet} \geq 40}{p_{T}^{GenJet} \geq 40}=0.56\% \pm 0.08\%
 \end{equation}
 
-Single variable migration ($m_{jj}$)
 \begin{equation}
-\frac{m_{jj}^{Parton}<800 \text{ AND } m_{jj}^{GenJet} \geq 1000}{m_{jj}^{GenJet} \geq 800}=0.13\% \pm 0.04\%
+\label{EQUATION:RunIIPreparation_SigleVariableMigrationMjj}
+\frac{m_{jj}^{Parton}<800 \wedge m_{jj}^{GenJet} \geq 1000}{m_{jj}^{GenJet} \geq 800}=0.13\% \pm 0.04\%
 \end{equation}
+\normalsize
 
-Double variable migration
+Now we can consider the migrations of events over all variables simultaneously in equation \ref{EQUATION:RunIIPreparation_All}.
+
+\small
 \begin{equation}
-\frac{(p_{\perp}^{GenJet}>40 \text{ AND } m_{jj}^{GenJet}>1000) \text{ AND } (p_{\perp}^{Parton}<30 \text{ OR } m_{jj}^{Parton}<800)}{p_{\perp}^{GenJet}>40 \text{ AND } m_{jj}^{GenJet}>1000} = 0.23\% \pm 0.13\%
+\label{EQUATION:RunIIPreparation_All}
+\frac{(p_{T}^{GenJet}>40 \wedge m_{jj}^{GenJet}>1000) \wedge (p_{T}^{Parton}<30 \vee m_{jj}^{Parton}<800)}{p_{T}^{GenJet}>40 \cup m_{jj}^{GenJet}>1000} = 0.23\% \pm 0.13\%
 \end{equation}
+\normalsize
 
+We can that that the global migrations of events from below the selected parton level cuts to above the selected generator cuts are of $0.23\% \pm 0.13\%$ of the total number events passing the generator filter. This is an acceptable value which should not bias in any relevant way the physics usage of this sample.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Summary}
+\label{SUBSECTION:RunIIPreparation_Summary}
 
+%Status: DONE
 
+The production on new \gls{QCD} \gls{MC} event sample with VBF characteristics was studied and all objectives were achieved. We propose the use as MadGraph as the event generator, configured to produce proton-proton to two, three or four outgoing partons where this partons can be gluons or quarks except the top quark. At the stage we filter the events only accepting those that have at least one di-parton with $m_{jj}>800\,\GeV$ where each parton has at least $30\,\GeV$ and is contained inside the detector acceptance of $|\eta|<5.0|$. This process has a cross section of $1.029 \times 10^7 \pm 1.614 \times 10^4 \,\pico\barn$. 
+
+We proceed with event hadronization using Pythia 8 event generator with MLM jet matching scheme as traditionally done in the \gls{CMS} experiment. We estimate this step to have an efficiency of $9.45\% \pm 0.03\%$ which leads cross section of $9.718 \time 10^5 \pm 2.903 \time 10^3\,\pico\barn$. From those events, we only keep the ones containing at least one generator dijet passing $\Delta\eta > 3.0$, $m_{jj} > 1000\,\GeV$ where both jets pass $\pt > 40\,\GeV$ and $|\eta|<4.8$. We split those event into 2 sub-samples according if the dijet passing all cuts is below (sub-sample A) of above $\Delta\phi=2.15$ (sub-sample B). The filter efficiency for sub-sample A is $2.938 \times 10^{-1} \pm 4.67 \time 10^{-4}$ and it is aimed to have $1\,\femto\barn$ of equivalent integrated luminosity. Sub-ample B filter efficiency is $1.125 \time 10^{-1} \pm 9.13 \time 10^{-4}$ and will have $0.1-1.0\,\femto\barn$ of equivalent integrated luminosity depending on available resources. The overlap between the two sub-samples has been estimated to be of $3.95\% \pm 0.14\%$ thus requiring care in combining them.
+
+Migrations from events below the parton level cuts to about the generator level cuts have been determined to be $0.23\% \pm 0.13\%$ of the total number of events passing the generator filters.
+
+The MadGraph code for event generation have been approved by the \gls{CMS} \gls{MC} production team. The additional code necessary for the generator level filtering has been queued for integration in the experiment software. Final approval of this sample production is under way. 
+
+%TODO: Update if sample is approved.
