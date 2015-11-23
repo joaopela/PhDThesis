@@ -313,9 +313,16 @@ The second sample would be the result of running over only 10\% of the events av
 
 \subsection{Migration study}
 
+On concern when making cuts at steps below event reconstruction is the possibility of cutting events that may pass analysis event selections. This migration of events needs to be taken into account while defining the cuts at parton and generator levels. If we take the relevant variables of signal region selection used during the 2012-13 parked data analysis, we selected a dijet with jet $\pt > 45\,\GeV$, $\Delta\eta>3.5$ and dijet $m_{jj}>1100\,\GeV$. %TODO
+It is unlikely that the Run II offline selection would be able to cut below jet $\pt > 50\,\GeV$.
+
+In order to study migration a second \gls{MC} sample with lower parton cuts was generated. We also used MadGraph as an event generator with all the same parameters with the only difference being the dijet cuts. We now select events with at least a pair of outgoing partons with invariant mass of $600\,\GeV$, where both parton are inside the detector volume with $|\eta|<5.0$ and have more than $p_{T}>10\,\GeV$. Hadronization was then performed with the same procedure described in the previous section.
 
 
 \input{Chapter07/QCDVBFSamples/Gridpack/Tables/table_Gridpack_PartonGenJetMatchingResults.tex}
+
+
+In order to compare partons to generator jets we need to match them. To this effect, we start by 
 
 
 \begin{figure}[htp]%
