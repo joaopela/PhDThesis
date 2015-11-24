@@ -24,191 +24,141 @@ In this analysis we used the full certified data with collisions at $\sqrt{s}=8\
 The difference between certified and analysed datasets is due to out analysis trigger not being active for the first few runs of of Run 2012B. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
+%%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Event quality filters}
+\subsection{Monte Carlo Samples}
 
-During data recording issues may happen with the detector or data acquisition which may render some of the events unusable. The groups responsible for each part of the detector and physics object check the data after it was taken and if they find such problems occurred. This groups produce software event filters analysts to be able to remove this problematic events. This issues cover from know detector problems to miss firing of calibration sequences or even failure to reconstruct physics objects.
-
-The Jet-MET Particle Object Group (POG) recommends the usage of the following filters which are used in this analysis.
-% \cite{CMS:JetMETPOG:MissingETOptionalFilters}
-
-\begin{itemize}
-  \item CSCTightHaloFilter
-  \item HBHENoiseFilter
-  \item EcalDeadCellTriggerPrimitiveFilter
-  \item trackingFailureFilter
-  \item eeBadScFilter
-  \item ECAL Laser filter
-  \item HCAL Laser filter
-\end{itemize}
-
-In turn the JetMET group recommend the usage of the following Tracking POG Filter:
-%\cite{CMS:TrackingPOG:TrackingPOGFilters}
-
-
-\begin{itemize}
-  \item logErrorTooManyClusters
-  \item manystripclus53X
-  \item toomanystripclus53X
-\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Electrons}
+\section{Monte Carlo to Data correction factors}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Veto electrons}
+\subsection{Pile-up}
 
-The "veto electrons" are defined by the base requirements of the cut based electron ID veto working point of the EGamma POG with some additional cuts on top. 
-  
-Requirements of the cut based electron ID veto working point:
- 
-\begin{table}[htp]
-  
-\begin{tabular}{|l|c|c|}
-\hline
-Variable & Barel & Endcap \\
-\hline\hline
-$| \Delta\eta(track,supercluster) |$ & $<0.007$ & $<0.1$  \\
-$| \Delta\phi(track,supercluster) |$ & $<0.8  $ & $<0.7$  \\
-$ \sigma(i\eta,i\eta)$               & $<0.01 $ & $<0.03$ \\
-$H/E$                                & $<0.15 $ &       - \\
-$|d_{0}(vertex)|$                    & $<0.04 $ & $<0.04$ \\
-$|d_{Z}(vertex)|$                    & $<0.2  $ & $<0.2 $ \\
-$\frac{PF_{isolation}}{p_{\perp}}$ for $ \Delta R_{cone}=0.3$  & $<0.15 $ & $<0.15$ \\
-\hline
-\end{tabular}
-\caption{Details of the \gls{CMS} Electron-Gamma \gls{POG} recommendations for a \textit{veto electron}. Here barrel is defined as $ |\eta_{supercluster}|<=1.479 $ and endcap is $ 1.479 < |\eta_{supercluster}| < 2.5 $.} 
-\end{table}
-
- 
- 
-Additional requirements for this analysis
-\begin{itemize}
-  \item $ p_{\perp} > 10\,\GeV$
-  \item $ |\eta| < 2.4 $
-\end{itemize}
- 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Tight electrons}
+\subsection{Trigger efficiency}
 
-% More information at: 
-%  * https://twiki.cern.ch/twiki/bin/viewauth/CMS/EgammaIDRecipes
-%  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaCutBasedIdentification
-%  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaEARhoCorrection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lepton Identification}
 
-The "tight electrons" are defined by using the base requirements of the cut based electron ID tight working point (similar to 2011 very tight WP70) of the EGamma POG with some additional cuts on top.
-  
-Requirements of the cut based electron ID tight working point (similar to 2011 very tight WP70) and can be found in table \ref{TABLE:ParkedDataAnalysis_TightElectronID}
-
-\input{Chapter06/Tables/table_TightElectronID}
-
-Additional requirements for this analysis:
-\begin{itemize}
-  \item $ p_{\perp} > 20\,\GeV$
-  \item $ |\eta| < 2.4 $
-\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Top reweighting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Muons}
+\section{Signal event selection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Control Regions}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Loose Muons}
-
-% From: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId
-%
-% bool muon::isLooseMuon (const reco::Muon & recoMu);
-% Particle-Flow muon id     & recoMu.isPFMuon()                               & Can be complemented by muon quality cuts similar to those used in the Tight Muon selection.
-% Is Global OR Tracker Muon & recoMu.isGlobalMuon() || recoMu.isTrackerMuon() & Avoid using muons which are only Standalone Muons. (~0.01% of PF muons) 
-% REFERENCE: MUO-10-004
-
-Requirements:
-\begin{itemize}
-  \item $\pt>10\,\GeV$
-  \item $|\eta|<2.1$
-  \item Relative Combined Isolation $<0.2$
-\end{itemize}
-
-POG Loose ID:
-\begin{itemize}
-  \item Particle-Flow muon ID
-  \item Global or Tracker Muon
-\end{itemize}
-
+\subsection{Top background estimation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Tight Muons}
+\subsection{W background estimation}
 
-Requirements:
-\begin{itemize}
-  \item $\pt>20\,\GeV$
-  \item $|\eta|<2.1$
-  \item Relative Combined Isolation $<0.12$
-  \item $d_{xy}<0.045$
-  \item $d_z < 0.2$
-\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{W background estimation}
 
-POG Tight ID:
-\begin{itemize}
-  \item Global Muon
-  \item Particle-Flow muon id 
-  \item $\chi^2/ndof < 10$
-  \item At least one muon chamber hit included in the global-muon track fit
-  \item Muon segments in at least two muon stations
-  \item $d_{xy} < 2$ mm w.r.t. the primary vertex
-  \item $d_z < 5$ mm
-  \item Number of pixel hits $> 0$ 
-  \item Number of tracker layers with hits $>5$
-\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{W to electron+neutrino}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{W to muon+neutrino}
 
-% bool muon::isTightMuon(const reco::Muon & recoMu, const reco::Vertex & vtx);
-% The candidate is reconstructed as a Global Muon & recoMu.isGlobalMuon()    
-% Particle-Flow muon id                           & recoMu.isPFMuon()                            & the exclusive effect of this requirement is very small, i.e. PFMuon is keeping almost all Tight Muons without this cut
-% χ2/ndof of the global-muon track fit < 10       & recoMu.globalTrack()->normalizedChi2() < 10. &   To suppress hadronic punch-through and muons from decays in flight (see CMS AN 2008/098). This cut might need to be re-tuned due to the change to fully segment based global fit in 50X releases and later. It will need a retuning when muon APEs will be activated in the global track fit.
-% At least one muon chamber hit included in the global-muon track fit     recoMu.globalTrack()->hitPattern().numberOfValidMuonHits() > 0  To suppress hadronic punch-through and muons from decays in flight.
-% Muon segments in at least two muon stations
-% This implies that the muon is also an arbitrated tracker muon, see SWGuideTrackerMuons  recoMu.numberOfMatchedStations() > 1    To suppress punch-through and accidental track-to-segment matches.
-% Also makes selection consistent with the logic of the muon trigger, which requires segments in at least two muon stations to obtain a meaningful estimate of the muon pT.
-% Its tracker track has transverse impact parameter dxy < 2 mm w.r.t. the primary vertex  fabs(recoMu.muonBestTrack()->dxy(vertex->position())) < 0.2
-% Or dB() < 0.2 on pat::Muon [1]  To suppress cosmic muons and further suppress muons from decays in flight (see CMS AN 2008/098).
-% The 2 mm cut preserves efficiency for muons from decays of b and c hadrons. It is a loose cut and can be tightened further with minimal loss of efficiency for prompt muons if background from cosmic muons is an issue. Another way to obtain a better cosmic-ray suppression is to complement the dxy cut with a cut on the opening angle α or use a dedicated cosmic-id algorithm (see Section 7.1 of MUO-10-004). innerTrack() is also supported for dxy cut, as the performance of the two is very close.
-% The longitudinal distance of the tracker track wrt. the primary vertex is dz < 5 mm     fabs(recoMu.muonBestTrack()->dz(vertex->position())) < 0.5      Loose cut to further suppress cosmic muons, muons from decays in flight and tracks from PU. innerTrack() is also supported for dz cut, as the performance of the two is very close.
-% Number of pixel hits > 0        recoMu.innerTrack()->hitPattern().numberOfValidPixelHits() > 0  To further suppress muons from decays in flight.
-% Cut on number of tracker layers with hits >5    recoMu.innerTrack()->hitPattern().trackerLayersWithMeasurement() > 5    To guarantee a good pT measurement, for which some minimal number of measurement points in the tracker is needed.
-% Also suppresses muons from decays in flight. 
-%
-% REFERENCE: MUO-10-002 and MUO-10-004
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{W to tau+neutrino}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Z background estimation}
 
-\section{Taus}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{QCD background estimation}
 
-Requirements
-\begin{itemize}
-  \item $\pt > 20 \,\GeV$
-  \item $|\eta|<2.3$
-  \item $d_z<0.2 \,\centi\meter$
-\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{QDC VBF-like + MET Monte Carlo Sample}
 
-Descriminants:
-\begin{itemize}
-  \item decayModeFinding
-  \item byTightCombinedIsolationDeltaBetaCorr3Hits
-  \item againstMuonTight
-  \item againstElectronTight
-\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Data driven QCD estimation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Systematics}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Extraction of limits}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%% SECTION
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Event quality filters}
+% 
+% During data recording issues may happen with the detector or data acquisition which may render some of the events unusable. The groups responsible for each part of the detector and physics object check the data after it was taken and if they find such problems occurred. This groups produce software event filters analysts to be able to remove this problematic events. This issues cover from know detector problems to miss firing of calibration sequences or even failure to reconstruct physics objects.
+% 
+% The Jet-MET Particle Object Group (POG) recommends the usage of the following filters which are used in this analysis.
+% % \cite{CMS:JetMETPOG:MissingETOptionalFilters}
+% 
+% \begin{itemize}
+%   \item CSCTightHaloFilter
+%   \item HBHENoiseFilter
+%   \item EcalDeadCellTriggerPrimitiveFilter
+%   \item trackingFailureFilter
+%   \item eeBadScFilter
+%   \item ECAL Laser filter
+%   \item HCAL Laser filter
+% \end{itemize}
+% 
+% In turn the JetMET group recommend the usage of the following Tracking POG Filter:
+% %\cite{CMS:TrackingPOG:TrackingPOGFilters}
+% 
+% 
+% \begin{itemize}
+%   \item logErrorTooManyClusters
+%   \item manystripclus53X
+%   \item toomanystripclus53X
+% \end{itemize}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
