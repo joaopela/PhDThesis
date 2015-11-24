@@ -106,7 +106,7 @@ The typical background to real electrons are collimated hadronic jets, like from
   \item $H/E$ is the ration of hadronic to electromagnetic energy in the region of the seed cluster. 
 \end{itemize}
 
-Distributions of the variables for simulated electrons and jets can be found in figure \ref{FIGURE:EventReconstructionPhysicsObjects_Electrons}. 
+Distributions of the variables for simulated electrons and jets can be found in figure \ref{FIGURE:PhysicsObjects_Electrons}. 
 
 \begin{figure}[htp]%
 \centering
@@ -115,10 +115,25 @@ Distributions of the variables for simulated electrons and jets can be found in 
 \subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter04/Electrons/Images/elecs_hovere.pdf}}\qquad
 \subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter04/Electrons/Images/elecs_sigmaietaieta.pdf}}
 \caption[Distributions for the variables $\Delta\eta_{\text in}$, $\Delta\phi_{\text in}$, $\sigma_{i\eta i\eta}$ and $H/E$ for simulated electrons and misidentified jets.]{Distributions for (a) $\Delta\eta_{in}$, (b) $\Delta\phi_{in}$, (c) $H/E$ and (d) $\sigma_{i \eta i \eta}$. Here \textit{golden electrons} are those who emit minimal bremmstrahlung photons, \textit{showering} are electrons that lose a large faction of their energy in emissions and \textit{jets} are the typical distributions for hadronic jets.}
-\label{FIGURE:EventReconstructionPhysicsObjects_Electrons}
+\label{FIGURE:PhysicsObjects_Electrons}
 \end{figure}
 
+\subsection{Veto electrons}
 
+We define \textit{veto electrons} as an electron candidate with $\pt>10\,\GeV$ and $|\eta|<2.4$ which passes the \gls{CMS} Electron/Gamma \gls{POG} requirements of the cut based electron \gls{ID} \textit{veto electron} working point. A summary of these conditions can be found in table \ref{TABLE:PhysicsObjects_ElectronPOG_CutBased_VetoElectronRequirements}.
+ 
+\input{Chapter04/Electrons/Tables/ElectronPOG_CutBased_TightElectronRequirements}
+
+\subsection{Tight electrons}
+
+% More information at: 
+%  * https://twiki.cern.ch/twiki/bin/viewauth/CMS/EgammaIDRecipes
+%  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaCutBasedIdentification
+%  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaEARhoCorrection
+
+We also define \textit{tight electrons} as an electron candidate with $\pt>20\,\GeV$ and $|\eta|<2.4$ which passes the \gls{CMS} Electron/Gamma \gls{POG} requirements of the cut based electron \gls{ID} \textit{tight electron} working point. This working point is similar to the 2011 very tight WP70 working point. A summary of these conditions can be found in table \ref{TABLE:PhysicsObjects_ElectronPOG_CutBased_VetoElectronRequirements}.
+
+\input{Chapter04/Electrons/Tables/ElectronPOG_CutBased_VetoElectronRequirements}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -138,7 +153,28 @@ Tracker muon reconstructions is more efficient than the global muon reconstructi
 
 Muons can be also be classified as prompt of non-prompt. The prompt muons are the ones produced directly in the hard process like the decays of vector bosons or quarkonia particle decays. On the other hand, non-prompt muons typically come from in-flight decays light hadrons, from taus or heavy quark decays. 
 
-When reconstructing global muons, its unlikely to find non-prompt muons but we may have hadronic activity ``punching-through'' the calorimeter system and appearing in the muon system. To reduce this types of background we can use different muon identification criteria. We can define a ``tight muon'' as global fit track using tracker and muon chamber hits with a $\chi^2$ per degree of freedom os less than 10. This fit must include at least one segment in the muon chamber, track segments in at least 2 muon stations, use more than 10 hits in the inner tracker of which at least one in the a pixel layer and finally a small transverse impact paramenter $|d_{xy}|< 2\,\milli\meter$. The efficiency for such a criteria has been measured both in data and Monte Carlo using $J/\psi \rightarrow \mu^+ \mu^-$ and $Z \rightarrow \mu^+ \mu^-$ and for $\pt > 10 \,\GeV$ it plataus at 96-99\% \cite{ARTICLE:CMSMuonReconstruction7TeV}.
+When reconstructing global muons, its unlikely to find non-prompt muons but we may have hadronic activity ``punching-through'' the calorimeter system and appearing in the muon system. To reduce this types of background we can use different muon identification criteria. We can define a ``tight muon'' as global fit track using tracker and muon chamber hits with a $\chi^2$ per degree of freedom os less than 10. This fit must include at least one segment in the muon chamber, track segments in at least 2 muon stations, use more than 10 hits in the inner tracker of which at least one in the a pixel layer and finally a small transverse impact paramenter $|d_{xy}|< 2\,\milli\meter$. The efficiency for such a criteria has been measured both in data and Monte Carlo using $J/\psi \rightarrow \mu^+ \mu^-$ and $Z \rightarrow \mu^+ \mu^-$ and for $\pt > 10 \,\GeV$ it plateaus at 96-99\% \cite{ARTICLE:CMSMuonReconstruction7TeV}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Loose Muons}
+
+% From: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId
+%
+% bool muon::isLooseMuon (const reco::Muon & recoMu);
+% Particle-Flow muon id     & recoMu.isPFMuon()                               & Can be complemented by muon quality cuts similar to those used in the Tight Muon selection.
+% Is Global OR Tracker Muon & recoMu.isGlobalMuon() || recoMu.isTrackerMuon() & Avoid using muons which are only Standalone Muons. (~0.01% of PF muons) 
+% REFERENCE: MUO-10-004
+
+We can define \textit{loose muon} using the cut based definitions recommend by the \gls{CMS} Muon \gls{POG} with the same name, where we require the muon candidate to be a \gls{PF} muon which is also a tracker or global muon. We exclude only standalone muons which are only $\approx 0.01\%$ of the \gls{PF} muons. Additionally we require the muon candidate to have $\pt>10\,\GeV$, $|\eta|<2.1$ and relative combined isolation $<0.2$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Tight Muons}
+
+We can also define \textit{tight muon} as a muon candidate which has $\pt>20\,\GeV$, $|\eta|<2.1$. It is an isolated muon passing relative Combined Isolation $<0.12$, And it is compatible with being produced at the primary vertex by requiring $d_{xy}<0.045\,\milli\meter$ and $d_z < 0.2\,\milli\meter$. We additionally require the muon to pass the  \gls{CMS} Muon \gls{POG} recommended cut based \textit{tight muon} identification criteria that requires the candidate to be a \glsreset{PF} muon which is also a global muon. Where the the global track fit has at least one muon chamber hit and $\chi^2/ndof < 10$. The presence of muon segments in at least two chambers. The numbers os tracker layers with hits needs to be more than five and we also require at least one pixel hit.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -146,19 +182,23 @@ When reconstructing global muons, its unlikely to find non-prompt muons but we m
 \section{Lepton Isolation}
 \label{SECTION:EventReconstructionPhysicsObjects_LeptonIsolation}
 
-To reduce the the probability of misidentification of a lepton coming from \gls{QCD} jets as one coming from the hard scattering we can require isolation \cite{ARTICLE:CMSElectronReconstruction8TeV, ARTICLE:CMSMuonReconstruction7TeV}. We compute the isolation by summing the transverse momenta of all particles inside a cone around the selected lepton. In this sum we include all charged particles, neutral hadrons and photons. But we do not want to include the \gls{PU} contribution to this sum so we only include the charged candidates with an impact parameter smaller than $0.1 \,\centi\,\meter$. Different methods can be used to subtract the neutral component of the \gls{PU}.
+%Status: DONE
+
+To reduce the the probability of misidentification of a lepton coming from \gls{QCD} jets as opposed to one coming from the hard scattering we can require isolation \cite{ARTICLE:CMSElectronReconstruction8TeV, ARTICLE:CMSMuonReconstruction7TeV}. We compute the isolation by summing the transverse momenta of all particles inside a cone around the selected lepton. In this sum we include all charged particles, neutral hadrons and photons. But we do not want to include the \gls{PU} contribution to this sum so we only include the charged candidates with an impact parameter smaller than $0.1 \,\centi\,\meter$. Different methods can be used to subtract the neutral component of the \gls{PU}.
 
 Normally, for physics analysis we defined the more meaningful \textit{relative isolation} as $I_{rel} = I/\pt^{lepton}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Electrons Isolation}
+\subsection{Electrons Isolation}
 \label{SUBSECTION:EventReconstructionPhysicsObjects_LeptonIsolation_ElectronsIsolation}
 
 % More information
 %  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaCutBasedIdentification#Detector_Isolation
 %  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaEARhoCorrection#Isolation_cone_R_0_3
+
+%Status: Writting
 
 For electrons we calculate the \textit{effective area corrected isolation} over a cone of $\Delta R<0.3$ around the electron. For the neutral \gls{PU} subtraction we uses a look-up table of effective areas according to electron $|eta|$ which is multiplied by the estimated neutral \gls{PU} energy density by unit of effective area. The definition for this isolation can be found in equation \ref{EQUATION:ElectronIsolation}.
 
@@ -168,14 +208,18 @@ I = \sum^{\substack{\text{charged} \\ \text{non-pileup}}}\pT +
 \label{EQUATION:ElectronIsolation}
 \end{equation}
 
+For the \gls{VBF} Higgs to invisible Run I analysis we used the \gls{CMS} Electron/Gamma \gls{POG} recommend values together with our own minimum electron \pt requirements become $I_{rel}^{electron}<0.15$ for \textit{loose electron} working point and $I_{rel}^{electron}<0.10$ for the \textit{tight electron} working point.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Muons Isolation}
+\subsection{Muons Isolation}
 \label{SUBSECTION:EventReconstructionPhysicsObjects_LeptonIsolation_MuonsIsolation}
 
 % More information:
 %  * https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId#Muon_Isolation
+
+%Status: DONE
 
 For muons we use the \textit{combined isolation} over a cone of $\Delta R < 0.4$ around the muon. For neutral \gls{PU} subtraction we use the determined charged \gls{PU} component inside the cone and multiply it by a factor of 0.5 which is determined from simulation. The definition for this isolation can be found in equation \ref{EQUATION:MuonIsolation}.
 
@@ -185,6 +229,8 @@ I = \sum^{\substack{\text{charged} \\ \text{non-pileup}}}\pT +
 \\ \text{pileup}}}\pT\right)
 \label{EQUATION:MuonIsolation}
 \end{equation}
+
+For the \gls{VBF} Higgs to invisible Run I analysis we used the \gls{CMS} Muon \gls{POG} recommend \textit{Tight Isolation} working point of $I_{rel}^{muon}<0.12$.
 
 %\cite{ARTICLE:CMSMuonReconstruction7TeV} %AG 72
 
@@ -231,12 +277,38 @@ P_{\text{corr}}^{\mu} = C_{\text{offset}}(\pT^{\text{raw}},\eta) \cdot C_{\text{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Taus}
 
+
+Requirements
+\begin{itemize}
+  \item $\pt > 20 \,\GeV$
+  \item $|\eta|<2.3$
+  \item $d_z<0.2 \,\centi\meter$
+\end{itemize}
+
+Descriminants:
+\begin{itemize}
+  \item decayModeFinding
+  \item byTightCombinedIsolationDeltaBetaCorr3Hits
+  \item againstMuonTight
+  \item againstElectronTight
+\end{itemize}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Missing Transverse Energy}
 
-\cite{ARTICLE:CMSMissingTransverseEnergyPerformance}
+The Standard Model describes neutrinos as particles which only interact via the weak force. They can pass through our detectors without interacting and therefore not allowing any direct measurement. Many new models describe additional particles that would also be able to escape detection by leaving very small or no energy deposits in our experiments. The appearance of such particles can only be inferred through the measurement of an imbalance of transverse momentum of all detected particles. These effect can be quantified as the negative sum off all visible particle candidates transverse momentum in an event. The magnitude of that vector is normally called \glsreset{MET}.  
 
-\cite{ARTICLE:CMSMETPerformance8TeV}
+\begin{figure}[!htp]%
+\centering
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter04/MET/Images/met_zmm.pdf}}\qquad
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter04/MET/Images/met_gamma.pdf}}\\
+ \caption[Distributions of the particle flow $\MET$ in $Z\rightarrow\gamma\gamma$and $\gamma$+jets events in $\sqrt{s}=8\,\TeV$ data and simulation.]{Distributions of the particle flow $\MET$ in a) $Z\rightarrow\gamma\gamma$ and b) $\gamma$+jets events in $\sqrt{s}=8\,\TeV$ data and simulation. The shaded band reflects the uncertainty in the muon, photon, jet and neutral hadron energy responses \cite{ARTICLE:CMSMissingTransverseEnergyPerformance}.}
+\label{FIGURE:PhysicsObjects_MET}
+\end{figure}
+
+
+% \cite{ARTICLE:CMSMissingTransverseEnergyPerformance} % AG 83
+% \cite{ARTICLE:CMSMETPerformance8TeV}                 % AG
 
