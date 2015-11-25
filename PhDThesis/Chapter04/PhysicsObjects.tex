@@ -238,31 +238,46 @@ For the \gls{VBF} Higgs to invisible Run I analysis we used the \gls{CMS} Muon \
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Jets}
+\label{SECTION:EventReconstructionPhysicsObjects_Jets}
 
 %Status: DONE
 
-When we collide hadrons the most probable hard processes will produce quarks and gluons. However, these do not reach our detectors. They quickly hadronise and fragment generating a collimated spray of particles which is commonly referrer to as a jet. To determine the properties of this outgoing quarks and gluons we need therefore to look at the characteristics of their associated jets. To achieve this goal we need to combine the measured jet remnants in a way that preserves the physical properties of the original particle.
+When we collide hadrons the most probable hard processes will produce quarks and gluons. However, these do not reach our detectors. They quickly hadronize and fragment generating a collimated spray of particles which is commonly referrer to as a jet. To determine the properties of this outgoing quarks and gluons we need therefore to look at the characteristics of their associated jets. To achieve this goal we need to combine the measured jet remnants in a way that preserves the physical properties of the original particle.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Jet Clustering}
+\label{SECTION:EventReconstructionPhysicsObjects_Jets_JetClustering}
 
-%Status: WRITING
+%Status: DONE
 
-Jet clustering algorithms are sets of rules that allows us to combine a particle candidates into a jets \cite{ARTICLE:TowardsJetography}. These algorithms normally are controlled by parameters that define how close particles need to be in order to be associated into a jet and a way to combine their momentums. However jet definition should be robust and provide consistent measurements about the parton. There are two major problems that may affect a jet algorithm. This problems appear when the number of jets in an event changes by adding a soft collinear gluon emissions (collinear safety) or by parton splitting (infrared safety). 
+Jet clustering algorithms are sets of rules that allows us to combine a particle candidates into a jets \cite{ARTICLE:TowardsJetography}. These algorithms normally are controlled by parameters that define how close particles need to be in order to be associated into a jet and a way to combine their momentum. However jet definition should be robust and provide consistent measurements about the parton. There are two major problems that may affect a jet algorithms. These problems appear when the number of jets in an event changes by adding a soft collinear gluon emissions (collinear safety) or by parton splitting (infrared safety). 
 
-In \gls{CMS} we used a sequential recombination algorithm known as \textit{anti-$k_T$} \cite{ARTICLE:AntiKtAlgorithm} which is both infrared and collinear safe. 
+In \gls{CMS} we used a sequential recombination algorithm known as anti-$k_T$ \cite{ARTICLE:AntiKtAlgorithm} which is both infrared and collinear safe. This algorithm starts be determining a measurement of distance between every pair of objects $d_{ij}$ and a the distance of each object to the beamline $d_{iB}$. The definition of this distances can be found in equations \ref{EQUATION:EventReconstructionPhysicsObjects_AKDistances1} and \ref{EQUATION:EventReconstructionPhysicsObjects_AKDistances2} respectively. 
 
 \begin{align}
-d_{ij} &= \text{min}({\pT}_{i}^{2p},{\pT}_{j}^{2p})\frac{\Delta R_{ij}^{2}}{R^{2}} \\
-d_{iB} &= {\pT}_{i}^{2p}\, 
+d_{ij} &= \text{min}({\pT}_{i}^{2p},{\pT}_{j}^{2p})\frac{\Delta R_{ij}^{2}}{R^{2}} \label{EQUATION:EventReconstructionPhysicsObjects_AKDistances1} \\
+d_{iB} &= {\pT}_{i}^{2p}\ \label{EQUATION:EventReconstructionPhysicsObjects_AKDistances2} 
 \end{align}
 
+Where $\Delta R$ is the separation the $\eta-phi$ plane and $R$ is the maximum diameter for the jet. The parameter $p$ defines what type of algorithm we Choose. For $p$ is equal to 1 for the $k_T$ algorithm, 0 for the Cambridge/Aachen algorithm and -1 for the anti-$k_T$. 
+
+After determining all the $d_{ij}$ and $d_iB$ we determine the minimum distance, if it is a $d_{ij}$ we combine those two object and recalculate all the distances. If the minimum is a $d_iB$ we declare $i$ to be a \textit{final state jet}, and remove it from the list of particles and recalculate all the again distances. The procedure continues until there are no more objects remaining.
+
+The anti-$k_T$ algorithm tend to cluster particles around a the hardest particle in a region which normally leads to a cone like jet area in the $\Delta\phi$ plane. In the \gls{VBF} Higgs to invisible analysis the clustering is made over \gls{PF} particle candidates following the implementation in the \textsc{fastjet} software package \cite{ARTICLE:FastJetUserManual}. The \gls{CMS} recommended cone diameter size for 2012-13 analysis is of 0.5 while for 2015 is of 0.4.
 
 %\cite{ARTICLE:TowardsJetography} %AG 76
 %\cite{ARTICLE:AntiKtAlgorithm}   %AG 77
-\cite{ARTICLE:FastJetUserManual} %AG 78
+%\cite{ARTICLE:FastJetUserManual} %AG 78
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Jet Energy Corrections}
+\label{SECTION:EventReconstructionPhysicsObjects_Jets_JetEnergyCorrections}
 
+%Status: WRITING
 
 \begin{equation}
 P_{\text{corr}}^{\mu} = C_{\text{offset}}(\pT^{\text{raw}},\eta) \cdot C_{\text{rel}}(\pT^{''},\eta) \cdot C_{\text{abs}}(\pT^{'},\eta) \cdot P_{\text{raw}}^{\mu}\, ,
@@ -275,40 +290,77 @@ P_{\text{corr}}^{\mu} = C_{\text{offset}}(\pT^{\text{raw}},\eta) \cdot C_{\text{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Taus}
+\section{Hadronic Taus}
+\label{SECTION:EventReconstructionPhysicsObjects_Taus}
+
+%Status: WRITING
+
+Taus can decay leptonically and hadronically. In leptonic decays the tau decays directly to an electron or and two additional neutrinos. Therefore it is very difficult to identify such decays experimentally. On the other hand an hadronic tau decay produces a characteristic signature of a narrow jet containing an odd number of charged particles and additional neutral hadrons, as well as a tau neutrino. The most frequent decay modes have one or three charged $\pi$ mesons and are summarized in table \ref{TABLE:EventReconstructionPhysicsObjects_TauDecays}. In all the analysis presented in this thesis when referring to a tau we refer an hadronically decaying tau.
+
+\begin{table}[!htb]
+\begin{tabular}{|l|c|r|r|}
+\hline
+Decay Channel & Resonance & Mass [$\MeV$] & Branching Fraction [\%] \\
+\hline\hline
+$\tau^{\pm} \rightarrow \pi^{\pm} \nu_\tau$                              &                &      & 11.6 \\
+$\tau^{\pm} \rightarrow \pi^{\pm} \pi^{0}   \nu_\tau$                    & $\rho$         &  770 & 26.0 \\
+$\tau^{\pm} \rightarrow \pi^{\pm} \pi^{0}   \pi^{0}   \nu_\tau$          & $\text{a}_{1}$ & 1260 & 10.8 \\
+$\tau^{\pm} \rightarrow \pi^{\pm} \pi^{\mp} \pi^{\pm} \nu_\tau$          & $\text{a}_{1}$ & 1260 &  9.8 \\
+$\tau^{\pm} \rightarrow \pi^{\pm} \pi^{\mp} \pi^{\pm} \pi^{0} \nu_\tau$  &                &      &  4.8 \\
+\hline
+Other hadronic modes                                                     &                &      &  1.7 \\
+\hline\hline
+Total & &  & 64.7 \\
+\hline
+\end{tabular}
+\caption[Summary of the hadronic tau decay modes.]{Summary of the hadronic tau decay modes, with the branching fractions and intermediate resonances listed where relevant \cite{ARTICLE:PDG}.}
+\label{TABLE:EventReconstructionPhysicsObjects_TauDecays}
+\end{table}
+
+Reconstruction of hadronic tau neutrinos with \gls{PF} is done by identifying the specific decay mode visible decay products. This approach is referred to as the \textit{hadron-plus-strips} algorithm \cite{ARTICLE:CMSPerformaceOfTauLeptonReconstruction}. It combines reconstructed charged hadrons with strips of clustered photons which are interpreted as $\pi_0$. 
 
 
-Requirements
-\begin{itemize}
-  \item $\pt > 20 \,\GeV$
-  \item $|\eta|<2.3$
-  \item $d_z<0.2 \,\centi\meter$
-\end{itemize}
 
-Descriminants:
-\begin{itemize}
-  \item decayModeFinding
-  \item byTightCombinedIsolationDeltaBetaCorr3Hits
-  \item againstMuonTight
-  \item againstElectronTight
-\end{itemize}
+
+For the \gls{VBF} Higgs to Invisible analyses we define hadronic taus has \gls{PF} tau candidates with $\pt > 20 \,\GeV$, $|\eta|<2.3$ and $d_z<0.2 \,\centi\meter$. We require that the candidate passes decay-mode identification and additional discriminants to reduce the misidentification of electrons or muons. 
+
+% The discrimination against muons is done by identifying hits in the muon systems which match the tau direction. When the tau decay only contains a single charged particle, the faction of energy deposited in the calorimeter system needs be be bigger than 20\% of the total tau energy. Since muons pass the calorimeter systems without leaving a significant amount of energy the requirement is effective.
+% 
+% Descriminants:
+% \begin{itemize}
+%   \item decayModeFinding
+%   \item byTightCombinedIsolationDeltaBetaCorr3Hits
+%   \item againstMuonTight
+%   \item againstElectronTight
+% \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Missing Transverse Energy}
+\label{SECTION:EventReconstructionPhysicsObjects_MET}
 
-The Standard Model describes neutrinos as particles which only interact via the weak force. They can pass through our detectors without interacting and therefore not allowing any direct measurement. Many new models describe additional particles that would also be able to escape detection by leaving very small or no energy deposits in our experiments. The appearance of such particles can only be inferred through the measurement of an imbalance of transverse momentum of all detected particles. These effect can be quantified as the negative sum off all visible particle candidates transverse momentum in an event. The magnitude of that vector is normally called \glsreset{MET}.  
+%Status: DONE
+
+The Standard Model describes neutrinos as particles which only interact via the weak force. They can pass through our detectors without interacting and therefore not allowing any direct measurement. Many new models describe additional particles that would also be able to escape detection by leaving very small or no energy deposits in our experiments. The appearance of such particles can only be inferred through the measurement of an imbalance of transverse momentum of all detected particles. These effect can be quantified as the negative sum off all visible particle candidates transverse momentum in an event. 
+
+The magnitude of that vector is referred to as \glsreset{MET}. Particle flow methodology provides a complete list of objects candidates in the event with excellent resolution achieved by combining all available information. It is the well suited to be the input for \gls{MET} calculation. Although \gls{CMS} has an excellent individual particle resolution the calculation of \gls{MET} is affected by the combined resolution of the measurement of all particles in the event. Figure \ref{FIGURE:EventReconstructionPhysicsObjects_METDistributionZmumu} shows the distribution for \gls{PF} \gls{MET} for both data and simulation for the selections of events of $Z \rightarrow \mu\mu$ and $\gamma +jets$ processes at $\sqrt{s}=8\,\TeV$. 
 
 \begin{figure}[!htp]%
 \centering
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter04/MET/Images/met_zmm.pdf}}\qquad
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter04/MET/Images/met_gamma.pdf}}\\
- \caption[Distributions of the particle flow $\MET$ in $Z\rightarrow\gamma\gamma$and $\gamma$+jets events in $\sqrt{s}=8\,\TeV$ data and simulation.]{Distributions of the particle flow $\MET$ in a) $Z\rightarrow\gamma\gamma$ and b) $\gamma$+jets events in $\sqrt{s}=8\,\TeV$ data and simulation. The shaded band reflects the uncertainty in the muon, photon, jet and neutral hadron energy responses \cite{ARTICLE:CMSMissingTransverseEnergyPerformance}.}
-\label{FIGURE:PhysicsObjects_MET}
+ \caption[Distributions of the particle flow $\MET$ in $Z\rightarrow\gamma\gamma$ and $\gamma$+jets events in $\sqrt{s}=8\,\TeV$ data and simulation.]{Distributions of the particle flow $\MET$ in a) $Z\rightarrow\gamma\gamma$ and b) $\gamma$+jets events in $\sqrt{s}=8\,\TeV$ data and simulation. The uncertainty in the muon, photon, jet and neutral hadron energy responses is showed by the shaded band \cite{ARTICLE:CMSMETPerformance8TeV}.}
+\label{FIGURE:EventReconstructionPhysicsObjects_METDistributionZmumu}
 \end{figure}
 
+Both photons and muons energy measurements have good resolution in the \gls{CMS} experiment and this processes do not involve real \gls{MET}. The observed distribution in both figures are predominantly shaped by the energy resolution of jet energy measurement.
 
-% \cite{ARTICLE:CMSMissingTransverseEnergyPerformance} % AG 83
-% \cite{ARTICLE:CMSMETPerformance8TeV}                 % AG
+During data taking issues with the detector or data acquisition can happen which create anomalously high \gls{MET} rendering this events unusable. The groups responsible for each part of the detector and physics object check the data after it was taken and to find if such problems occurred. After this problems are identified they produce software event filters fir analysts to be able to remove this problematic events. For analysis of 2012 data the \gls{CMS} JET-MET \gls{POG} working group recommended the use of filters to remove events affected by energy deposits from beam halo, noise in \gls{HCAL} readout electronics, particles directly hitting the \gls{ECAL} photodiodes, track reconstruction problems and finally \gls{ECAL} and \gls{HCAL} miss timed laser calibration sequence. This filters have been used in both prompt and parked \gls{VBF} Higgs to invisible analyses.
 
+There are many factors that affect \gls{MET} response and resolution. These include zero suppression thresholds which dictate the minimum energy a calorimeter cell will report, dead or non-instrumented regions of the detector and reconstruction inefficiencies. Techniques have been developed to correct both response end resolution when using \gls{PF} \gls{MET} \cite{ARTICLE:CMSMissingTransverseEnergyPerformance}. These corrections include accounting for the bias in response due to using incorrect energy scale of the jets, and reducing the impact of pileup on the resolution \cite{ARTICLE:CMSMETPerformance8TeV}.
+
+In the \gls{VBF} Higgs to invisible analysis we calculate and use \gls{MET} with our including muons. The variable is used in the offline analysis and trigger. This choice allows to investigate the irreducible background of $Z \rightarrow \nu\nu$ by using $Z \rightarrow \mu\mu$ as a proxy.
+
+% \cite{ARTICLE:CMSMETPerformance8TeV}                 % AG 83
+% \cite{ARTICLE:CMSMissingTransverseEnergyPerformance} % AG 84
