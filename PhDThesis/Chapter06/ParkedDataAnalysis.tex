@@ -5,7 +5,23 @@
 
 This chapter describes the analysis performed over the \gls{CMS} Run I parked data collected over 2012 and 2013. This data was collected and stored without reconstruction and only became fully available a few months after data taking was finished. The advantage of this dataset is the possibility to use lower threshold triggers which can collect more signal but also more backgrounds. To take full advantage of this data the analysis had to be redesigned and extended with new control regions.
 
+% The search for an invisible decay of a vector boson produced Higgs boson was first made public with CMS Physics Analysis Summary (PAS) HIG-13-013 which was further improved and combined with other Higgs boson production channel in the CMS paper HIG-13-30. Additional support material can be found at the CMS Analysis Notes (AN) AN-2012/403 \cite{CMS_AN_2013-403} and AN-2013/205.
+% 
+% During the 2012 data taking run two main streams of data were recorded. The main stream with an event rate of the order of 300 Hz to be promptly reconstructed and made available for analysis in a few days after being recorded, this dataset is referred to as the prompt data. The secondary stream with lower trigger thresholds with an event rate of the order of 1kHz which would only be reconstructed when the computing resources would be available outside of the data taking period, dataset is referred to as parked data. Our previous results
+% were produced using the prompt data only and this work now extends on previous work by using the now available parked data. Since this dataset has been recorded with lower trigger thresholds the analysis was re-optimised to take advantage of this new available phase space. The details of the newly developed analysis can be found in CMS AN-14-243\cite{CMS_AN_2014-243}.
+% 
 %TODO: references? previous chapter?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Cross Check Analysis}
+
+It is normally a requirement for many CMS publications to have a cross check analysis implemented independently from the main result in order to be able to ensure accuracy of the final results due to possible errors with the software implementation. For this purpose the previous prompt data \gls{VBF} Higgs to Invisible results and publication were produced by two different and independent code frameworks and before publication a good level of synchronization was obtained. Due to lack of man power and time it was decide for the 2012-13 parked data analysis to only proceed with a single framework. At a later stage of the analysis it was thought that at least some level of cross check would be a good measure to limit the possibility of implementation errors and to allow extra confidence on the final results.
+ 
+This cross check analysis starts from the same ntuples produced by the main analysis which were produced over all the relevant datasets. This ntuples are recorded with data formats also used by other analysis at Imperial College London, e.g. both the \gls{SM} and \gls{MSSM} Higgs to $\tau\bar{\tau}$, the Higgs to $\tau\bar{\tau}b\bar{b}$ and prompt Higgs to invisible analyses. No cuts are applied at ntuple production except the official \gls{CMS} selection for good usable data using the appropriate golden \gls{JSON} file.
+ 
+To analyse those initial ntuple an independent code framework was developed in order to replicate all relevant numbers and plots produced by the main analysis.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -43,6 +59,31 @@ The difference between certified and analysed datasets is due to out analysis tr
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trigger efficiency}
+\label{SUBSECTION:ParkedDataAnalysis_CorrectionFactors_TriggerEfficiency}
+
+%Status: DONE
+
+The initial event selection for this analysis starts with a dedicated set of triggers which were recorded to the \gls{VBF} parked dataset. We used the following \gls{HLT} trigger paths for each Run I era:
+
+\begin{itemize}
+  \item Run A:       \verb!HLT_DiPFJet40_PFMETnoMu65_MJJ800VBF_AllJets!
+  \item Run B and C: \verb!HLT_DiJet35_MJJ700_AllJets_DEta3p5_VBF!
+  \item Run D:       \verb!HLT_DiJet30_MJJ700_AllJets_DEta3p5!
+\end{itemize}
+
+All the used paths are seeded by \gls{L1T} trigger condition \verb!L1_ETM40!. 
+
+
+To maximize the usage of the event statistics of the selected \gls{MC} samples, we do not veto events that fail the trigger conditions. Instead an event by event weight is calculated which which taking into account how much luminosity was recorded by each of the three trigger and depending on the offline quantities which correspond to the ones used in the trigger conditions: PFMETnoMu, leading dijet $m_{jj}$ and sub-leading jet \pt. 
+
+To define the weights, turn on curves were determined according to these offline variables as a function of PFMETnoMu in bins of dijet $m_{jj}$ and sub-leading jet \pt. This approach allows the determination of the weights which include the correlations between these variables. The turn on curves are obtained by fitting equation \ref{EQUATION:ParkedDataAnalysis_TriggerEfficiency_Efficiency} to each bin.
+
+\begin{equation}
+\frac{\varepsilon_{max}}{2}\text{Erf}\left(\frac{x-x_{0}}{\sqrt{\Gamma}}\right)+1,
+\label{EQUATION:ParkedDataAnalysis_TriggerEfficiency_Efficiency} 
+\end{equation}
+
+Where $\varepsilon_{max}$ os the maximum efficiency of the trigger in the bin, $x_{0}$ is the mid-value of the turn on and $\Gamma$ is the width of the turn on.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -158,22 +199,3 @@ The difference between certified and analysed datasets is due to out analysis tr
 %   \item manystripclus53X
 %   \item toomanystripclus53X
 % \end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Cross Check Analysis}
-
-% The search for an invisible decay of a vector boson produced Higgs boson was first made public with CMS Physics Analysis Summary (PAS) HIG-13-013 which was further improved and combined with other Higgs boson production channel in the CMS paper HIG-13-30. Additional support material can be found at the CMS Analysis Notes (AN) AN-2012/403 \cite{CMS_AN_2013-403} and AN-2013/205.
-% 
-% During the 2012 data taking run two main streams of data were recorded. The main stream with an event rate of the order of 300 Hz to be promptly reconstructed and made available for analysis in a few days after being recorded, this dataset is referred to as the prompt data. The secondary stream with lower trigger thresholds with an event rate of the order of 1kHz which would only be reconstructed when the computing resources would be available outside of the data taking period, dataset is referred to as parked data. Our previous results
-% were produced using the prompt data only and this work now extends on previous work by using the now available parked data. Since this dataset has been recorded with lower trigger thresholds the analysis was re-optimised to take advantage of this new available phase space. The details of the newly developed analysis can be found in CMS AN-14-243\cite{CMS_AN_2014-243}.
-% 
-% It is normally a requirement for many CMS publications to have a cross check analysis implemented independently from the main result in order to be able to ensure accuracy of the final results due to possible errors with the software implementation. For this purpose the previous prompt data VBF Higgs to Invisible results and publication were produced by two different and independent code frameworks and before publication a good level of synchronization were obtained. Due to lack of man power and time it was decide for the 2012 parked data analysis to only proceed with a single framework. At a later stage of the analysis it was thought that at least some level of cross check would be a good measure to limit the possibility of implementation errors and to allow extra confidence on the final results.
-% 
-% This cross check analysis starts from the same ntuples produced by the main analysis which were produced over all the relevant datasets and are recorded with data formats also used by other analysis at Imperial College London, e.g. both the SM and MSSM Higgs to $\tau\bar{\tau}$, the Higgs to $\tau\bar{\tau}b\bar{b}$ and prompt Higgs to invisible analyses. No cuts are applied at ntuple production except the official CMS selection for good usable data using the appropriate golden JSON file.
-% 
-% From those initial ntuple an independent code framework was developed in order to replicate all relevant numbers and plots from the main analysis.
-
-% For this analysis we use two categories of electrons "veto electrons" and "tight electrons". Both this categories of particles are based on standard EGamma POG cut based object definition which can be found at (TODO:CITATION). Additionally, we require some additional cuts to each category (TODO:WHY).
