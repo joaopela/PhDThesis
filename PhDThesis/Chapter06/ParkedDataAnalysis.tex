@@ -16,12 +16,190 @@ This chapter describes the analysis performed over the \gls{CMS} Run I parked da
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Cross Check Analysis}
+\label{CHAPTER:ParkedDataAnalysis_CrossCheckAnalysis}
 
 It is normally a requirement for many CMS publications to have a cross check analysis implemented independently from the main result in order to be able to ensure accuracy of the final results due to possible errors with the software implementation. For this purpose the previous prompt data \gls{VBF} Higgs to Invisible results and publication were produced by two different and independent code frameworks and before publication a good level of synchronization was obtained. Due to lack of man power and time it was decide for the 2012-13 parked data analysis to only proceed with a single framework. At a later stage of the analysis it was thought that at least some level of cross check would be a good measure to limit the possibility of implementation errors and to allow extra confidence on the final results.
  
 This cross check analysis starts from the same ntuples produced by the main analysis which were produced over all the relevant datasets. This ntuples are recorded with data formats also used by other analysis at Imperial College London, e.g. both the \gls{SM} and \gls{MSSM} Higgs to $\tau\bar{\tau}$, the Higgs to $\tau\bar{\tau}b\bar{b}$ and prompt Higgs to invisible analyses. No cuts are applied at ntuple production except the official \gls{CMS} selection for good usable data using the appropriate golden \gls{JSON} file.
  
 To analyse those initial ntuple an independent code framework was developed in order to replicate all relevant numbers and plots produced by the main analysis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{L1T Parked Trigger Development}
+\label{SECTION:ParkedDataAnalysis_ParkedTriggerDevelopment}
+
+The first step of any analysis is defining or selecting a trigger to collect data. This trigger should have a high signal efficiency while recording an acceptable rate.
+
+At the beginning of 2012 the possibility of recording data without promptly reconstructing it was introduced. This additional data is now known as \textit{parked data}. The \gls{CMS} \gls{VBF} Higgs to invisible analysis saw this as an opportunity to develop a secondary set of triggers with lower thresholds to allow more signal to be collected when compared with the developed prompt trigger. As this effort developed it became clear that an inclusive trigger that would record \gls{VBF} events regardless of final state could be implemented.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{VBF Higgs to Invisible Higgs Trigger}
+\label{SUBSECTION:ParkedDataAnalysis_ParkedTriggerDevelopment_VBFHiggsInvisibleTrigger}
+
+This study was based on real data from the high pileup special run taken late 2011 and was aimed at making a proposal for a viable \gls{L1T} trigger algorithm to be used in the 2012 proton run. 
+
+The investigated algorithm select the typical topology of our signal. They select events with \gls{MET} and and two jets that would are in opposite sides of the detector enforced by requiring $\eta_{jet1}\times\eta_{jet2}<0$ and large pseudo-rapidity separation of $\Delta\eta_{jj}>3$. A possible additional cut was also studied like a restriction in $\Delta\phi_{jj}$.
+
+The conditions expected for early 2012 were of instantaneous luminosity of $5 \times 10^{33}\,\centi\meter^{-2}\second^{-1}$ and an average \gls{PU} of 28 interactions (scenario A). For late 2012 conditions were expected to increase to instantaneous luminosity of $7 \times 10^{33}\,\centi\meter^{-2}\second^{-1}$ and an average \gls{PU} of 32 interactions (scenario B).
+
+Algorithm parameters we optimized for both this scenarios of \gls{LHC} running and for several benchmark \gls{L1T} rates. The proposed target rate for the algorithm was assumed to be $2\,\kilo\Hz$ the additional working points calculated were intended to adjust the selection cuts according to higher or lower bandwidth available on the menu. The two key variables are the $\pt^{\text{jets}}$ and the \gls{MET}. Each of these variables was set in turn to the lowest reasonable value while the other was scanned until the necessary rate value was achieved.  Results for scenario A can be found in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate5E33} and for scenario B in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate7E33}.
+
+\begin{table}[!htb]
+\begin{minipage}{.5\linewidth}
+  \centering
+  \begin{tabular}{|c||c|c|c|c|}
+  \hline
+  \multicolumn{5}{|c|}{MET [GeV] ($\pt^{\text{jets}} > 20\,\GeV$)} \\
+  \hline\hline
+  $\Delta\phi$ & no cut & 2.5 & 2.1 & 1.8 \\
+  \hline
+   $10\,\kHz$  &     32 &  32 &  32 &  32 \\
+    $5\,\kHz$  &     35 &  35 &  35 &  35 \\
+  \hline\hline
+    $2\,\kHz$  &     41 &  41 &  41 &  41 \\
+  \hline\hline
+    $1\,\kHz$  &     47 &  47 &  47 &  46 \\
+  $0.5\,\kHz$  &     54 &  54 &  54 &  53 \\
+  \hline
+  \end{tabular}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+  \centering
+  \begin{tabular}{|c||c|c|c|c|}
+  \hline
+  \multicolumn{5}{|c|}{$\pt^{\text{jets}}$ [GeV] ($\text{MET}>30\,\GeV$)} \\
+  \hline
+  $\Delta\phi$ & no cut & 2.5 & 2.1 & 1.8 \\
+  \hline\hline
+   $10\,\kHz$  &     28 &  28 &  24 &  24 \\
+    $5\,\kHz$  &     32 &  32 &  32 &  32 \\
+  \hline\hline
+    $2\,\kHz$  &     52 &  48 &  44 &  44 \\
+  \hline\hline
+    $1\,\kHz$  &     68 &  68 &  64 &  64 \\
+  $0.5\,\kHz$  &     92 &  92 &  88 &  88 \\
+  \hline
+  \end{tabular}
+\end{minipage} 
+\caption{Tables showing the \gls{L1T} rate for different selection criteria for $5 \times 10^{33}\,\centi\meter^{-2}\second^{-1}$ and an average \gls{PU} of 28 interactions (scenario A). In selected events the leading two jets is in opposite sides of the detector. On the left table the \gls{MET} cut is calculated while requiring the two leading jets to have $\pt^{\text{jets}} > 20\,\GeV$. Similarly, on the right table $\pt^{\text{jets}}$ cut is calculated while requiring $\text{MET}>30\,\GeV$.}
+\label{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate5E33}
+\end{table}
+
+\begin{table}[!htb]
+\begin{minipage}{.5\linewidth}
+  \centering
+  \begin{tabular}{|c||c|c|c|c|}
+  \hline
+  \multicolumn{5}{|c|}{MET [GeV] ($\pt^{\text{jets}}>20\,\GeV$)} \\
+  \hline\hline
+  $\Delta\phi$ & no cut & 2.5 & 2.1 & 1.8 \\
+  \hline
+   $10\,\kHz$  &     36 &  36 &  36 &  36 \\
+    $5\,\kHz$  &     40 &  40 &  40 &  40 \\
+  \hline\hline
+    $2\,\kHz$  &     47 &  47 &  47 &  46 \\
+  \hline\hline
+    $1\,\kHz$  &     54 &  54 &  54 &  54 \\
+  $0.5\,\kHz$  &     67 &  66 &  66 &  64 \\
+  \hline
+  \end{tabular}
+\end{minipage}%
+  \begin{minipage}{.5\linewidth}
+    \centering
+  \begin{tabular}{|c||c|c|c|c|}
+  \hline
+  \multicolumn{5}{|c|}{$\pt^{\text{jets}}$ [GeV] ($\text{MET}>30\,\GeV$)} \\
+  \hline
+  $\Delta\phi$ & no cut & 2.5 & 2.1 & 1.8 \\
+  \hline\hline
+   $10\,\kHz$  &     32 &  32 &  32 &  32 \\
+    $5\,\kHz$  &     40 &  40 &  40 &  40 \\
+  \hline\hline
+    $2\,\kHz$  &     64 &  60 &  60 &  56 \\
+  \hline\hline
+    $1\,\kHz$  &     76 &  76 &  76 &  76 \\
+  $0.5\,\kHz$  &    100 & 100 &  96 &  92 \\
+  \hline
+  \end{tabular}
+\end{minipage} 
+\caption{Tables showing the \gls{L1T} rate for different selection criteria for $7 \times 10^{33}\,\centi\meter^{-2}\second^{-1}$ and an average \gls{PU} of 32 interactions (scenario B). In selected events the leading two jets is in opposite sides of the detector. On the left table the \gls{MET} cut is calculated while requiring the two leading jets to have $\pt^{\text{jets}} > 20\,\GeV$. Similarly, on the right table $\pt^{\text{jets}}$ cut is calculated while requiring $\text{MET}>30\,\GeV$.}
+\label{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate7E33}
+\end{table}
+
+Results were used to define working points for this trigger, which were proposed to the \glsreset{TSG}
+to be included on \gls{L1T} Menus. Proposed trigger options were:
+\begin{itemize}
+\item Algorithm A: Lead dijet (opp. sides + $\pt^{\text{jets}}>20\,\GeV$ + $\Delta\eta_{jj}>3$) + $\text{MET}>40\,\GeV$
+\item Algorithm B: Lead dijet (opp. sides + $\pt^{\text{jets}}>50\,\GeV$ + $\Delta\eta_{jj}>3$) + $\text{MET}>30\,\GeV$
+\end{itemize}
+
+It can be seen that with the at the time predicted increase of luminosity the necessary rate for such proposed algorithms could escalate to $\approx 5\,\kilo\Hz$. For the rate to be maintained at $2\,\kilo\Hz$ the value of the MET cut in algorithm A would have to be raised to $47\,\GeV$ and the value of $\pt^{\text{jets}}$ cut in algorithm B would have to increase to $64\,\GeV$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{VBF Higgs Inclusive Trigger}
+\label{SUBSECTION:ParkedDataAnalysis_ParkedTriggerDevelopment_InclusiveHiggsTrigger}
+
+It would be desirable to have a dedicated inclusive L1 trigger (i.e. Higgs decay independent). Such a trigger
+would allow us to have a single trigger for all VBF signature analysis, which implies less systematics
+while comparing them. Also, usually the more people using a trigger means it will become better understood by all.
+
+By triggering only on the dijet that is tagged as the a VBF signature we therefore have no dependence on the Higgs 
+decay, which means we can get all possible Higgs decays with a single trigger, even those that are predicted by 
+yet to be defined models. Thus, it would be a model-independent trigger.
+
+This trigger can also be used for a WW scattering analysis, aimed at standard model without a new symmetry 
+breaking mechanism exclusion, since the signature is similar.
+
+For such a trigger to work it would have to be based only on the forward dijet which is the defining caracteristic
+of the VBF signature.
+It was decided to study two variables of the dijet system: invariant mass and transverse invariant mass (MT); and an event 
+variable, scalar sum of the hadronic energy (HT). For this study we always require a dijet with $\Delta\eta>3$ and we 
+look at the effects of an additional cut on $\Delta\phi$, the points tested were no cut, $<2.5$, $<2.1$ and $<1.8$.
+
+\subsubsection{Dijet invariant mass}
+
+This variable takes advantage from the very high invariant mass of the dijet system but it is not yet implemented
+on the L1 hardware but according to trigger experts it is in principle possible to implement with the current hardware.
+
+Unfortunately, using this variable alone to is not enough. To get acceptable rates we would need to cut too high on
+jet $p_\bot$ or $M_{Inv}$ losing almost all signal efficiency.
+
+\subsubsection{Dijet transverse invariant mass}
+
+This variable is better at suppressing QCD events, it is less pileup-dependent and has lower error associated with it
+(only x-y dependence). It is also not yet implemented on the L1 Hardware but according to trigger experts it is in principle 
+possible to implement with the current hardware.
+
+This variable showed to be promising. A possible working point for a Level 1 rate
+of 5kHz could be $MT>50$ $GeV$ no $\Delta\phi$ cut and dijet $p_\bot \sim 45$ $GeV$ which should give a signal
+efficiency of $\lesssim70\%$ (see R. Lane 3 Months PhD Report).
+
+\subsubsection{Event scaler sum of the transverse energy}
+
+Theoretically, this is the best variable to separate signal from background and has the advantage of being already
+implemented on L1 hardware.
+
+This was shown to be the most promising variable. A possible working point for a Level 1 rate of 5kHz could be $HT>100$ 
+$GeV$ no $\Delta\phi$ cut and dijet $p_\bot \sim 40$ $GeV$ which should give a signal efficiency of $\lesssim98\%$
+(see Figures \ref{figure_PU28_5e33_RateFBDijetDEtaDPhi00HT100} and \ref{figure_sig_eff_l1_ht}).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.60\textwidth]{Chapter06/ParkedDataTriggerDevelopment/Images/PU28_5e33_RateFBDijetDEtaDPhi00HT100.png}
+\caption{Level 1 rate as a function of dijet $p_\bot$ while selecting events with $HT>100$ $GeV$. Results based on
+data from the high pileup special run taken late 2011.}
+\label{figure_PU28_5e33_RateFBDijetDEtaDPhi00HT100}
+\end{figure}
+
+\subsection{Final proposal}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
