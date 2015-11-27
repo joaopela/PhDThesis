@@ -329,7 +329,7 @@ Total & &  & 64.7 \\
 \label{TABLE:EventReconstructionPhysicsObjects_TauDecays}
 \end{table}
 
-Reconstruction of hadronic tau neutrinos with \gls{PF} is done by identifying the specific decay mode visible decay products. This approach is referred to as the \glsreset{HPS} algorithm \cite{ARTICLE:CMSPerformaceOfTauLeptonReconstruction}. It combines reconstructed charged hadrons with strips of clustered photons which are interpreted as $\pi_0$. The reconstructed system is constrained by the tau mass and is highly collimated when compared with a typical \gls{QCD} jet. 
+Reconstruction of hadronic tau neutrinos with \gls{PF} is done by identifying the specific decay mode visible decay products. This approach is referred to as the \glsreset{HPS} algorithm \cite{ARTICLE:CMSPerformaceOfTauLeptonReconstruction,ARTICLE:CMSReconstructionIndentificationTau}. It combines reconstructed charged hadrons with strips of clustered photons which are interpreted as $\pi_0$. The reconstructed system is constrained by the tau mass and is highly collimated when compared with a typical \gls{QCD} jet. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -337,46 +337,46 @@ Reconstruction of hadronic tau neutrinos with \gls{PF} is done by identifying th
 \subsection{Hadron Plus Stips Algorithm}
 \label{SECTION:EventReconstructionPhysicsObjects_Taus_HPSAlgorithm}
 
-%Status: Writing
+%Status: DONE
+%TODO: Review this with Andrew.
 
 The \gls{HPS} algorithm utilizes \gls{PF} candidates to reconstruct charged pions and photons resulting from neutral pions decay. These photon can convert in into electron-positron pairs in the tracker material. This factors are taken into consideration, as well as these products deflection in the magnetic field. It also attempts to find the intermediate resonances listed in table \ref{TABLE:EventReconstructionPhysicsObjects_TauDecays} has a handle to determine the possible tau decay channel. Since the tau neutrino present on all decays cannot be directly measured it is not taken into account.
 
-To search for the $\pi^{0}$ decay products we try to identify strips of \gls{PF} electrons and photons. We take as seed a \gls{PF} jet with $R = 0.5$. We start from the most energetic electromagnetic particle inside the jet area and make that the centre of our candidate strip. We look for other electromagnetic objects within a window of $\Delta\eta = 0.5$ and $\Delta\phi = 0.20$ of the centre of the strip. If any object is found it gets associated with the strip and the strip four-momentum gets recalculated. We repeat the procedure until we cannot find any more electromagnetic in the strip. If the final strip object has a mass compatible with a $\pi^{0}$, hence in the interval between $50-200\,\MeV$, and has $\pt > 1 GeV$ it is taken into consideration when trying to identify de the specific tau decay.
+
+We seed the algorithm with \gls{PF} anti-$k_T$ jets with $R = 0.5$ where $\pt>14\,\GeV$ and $|\eta|<2.5$. To search for the $\pi^{0}$ decay products we try to identify strips by clustering \gls{PF} electrons and photons with $\pt>0.5\,\GeV$. We start from the most energetic electromagnetic particle inside the jet area and make that the centre of our candidate strip. We look for other electromagnetic objects within a window of $\Delta\eta = 0.05$ and $\Delta\phi = 0.20$ of the centre of the strip. If any object is found it gets associated with the strip and its four-momentum gets recalculated. We repeat the procedure until we cannot find any more electromagnetic in the strip. If the final strip object has a mass compatible with a $\pi^{0}$, in the interval between $50-200\,\MeV$, and has $\pt > 2.5 GeV$ it is kept. We then start the next strip clustering with the highest \pt electron or gamma not already belonging to a strip.
+
+The charged pion candidates are required to have $\pt > 0.5\,\GeV$ and its track pass $d_z < 0.4\,\centi\meter$ and $d_{xy} < 0.03\,\centi\meter$ to the vertex associated with the highest \pt track in the jet, which is assumed to be the \tau production vertex.
 
 The following topologies are taken into account by the \gls{HPS} algorithm:
 
 \begin{enumerate}
   \item \textit{single hadron}: tries to identify tau decays into $\pi^{\pm} \nu_\tau$ or $\pi^{\pm} \pi^{0} \nu_\tau$ where the netral pion decay cannot be identified as a strips.
-  \item \textit{One hadron + one strip}: tries to identify tau decays into $\pi^{\pm} \pi^{0} \nu_\tau$ where the $\pi^{0}$ decay photons are close together. 
-  \item \textit{One hadron + two strip}: tries to identify tau decays into $\pi^{\pm} \pi^{0} \nu_\tau$ where the $\pi^{0}$ decay photons are well separated.
-  \item \textit{Three hadrons}: tries to identify tau decays into $\pi^{\pm} \pi^{\mp} \pi^{\pm} \nu_\tau$.
+  \item \textit{One hadron + one strip}: tries to identify tau decays into $\pi^{\pm} \pi^{0} \nu_\tau$ where the $\pi^{0}$ decay photons are close together. The mass of the reconstructed $\tau_had$ is required to be in the interval $0.3<m_{\tau_had}<1.3\sqrt{\pt^{\tau}/100}\,\GeV$. The sliding of the mass window is to account for resolution effect and is constrained to be between $1.3$ and $4.2\,\GeV$.
+  \item \textit{One hadron + two strip}: tries to identify tau decays into $\pi^{\pm} \pi^{0} \pi^{0} \nu_\tau$ where the $\pi^{0}$ decay photons are well separated. The mass of the reconstructed $\tau_had$ is required to be in the interval $0.4<m_{\tau_had}<1.2\sqrt{\pt^{\tau}/100}\,\GeV$. The is constrained to be between $1.2$ and $4.0\,\GeV$.
+  \item \textit{Three hadrons}: tries to identify tau decays into $\pi^{\pm} \pi^{\mp} \pi^{\pm} \nu_\tau$. The hadrons are required to have nass in the interval $0.8-1.5\,\GeV$ since we assume the $a_{1}$ intermediate resonance. Total charged is required to be one.
 \end{enumerate}
 
-There is no dedicated search for decay modes $\pi^{\pm} \pi^{0} \pi^{0} \nu_\tau$ and $\pi^{\pm} \pi^{\mp} \pi^{\pm} \pi^{0} \nu_\tau$. These topologies are reconstructed with the currently defined criteria. When a decay channel is identified that goes through a meson resonance the following mass windows are applied to the measured invariant mass m of the decay products: $0.3-1.3\,\GeV$ for $\rho$ and $0.8-1.5\,\GeV$ for $a_{1}$.
+There is no dedicated search for $\pi^{\pm} \pi^{\mp} \pi^{\pm} \pi^{0} \nu_\tau$ or higher pion multiplicity decay modes. These topologies are reconstructed with the currently defined criteria.
 
-All selected hadrons and strips are required to be inside of cone of $\Delta R < 2.8\,\GeV/\pt^{\tau_{had}}$. The $\pt^{\tau_{had}}$ is the reconstructed tau transverse momentum and its direction is required have $\Delta R < 0.1$ of the original \gls{PF} jet direction.
+All selected hadrons and strips are required to be inside of cone of $\Delta R < 3.0\,\GeV/\pt^{\tau_{had}}$. The cone size is is constrained to the interval $\Delta R=0.05-0.10$. 
+
+% \cite{ARTICLE:CMSReconstructionIndentificationTau}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Isolation}
-\label{SECTION:EventReconstructionPhysicsObjects_Taus_Isolation}
+\subsection{Isolation and Discriminants}
+\label{SECTION:EventReconstructionPhysicsObjects_Taus_IsolationAndDiscriminants}
 
-%STATUS: Writing
+%STATUS: DONE
 
+Isolation for taus is calculates in a similar way to electrons ans muons. The isolation variable is defined by summing the \pt of all \gls{PF} hadron and photon candidates in a cone of $\Delta R < 0.5$ around the tau axis. Here the charged hadron tracks are required to have $d_z < 2\,\milli\meter$ to the tau production vertex. We can subtract the contribution to isolation coming from \gls{PU} estimating its density in a cone of $\Delta R < 0.8$ around the tau and considering track with $d_z > 2\,\milli\meter$. All tau constituents are ignores on this sums. Working points have been defined for loose, medium and tight isolation \cite{ARTICLE:CMSReconstructionIndentificationTau}. 
 
+Electrons can be reconstructed as taus when they make isolated deposits in the calorimeter or emit enough energy via bremmstrahlung to form a strip. A \gls{BDT} has been trained with a set of variables similar to the ones used in electron identification to exclude such miss reconstructions. In the \gls{CMS} Higgs to invisible analysis we use the tight working point.
 
-For the \gls{VBF} Higgs to Invisible analyses we define hadronic taus has a \gls{PF} tau candidates with $\pt > 20 \,\GeV$, $|\eta|<2.3$ and $d_z<0.2 \,\centi\meter$. We require that the candidate passes decay-mode identification and tight discriminants to reduce the misidentification against electrons or muons. 
+Muons are less likely to be reconstructed as a tau. We can exclude such tau candidates by requiring that the track of the leading charged hadron is not also a tracker muon. This discriminator also has three possible working points, in our analysis we used the tight working point.
 
-% The discrimination against muons is done by identifying hits in the muon systems which match the tau direction. When the tau decay only contains a single charged particle, the faction of energy deposited in the calorimeter system needs be be bigger than 20\% of the total tau energy. Since muons pass the calorimeter systems without leaving a significant amount of energy the requirement is effective.
-% 
-% Descriminants:
-% \begin{itemize}
-%   \item decayModeFinding
-%   \item byTightCombinedIsolationDeltaBetaCorr3Hits
-%   \item againstMuonTight
-%   \item againstElectronTight
-% \end{itemize}
+We can now define an hadronic tau candidate as a \gls{PF} tau candidates with $\pt > 20 \,\GeV$, $|\eta|<2.3$ and $d_z<0.2 \,\centi\meter$ to the primary vertex. We require that the candidate passes decay-mode identification, tight isolation and finally tight discriminators against electrons and muons.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
