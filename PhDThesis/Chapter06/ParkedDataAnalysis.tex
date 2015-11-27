@@ -18,6 +18,8 @@ This chapter describes the analysis performed over the \gls{CMS} Run I parked da
 \section{The Cross Check Analysis}
 \label{CHAPTER:ParkedDataAnalysis_CrossCheckAnalysis}
 
+%Status: DONE
+
 It is normally a requirement for many CMS publications to have a cross check analysis implemented independently from the main result in order to be able to ensure accuracy of the final results due to possible errors with the software implementation. For this purpose the previous prompt data \gls{VBF} Higgs to Invisible results and publication were produced by two different and independent code frameworks and before publication a good level of synchronization was obtained. Due to lack of man power and time it was decide for the 2012-13 parked data analysis to only proceed with a single framework. At a later stage of the analysis it was thought that at least some level of cross check would be a good measure to limit the possibility of implementation errors and to allow extra confidence on the final results.
  
 This cross check analysis starts from the same ntuples produced by the main analysis which were produced over all the relevant datasets. This ntuples are recorded with data formats also used by other analysis at Imperial College London, e.g. both the \gls{SM} and \gls{MSSM} Higgs to $\tau\bar{\tau}$, the Higgs to $\tau\bar{\tau}b\bar{b}$ and prompt Higgs to invisible analyses. No cuts are applied at ntuple production except the official \gls{CMS} selection for good usable data using the appropriate golden \gls{JSON} file.
@@ -30,6 +32,8 @@ To analyse those initial ntuple an independent code framework was developed in o
 \section{L1T Parked Trigger Development}
 \label{SECTION:ParkedDataAnalysis_ParkedTriggerDevelopment}
 
+%Status: DONE
+
 The first step of any analysis is defining or selecting a trigger to collect data. This trigger should have a high signal efficiency while recording an acceptable rate.
 
 At the beginning of 2012 the possibility of recording data without promptly reconstructing it was introduced. This additional data is now known as \textit{parked data}. The \gls{CMS} \gls{VBF} Higgs to invisible analysis saw this as an opportunity to develop a secondary set of triggers with lower thresholds to allow more signal to be collected when compared with the developed prompt trigger. As this effort developed it became clear that an inclusive trigger that would record \gls{VBF} events regardless of final state could be implemented.
@@ -40,13 +44,15 @@ At the beginning of 2012 the possibility of recording data without promptly reco
 \subsection{VBF Higgs to Invisible Higgs Trigger}
 \label{SUBSECTION:ParkedDataAnalysis_ParkedTriggerDevelopment_VBFHiggsInvisibleTrigger}
 
-This study was based on real data from the high pileup special run taken late 2011 and was aimed at making a proposal for a viable \gls{L1T} trigger algorithm to be used in the 2012 proton run. 
+%Status: DONE
 
-The investigated algorithm select the typical topology of our signal. They select events with \gls{MET} and and two jets that would are in opposite sides of the detector enforced by requiring $\eta_{jet1}\times\eta_{jet2}<0$ and large pseudo-rapidity separation of $\Delta\eta_{jj}>3$. A possible additional cut was also studied like a restriction in $\Delta\phi_{jj}$.
+This study was based on data recorded during the high \gls{PU} special run that happened in late 2011 and was aimed at making a proposal for a viable \gls{L1T} trigger algorithm to be used during the 2012 proton run. 
+
+The investigated algorithms select the typical topology of our signal. They look for events with \gls{MET} and and two jets located in opposite sides of the detector by requiring $\eta_{jet1}\times\eta_{jet2}<0$, large pseudo-rapidity separation of at least $\Delta\eta_{jj}>3$. The possibility of using $\Delta\phi_{jj}$ was also studied but was disfavoured since it could lead to lower signal efficiency in some \gls{BSM} models.
 
 The conditions expected for early 2012 were of instantaneous luminosity of $5 \times 10^{33}\,\centi\meter^{-2}\second^{-1}$ and an average \gls{PU} of 28 interactions (scenario A). For late 2012 conditions were expected to increase to instantaneous luminosity of $7 \times 10^{33}\,\centi\meter^{-2}\second^{-1}$ and an average \gls{PU} of 32 interactions (scenario B).
 
-Algorithm parameters we optimized for both this scenarios of \gls{LHC} running and for several benchmark \gls{L1T} rates. The proposed target rate for the algorithm was assumed to be $2\,\kilo\Hz$ the additional working points calculated were intended to adjust the selection cuts according to higher or lower bandwidth available on the menu. The two key variables are the $\pt^{\text{jets}}$ and the \gls{MET}. Each of these variables was set in turn to the lowest reasonable value while the other was scanned until the necessary rate value was achieved.  Results for scenario A can be found in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate5E33} and for scenario B in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate7E33}.
+Algorithm parameters we optimized for both this scenarios of \gls{LHC} running and considering several benchmark \gls{L1T} rates. The proposed target rate for the algorithm was assumed to be $2\,\kilo\Hz$, the additional working points were calculated with the intention to adjust the selection cuts according to higher or lower bandwidth available on the menu. The two key variables are $\pt^{\text{jets}}$ and the \gls{MET}. Each of these variables was set in turn to the lowest reasonable value while the other was scanned until the necessary rate value was achieved.  Results for scenario A can be found in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate5E33} and for scenario B in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate7E33}.
 
 \begin{table}[!htb]
 \begin{minipage}{.5\linewidth}
@@ -130,14 +136,14 @@ Algorithm parameters we optimized for both this scenarios of \gls{LHC} running a
 \label{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate7E33}
 \end{table}
 
-Results were used to define working points for this trigger, which were proposed to the \glsreset{TSG}
+These results were used to define working points for this trigger, which were proposed to the \glsreset{TSG}
 to be included on \gls{L1T} Menus. Proposed trigger options were:
 \begin{itemize}
 \item Algorithm A: Lead dijet (opp. sides + $\pt^{\text{jets}}>20\,\GeV$ + $\Delta\eta_{jj}>3$) + $\text{MET}>40\,\GeV$
 \item Algorithm B: Lead dijet (opp. sides + $\pt^{\text{jets}}>50\,\GeV$ + $\Delta\eta_{jj}>3$) + $\text{MET}>30\,\GeV$
 \end{itemize}
 
-It can be seen that with the at the time predicted increase of luminosity the necessary rate for such proposed algorithms could escalate to $\approx 5\,\kilo\Hz$. For the rate to be maintained at $2\,\kilo\Hz$ the value of the MET cut in algorithm A would have to be raised to $47\,\GeV$ and the value of $\pt^{\text{jets}}$ cut in algorithm B would have to increase to $64\,\GeV$.
+It can be observed that with the at the time predicted increase of luminosity the necessary rate for such proposed algorithms could escalate to $\approx 5\,\kilo\Hz$. For the rate to be maintained at $2\,\kilo\Hz$ the value of the MET cut in algorithm A would have to be raised to $47\,\GeV$ and the value of $\pt^{\text{jets}}$ cut in algorithm B would have to increase to $64\,\GeV$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -145,16 +151,14 @@ It can be seen that with the at the time predicted increase of luminosity the ne
 \subsection{VBF Higgs Inclusive Trigger}
 \label{SUBSECTION:ParkedDataAnalysis_ParkedTriggerDevelopment_InclusiveHiggsTrigger}
 
-It would be desirable to have a dedicated inclusive L1 trigger (i.e. Higgs decay independent). Such a trigger
-would allow us to have a single trigger for all VBF signature analysis, which implies less systematics
-while comparing them. Also, usually the more people using a trigger means it will become better understood by all.
+It would be desirable to have a dedicated \gls{VBF} Higgs inclusive \gls{L1T} trigger that would be decay independent. Such an algorithm would allow analysts to have a single trigger for all \gls{VBF} produced Higgs decay signatures, which would implies less systematics in their comparison. Additionally, if an algorithm is used by more analysis it will become better understood.
 
-By triggering only on the dijet that is tagged as the a VBF signature we therefore have no dependence on the Higgs 
-decay, which means we can get all possible Higgs decays with a single trigger, even those that are predicted by 
-yet to be defined models. Thus, it would be a model-independent trigger.
+When selecting events based only on the presence of a dijet with \gls{VBF} characteristics we can remove the dependency on the Higgs decay. This approach would be suitable since it ignores the Higgs decays themselves. Since we are not making any assumptions of the Higgs model, we could study all possible decays even those predicted by new models with a single trigger. Thus, it would be a model-independent trigger.
 
-This trigger can also be used for a WW scattering analysis, aimed at standard model without a new symmetry 
-breaking mechanism exclusion, since the signature is similar.
+This trigger can also be used for a WW scattering analysis, which in the case of the absence of the now discovered Higgs boson would allow to eventually exclude the standard model.
+
+
+
 
 For such a trigger to work it would have to be based only on the forward dijet which is the defining caracteristic
 of the VBF signature.
