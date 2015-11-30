@@ -1,5 +1,5 @@
-\chapter{Event Reconstruction and Physics Objects}
-\label{CHAPTER:EventReconstructionPhysicsObjects}
+\chapter{Event Reconstruction and simulation}
+\label{CHAPTER:EventReconstructionAndSimulation}
 
 \glsresetall % Resetting all acronyms
 
@@ -9,7 +9,7 @@ This chapter describes how the \gls{CMS} detector produces physics objects from 
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tracks}
-\label{SECTION:EventReconstructionPhysicsObjects_Tracks}
+\label{SECTION:EventReconstructionAndSimulation_Tracks}
 
 %Status: DONE
 
@@ -28,7 +28,7 @@ The process of track finding is repeated up to six times where the hits for each
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Vertex Reconstruction}
-\label{SECTION:EventReconstructionPhysicsObjects_Vertex}
+\label{SECTION:EventReconstructionAndSimulation_Vertex}
 
 %Status: DONE
 
@@ -40,14 +40,14 @@ The individual tracks are reconstructed making use of the inner tracker. Each ve
 n_{dof}(vertex)=2\sum\limits_{i}^{tracks} w_i - 3
 \end{equation}
 
-This variable can be used to distinguish real proton-proton interactions from misclustered vertices, since it is correlated with the number of tracks compatible with that specific vertex \cite{ARTICLE:CMSTrackingAndPrimaryVertex}. The vertex position and resolution have been measured with \gls{LHC} data and compared with simulation. The resulting plots can be found in figure \ref{FIGURE:EventReconstructionPhysicsObjects_Vertex} as a function of number of tracks.
+This variable can be used to distinguish real proton-proton interactions from misclustered vertices, since it is correlated with the number of tracks compatible with that specific vertex \cite{ARTICLE:CMSTrackingAndPrimaryVertex}. The vertex position and resolution have been measured with \gls{LHC} data and compared with simulation. The resulting plots can be found in figure \ref{FIGURE:EventReconstructionAndSimulation_Vertex} as a function of number of tracks.
 
 \begin{figure}[htp]%
 \centering
 \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter04/Vertex/Images/vtx-res.pdf}}\qquad
 \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter04/Vertex/Images/vtx-eff.pdf}}\\
 \caption[Primary vertex resolution in the $z$ coordinate and vertex reconstruction efficiency as a function of the number of constituent tracks.]{(a) Primary vertex resolution in the $z$ coordinate a function of the number of associated tracks. Results are give for three ranges of average track \pt. (b) Primary vertex efficiency as a function of the number of associated track \cite{ARTICLE:CMSTrackingAndPrimaryVertex}}
-\label{FIGURE:EventReconstructionPhysicsObjects_Vertex}
+\label{FIGURE:EventReconstructionAndSimulation_Vertex}
 \end{figure}
 
 The \gls{PV} is defined as the vertex with highest sum of associated tracks \pt squared. In situations were no vertex can be reconstructed, like if there is a tracking failure, the beam spot position is assumed. Knowing precisely the interaction point allows to determine particle candidate quantities relative to it which allow for better object identification and pile-up control. 
@@ -65,13 +65,13 @@ Most \gls{CMS} analysis, including the ones presented in this thesis, require ex
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Particle Flow}
-\label{SECTION:EventReconstructionPhysicsObjects_ParticleFlow}
+\label{SECTION:EventReconstructionAndSimulation_ParticleFlow}
 
 %Status: Writing
 
 The \gls{PF} algorithm \cite{ARTICLE:CMSComissioningOfParticleFlow, ARTICLE:CMSParticleFlowEventRecontruction, ARTICLE:CMSComissioningOfParticleFlowWithMinBias} is used in the \gls{CMS} experiment with the objective of reconstructing every stable particle produced in the event. This is achieved by combining information from all \gls{CMS} sub-detectors in order to identify electrons, photons, muons, charged hadrons and neutral hadrons and measure their direction, energy and type. The identified particles can in turn be used in jet clustering, to determine the missing transverse energy, to reconstruct and identify taus, to calculate particle isolation, for identify b-quark jets, etc.
 
-The \gls{CMS} experiment is very well suited for this approach since we can is equipped with a high precision silicon tracker which is immersed in uniform axial magnetic field and its dual calorimeter design with high hermeticity and resolution. The tracker system allows Very precise direction/momentum reconstruction for charged particles down to transverse momentum as low as $150\,\MeV$. The high granularity of the \gls{ECAL} allows for photons to be identified through deposit separation even inside high energy jets. In turn electrons can be reconstructed by combining their track and the energy deposits of the electron itself and its emissions, this algorithm will be explained further in section \ref{SECTION:EventReconstructionPhysicsObjects_Electrons}. The tracker information also allows to separate charged and neutral hadrons in close proximity, a task which is not possible with just the \gls{HCAL} due to its coarser granularity. We can determine the charged hadron momentum from the track information, and then, by removing its deposit from the calorimeter system we can determine the neutral hadron deposits. In areas outside the tracker and/or \gls{ECAL} coverage measurements are more coarse Since we less information available.
+The \gls{CMS} experiment is very well suited for this approach since we can is equipped with a high precision silicon tracker which is immersed in uniform axial magnetic field and its dual calorimeter design with high hermeticity and resolution. The tracker system allows Very precise direction/momentum reconstruction for charged particles down to transverse momentum as low as $150\,\MeV$. The high granularity of the \gls{ECAL} allows for photons to be identified through deposit separation even inside high energy jets. In turn electrons can be reconstructed by combining their track and the energy deposits of the electron itself and its emissions, this algorithm will be explained further in section \ref{SECTION:EventReconstructionAndSimulation_Electrons}. The tracker information also allows to separate charged and neutral hadrons in close proximity, a task which is not possible with just the \gls{HCAL} due to its coarser granularity. We can determine the charged hadron momentum from the track information, and then, by removing its deposit from the calorimeter system we can determine the neutral hadron deposits. In areas outside the tracker and/or \gls{ECAL} coverage measurements are more coarse Since we less information available.
 
 The clustering is performed separately in the \gls{ECAL} and \gls{HCAL} algorithm. We start by identifying \textit{seed clusters} which are local maxima of calorimeter cell energy deposits. We add neighbouring cell into \textit{topological clusters} if their energy deposit is bigger than two standard deviations of the electronics noise. This value was determined to be $80\,\MeV$ for the \gls{ECAL} barrel, up to $300\,\MeV$ for the \gls{ECAL} endcap and $800\,\MeV$ for the \gls{HCAL}. The energy of each cell may be shared between multiple clusters.
 
@@ -85,7 +85,7 @@ Tracks and clusters \gls{PF} elements that need to be linked together to reconst
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Lepton Isolation}
-\label{SECTION:EventReconstructionPhysicsObjects_LeptonIsolation}
+\label{SECTION:EventReconstructionAndSimulation_LeptonIsolation}
 
 %Status: DONE
 
@@ -97,7 +97,7 @@ Normally, for physics analysis we defined the more meaningful \textit{relative i
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Electrons}
-\label{SECTION:EventReconstructionPhysicsObjects_Electrons}
+\label{SECTION:EventReconstructionAndSimulation_Electrons}
 
 %Status: DONE
 
@@ -151,7 +151,7 @@ We also define \textit{tight electrons} as an electron candidate with $\pt>20\,\
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Isolation}
-\label{SUBSECTION:EventReconstructionPhysicsObjects_LeptonIsolation_Isolation}
+\label{SUBSECTION:EventReconstructionAndSimulation_LeptonIsolation_Isolation}
 
 % More information
 %  * https://twiki.cern.ch/twiki/bin/view/CMS/EgammaCutBasedIdentification#Detector_Isolation
@@ -173,7 +173,7 @@ For the \gls{VBF} Higgs to invisible Run I analysis we used the \gls{CMS} Electr
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Muons}
-\label{SECTION:EventReconstructionPhysicsObjects_Muons}
+\label{SECTION:EventReconstructionAndSimulation_Muons}
 
 %Status: DONE
 
@@ -214,7 +214,7 @@ We can also define \textit{tight muon} as a muon candidate which has $\pt>20\,\G
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Isolation}
-\label{SUBSECTION:EventReconstructionPhysicsObjects_LeptonIsolation_MuonsIsolation}
+\label{SUBSECTION:EventReconstructionAndSimulation_LeptonIsolation_MuonsIsolation}
 
 % More information:
 %  * https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId#Muon_Isolation
@@ -238,7 +238,7 @@ For the \gls{VBF} Higgs to invisible Run I analysis we used the \gls{CMS} Muon \
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Jets}
-\label{SECTION:EventReconstructionPhysicsObjects_Jets}
+\label{SECTION:EventReconstructionAndSimulation_Jets}
 
 %Status: DONE
 
@@ -248,17 +248,17 @@ When we collide hadrons the most probable hard processes will produce quarks and
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Jet Clustering}
-\label{SECTION:EventReconstructionPhysicsObjects_Jets_JetClustering}
+\label{SECTION:EventReconstructionAndSimulation_Jets_JetClustering}
 
 %Status: DONE
 
-Jet clustering algorithms are sets of rules that allows us to combine a particle candidates into a jets \cite{ARTICLE:TowardsJetography}. These algorithms normally are controlled by parameters that define how close particles need to be in order to be associated into a jet and a way to combine their momentum. However jet definition should be robust and provide consistent measurements about the parton. There are two major problems that may affect a jet algorithms. These problems appear when the number of jets in an event changes by adding a soft collinear gluon emissions (collinear safety) or by parton splitting (infrared safety). 
+Jet clustering algorithms are sets of rules that allows us to combine a particle candidates into a jets \cite{ARTICLE:TowardsJetography}. These algorithms normally are controlled by parameters that define how close particles need to be in order to be associated into a jet and a way to combine their momentum. However, a jet definition should be robust and provide consistent measurements about the parton. There are two major families of problems that may affect a jet algorithms. These problems appear when the number of jets in an event changes by adding a soft collinear gluon emissions (collinear safety) or by parton splitting (infrared safety). 
 
-In \gls{CMS} we used a sequential recombination algorithm known as anti-$k_T$ \cite{ARTICLE:AntiKtAlgorithm} which is both infrared and collinear safe. This algorithm starts be determining a measurement of distance between every pair of objects $d_{ij}$ and a the distance of each object to the beamline $d_{iB}$. The definition of this distances can be found in equations \ref{EQUATION:EventReconstructionPhysicsObjects_AKDistances1} and \ref{EQUATION:EventReconstructionPhysicsObjects_AKDistances2} respectively. 
+In \gls{CMS} we used a sequential recombination algorithm known as anti-$k_T$ \cite{ARTICLE:AntiKtAlgorithm} which is both infrared and collinear safe. This algorithm starts be determining a measurement of distance between every pair of objects $d_{ij}$ and a the distance of each object to the beamline $d_{iB}$. The definition of this distances can be found in equations \ref{EQUATION:EventReconstructionAndSimulation_AKDistances1} and \ref{EQUATION:EventReconstructionAndSimulation_AKDistances2} respectively. 
 
 \begin{align}
-d_{ij} &= \text{min}({\pT}_{i}^{2p},{\pT}_{j}^{2p})\frac{\Delta R_{ij}^{2}}{R^{2}} \label{EQUATION:EventReconstructionPhysicsObjects_AKDistances1} \\
-d_{iB} &= {\pT}_{i}^{2p}\ \label{EQUATION:EventReconstructionPhysicsObjects_AKDistances2} 
+d_{ij} &= \text{min}({\pT}_{i}^{2p},{\pT}_{j}^{2p})\frac{\Delta R_{ij}^{2}}{R^{2}} \label{EQUATION:EventReconstructionAndSimulation_AKDistances1} \\
+d_{iB} &= {\pT}_{i}^{2p}\ \label{EQUATION:EventReconstructionAndSimulation_AKDistances2} 
 \end{align}
 
 Where $\Delta R$ is the separation the $\eta-phi$ plane and $R$ is the maximum diameter for the jet. The parameter $p$ defines what type of algorithm we Choose. For $p$ is equal to 1 for the $k_T$ algorithm, 0 for the Cambridge/Aachen algorithm and -1 for the anti-$k_T$. 
@@ -274,16 +274,72 @@ The anti-$k_T$ algorithm tend to cluster particles around a the hardest particle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Particle Flow Jet Identification} 
+\label{SECTION:EventReconstructionAndSimulation_Jets_ParticleFlowJetID}
+
+%Status: DONE
+
+% More information at:
+% https://twiki.cern.ch/twiki/bin/view/CMS/JetID
+
+The \gls{CMS} Jet-MET \gls{POG} has defined criteria to reject fake, badly reconstructed and noisy \gls{PF} jets while keeping 98-99\% real jets. I all the analysis presented in this thesis we have used the recommended \gls{PF} jet \gls{ID} loose working point. We require all jets to have at least two constituents and both neutral hadron fraction and a neutral \gls{EM} fraction to be below 99\%. Additionally for jets inside the tracker acceptance with $|\eta| < 2.4$ we require the charged multiplicity and charged hadron fraction to be at bigger than zero and the charged \gls{EM} fraction to be less than 99\%.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pileup Jet Identification}
+\label{SECTION:EventReconstructionAndSimulation_Jets_PileupJetID}
+
+%Status: DONE
+
+% More information at:
+% https://twiki.cern.ch/twiki/bin/view/CMS/PileupJetID
+
+To identify if a \gls{PF} jet has come from \gls{PU} or from the primary vertex we make of a \gls{BDT}. This machine learning algorithm was trained with information about, the trajectory of the tracks associated with the jet, the jet shape and object multiplicity. In the presented analysis we have used the recommended loose working point of the \textit{full \gls{BDT} method}. This method was be applied to each jet which would only be accepted if the \gls{BDT} output score would pass the cuts defined on table \ref{TABLE:EventReconstructionAndSimulation_PileupJetIDFullBDTLooseWorkingPoint} depending on jet \pt and \eta.
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Jet $p_{\perp}$ & Jet $|\eta|$ & $BDT_{score}$ \\
+\hline \hline
+$20 < p_{\perp} \leq 30$ & $|\eta| < 2.5$            & $> -0.80$ \\
+$20 < p_{\perp} \leq 30$ & $2.50 \leq |\eta| < 2.75$ & $> -0.85$ \\
+$20 < p_{\perp} \leq 30$ & $2.75 \leq |\eta| < 3.00$ & $> -0.84$ \\
+$20 < p_{\perp} \leq 30$ & $3.00 \leq |\eta| < 5.00$ & $> -0.85$ \\
+$30 < p_{\perp}$         & $|\eta| < 2.5$            & $> -0.80$ \\
+$30 < p_{\perp}$         & $2.50 \leq |\eta| < 2.75$ & $> -0.74$ \\
+$30 < p_{\perp}$         & $2.75 \leq |\eta| < 3.00$ & $> -0.68$ \\
+$30 < p_{\perp}$         & $3.00 \leq |\eta| < 5.00$ & $> -0.77$ \\
+\hline
+\end{tabular}
+\caption{Table of the minimum values of \textit{full \gls{BDT} method} score for a \gls{PF} to be accepted as coming from the \gls{PV} using a loose working point. Required minimum values have been binned in jet \pt and \eta.}
+\label{TABLE:EventReconstructionAndSimulation_PileupJetIDFullBDTLooseWorkingPoint}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lepton cleaning}
+\label{SECTION:EventReconstructionAndSimulation_Jets_LeptonCleaning}
+
+%Status: DONE
+
+To avoid having leptons being miss reconstructed as jets we filter out all jets which are located at $\Delta R < 0.5$ to any veto electron or loose muons.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Jet Energy Corrections}
-\label{SECTION:EventReconstructionPhysicsObjects_Jets_JetEnergyCorrections}
+\label{SECTION:EventReconstructionAndSimulation_Jets_JetEnergyCorrections}
 
 %Status: DONE???
 
-When reconstructing a jet the clustered energy often does not match the parton energy that gave origin to the jet itself. There are many reason for this effect like non-linearity of the calorimeters response, detector noise, overlap with problematic detector areas, additional energy from \gls{PU}, miss calibration, etc. To fix this problem corrections are determined and applied to each jet in order to in average have energy measurements that are equal to the original hadron. This corrections can be factorized into components as it is represented in equation \ref{EQUATION:EventReconstructionPhysicsObjects_JetEnergyCorrections} \cite{ARTICLE:CMSDeterminationJetEnergyCalibration}.
+When reconstructing a jet the clustered energy often does not match the parton energy that gave origin to the jet itself. There are many reason for this effect like non-linearity of the calorimeters response, detector noise, overlap with problematic detector areas, additional energy from \gls{PU}, miss calibration, etc. To fix this problem corrections are determined and applied to each jet in order to in average have energy measurements that are equal to the original hadron. This corrections can be factorized into components as it is represented in equation \ref{EQUATION:EventReconstructionAndSimulation_JetEnergyCorrections} \cite{ARTICLE:CMSDeterminationJetEnergyCalibration}.
 
 \begin{equation}
 P_{\text{corr}}^{\mu} = C_{\text{offset}}(\pT^{\text{raw}},\eta) \cdot C_{\text{rel}}(\pT^{\text{off}},\eta) \cdot C_{\text{abs}}(\pT^{\text{rel}},\eta) \cdot P_{\text{raw}}^{\mu}
-\label{EQUATION:EventReconstructionPhysicsObjects_JetEnergyCorrections}
+\label{EQUATION:EventReconstructionAndSimulation_JetEnergyCorrections}
 \end{equation}
 
 The $C_{\text{offset}}$ term is accounts and subtracts the contribution of \gls{PU} and noise the the detector measurements. Its value is determined taking into account the specific event \pt-density express in the variable \rho, and the individual jet area A \cite{ARTICLE:PileupSubtractionJetAreas}. The event \rho is calculated as the median \pt-density of all jets present in the event. Since the median taken it will not be affected by the presence of hard jets. Unfortunately, the \glsreset{UE} activity has similar characteristic to the \gls{PU} and should not be subtracted. To avoid this the correction takes the form of $\rho - \langle \rho \rangle_{UE} \cdot A$, where $\langle \rho \rangle_{UE}$ is the average expected \gls{UE} contribution.
@@ -303,11 +359,11 @@ The total uncertainty on the jet energy scale is obtained by summing in quadratu
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Hadronic Taus}
-\label{SECTION:EventReconstructionPhysicsObjects_Taus}
+\label{SECTION:EventReconstructionAndSimulation_Taus}
 
 %Status: DONE
 
-Taus can decay leptonically and hadronically. In leptonic decays the tau decays directly to an electron or and two additional neutrinos. Therefore it is very difficult to identify such decays experimentally. On the other hand an hadronic tau decay produces a characteristic signature of a narrow jet containing an odd number of charged particles and additional neutral hadrons, as well as a tau neutrino. The most frequent decay modes have one or three charged $\pi$ mesons and are summarized in table \ref{TABLE:EventReconstructionPhysicsObjects_TauDecays}. In all the analysis presented in this thesis when referring to a tau we refer an hadronically decaying tau.
+Taus can decay leptonically and hadronically. In leptonic decays the tau decays directly to an electron or and two additional neutrinos. Therefore it is very difficult to identify such decays experimentally. On the other hand an hadronic tau decay produces a characteristic signature of a narrow jet containing an odd number of charged particles and additional neutral hadrons, as well as a tau neutrino. The most frequent decay modes have one or three charged $\pi$ mesons and are summarized in table \ref{TABLE:EventReconstructionAndSimulation_TauDecays}. In all the analysis presented in this thesis when referring to a tau we refer an hadronically decaying tau.
 
 \begin{table}[!htb]
 \begin{tabular}{|l|c|r|r|}
@@ -326,7 +382,7 @@ Total & &  & 64.7 \\
 \hline
 \end{tabular}
 \caption[Summary of the hadronic tau decay modes.]{Summary of the hadronic tau decay modes, with the branching fractions and intermediate resonances listed where relevant \cite{ARTICLE:PDG}.}
-\label{TABLE:EventReconstructionPhysicsObjects_TauDecays}
+\label{TABLE:EventReconstructionAndSimulation_TauDecays}
 \end{table}
 
 Reconstruction of hadronic tau neutrinos with \gls{PF} is done by identifying the specific decay mode visible decay products. This approach is referred to as the \glsreset{HPS} algorithm \cite{ARTICLE:CMSPerformaceOfTauLeptonReconstruction,ARTICLE:CMSReconstructionIndentificationTau}. It combines reconstructed charged hadrons with strips of clustered photons which are interpreted as $\pi_0$. The reconstructed system is constrained by the tau mass and is highly collimated when compared with a typical \gls{QCD} jet. 
@@ -335,12 +391,12 @@ Reconstruction of hadronic tau neutrinos with \gls{PF} is done by identifying th
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hadron Plus Stips Algorithm}
-\label{SECTION:EventReconstructionPhysicsObjects_Taus_HPSAlgorithm}
+\label{SECTION:EventReconstructionAndSimulation_Taus_HPSAlgorithm}
 
 %Status: DONE
 %TODO: Review this with Andrew.
 
-The \gls{HPS} algorithm utilizes \gls{PF} candidates to reconstruct charged pions and photons resulting from neutral pions decay. These photon can convert in into electron-positron pairs in the tracker material. This factors are taken into consideration, as well as these products deflection in the magnetic field. It also attempts to find the intermediate resonances listed in table \ref{TABLE:EventReconstructionPhysicsObjects_TauDecays} has a handle to determine the possible tau decay channel. Since the tau neutrino present on all decays cannot be directly measured it is not taken into account.
+The \gls{HPS} algorithm utilizes \gls{PF} candidates to reconstruct charged pions and photons resulting from neutral pions decay. These photon can convert in into electron-positron pairs in the tracker material. This factors are taken into consideration, as well as these products deflection in the magnetic field. It also attempts to find the intermediate resonances listed in table \ref{TABLE:EventReconstructionAndSimulation_TauDecays} has a handle to determine the possible tau decay channel. Since the tau neutrino present on all decays cannot be directly measured it is not taken into account.
 
 
 We seed the algorithm with \gls{PF} anti-$k_T$ jets with $R = 0.5$ where $\pt>14\,\GeV$ and $|\eta|<2.5$. To search for the $\pi^{0}$ decay products we try to identify strips by clustering \gls{PF} electrons and photons with $\pt>0.5\,\GeV$. We start from the most energetic electromagnetic particle inside the jet area and make that the centre of our candidate strip. We look for other electromagnetic objects within a window of $\Delta\eta = 0.05$ and $\Delta\phi = 0.20$ of the centre of the strip. If any object is found it gets associated with the strip and its four-momentum gets recalculated. We repeat the procedure until we cannot find any more electromagnetic in the strip. If the final strip object has a mass compatible with a $\pi^{0}$, in the interval between $50-200\,\MeV$, and has $\pt > 2.5 GeV$ it is kept. We then start the next strip clustering with the highest \pt electron or gamma not already belonging to a strip.
@@ -351,22 +407,20 @@ The following topologies are taken into account by the \gls{HPS} algorithm:
 
 \begin{enumerate}
   \item \textit{single hadron}: tries to identify tau decays into $\pi^{\pm} \nu_\tau$ or $\pi^{\pm} \pi^{0} \nu_\tau$ where the netral pion decay cannot be identified as a strips.
-  \item \textit{One hadron + one strip}: tries to identify tau decays into $\pi^{\pm} \pi^{0} \nu_\tau$ where the $\pi^{0}$ decay photons are close together. The mass of the reconstructed $\tau_had$ is required to be in the interval $0.3<m_{\tau_had}<1.3\sqrt{\pt^{\tau}/100}\,\GeV$. The sliding of the mass window is to account for resolution effect and is constrained to be between $1.3$ and $4.2\,\GeV$.
-  \item \textit{One hadron + two strip}: tries to identify tau decays into $\pi^{\pm} \pi^{0} \pi^{0} \nu_\tau$ where the $\pi^{0}$ decay photons are well separated. The mass of the reconstructed $\tau_had$ is required to be in the interval $0.4<m_{\tau_had}<1.2\sqrt{\pt^{\tau}/100}\,\GeV$. The is constrained to be between $1.2$ and $4.0\,\GeV$.
+  \item \textit{One hadron + one strip}: tries to identify tau decays into $\pi^{\pm} \pi^{0} \nu_\tau$ where the $\pi^{0}$ decay photons are close together. The mass of the reconstructed $\tau_had$ is required to be in the interval $0.4<m_{\tau_had}<1.3\,\GeV$ for $\pt^{\tau_{had}} < 200\,\GeV$. The upper limit in the mass window can go up to $2.1\,\GeV$ for candidates with $\pt^{\tau_{had}} > 200\,\GeV$ to account for resolution effects.
+  \item \textit{One hadron + two strip}: tries to identify tau decays into $\pi^{\pm} \pi^{0} \pi^{0} \nu_\tau$ where the $\pi^{0}$ decay photons are well separated. The mass of the reconstructed $\tau_had$ is required to be in the interval $0.4<m_{\tau_had}<1.2\,\GeV$ for $\pt^{\tau_{had}} < 200\,\GeV$. The upper limit in the mass window can go up $2.0\,\GeV$ and the $\pt^{\tau_{had}}$ increases above $200\,\GeV$.
   \item \textit{Three hadrons}: tries to identify tau decays into $\pi^{\pm} \pi^{\mp} \pi^{\pm} \nu_\tau$. The hadrons are required to have nass in the interval $0.8-1.5\,\GeV$ since we assume the $a_{1}$ intermediate resonance. Total charged is required to be one.
 \end{enumerate}
 
 There is no dedicated search for $\pi^{\pm} \pi^{\mp} \pi^{\pm} \pi^{0} \nu_\tau$ or higher pion multiplicity decay modes. These topologies are reconstructed with the currently defined criteria.
 
-All selected hadrons and strips are required to be inside of cone of $\Delta R < 3.0\,\GeV/\pt^{\tau_{had}}$. The cone size is is constrained to the interval $\Delta R=0.05-0.10$. 
-
-% \cite{ARTICLE:CMSReconstructionIndentificationTau}
+All selected hadrons and strips are required to be inside of cone of $\Delta R < 2.8\,\GeV/\pt^{\tau_{had}}$. The cone size is is constrained to the interval $\Delta R=0.05-0.10$. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Isolation and Discriminants}
-\label{SECTION:EventReconstructionPhysicsObjects_Taus_IsolationAndDiscriminants}
+\label{SECTION:EventReconstructionAndSimulation_Taus_IsolationAndDiscriminants}
 
 %STATUS: DONE
 
@@ -382,20 +436,20 @@ We can now define an hadronic tau candidate as a \gls{PF} tau candidates with $\
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Missing Transverse Energy}
-\label{SECTION:EventReconstructionPhysicsObjects_MET}
+\label{SECTION:EventReconstructionAndSimulation_MET}
 
 %Status: DONE
 
 The Standard Model describes neutrinos as particles which only interact via the weak force. They can pass through our detectors without interacting and therefore not allowing any direct measurement. Many new models describe additional particles that would also be able to escape detection by leaving very small or no energy deposits in our experiments. The appearance of such particles can only be inferred through the measurement of an imbalance of transverse momentum of all detected particles. These effect can be quantified as the negative sum off all visible particle candidates transverse momentum in an event. 
 
-The magnitude of that vector is referred to as \glsreset{MET}. Particle flow methodology provides a complete list of objects candidates in the event with excellent resolution achieved by combining all available information. It is the well suited to be the input for \gls{MET} calculation. Although \gls{CMS} has an excellent individual particle resolution the calculation of \gls{MET} is affected by the combined resolution of the measurement of all particles in the event. Figure \ref{FIGURE:EventReconstructionPhysicsObjects_METDistributionZmumu} shows the distribution for \gls{PF} \gls{MET} for both data and simulation for the selections of events of $Z \rightarrow \mu\mu$ and $\gamma +jets$ processes at $\sqrt{s}=8\,\TeV$. 
+The magnitude of that vector is referred to as \glsreset{MET}. Particle flow methodology provides a complete list of objects candidates in the event with excellent resolution achieved by combining all available information. It is the well suited to be the input for \gls{MET} calculation. Although \gls{CMS} has an excellent individual particle resolution the calculation of \gls{MET} is affected by the combined resolution of the measurement of all particles in the event. Figure \ref{FIGURE:EventReconstructionAndSimulation_METDistributionZmumu} shows the distribution for \gls{PF} \gls{MET} for both data and simulation for the selections of events of $Z \rightarrow \mu\mu$ and $\gamma +jets$ processes at $\sqrt{s}=8\,\TeV$. 
 
 \begin{figure}[!htp]%
 \centering
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter04/MET/Images/met_zmm.pdf}}\qquad
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter04/MET/Images/met_gamma.pdf}}\\
  \caption[Distributions of the particle flow $\MET$ in $Z\rightarrow\gamma\gamma$ and $\gamma$+jets events in $\sqrt{s}=8\,\TeV$ data and simulation.]{Distributions of the particle flow $\MET$ in a) $Z\rightarrow\gamma\gamma$ and b) $\gamma$+jets events in $\sqrt{s}=8\,\TeV$ data and simulation. The uncertainty in the muon, photon, jet and neutral hadron energy responses is showed by the shaded band \cite{ARTICLE:CMSMETPerformance8TeV}.}
-\label{FIGURE:EventReconstructionPhysicsObjects_METDistributionZmumu}
+\label{FIGURE:EventReconstructionAndSimulation_METDistributionZmumu}
 \end{figure}
 
 Both photons and muons energy measurements have good resolution in the \gls{CMS} experiment and this processes do not involve real \gls{MET}. The observed distribution in both figures are predominantly shaped by the energy resolution of jet energy measurement.
@@ -408,3 +462,36 @@ In the \gls{VBF} Higgs to invisible analysis we calculate and use \gls{MET} with
 
 % \cite{ARTICLE:CMSMETPerformance8TeV}                 % AG 83
 % \cite{ARTICLE:CMSMissingTransverseEnergyPerformance} % AG 84
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Monte Carlo Simulation}
+\label{SECTION:EventReconstructionAndSimulation_MonteCarloSimulation}
+
+\glsreset{MC} methods are a class of computer algorithms that rely on random sampling to obtain numerical results. This type of methods is especially useful in problems with many coupled degrees of freedom where it is difficult to perform analytical calculations. In particle physics these methods are often used to simulate physics processes, their interaction with detectors and the obtained measurements.
+
+To simulate one event on the \gls{CMS} experiment we first start by the physics process itself. We can split this into two sub-processes: hard scattering and hadronization. There are many purpose built software programs that will perform each of these steps. An illustration of how the simulation of proton-proton collision is done with \gls{MC} programs can be found in figure \ref{FIGURE:EventReconstructionAndSimulation_MCShower}. A review of the available generators for \gls{LHC} physics can be found in \cite{ARTICLE:GeneralPurposeEventGeneratorsForLHCPhysics}.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.8\textwidth]{Chapter04/MonteCarlo/Images/MCShower.png}
+\caption[Illustration a proton-proton collision as implemented in MC event generators.]{Illustration of a proton-proton collision as implemented in some MC event generators \cite{IMAGEREF:krauss-diag}. Sub-processes are represented, the hard-scattering in the center of the diagram, the parton showering in red, hadronization in green. We can also observe the \gls{UE} interaction and its showering in purple.}
+\label{FIGURE:EventReconstructionAndSimulation_MCShower}
+\end{figure}
+
+General purpose particle physics event generators like \textsc{PYTHIA 8} \cite{ARTICLE:Pythia6p4PhysicsAndManual,ARTICLE:Pythia8p1Introduction}, \textsc{HERWIG++} \cite{ARTICLE:HERWIGPhysicsAndManual} and \textsc{SHERPA} \cite{ARTiCLE:SherpaEventGenerator} are able to do both hard scattering and hadronization steps for a wide variety of physics processes. Typically these programs are restricted to $2 \rightarrow 2$ and $2 \rightarrow 1$ hard processes calculated at \gls{LO}.
+
+There are many other dedicated matrix-element generators, like \textsc{MADGRAPH 5} \cite{ARTICLE:MadGraph5}, \textsc{ALPGEN} \cite{ARTICLE:ALPGENGenerator} and also \textsc{SHERPA} that focus on the hard process simulation. These programs provide $2 \rightarrow X$ hard scattering where a higher number of partons in the final state is possible. Some generators have also implemented \gls{NLO} calculations, which provide a better kinematics discription and lower uncertainties. Two examples of such generators are \textsc{aMC@NLO} \cite{ARTICLE:aMCatNLO} and \textsc{POWHEG} \cite{ARTICLE:POWHEG_2007,ARTICLE:POWHEG_2011}. This parton level events then need to be passed to a one of the general purpose event generators for hadronization. 
+
+We need to avoid overlapping in the phase-space description of matrix-element and showering programs when simulating multi-jets events. The overlap comes from software like \textsc{PYTHIA} or \textsc{HERWIG} describing parton radiation as a Markov Chain process based on Sudakov form factors. This approach is only formally correct in the limit of soft and collinear emissions. On the other hand \gls{ME} programs like \textsc{MadGraph} works well for the hard scattering but diverges when the partons become soft or collinear. 
+
+There are a few jet-parton matching schemes developed to account for this overlap \cite{ARTICLE:MatchingPartonShowersAndMatrixElements}. Showering can be vetoed and the event reweighed according like in the CKKW scheme \cite{ARTICLE:CKKWSchemeRef1,ARTICLE:CKKWSchemeRef2,ARTICLE:CKKWSchemeRef3} or events can be rejected altogether like in the MLM scheme \cite{ARTICLE:MLMScheme}. Depending on the generator used for the showering, different schemes are implemented and care must be taken in the definition of the matching parameters.
+
+Most event generators can be finely tuned so all aspects of the simulation can be adjusted to experimental conditions. As consequence, in the \gls{CMS} experiment \textsc{PYTHIA} is used with the Z2 tune, which was produced using measurements made using minimum bias data at the Tevatron and \gls{LHC} \cite{ARTICLE:CMSMeasurementUnderlyingEventActivity}.  
+
+After the physics event is simulated, the interaction with the detector and the corresponding electronics response is estimated using a precise model of the experiment. In the \gls{CMS} experiment \textsc{GEANT 4} \cite{ARTICLE:GEANT4ASimulationToolkit,ARTICLE:Geant4DevelopmentsAndApplications} software is used for this task which also relies heavily on \gls{MC} methods.
+
+
+
+
