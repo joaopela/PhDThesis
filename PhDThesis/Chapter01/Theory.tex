@@ -1,45 +1,35 @@
-\chapter{Theory}
-%NOTE: Maybe would be good to make a more descriptive title
+\chapter{Theory and motivations}
+\label{CHAPTER:TheoryAndMotivations}
 
+\glsresetall % Resetting all acronyms
 
-% Adding a bunch of references
-\cite{ARTICLE:Higgs_SpontaneousSymmetryBreakdown}
-
-\cite{BOOK:Griffiths}
-
-
-
-
-\colorbox{red}{
-\begin{minipage}{0.95\linewidth}
-TODO: 
-\begin{itemize}
-  \item Global status
-\end{itemize}
-
-\end{minipage}
-}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Standard Model of Particle Physics}
 
-\colorbox{red}{
-\begin{minipage}{0.95\linewidth}
-TODO: 
+% Status: DONE
 
-\begin{itemize}
-  \item Very brief summary of the Standard Model.
-\end{itemize}
+The \gls{SM} of particle physics is a quantum field theory that describes the electromagnetic, weak nuclear and strong forces and their interaction with matter. This theory is one of the most successful theories ever made and was able to describe data from a wide range of experimental measurements. Before its discovery in 2012 \cite{ARTICLE:ATLAS_HiggsDiscovery,ARTICLE:CMS_HiggsDiscovery} the Higgs boson was the only missing particle that was predicted by this theory and not yet found. 
 
-\end{minipage}
-}
+Although its success, the \gls{SM} does not explain some phenomena observed in nature, like the presence of large quantity of \textit{dark matter} in the universe, or the even more mysterious \textit{dark energy}. The discovery of the Higgs boson could allow to probe the production of dark matter directly, through its decay into these elusive particles. This chapter briefly describes the theory behind the \gls{SM}, the Higgs mechanism, how to search for Higgs invisible decays.
 
-The \gls{SM} of particle physics is the currently accepted model for describing the physics of elementary particles.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Particles and forces}
+\label{SUBSECTION:Theory_SM_ParticlesAndForces}
+
+
 
 \input{Chapter01/Tables/LeptonProperties.tex}
 \input{Chapter01/Tables/QuarkProperties.tex}
 \input{Chapter01/Tables/BosonProperties.tex}
 
-\section{Higgs Mechanism}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Higgs mechanism}
 
 Summary of the Higgs Mechanism. Should include
 \begin{itemize}
@@ -49,7 +39,49 @@ Summary of the Higgs Mechanism. Should include
  \item Possible decays
 \end{itemize}
 
-\section{Higgs Invisible decays}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Searching for the SM Higgs boson}
+
+
+\begin{figure}[htbp]
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_ggH.pdf}} \qquad
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_qqH.pdf}} \\
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_VH.pdf}}  \qquad
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_ttH.pdf}} \\
+\caption[Feynman diagrams for the dominant production processes of the SM Higgs
+boson.]{Feynman diagrams for the dominant production processes of the SM Higgs
+boson. Shown is a) gluon fusion, b) vector boson fusion and
+associated production with c) vector bosons and d) top quarks.}
+\label{fig:SMFeynmanDiagrams}
+\end{figure}
+
+\begin{figure}[htbp]
+ \includegraphics[width=0.7\textwidth]{Chapter01/Images/Higgs_XS_8TeV_lx.pdf}
+\caption[Cross sections for Higgs production processes at $\sqrt{s}=8\,\TeV$ for
+a range of Higgs boson masses.]{Cross sections for Higgs production processes at
+$\sqrt{s}=8\,\TeV$ for a range of Higgs boson masses $m_{\PH}$~\cite{Heinemeyer:2013tqa}. Across the
+mass range the gluon-fusion mode dominates, followed by the vector boson fusion
+and associated production modes. The widths of the lines represent the
+theoretical uncertainties on the cross section calculation.}
+\label{fig:SMHiggsXS}
+\end{figure}
+
+\begin{figure}[htbp]
+ \includegraphics[width=0.6\textwidth]{Chapter01/Images/Higgs_BR.pdf}
+\caption[Higgs boson branching ratios in the SM for a range of Higgs boson
+masses.]{Higgs boson branching ratios in the SM for a range of Higgs boson
+masses $m_{\PH}$ \cite{Heinemeyer:2013tqa}. At high masses, above their
+kinematic thresholds, the $\PW\PW$,
+$\PZ\PZ$ and $\ttbar$ (shown in red) decay modes dominate. 
+At lower masses a wide range of different final states is possible. 
+The widths of the lines represent the
+theoretical uncertainties on the branching ratio calculation.}
+\label{fig:SMHiggsBRs}
+\end{figure}
+
+\subsection{Higgs Invisible decays}
 
 \colorbox{red}{
 \begin{minipage}{0.95\linewidth}
@@ -61,4 +93,8 @@ TODO:
 
 \end{minipage}
 }
+
+% Adding a bunch of references
+\cite{ARTICLE:Higgs_SpontaneousSymmetryBreakdown}
+\cite{BOOK:Griffiths}
 
