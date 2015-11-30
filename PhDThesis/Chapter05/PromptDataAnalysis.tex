@@ -1,4 +1,4 @@
-\chapter{Search for H(Inv) decays in the Vector Boson Fusion channel with CMS prompt data analysis}
+\chapter{Search for H(Inv) decays in the VBF channel with CMS prompt data}
 \label{CHAPTER:PromptDataAnalysis}
 
 \glsresetall % Resetting all acronyms
@@ -22,14 +22,20 @@ In this analysis we use the recorded data by a purpose designed trigger that sel
 
 %TODO: Was it METnoMu for trigger weights?
 
-The signal region is defined by selecting a events with a tighter version of the trigger conditions with additional cuts and vetoes. Building on the trigger cuts we require the leading pair of jets in the event to pass $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $\Delta\eta_{jj}>4.2$ and $\MET > 130\,\GeV$. We veto events with identified electrons or muons  with $\pt>10\,\GeV$ to suppress processes with $Z$ or $W$ boson decays. To reduce \gls{QCD} multi-jet backgrounds we additional request the dijet to pass $\Delta\phi < 1.0\,\radian$, since typically \gls{QCD} jets will be back to back and therefore will have high values in this variable. Finally, we require a \glsreset{CJV}, where no additional jet can be present between the two leading jets with $\pt > 30\,\GeV$.
+The signal region is defined by selecting a events with a tighter version of the trigger conditions with additional cuts and vetoes. Building on the trigger cuts we require the leading pair of particle flow \cite{ARTICLE:CMSParticleFlowEventRecontruction} anti-$k_T^{\Delta R=0.5}$ jets in the event to pass $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $\Delta\eta_{jj}>4.2$ and $\MET > 130\,\GeV$. We veto events with identified veto electrons or loose muons  with $\pt>10\,\GeV$ to suppress processes with $Z$ or $W$ boson decays. To reduce \gls{QCD} multi-jet backgrounds we additional request the dijet to pass $\Delta\phi < 1.0\,\radian$, since typically \gls{QCD} jets will be back to back and therefore will have high values in this variable. Finally, we require a \glsreset{CJV}, where no additional jet can be present between the two leading jets with $\pt > 30\,\GeV$.
 
+The event selection was optimized by setting the lepton vetoes to the recommends values by the relevant \gls{POG} and the \gls{CJV} to a value where its behaviour is well understood. All other thresholds were optimised to obtain the best possible signal significance which was calculated with a profile likelihood method that takes into consideration all relevant systematics. In the calculation the Higgs mass was assumed to be $125\,\GeV$ and a branching ration to invisible of 100\%. The variables involved in the trigger (jet \pt, $M_{jj}$ and \gls{MET}) are constrained to be above the 95\% efficiency working point of the trigger.
 
- 
-% The offline selection then proceeds as follows.  We reject backgrounds from \Z and W bosons by vetoing any event with an identified electron~\cite{CMS-PAS-EGM-10-004} or muon~\cite{CMS-PAS-MUO-10-002} with $\pt>10$\GeV.
-% %Jets are reconstructed using the particle flow %technique~\cite{CMS-PAS-PFT-09-001} and an anti-$\rm {k_T}$ %algorithm~\cite{antikt} with a cone size of 0.5.
-% The VBF tag jet pair is then identified as the leading jet pair.  This pair is required to pass tightened versions of the trigger selection, specifically $\pt^\mathrm{j1},\pt^\mathrm{j2} > 50$\GeV, $\abs{\eta} < 4.7$, $\eta_\mathrm{j1}, \eta_\mathrm{j2} < 0$, $\etajj>4.2$, and $\mjj>1100$\GeV.
-% The missing-energy requirement is $\ETm > 130$\GeV.  Multijet backgrounds are reduced to a low level by requiring the azimuthal separation between the tag jets to be small, $\phijj < 1.0$~radians, since the background peaks at $\phijj = \pi$~radians while the signal is roughly flat in $\phijj$.  Finally, we apply a central-jet veto (CJV) to any event that has an additional jet with $\pt>30$\GeV and pseudorapidity between those of the two tag jets.
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-Dijet-M.pdf}
+\includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-Dijet-DEta.pdf}     
+\includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-Dijet-DPhi.pdf}
+\includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-CJV-pT.pdf} 
+\caption{Distributions of $M_{jj}$ (top left), $\Delta\eta_{jj}$ (top right), $\Delta\phi_{jj}$ (bottom left), and central jet \pt (bottom right) in background and signal MC simulation. The distributions are shown after requiring two jets with $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $M_{jj}>150$\GeV, and $MET > 130\,\GeV$. The arrows correspond to the thresholds applied for the final selection, after optimization. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\label{fig:vbfSel}
+\end{figure}
+
 % 
 % The lepton and central jet veto thresholds are set to low values at which reconstruction is known to be reliable, while the remaining thresholds are determined by optimizing the selection to give the best signal significance, calculated using a profile likelihood method that incorporates all systematic uncertainties, for a Higgs boson with $\mH=125$\GeV and 100\% invisible branching fraction. The thresholds on jet \pt, $\mjj$, and $\ETm$ are constrained to be above the point where the trigger is 95\% efficient.  This constraint effectively determines the jet \pt and $\ETm$ thresholds, since signal significance only worsens when these thresholds are raised above this point. Distributions of $\mjj$, $\etajj$, $\phijj$, and central jet \pt in background and signal MC simulation are shown in Figure~\ref{fig:vbfSel}, along with the thresholds applied after optimization of the selection.
 % 
@@ -55,7 +61,13 @@ The signal region is defined by selecting a events with a tighter version of the
 
 %Status: Writing
 
-
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.45\textwidth]{Chapter05/Images/ZCtrlMET.pdf}
+\includegraphics[width=0.45\textwidth]{Chapter05/Images/ZCtrlMjj.pdf}   
+\caption{The $MET$ (left plot) and $M_{jj}$ (right plot) distributions in the relaxed $Z$ control region of the \gls{VBF} search, with no requirements on $\Delta\eta_{jj}$, $\Delta\phi_{jj}$, or \gls{CJV}, and with the $M_{jj}$ requirement relaxed to $1000\,\GeV$.  The simulated background from different processes is shown cumulatively, and normalized to the data, with its systematic uncertainty shown as a hatched region.  The lower panels show the ratio of data to the simulated background, again with the systematic uncertainty shown as a hatched region. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\label{fig:zCtrl}
+\end{figure}
 
 \begin{table}[!htb]
 \centering
@@ -126,7 +138,7 @@ Total                               & 18\%             & 14\%   \\
 \centering
 \includegraphics[width=0.49\textwidth]{Chapter05/Images/vbfxslimit.pdf}
 \includegraphics[width=0.49\textwidth]{Chapter05/Images/vbflimit.pdf}
-\caption{Expected and observed 95\% CL upper limits on the VBF production cross section times invisible branching fraction (left figure), and normalized to the SM Higgs boson VBF production cross section (right figure). \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\caption{Expected and observed 95\% CL upper limits on the VBF production cross section times invisible branching fraction (left figure), and normalized to the \gls{SM} Higgs boson \gls{VBF} production cross section (right figure). \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
 \label{FIGURE:vbfLimit}
 \end{figure}
 
