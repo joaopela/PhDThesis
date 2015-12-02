@@ -48,10 +48,10 @@ section as a function of instant luminosity and the line is the reference fit do
 
 This tool was initially developed by me during last year and now has been improved and debugged. It monitors
 the synchronization of the lowest unprescaled single object trigger of all available L1 trigger object categories
-by looking at HLT pass-through paths events (no selection at LHC to avoid bias) and looking at the 5 bunch crossing
+by looking at \gls{HLT} pass-through paths events (no selection at \gls{LHC} to avoid bias) and looking at the 5 bunch crossing
 L1 trigger information provided by the GT. The trigger records can then be compared with the published LHC bunch
 structure and a fraction of in time events can be calculated. New developments include alteration in the way
-information is retrieved from the database and avoiding the use of HLT pass-throughs and therefore improving statistics
+information is retrieved from the database and avoiding the use of \gls{HLT} pass-throughs and therefore improving statistics
 by looking at events from an object category seeded by an independent object category. As an example: single muon
 trigger can seed calorimeter triggers synchronization tests.
 
@@ -67,10 +67,9 @@ trigger cross section as a function of instant luminosity and the line is the re
 
 \subsection{BPTX Monitoring}
 
-This tool was created during August 2012 to meet a concern of the L1 trigger management. It monitors the Beam
-Pickup for Timing for the eXperiments (BPTX) system by looking at the information present at each event that 
-is analyzed by the DQM system, including the 2 bunch crossings before and after the actual event that fired. Then it 
-compares where the BPTX fired on those 5 bunch crossings with the LHC published bunch structure. The BPTX efficiency 
+This tool was created during August 2012 to meet a concern of the \gls{L1T} trigger management. It monitors the \gls{BPTX} system by looking at the information present at each event that 
+is analyzed by the \gls{DQM} system, including the 2 bunch crossings before and after the actual event that fired. Then it 
+compares where the \gls{BPTX} fired on those 5 bunch crossings with the LHC published bunch structure. The \gls{BPTX} efficiency 
 and misfire rate are calculated and the rate stability is also monitored.
 
 \begin{figure}[!htb]
