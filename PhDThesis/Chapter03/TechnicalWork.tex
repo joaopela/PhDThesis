@@ -11,6 +11,7 @@ As a member of the \gls{CMS} collaboration it is required that all members perfo
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data Quality Monitoring}
+\label{SECTION:TechnicalWork_DataQualityMonitoring}
 
 %Status: DONE
 
@@ -20,6 +21,7 @@ The \acrfull{DQM} is a critical monitoring system that has an important role in 
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Online Monitoring}
+\label{SECTION:TechnicalWork_DataQualityMonitoring_OnlineMonitoring}
 
 %Status: DONE
 
@@ -29,6 +31,7 @@ The online \gls{DQM} system is composed of several applications that are part of
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Offline Monitoring}
+\label{SECTION:TechnicalWork_DataQualityMonitoring_OfflineMonitoring}
 
 %Status: DONE
 
@@ -42,6 +45,7 @@ In the second \textit{harvesting step}, the histograms are extracted from the ev
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Level 1 Trigger Data Quality Monitoring}
+\label{SECTION:TechnicalWork_L1TDQM}
 
 %Status: Writting
 
@@ -49,7 +53,7 @@ The \acrfull{L1T} \acrfull{DQM} is composed of four applications. The first two 
 
 First of the two online applications directly monitors the operation of the trigger. Each trigger subsystem produces plots over the produced objects or relevant quantities which allow to pin-point the origin of problems. Additionally, global trigger operation is monitored in key aspect such as the value of reference algorithm rates, synchronization of firing, finding regions of the detector that fires with unexpectedly high/low rate. The second online application compares the results of the trigger against a real-time software emulation of the system which should allow quick detection of trigger miss configuration or degradation of quality of operation.
 
-The offline monitors %TODO:
+Both offline monitoring applications replicate the analysis preformed by their online counterparts but over a the complete recorded dataset for each run.
 
 In the next sections we will focus only on the trigger monitoring tools that the author developed or improved.
 
@@ -57,28 +61,36 @@ In the next sections we will focus only on the trigger monitoring tools that the
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Rates Monitoring}
+\label{SECTION:TechnicalWork_L1TDQM_RatesMonitoring}
 
-%Status: Writting
+%Status: DONE
 
-This tool was initially developed by me during last year and now has been improved. It monitors the rate of the lowest unprescaled single object trigger of all available L1 trigger object categories by calculating its
-average cross section for each luminosity section as a function of instant luminosity and comparing this value to
-fits preformed in previous runs. New developments currently include using different fits considering specific pairs of
-LHC bunch filling schemes and trigger configuration key in order to ensure reference fits are done in similar conditions.
+The rates monitoring tool has the objective of inspecting the firing rate of each \gls{L1T} object category. At the beginning of each run the \gls{L1T} menus is analysed and for each object category the lowest thresholds unprescaled algorithm is selected. If no unprescaled algorithm is available the lowest prescale algorithm is selected. The following categories of objects can be monitored: Electron-Gamma, Isolated Electron-Gamma, Central Jets ($|\eta|<3$), Forward Jets ($3<|\eta|<5$), All Jets ($|\eta|<5$), Taus, Muon, total energy (ETT), total energy in jets (HTT), missing energy (ETM) and jets missing energy (HTM).
+
+When the algorithms to be monitored are determined the tool retrieves from an external database the expected algorithm cross section as a function of instantaneous luminosity. This function are updated daily by fitting runs from the previous days with similar condition. This task is executed by the \gls{WbM} system which is a \gls{CMS} monitoring system which runs in parallel to the \gls{DQM}. The algorithm cross section for each luminosity section calculated is calculated with following equation \ref{EQUATION:TechnicalWork_AlgoCrossSection}.
+
+\begin{equation}
+\sigma_{\text{Algo}}=\frac{\text{Prescale}_{\text{Algo}}*{\text{Avg. Rate}_{\text{Algo}}}}{\text{Avg. Instantaneous Luminosity}}
+\label{EQUATION:TechnicalWork_AlgoCrossSection}
+\end{equation}
+
+For each luminosity section the measured value is compared with prediction from previous runs. The monitor presents this results in histograms with the measured value and the relative value to prediction. An example of this histograms can be found in figure \ref{FIGURE:TechnicalWork_RateMonitoring}
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/Run177878_Jet_CrossSection.png}
-\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/Run177878_Jet_RateCertification.png}
-\caption{Monitoring plot produced by the L1TRate tool for L1 $E_T^{miss}$ object category, which is automatically
-monitoring algorithm L1\_ETM50 for the run 207099. In the plots data points are the calculated trigger cross
-section as a function of instant luminosity and the line is the reference fit done from previous runs.}
-\label{figure_ServiceWork_L1TRate}
+\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TDQM_Online_Run207269_L1TRate_TriggerCrossSections_EG.png}
+\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TDQM_Online_Run207269_L1TRate_Certification_EG.png}
+\caption{Monitoring plots produced by the \gls{L1T} online rates monitoring tool for run 207269 and the Electron-Gamma object category. The automatically selected algorithm was L1\_SingleEG22 for this run. On the left histogram the the algorithm cross section as a function of instantaneous luminosity is plotted. The red line is the prediction from fitting data from previous runs while the black points are the measurements for this run. On the right histogram the fraction of the measured value to the prediction is showed for each luminosity section.}
+\label{FIGURE:TechnicalWork_RateMonitoring}
 \end{figure}
+
+Automatic tests are configured to monitor the produced histograms and flag as bad luminosity sections that show deviation from prediction above 20\%. Marking a specific luminosity section as bad does not invalidate automatically its use for physics analysis but references it for further investigation by the \gls{CMS} shift crew or certification experts.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Synchronization Monitoring}
+\label{SECTION:TechnicalWork_L1TDQM_SynchronizationMonitoring}
 
 %Status: Writting
 
