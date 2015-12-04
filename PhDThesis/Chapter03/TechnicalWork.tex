@@ -105,18 +105,18 @@ trigger can seed calorimeter triggers synchronization tests.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/Run177878_Jet_SynchronizationCertification.png}
-\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/Run177878_Jet_SynchronizationTest.png}
+\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TDQM_Online_Run207269_L1TSync_AlgoVsBunchStructure_EG.png}
+\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TDQM_Online_Run207269_L1TSync_Certification_EG.png}
 \caption{Monitoring plot produced by the L1TSync tool for L1 single electron/gamma object category, which is
-automatically monitoring algorithm L1\_SingleEG50 for the run 177878. In the plots data points are the calculated
+automatically monitoring algorithm L1\_SingleEG22 for the run 207269. In the plots data points are the calculated
 trigger cross section as a function of instant luminosity and the line is the reference fit done from previous runs.}
 \label{figure_ServiceWork_L1TSync}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSUBSECTION
+%%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{BPTX Monitoring}
+\subsection{BPTX Monitoring}
 
 %Status: Writting
 
@@ -125,12 +125,24 @@ is analyzed by the \gls{DQM} system, including the 2 bunch crossings before and 
 compares where the \gls{BPTX} fired on those 5 bunch crossings with the LHC published bunch structure. The \gls{BPTX} efficiency 
 and misfire rate are calculated and the rate stability is also monitored.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Implementation Tests}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TDQM_Online_Run207269_L1TBPTX_Efficiency_Tech_preBPTX_Veto.png}
+\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TDQM_Online_Run207269_L1TBPTX_MissFire_Tech_preBPTX_Veto.png}
+\caption{Monitoring plot produced by the L1TSync tool for L1 single electron/gamma object category, which is
+automatically monitoring algorithm L1\_SingleEG22 for the run 207269. In the plots data points are the calculated
+trigger cross section as a function of instant luminosity and the line is the reference fit done from previous runs.}
+\label{figure_ServiceWork_L1TSync}
+\end{figure}
 
-%Status: Writting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Implementation Tests}
+
+%Status: DONE
+
+To test that this monitoring tool would be successful in detecting failure of the \gls{BPTX} system a field test was necessary. During run 207269 which was a real data recording run the author with the permission of the \gls{L1T} \gls{DPG} disabled the technical \gls{L1T} bit associated with to the \gls{BPTX} logical AND (signals the \gls{BPTX} system identified incoming beams in both beam pipes). The bit was kept disable for a few luminosity sections which were promptly identified by the monitoring tool as it can be seen in figure \ref{FIGURE:TechnicalWork_L1TBPTX_ImplementationTests}.
 
 \begin{figure}[!htb]
 \centering
@@ -139,7 +151,7 @@ and misfire rate are calculated and the rate stability is also monitored.
 this tools works. In the plot the BPTX AND (technical algorithm 0) efficiency is calculated per luminosity section 
 when compared with the LHC published bunch structure. The dip in efficiency corresponds to the disabling of the BPTX 
 related triggers.} 
-\label{figure_ServiceWork_L1TBPTX}
+\label{FIGURE:TechnicalWork_L1TBPTX_ImplementationTests}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
