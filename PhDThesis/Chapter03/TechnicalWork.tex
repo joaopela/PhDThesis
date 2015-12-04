@@ -5,7 +5,7 @@
 
 %Status: DONE
 
-As a member of the \gls{CMS} collaboration it is required that all members perform service work to become full publication authors. For the duration of my Ph.D. program I have fulfilled this requirement within the \gls{L1T} system. This work had a field work component with in the form of \textit{Trigger} and \text{Shift Leader} shifts in the experiment control room, on call shifts as the Trigger \gls{DOC} expert. But also a work as a software developer for the \gls{L1T} \gls{DQM} system. This work lead to my appointment for two years and the coordinator of the software development team. This chapter describes the tools developed and used for online monitoring of the \gls{L1T} during 2012-13 data taking as well as for data certification for physics use.
+The author as member of the \gls{CMS} collaboration was required like all other members perform service work in order to become member of the \gls{CMS} author list. This has been fulfilled with work for the \gls{L1T} system. This work had a field work component in the form of Trigger and Shift Leader shifts in the experiment control room and on call shifts as the Trigger \gls{DOC} expert. Another important component was work as a software developer for the \gls{L1T} \gls{DQM} system. The authors contributions lead his appointment for two years  to the position of coordinator of the software development of the \gls{CMS} \gls{L1T} \gls{DQM} team. This chapter describes the tools developed and used for online monitoring of the \gls{L1T} during 2012-13 data taking as well as for data certification for physics use.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -65,7 +65,7 @@ In the next sections we will focus only on the trigger monitoring tools that the
 
 %Status: DONE
 
-The rates monitoring tool has the objective of inspecting the firing rate of each \gls{L1T} object category. At the beginning of each run the \gls{L1T} menus is analysed and for each object category the lowest thresholds unprescaled algorithm is selected. If no unprescaled algorithm is available the lowest prescale algorithm is selected. The following categories of objects can be monitored: Electron-Gamma, Isolated Electron-Gamma, Central Jets ($|\eta|<3$), Forward Jets ($3<|\eta|<5$), All Jets ($|\eta|<5$), Taus, Muon, total energy (ETT), total energy in jets (HTT), missing energy (ETM) and jets missing energy (HTM).
+The rates monitoring tool has the objective of inspecting the firing rate of each \gls{L1T} object category. At the beginning of each run the \gls{L1T} menus is analysed and for each object category the lowest thresholds unprescaled algorithm is selected. If no unprescaled algorithm is available the lowest prescale and threshold trigger is selected. If the selected trigger algorithms are $\eta$ restricted a warning is showed in the produced histograms to identify that the test performed do not cover the full acceptance of the monitored object. The following categories of objects can be monitored: Electron-Gamma, Isolated Electron-Gamma, Central Jets ($|\eta|<3$), Forward Jets ($3<|\eta|<5$), All Jets ($|\eta|<5$), Taus, Muon, total energy (ETT), total energy in jets (HTT), missing energy (ETM) and jets missing energy (HTM).
 
 When the algorithms to be monitored are determined the tool retrieves from an external database the expected algorithm cross section as a function of instantaneous luminosity. This function are updated daily by fitting runs from the previous days with similar condition. This task is executed by the \gls{WbM} system which is a \gls{CMS} monitoring system which runs in parallel to the \gls{DQM}. The algorithm cross section for each luminosity section calculated is calculated with following equation \ref{EQUATION:TechnicalWork_AlgoCrossSection}.
 
@@ -92,16 +92,17 @@ Automatic tests are configured to monitor the produced histograms and flag as ba
 \subsection{Synchronization Monitoring}
 \label{SECTION:TechnicalWork_L1TDQM_SynchronizationMonitoring}
 
-%Status: Writting
+%Status: DONE
 
-This tool was initially developed by me during last year and now has been improved and debugged. It monitors
-the synchronization of the lowest unprescaled single object trigger of all available L1 trigger object categories
-by looking at \gls{HLT} pass-through paths events (no selection at \gls{LHC} to avoid bias) and looking at the 5 bunch crossing
-L1 trigger information provided by the GT. The trigger records can then be compared with the published LHC bunch
-structure and a fraction of in time events can be calculated. New developments include alteration in the way
-information is retrieved from the database and avoiding the use of \gls{HLT} pass-throughs and therefore improving statistics
-by looking at events from an object category seeded by an independent object category. As an example: single muon
-trigger can seed calorimeter triggers synchronization tests.
+The synchronization monitoring tool has the objective of assessing if each \gls{L1T} object category is being produced and associated with the correct bunch crossing. Similarly to the \gls{L1T} rates monitoring tool described in the previous section, in the beginning of each run we select for each object category the lowest thresholds unprescaled algorithm if available. If none are available the algorithm with lowest prescale and lowest threshold is selected.
+
+The information of which bunch crossings are filled is retrieved at the beginning of each run by \gls{CMS}. That information is stored in a database at point 5 and later replicated to the \gls{CMS} offline conditions database. The synchronization monitoring tool also at the beginning of each run determines the \gls{LHC} fill number from the \gls{L1T} \gls{GT} system which is obtained with the \gls{DIP} directly from the \gls{LHC} control room. With this information the bunch crossing information is retrived from the \gls{OMDS} when running online and from \gls{ORCON} when running offline.
+
+When an events are desynchronized from the correct bunch crossing at the \gls{L1T} level, these events will appear empty from the \gls{HLT} of offline perspectives. Therefore it is unlikely that they will pass any \gls{HLT} triggers making it very difficult to spot this problems. For this reason the synchronization monitoring looks at events that come from special \gls{HLT} trigger, the \gls{HLT} pass-through paths. These triggers are highly prescaled and only required the the a specific \gls{L1T} condition fired. All available \gls{HLT} pass-through paths of single object \gls{L1T} trigger are monitored by this tools.
+
+For each selected event the \gls{GT} records the results of each \gls{L1T} trigger algorithm for the two previous and two posterior bunch crossings. All events triggered by the algorithms selected for monitoring in this five bunch crossing window are compared to the actual \gls{LHC} bunch crossing filling and the results are recorded. Additionally, for each event we query the \gls{GT} about the \gls{LHC} beam mode and if for any event the status is not \text{Stable Beams}, the luminosity section is immediately marked as bad.
+
+Since we are running this monitoring only over the events that pass \gls{HLT} pass-through paths a single luminosity section will typically not have enough statistics to take conclusions on the behaviour of the system. To provide reliable results at the end of each luminosity sections it is decided if the current luminosity section has enough statistics by itself of needs to be grouped with the previous ones. Blocks of luminosity section are made until a minimum number of events is reached for each individual monitored trigger. At this point the histogram of the fraction of events in time with bunch crossings is updated. If the \gls{LHC} beam mode changes or the the run ends, the current open luminosity section block is closed with the current statistics. The histograms produced by this tool for run 207269 can be found in figure \ref{FIGURE:TechnicalWork_SyncMonitoring}.
 
 \begin{figure}[!htb]
 \centering
@@ -110,8 +111,10 @@ trigger can seed calorimeter triggers synchronization tests.
 \caption{Monitoring plot produced by the L1TSync tool for L1 single electron/gamma object category, which is
 automatically monitoring algorithm L1\_SingleEG22 for the run 207269. In the plots data points are the calculated
 trigger cross section as a function of instant luminosity and the line is the reference fit done from previous runs.}
-\label{figure_ServiceWork_L1TSync}
+\label{FIGURE:TechnicalWork_SyncMonitoring}
 \end{figure}
+
+Similarly to the the \gls{L1T} rates monitoring tool automatic tests are configured to flag as bad luminosity sections that show deviation from prediction above 20\%. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
