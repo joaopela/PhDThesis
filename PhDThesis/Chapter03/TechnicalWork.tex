@@ -70,7 +70,7 @@ The rates monitoring tool has the objective of inspecting the firing rate of eac
 When the algorithms to be monitored are determined the tool retrieves from an external database the expected algorithm cross section as a function of instantaneous luminosity. This function are updated daily by fitting runs from the previous days with similar condition. This task is executed by the \gls{WbM} which is a \gls{CMS} monitoring system which runs in parallel to the \gls{DQM}. The algorithm cross section for each luminosity section calculated is calculated with following equation \ref{EQUATION:TechnicalWork_AlgoCrossSection}.
 
 \begin{equation}
-\sigma_{\text{Algo}}=\frac{\text{Prescale}_{\text{Algo}}*{\text{Avg. Rate}_{\text{Algo}}}}{\text{Avg. Instantaneous Luminosity}}
+\sigma_{\text{Algo}}=\frac{\text{Prescale}_{\text{Algo}}*{\text{Avg. Rate}_{\text{Algo}}}}{\text{Avg. Instantaneous Luminosity}*(1-\text{CMS Dead time fraction})}
 \label{EQUATION:TechnicalWork_AlgoCrossSection}
 \end{equation}
 
@@ -114,28 +114,29 @@ trigger cross section as a function of instant luminosity and the line is the re
 \label{FIGURE:TechnicalWork_SyncMonitoring}
 \end{figure}
 
-Similarly to the the \gls{L1T} rates monitoring tool automatic tests are configured to flag as bad luminosity sections that show deviation from prediction above 20\%. 
+Similarly to the \gls{L1T} rates monitoring tool, automatic tests are configured to flag as bad luminosity sections that show deviation from prediction above 20\%. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{BPTX Monitoring}
 
-%Status: Writting
+%Status: DONE
 
-This tool was created during August 2012 to meet a concern of the \gls{L1T} trigger management. It monitors the \gls{BPTX} system by looking at the information present at each event that 
-is analyzed by the \gls{DQM} system, including the 2 bunch crossings before and after the actual event that fired. Then it 
-compares where the \gls{BPTX} fired on those 5 bunch crossings with the LHC published bunch structure. The \gls{BPTX} efficiency 
-and misfire rate are calculated and the rate stability is also monitored.
+The \acrfull{BPTX} system is composed of two beam detectors located in each beam pipe $175\,\meter$ upstream of the \gls{CMS} experiment \cite{ARTICLE:TheCMSExperiment}. This detectors were designed to provide precise information about the bunch structure and timing of each beam and have sensitivity to time structures under $25\,\nano\second$. 
+
+In early 2012 a problem was identified in the \gls{L1T} where some events would fire on the bunch crossing before the actual event. It was discovered the this effect was most likely connect to sensors in the calorimeter system being directly hit by particles causing a large out-of-time signal. Unfortunately, the trigger has a set of rules intended to limit the event rate. They are necessary in order to allow for the necessary latency to extract the information from the detector in case a collision is accepted. One of these rules states that if a collision is accepted by the \gls{L1T} the next 2 collisions are ignore by the system \cite{CMSTDR:CMSTridasTDRVol1}. This means that if a specific event causes the \gls{L1T} to fire on the previous bunch crossing, that event will be vetoed by trigger rules. To avoid losing interesting events due to this pre-firing problem the signal of both \gls{BPTX} detectors logical AND was advanced by one bunch crossing and connected to the trigger via a technical algorithm bit. This bit in turn was used to veto the \gls{L1T} from firing.
+
+Although this was a successful solution to this problem it caused preoccupation in the \gls{TSG} and \gls{L1T} \gls{DPG} groups. Since if the \gls{BPTX} bunch detection threshold would be set too high this veto would be ineffective, leading to no bunches being detect and no veto being applied. If the \gls{BPTX} bunch detection threshold would be set too low, residual amounts of protons or noise in the unfilled bunch spaces could lead to vetoing filled bunch spaces. The development and commissioning of a monitoring tool was requested as priority task.
+
+A new tool was developed to compare the \gls{LHC} filling scheme with the firing of the technical trigger associated with the \gls{L1T}. Following the ideas of the \gls{L1T} synchronization monitoring tool the same procedure was used to retrieve the \gls{LHC} filling scheme and algorithm firing results. In this case we are interested in both efficiency, since low efficiency would mean that the \gls{BPTX} bunch detection threshold would be too low. And miss fire rate, which would be associated with a \gls{BPTX} bunch detection threshold would being too high. Examples of the histograms produced by this tool can be found in figure \ref{FIGURE:TechnicalWork_BPTXMonitoring}.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TDQM_Online_Run207269_L1TBPTX_Efficiency_Tech_preBPTX_Veto.png}
 \includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TDQM_Online_Run207269_L1TBPTX_MissFire_Tech_preBPTX_Veto.png}
-\caption{Monitoring plot produced by the L1TSync tool for L1 single electron/gamma object category, which is
-automatically monitoring algorithm L1\_SingleEG22 for the run 207269. In the plots data points are the calculated
-trigger cross section as a function of instant luminosity and the line is the reference fit done from previous runs.}
-\label{figure_ServiceWork_L1TSync}
+\caption{Monitoring plot produced by the \gls{L1T} \gls{BPTX} monitoring tool for \gls{CMS} run 207269. On the left the \gls{BPTX} veto efficiency in relation to the \gls{LHC} fill bunch structure is showed. On the right for the same algorithm $1 - \text{Miss Fire fraction}$ is showed.}
+\label{FIGURE:TechnicalWork_BPTXMonitoring}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,38 +146,60 @@ trigger cross section as a function of instant luminosity and the line is the re
 
 %Status: DONE
 
-To test that this monitoring tool would be successful in detecting failure of the \gls{BPTX} system a field test was necessary. During run 207269 which was a real data recording run the author with the permission of the \gls{L1T} \gls{DPG} disabled the technical \gls{L1T} bit associated with to the \gls{BPTX} logical AND (signals the \gls{BPTX} system identified incoming beams in both beam pipes). The bit was kept disable for a few luminosity sections which were promptly identified by the monitoring tool as it can be seen in figure \ref{FIGURE:TechnicalWork_L1TBPTX_ImplementationTests}.
+To test that the \gls{BPTX} monitoring tool would be successful in detecting failure of the \gls{BPTX} system a field test was necessary. During run 207269 in which real data recorded the author with the permission of the \gls{L1T} \gls{DPG} disabled the technical \gls{L1T} bit associated with to the \gls{BPTX} AND advanced by one luminosity section which was configured as a veto in the system. The bit was kept disable for a few luminosity sections which was promptly identified by the monitoring tool as it can be seen in figure \ref{FIGURE:TechnicalWork_L1TBPTX_ImplementationTests}.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TBPTX_Tech_BPTX_AND.png}
-\caption{Monitoring plot produced by the L1TBPTX tool for the run 207269 where a test was executed to demonstrate that 
-this tools works. In the plot the BPTX AND (technical algorithm 0) efficiency is calculated per luminosity section 
-when compared with the LHC published bunch structure. The dip in efficiency corresponds to the disabling of the BPTX 
-related triggers.} 
+\caption{Detail of \gls{L1T} \gls{BPTX} monitoring tool histogram for veto efficiency during its field test at run 207269. The monitored bit was disabled manually leading to the monitored drop off efficiency.} 
 \label{FIGURE:TechnicalWork_L1TBPTX_ImplementationTests}
 \end{figure}
+
+After this successful test the trigger shifter instruction were updated to include this histogram in the periodic checks to be done.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Occupancy Monitoring}
 
-%Status: Writting
+%Status: DONE
 
-This tool was developed initially by me in collaboration with a CERN summer student during last year and has been
-also improved and debugged. It monitors several key occupancy plots from L1 subsystems, by making use of the natural
-$\eta-\phi$ symmetry normally present. It compares each cell to the median of a strip in $\phi$ in the opposite $\eta$
-side of the detector, by applying a $\chi^{2}$ like test tuned to fire when the cell is less than 10\% or more than
-twice the value of the reference median. New developments include the inclusion of new plots which comply with the
-tools specifications (provided by the sub-systems) and include the possibility of masking strips from the test, which 
-will make the tool compare the cell with the median of the $\phi$ strip where it is included.
+The occupancy monitoring tools objective is to identify regions of detector where the trigger system response has degraded. A region is considered \textit{dead} if the number measurements is null or its rate is consistently smaller than expected for that area. Alternatively, a region can become \textit{hot} if the number of measurements rate is consistently bigger than expected for that area. This tool aims at identifying both of these categories of problems by analysis histograms produced by the trigger subsystems.
+
+The main idea behind these tool is to use the $\eta$ and $\phi$ symmetries of the physics processes and experimental design. The collisions in \gls{CMS} happen in the centre of the experiment with beam of the same energy colliding head-on. Additionally, the detector is symmetric to the beam lines transverse plane passing on the collision point and to the beam line itself. Both this factors imply that the response in strip over $\phi$ at constant $\eta$ should be the same on average everywhere and that response should be equivalent in a similar strip and constant $-\eta$.
+
+The test consists of initially selecting a histogram of a quantity that is an absolute event count per region and that exhibits the described $\eta$ and $\phi$ symmetries. The histogram is integrated for as many luminosity sections as necessary to have enough statistics for conclusive results. When enough statistics are gathered and starting from the centre, a strip of cells is defined along $\phi$ to one side of that symmetry line. The value of the median of the selected cells is determined. Each cell of the opposing strip is compare to this median with a statistical test tuned to detect significant deviations. If the test is failed, the cell is marked as bad for the period of the histogram integration. We repeat the same procedure reversing the role of both strips. After all cells in the first strip pair is tested we move to the next two strips of cells in increasing $\eta$ and repeat the procedure until all cells in the histogram have been tested. For histograms where the symmetry line fall in the middle of a strip of cell, that strip is tested against itself. The median is used to avoid bias from outliers like the \textit{hot} or \textit{dead} cells we are aiming to identify. 
+
+Cells which are already known to be problematic can be masked from this tool to avoid being always marked as bad and contributing to the calculation of the fraction of problematic cells.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Statistical hypotheses test}
+
+Since we are analysing histograms of absolute number of entries, like the location on \gls{L1T} Electron-Gamma candidates, each cell will follow Poisson statistics \cite{BOOK:AppliedStatisticsAndProbabilityforEngineers}. The probability of obtaining in an histogram cell value $x$ when the expected value is $\mu$ is expressed in equation \ref{EQUATION:TechnicalWork_Occupancy_Poisson}.
+
+\begin{equation}
+P(x;\mu)=\frac{exp(-\mu) \cdot \mu^{x}}{x!}
+\label{EQUATION:TechnicalWork_Occupancy_Poisson}
+\end{equation}
+
+The statistical test will evaluate each cell over two hypotheses. The null hypothesis $H_0$, considers that the cell is behaving as expected and that the average number of events is $\mu_0$. The alternative hypothesis $H_1$, proposes that this is a problematic cell with an average number of events of $\mu_1$. We can now define out test statistic $T$ as the log-likelihood ratio of the two hypothesis as defined in equation \ref{EQUATION:TechnicalWork_Occupancy_LogLikelihoodRatio}.
+
+\begin{equation}
+T=\ln\frac{P(x,\mu_1)}{P(x,\mu_0)}
+\label{EQUATION:TechnicalWork_Occupancy_LogLikelihoodRatio}
+\end{equation}
+
+This test statistic on the limit of infinity sample size will be $\chi^2$-distributed. If the test statistic $T$ is above the critical value $T_{\text{crit}}$ we do not reject $H_1$, if is it below $T_{\text{crit}}$ we reject $H_1$. The critical value is set to a choice of confidence level of finding a problematic cell. Confidence level of $99\%$ with a fake rate of $1\%$ were chosen to constrain $T_{\text{crit}}$.
+
+Two tests need to be preformed, for the \textit{dead} and \textit{hot} hypotheses. The relationship between between $\mu_0$ and $\mu_1$ for both tests can be defined as $\mu_1=f \cdot \mu_0$ where $f$ is the factional deviation from $\mu_0$ to flag a cell as bad. For the \textit{dead} cell value $f_{\text{dead}}=0.1$ and $f_{\text{hot}}=2.0$ for \textit{hot} cell.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TOccupancy_Diff.png}
 \includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TOccupancy_Results.png}
-\caption{Monitoring plot produced by the L1TOccupancy tool for the run 207099 while testing GCT plot for isolated
+\caption{Monitoring plot produced by the L1T Occupancy tool for the run 207099 while testing GCT plot for isolated
 EM occupancy $\eta-\phi$. In blue are the masked bins, in green the cells that pass the test and in red the cells
 that fail the test. The cells marked as bad are in fact a consequence of the initial plot being produced without
 a cut on minimum $p_T$ on the trigger primitives, so the asymmetries observed are due to pedestal differences between
@@ -184,23 +207,27 @@ difference areas.}
 \label{figure_ServiceWork_L1TOccupancy}
 \end{figure}
 
-\section{Status Summary Display}
+\section{Tests Summary}
 
-%Status: Writting
+%Status: DONE
 
-\begin{figure}[!htb]
+To simplify the task of the shift crew and certification for physics analysis an status summary application was developed. This tool collects the results of other tests and presents them in a single set of plots as a function of the luminosity section. Three plots are produced, summaries of the \gls{L1T} rates and \gls{L1T} synchronization monitoring tools, and a global tests summary. On each histogram the bottom horizontal line is a summary which is marked are bad (red) if any of the tests above fails. This scheme allows the user to quickly identify a problem by back tracing information from what tests where marked as bad starting from the summary line on the \textit{L1T Tests Summary} histogram. An example of plots produced by this application can be found in figure \ref{FIGURE:TechnicalWork_TestsSummary}.
+
+\begin{figure}[!htp]%
 \centering
-\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/RateQualitySummary.png} 
-\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/SyncQualitySummary.png} \\
-\includegraphics[width=0.45\textwidth]{Chapter03/L1TOnline/Images/L1TQualitySummary.png}
-\caption{}
-\label{figure_ServiceWork_StatusSummary}
+\subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter03/L1TOnline/Images/RateQualitySummary.png}}\qquad
+\subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter03/L1TOnline/Images/SyncQualitySummary.png}}\\
+\subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter03/L1TOnline/Images/L1TQualitySummary.png}}
+\caption[Example of the plots produced by the \gls{L1T} test summary monitor]{Example of the plots produced by the \gls{L1T} test summary monitor. Figure (a) the summary of all tests made by \gls{L1T} rates monitor is showed. Figure (b) summary of all tests made by \gls{L1T} synchronization monitor, Figure (c) global summary of all tests performed.}
+\label{FIGURE:TechnicalWork_TestsSummary}
 \end{figure}
+
+The \gls{L1T} occupancy monitoring was executed over histograms produced by other developers. Some of this histograms suffered from pathological problems that needs intervention from their authors. This caused the summary from that monitoring tool to always be flagged as bad. Although implemented, in order to avoid confusion it was decided to not enable this summary plot or add its results to the global summary until necessary changes to the original histograms were made.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Certification}
+% \section{Certification}
 
 %Status: Writting
 
