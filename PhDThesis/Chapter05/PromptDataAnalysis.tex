@@ -15,16 +15,21 @@ The observed data yield together with the estimations of the yields for the sign
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Event Selection}
+\label{SECTION:PromptDataAnalysis_EventSelection}
 
-%Status: Writing
+%Status: DONE
 
-In this analysis we use the recorded data by a purpose designed trigger that selects events with at least on dijet with \gls{VBF} characteristics and \gls{MET}. The dijet is required to have its jets in opposite sides of the detector and pass $\pt^{jet_1},\pt^{jet_2} > 40\,\GeV$, $\Delta\eta > 3.5$ and $M_{jj} > 800\,\GeV$. By requiring any dijet instead of the leading dijet we avoid rejecting events where a \gls{PU} jet is leading jet or the effects of the lower energy resolution of the trigger versus offline. We also require $MET_{no-\mu} > 65\,\GeV$, the use of \gls{MET} without muons allows us to record with the same trigger, a control sample of processes  $\PW(\mu\nu)\text{+jets}$ and $\Z(\mu\mu)\text{+jets}$. The \gls{MC} simulated events are re-weighted according to the probability of passing the trigger. Trigger weights are determined in a dataset of event recorded with trigger condition requiring a single muon. This weights are a function of the offline measurements of sub-leading jet \pt, $M_{jj}$ and $MET_{no-\mu}$.
+%QUESTION: Was it METnoMu for trigger weights? 
+%ANSWER  : yes
 
-%TODO: Was it METnoMu for trigger weights? yes
+%TOPIC: Trigger definition and MC trigger weights
+In this analysis we use the recorded data by a purpose designed trigger that selects events with at least one dijet with \gls{VBF} characteristics and \gls{MET}. The dijet is required to have its jets in opposite sides of the detector and pass $\pt^{jet_1},\pt^{jet_2} > 40\,\GeV$, $\Delta\eta > 3.5$ and $M_{jj} > 800\,\GeV$. By requiring any dijet instead of the leading dijet we avoid rejecting events where a \gls{PU} jet is the leading jet or the effects of the lower energy resolution of the trigger versus offline. We also require $MET_{no-\mu} > 65\,\GeV$, the use of \gls{MET} without muons allows us to record with the same trigger, a control sample of processes  $\PW(\mu\nu)\text{+jets}$ and $\Z(\mu\mu)\text{+jets}$. The \gls{MC} simulated events are re-weighted according to the probability of passing the trigger. The trigger weights are determined in a dataset of event recorded with trigger condition requiring a single muon. They are a function of the offline measurements of sub-leading jet \pt, $M_{jj}$ and $MET_{no-\mu}$.
 
-The signal region is defined by selecting a events with a tighter version of the trigger conditions with additional cuts and vetoes. Building on the trigger cuts we require the leading pair of particle flow \cite{ARTICLE:CMSParticleFlowEventRecontruction} anti-$k_T^{\Delta R=0.5}$ jets in the event to pass $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $\Delta\eta_{jj}>4.2$, $M_{jj}>1100\,\GeV$ and we also require large missing energy of at least $130\,\GeV$. We veto events with identified veto electrons or loose muons  with $\pt>10\,\GeV$ to suppress processes with $Z$ or $W$ boson decays. To reduce \gls{QCD} multi-jet backgrounds we additional request the dijet to pass $\Delta\phi < 1.0\,\radian$, since typically \gls{QCD} jets will be back to back and therefore will have high values in this variable. Finally, we require a \glsreset{CJV}, where no additional jet can be present between the two leading jets with $\pt > 30\,\GeV$.
+%TOPIC: Signal event selection
+The signal region is defined by selecting events with a tighter version of the trigger conditions with additional cuts and vetoes. Building on the trigger requirements we select events where the leading pair of particle flow \cite{ARTICLE:CMSParticleFlowEventRecontruction} anti-$k_T^{\Delta R=0.5}$ jets have $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $\Delta\eta_{jj}>4.2$, $M_{jj}>1100\,\GeV$ and large missing energy of at least $130\,\GeV$. We veto events with identified veto electrons or loose muons, as defined in chapter \ref{CHAPTER:EventReconstructionAndSimulation}, to suppress processes with $Z$ or $W$ boson decays. To reduce \gls{QCD} multi-jet backgrounds we additional request the dijet to pass $\Delta\phi < 1.0\,\radian$, since typically \gls{QCD} jets will be back to back and therefore will have high values for this variable. Finally, we require a \acrfull{CJV}, where no additional jet can be present between the two leading jets with $\pt > 30\,\GeV$.
 
-The event selection was optimized by setting the lepton vetoes to the recommends values by the relevant \gls{POG} and the \gls{CJV} to a value where its behaviour is well understood. All other thresholds were optimised to obtain the best possible signal significance which was calculated with a profile likelihood method that takes into consideration all relevant systematics. In the calculation the Higgs mass was assumed to be $125\,\GeV$ and a branching ration to invisible of 100\%. The variables involved in the trigger (jet \pt, $M_{jj}$ and \gls{MET}) are constrained to be above the 95\% efficiency working point of the trigger.
+%TOPIC: Selection optimization
+The event selection was optimized by setting the lepton vetoes to the recommends values by the relevant \gls{POG} and the \gls{CJV} to a value where its behaviour is well understood. All other thresholds were optimised to obtain the best possible signal significance which was calculated with a profile likelihood method that takes into consideration all relevant systematics. In the calculation the Higgs mass was assumed to be $125\,\GeV$ and a branching ration to invisible of 100\%. The variables involved in the trigger (jet \pt, $M_{jj}$ and \gls{MET}) are constrained to be above the 95\% efficiency working point of the trigger. Distributions of the selected dijet $M_{jj}$, $\Delta\eta$, $\Delta\phi$ and of the \gls{CJV} for \gls{MC} simulation are shown on figure \ref{FIGURE:PromptDataAnalysis_EventSelection_KeyVariables} together with the optimized cut thresholds.
 
 \begin{figure}[!htb]
 \centering
@@ -33,26 +38,10 @@ The event selection was optimized by setting the lepton vetoes to the recommends
 \includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-Dijet-DPhi.pdf}
 \includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-CJV-pT.pdf} 
 \caption{Distributions of $M_{jj}$ (top left), $\Delta\eta_{jj}$ (top right), $\Delta\phi_{jj}$ (bottom left), and central jet \pt (bottom right) in background and signal MC simulation. The distributions are shown after requiring two jets with $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $M_{jj}>150$\GeV, and $MET > 130\,\GeV$. The arrows correspond to the thresholds applied for the final selection, after optimization. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
-\label{fig:vbfSel}
+\label{FIGURE:PromptDataAnalysis_EventSelection_KeyVariables}
 \end{figure}
 
-% 
-% The lepton and central jet veto thresholds are set to low values at which reconstruction is known to be reliable, while the remaining thresholds are determined by optimizing the selection to give the best signal significance, calculated using a profile likelihood method that incorporates all systematic uncertainties, for a Higgs boson with $\mH=125$\GeV and 100\% invisible branching fraction. The thresholds on jet \pt, $\mjj$, and $\ETm$ are constrained to be above the point where the trigger is 95\% efficient.  This constraint effectively determines the jet \pt and $\ETm$ thresholds, since signal significance only worsens when these thresholds are raised above this point. Distributions of $\mjj$, $\etajj$, $\phijj$, and central jet \pt in background and signal MC simulation are shown in Figure~\ref{fig:vbfSel}, along with the thresholds applied after optimization of the selection.
-% 
-% \begin{figure*}[hbtp]
-%         \begin{center}
-%                  \includegraphics[width=0.49\textwidth]{VBF-Dijet-M.pdf}
-%                  \includegraphics[width=0.49\textwidth]{VBF-Dijet-DEta.pdf}     
-%                  \includegraphics[width=0.49\textwidth]{VBF-Dijet-DPhi.pdf}
-%                  \includegraphics[width=0.49\textwidth]{VBF-CJV-pT.pdf} 
-%                 \caption{Distributions of $\mjj$ (top left), $\etajj$ (top right), $\phijj$ (bottom left), and central jet \pt (bottom right) in background and signal MC simulation. The distributions are shown after requiring two jets with $\pt^\mathrm{j1},\pt^\mathrm{j2} > 50$\GeV, $\abs{\eta} < 4.7$, $\eta_\mathrm{j1}, \eta_\mathrm{j2} < 0$, $\mjj>150$\GeV, and $\ETm > 130$\GeV. The arrows correspond to the thresholds applied for the final selection, after optimization.}
-%                 \label{fig:vbfSel}
-%         \end{center}
-% \end{figure*}
-% 
-% 
-% After all selection requirements, an hypothetical signal equivalent to 125\GeV Higgs boson with $\BRinv=100$\% and produced via the VBF process with SM couplings, is reconstructed with an efficiency of $(6.8 \pm 0.3) \times 10^{-3}$, corresponding to a yield of $210 \pm 29\syst$ events. The requirements on the VBF tag jet $\pt$ and topology, $\mjj$, and $\ETm$ are all correlated and affect the signal efficiency by comparable amounts.  A small signal yield from the gluon-fusion process is also expected, where the VBF requirements may be satisfied by initial-state radiation.  Based on \POWHEG simulation, we estimate this to be $14 \pm 10\syst$ events.
-% 
+To estimate the signal yields the \textsc{POWHEG} \gls{MC} generator was used to create events with a Higgs boson produced via the \gls{VBF} channel with \gls{SM} couplings and with mass of $125\,\GeV$. The obtained signal efficiency was $(6.8 \pm 0.3) \times 10^{-3}$, which corresponds to an event yield of $210 \pm 29\syst$. The signal efficiency dependency on jet $\pt$, dijet $M_jj$, and \gls{MET} is correlated and of comparable amounts. Additionally, a small amount of gluon-fusion signal, where \gls{ISR} take the role of the \gls{VBF} jets, is also expected to pass the signal event selection. Using the same \gls{MC} event generator this contribution has been estimated to be of $14 \pm 10\syst$ events.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -60,6 +49,16 @@ The event selection was optimized by setting the lepton vetoes to the recommends
 \section{Background Estimation}
 
 %Status: Writing
+
+The irreducible background $\Z(\nu \nu)\text{+jets}$ is estimated from data using as proxy $\Z (\mu \mu)$ decays. 
+
+
+% The $\Z(\nu \nu)\text{+jets}$ background is estimated from data using observable $\Z (\mu \mu)$ decays. We define a \Z\ control region as for the signal region, with the following changes to the event selection: the lepton veto is replaced with a requirement of an oppositely charged pair of well reconstructed and isolated muons each with $\pt > 20 $\GeV, and invariant mass $60 < M_{\mu\mu}<120$\GeV, a veto is applied on any additional leptons with $\pt>10$\GeV, and the $\ETm$ is recomputed after removing the muons from the \Z\ boson decay. The number of $\Z (\nu \nu)$ events in the signal region is then predicted using:
+
+% \begin{equation}
+% N^\mathrm{s}_{\nu\nu} = (N^\mathrm{c}_{\mu\mu\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{\sigma(\Z \to \nu\nu)}{\sigma(\Z/\gamma^{*} \to \mu\mu)} \cdot \frac{\varepsilon^\mathrm{s}_{\Z \mathrm{MC}}}{\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}}.
+% \end{equation}
+% 
 
 \begin{figure}[!htb]
 \centering
@@ -94,77 +93,10 @@ S/B                                      & 70\% \\
 \caption{Summary of the estimated number of background and signal events, together with the observed yield, in the VBF search signal region.  The signal yield is given for $m_H=125$\GeV and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
 \end{table}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Sources of uncertainty}
-
-%Status: Writing
-
-\begin{table}[!htb]
-\centering
-\begin{tabular}{|l|c|c|}
-\hline
-Source                                           & Total background & Signal \\
-\hline\hline
-Control region statistics                        & 11\%             & -      \\
-MC statistics                                    & 11\%             & 4\%    \\
-Jet/$E_T^{\text{miss}}$ energy scale/resolution  & 7\%              & 13\%   \\
-QCD background estimation                        & 4\%              & -      \\
-Lepton efficiency                                & 2\%              & -      \\
-Tau ID efficiency                                & 1\%              & -      \\
-Luminosity                                       & 0.2\%            & 2.6\%  \\
-Cross sections                                   & 0.5--1\%         & -      \\
-PDFs                                             & -                & 5\%    \\
-Factorization/renormalization scale              & -                & 4\%    \\
-Gluon fusion signal modelling                    & -                & 4\%    \\
-\hline\hline
-Total                                            & 18\%             & 14\%   \\
-\hline 
-\end{tabular}
-\caption{Summary of the uncertainties in the total background and signal yields in the VBF channel. All uncertainties affect the normalization of the yield, and are quoted as the change in the total background or signal estimate, when each systematic effect is varied according to its uncertainties. The signal uncertainties are given for $m_H=125$\GeV and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
-\label{TABLE:PromptDataAnalysis_SourcesUncertaintySummary}
-\end{table}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}
-
-%Status: Writing
-
-\begin{figure}[htp]
-\centering
-\includegraphics[width=0.49\textwidth]{Chapter05/Images/vbfxslimit.pdf}
-\includegraphics[width=0.49\textwidth]{Chapter05/Images/vbflimit.pdf}
-\caption{Expected and observed 95\% CL upper limits on the VBF production cross section times invisible branching fraction (left figure), and normalized to the \gls{SM} Higgs boson \gls{VBF} production cross section (right figure). \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
-\label{FIGURE:vbfLimit}
-\end{figure}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusion}
-
-%Status: Writing
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-
-
 % \subsection{Background estimation}
 % \label{sec:vbf-backgrounds}
 % 
-% The $\Z(\nu \nu)\text{+jets}$ background is estimated from data using observable $\Z (\mu \mu)$ decays. We define a \Z\ control region as for the signal region, with the following changes to the event selection: the lepton veto is replaced with a requirement of an oppositely charged pair of well reconstructed and isolated muons each with $\pt > 20 $\GeV, and invariant mass $60 < M_{\mu\mu}<120$\GeV, a veto is applied on any additional leptons with $\pt>10$\GeV, and the $\ETm$ is recomputed after removing the muons from the \Z\ boson decay. The number of $\Z (\nu \nu)$ events in the signal region is then predicted using:
-% \begin{equation}
-% N^\mathrm{s}_{\nu\nu} = (N^\mathrm{c}_{\mu\mu\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{\sigma(\Z \to \nu\nu)}{\sigma(\Z/\gamma^{*} \to \mu\mu)} \cdot \frac{\varepsilon^\mathrm{s}_{\Z \mathrm{MC}}}{\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}}.
-% \end{equation}
-% 
+
 % The ratio of cross sections, $\sigma(\Z \to \nu \nu) / \sigma(\Z/\gamma^{*} \to \mu \mu) = 5.651 \pm 0.023\syst$ is calculated with \MCFM~\cite{MCFM} for $m_{\Z/\gamma^{*}} > 50$\GeV, the mass range of the MC sample.  The selection efficiencies in the signal region, $\varepsilon^\mathrm{s}_{\Z \mathrm{MC}} = (1.65 \pm 0.27\syst) \times 10^{-6}$, and the control region, $\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}=(1.11 \pm 0.17\syst) \times 10^{-6}$, are estimated from DY($\ell\ell$)+jets simulation, ignoring the muons when computing the efficiency in the signal region.
 % The observed yield in the control region is $N^\mathrm{c}_{\mu\mu\text{obs}} = 12$~events.  The background in the control region---estimated from $\ttbar$, diboson and single-top MC samples---is $N^\mathrm{c}_\text{bkg}=0.23 \pm 0.15\syst$~events.  The resulting estimate of the $\Z (\nu \nu)$ background in the signal region is $99 \pm 29\stat \pm 25\syst$ events.  The source of systematic uncertainty in the background estimates will be described in Section~\ref{sec:vbf-syst}.
 % Figure~\ref{fig:zCtrl} shows the $\ETm$ and dijet invariant mass, $\mjj$, distributions with a relaxed set of criteria for the \Z control region, with $\mjj>1000$\GeV and no requirements on $\etajj$, $\phijj$, or CJV.  In this figure, the simulated background is normalized to the data.  It should be noted that our estimates of the dominant V+jets background are insensitive to the overall normalization of the simulation, which cancels in the ratio.
@@ -240,6 +172,103 @@ Total                                            & 18\%             & 14\%   \\
 % \label{tab:bgSummary}
 % \caption{Summary of the estimated number of background and signal events, together with the observed yield, in the VBF search signal region.  The signal yield is given for $\mH=125$\GeV and $\BRinv=100$\%.}
 % \end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sources of uncertainty}
+
+%Status: Writing
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+Source                                           & Total background & Signal \\
+\hline\hline
+Control region statistics                        & 11\%             & -      \\
+MC statistics                                    & 11\%             & 4\%    \\
+Jet/$E_T^{\text{miss}}$ energy scale/resolution  & 7\%              & 13\%   \\
+QCD background estimation                        & 4\%              & -      \\
+Lepton efficiency                                & 2\%              & -      \\
+Tau ID efficiency                                & 1\%              & -      \\
+Luminosity                                       & 0.2\%            & 2.6\%  \\
+Cross sections                                   & 0.5--1\%         & -      \\
+PDFs                                             & -                & 5\%    \\
+Factorization/renormalization scale              & -                & 4\%    \\
+Gluon fusion signal modelling                    & -                & 4\%    \\
+\hline\hline
+Total                                            & 18\%             & 14\%   \\
+\hline 
+\end{tabular}
+\caption{Summary of the uncertainties in the total background and signal yields in the VBF channel. All uncertainties affect the normalization of the yield, and are quoted as the change in the total background or signal estimate, when each systematic effect is varied according to its uncertainties. The signal uncertainties are given for $m_H=125$\GeV and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\label{TABLE:PromptDataAnalysis_SourcesUncertaintySummary}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+
+%Status: Writing
+
+\begin{figure}[htp]
+\centering
+\includegraphics[width=0.49\textwidth]{Chapter05/Images/vbfxslimit.pdf}
+\includegraphics[width=0.49\textwidth]{Chapter05/Images/vbflimit.pdf}
+\caption{Expected and observed 95\% CL upper limits on the VBF production cross section times invisible branching fraction (left figure), and normalized to the \gls{SM} Higgs boson \gls{VBF} production cross section (right figure). \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\label{FIGURE:vbfLimit}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+
+%Status: Writing
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preparing parked analysis}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Jet topology variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 18 Months report was on the Sep 9 2013
+
+%/home/hep/jca10/work/vbfinv/ws04/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu/PLOTS_mjj1200_dijetFrac/nunu/MET130/n_vtx_2012_DijetFraction_log.pdf
+% Looks like plots are from Jun 25 2013
+
+% FOUND FILE: This is the file used in the plots for the 18 months report
+%/home/hep/jca10/work/vbfinv/ws04/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu/output_mjj1100_dijetFrac/nunu/MET130/MC_VBF_HToZZTo4Nu_M-120.root
+
+%/vols/cms02/jca10/work/ws01/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu/plots/DPhiSIGNAL_CJVpass/dijetMet/dijetFrac_htMET.png
+% Looks like plots are from Feb 20 2014
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Track variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 20140603_ICVBFHiggs_JPela.pdf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% QCD VFB + MET samples
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 20140204_ICVBFHiggs_JPela_VBFQCD.pdf (plot on the AN)
+% 20140506_ICVBFHiggs_JPela.pdf (selection test)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+
+
+
 % 
 % \subsection{Systematic uncertainty}
 % \label{sec:vbf-syst}
