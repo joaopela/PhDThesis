@@ -216,7 +216,7 @@ The results of the determination of each $T_{\text{crit}}$ for each set of toys 
 To determine the minimum $\mu_0$ and a function of the number of bins we need to fulfil both efficiency and fake rate conditions, this can also be determined with the help of \gls{MC}. Searches for $mu_{min}$ was preformed using an histograms with a predefined number of cells. For each tested $mu_{0}$, five hundred experiments where made by filling all cells with a Poisoning random numbers around $\mu_0$. Resulting cells where then tested with $T$ against the critical value determined for that specific $\mu_0$. The fake rate will be the fraction of experiments where one or more cells are marked as bad. The procedure is repeated for different $mu_{0}$ until the minimum value for this variable is found that exhibits a fake rate of 0.01 or lower. The procedure was repeated for the number of cells of all histograms to be initial monitored by this tool. The obtained values of $\mu_0^{min}$ were fitted with a logarithm function as showed in equation \ref{EQUATION:TechnicalWork_Occupancy_MuMinFits}.
 
 \begin{equation}
-\mu_{0}^{min}= a \cdot \ln(b \cdot + c) + d
+\mu_{0}^{min}= a \cdot \ln(b \cdot n_{\text{Bins}} + c) + d
 \label{EQUATION:TechnicalWork_Occupancy_MuMinFits}
 \end{equation}
 
