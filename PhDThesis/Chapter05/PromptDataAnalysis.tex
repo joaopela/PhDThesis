@@ -50,14 +50,16 @@ To estimate the signal yields the \textsc{POWHEG} \gls{MC} generator was used to
 
 %Status: Writing
 
-The irreducible background $\Z(\nu \nu)\text{+jets}$ is estimated from data using as proxy $\Z (\mu \mu)$ decays. 
+The irreducible background $\Z(\nu \nu)\text{+jets}$ is estimated from data using as proxy $\Z (\mu \mu)$ decays. A control region for the \Z background is defined with the same event selection as the signal region, with the following changes: instead of the muons veto a pair of opposite charge tight muons is required with an invariant mass compatible with a \Z decay of $60 < M_{\mu\mu}<120\,\GeV$. We veto the event if any more additional veto electrons or loose muons are present. We use $MET_{no-\mu}$ to emulate the signature from a \Z decay into neutrinos. We can extrapolate the number of events in signal region using equation \ref{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu}.
 
+\begin{equation}
+N^\mathrm{s}_{\nu\nu} = (N^\mathrm{c}_{\mu\mu\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{\sigma(\Z \to \nu\nu)}{\sigma(\Z/\gamma^{*} \to \mu\mu)} \cdot \frac{\varepsilon^\mathrm{s}_{\Z \mathrm{MC}}}{\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}}.
+\label{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu}
+\end{equation}
 
-% The $\Z(\nu \nu)\text{+jets}$ background is estimated from data using observable $\Z (\mu \mu)$ decays. We define a \Z\ control region as for the signal region, with the following changes to the event selection: the lepton veto is replaced with a requirement of an oppositely charged pair of well reconstructed and isolated muons each with $\pt > 20 $\GeV, and invariant mass $60 < M_{\mu\mu}<120$\GeV, a veto is applied on any additional leptons with $\pt>10$\GeV, and the $\ETm$ is recomputed after removing the muons from the \Z\ boson decay. The number of $\Z (\nu \nu)$ events in the signal region is then predicted using:
-
-% \begin{equation}
-% N^\mathrm{s}_{\nu\nu} = (N^\mathrm{c}_{\mu\mu\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{\sigma(\Z \to \nu\nu)}{\sigma(\Z/\gamma^{*} \to \mu\mu)} \cdot \frac{\varepsilon^\mathrm{s}_{\Z \mathrm{MC}}}{\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}}.
-% \end{equation}
+% The ratio of cross sections, $\sigma(\Z \to \nu \nu) / \sigma(\Z/\gamma^{*} \to \mu \mu) = 5.651 \pm 0.023\syst$ is calculated with \MCFM~\cite{MCFM} for $m_{\Z/\gamma^{*}} > 50$\GeV, the mass range of the MC sample.  The selection efficiencies in the signal region, $\varepsilon^\mathrm{s}_{\Z \mathrm{MC}} = (1.65 \pm 0.27\syst) \times 10^{-6}$, and the control region, $\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}=(1.11 \pm 0.17\syst) \times 10^{-6}$, are estimated from DY($\ell\ell$)+jets simulation, ignoring the muons when computing the efficiency in the signal region.
+% The observed yield in the control region is $N^\mathrm{c}_{\mu\mu\text{obs}} = 12$~events.  The background in the control region---estimated from $\ttbar$, diboson and single-top MC samples---is $N^\mathrm{c}_\text{bkg}=0.23 \pm 0.15\syst$~events.  The resulting estimate of the $\Z (\nu \nu)$ background in the signal region is $99 \pm 29\stat \pm 25\syst$ events.  The source of systematic uncertainty in the background estimates will be described in Section~\ref{sec:vbf-syst}.
+% Figure~\ref{fig:zCtrl} shows the $\ETm$ and dijet invariant mass, $\mjj$, distributions with a relaxed set of criteria for the \Z control region, with $\mjj>1000$\GeV and no requirements on $\etajj$, $\phijj$, or CJV.  In this figure, the simulated background is normalized to the data.  It should be noted that our estimates of the dominant V+jets background are insensitive to the overall normalization of the simulation, which cancels in the ratio.
 % 
 
 \begin{figure}[!htb]
@@ -97,10 +99,7 @@ S/B                                      & 70\% \\
 % \label{sec:vbf-backgrounds}
 % 
 
-% The ratio of cross sections, $\sigma(\Z \to \nu \nu) / \sigma(\Z/\gamma^{*} \to \mu \mu) = 5.651 \pm 0.023\syst$ is calculated with \MCFM~\cite{MCFM} for $m_{\Z/\gamma^{*}} > 50$\GeV, the mass range of the MC sample.  The selection efficiencies in the signal region, $\varepsilon^\mathrm{s}_{\Z \mathrm{MC}} = (1.65 \pm 0.27\syst) \times 10^{-6}$, and the control region, $\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}=(1.11 \pm 0.17\syst) \times 10^{-6}$, are estimated from DY($\ell\ell$)+jets simulation, ignoring the muons when computing the efficiency in the signal region.
-% The observed yield in the control region is $N^\mathrm{c}_{\mu\mu\text{obs}} = 12$~events.  The background in the control region---estimated from $\ttbar$, diboson and single-top MC samples---is $N^\mathrm{c}_\text{bkg}=0.23 \pm 0.15\syst$~events.  The resulting estimate of the $\Z (\nu \nu)$ background in the signal region is $99 \pm 29\stat \pm 25\syst$ events.  The source of systematic uncertainty in the background estimates will be described in Section~\ref{sec:vbf-syst}.
-% Figure~\ref{fig:zCtrl} shows the $\ETm$ and dijet invariant mass, $\mjj$, distributions with a relaxed set of criteria for the \Z control region, with $\mjj>1000$\GeV and no requirements on $\etajj$, $\phijj$, or CJV.  In this figure, the simulated background is normalized to the data.  It should be noted that our estimates of the dominant V+jets background are insensitive to the overall normalization of the simulation, which cancels in the ratio.
-% 
+
 % \begin{figure}[hbtp]
 %         \begin{center}
 %                  \includegraphics[width=0.45\textwidth]{ZCtrlMET.pdf}
@@ -233,7 +232,11 @@ Total                                            & 18\%             & 14\%   \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Preparing parked analysis}
+\section{Preparing of parked data analysis}
+
+\subsection{Dijet-MET system topological variables}
+
+\subsection{Track distribution variables}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -250,10 +253,12 @@ Total                                            & 18\%             & 14\%   \\
 %/vols/cms02/jca10/work/ws01/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu/plots/DPhiSIGNAL_CJVpass/dijetMet/dijetFrac_htMET.png
 % Looks like plots are from Feb 20 2014
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Track variables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 20140603_ICVBFHiggs_JPela.pdf
+% /afs/cern.ch/user/p/pela/work/cms/vbfinv/ws03/CMSSW_5_3_11/src/VBFHiggsToInvisible/VariableAnalyser/python/PowhegSignal_cfi.py
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QCD VFB + MET samples
@@ -261,6 +266,8 @@ Total                                            & 18\%             & 14\%   \\
 % 20140204_ICVBFHiggs_JPela_VBFQCD.pdf (plot on the AN)
 % 20140506_ICVBFHiggs_JPela.pdf (selection test)
 
+% Something odd here
+%/home/hep/jca10/work/vbfinv/ws08/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
