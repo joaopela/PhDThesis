@@ -5,7 +5,7 @@
 
 %Status: DONE
 
-In this analysis we focus on Higgs boson decays produced in association with two final state quark jets. These jets will have large rapidity separation and high invariant mass. An event selection criteria has been developed to take advantage of this distinct topology, by selecting two jets with \gls{VBF} characteristics and large \gls{MET} in order to separate signal from other background processes. We have drawn inspiration from the selection criteria proposed in \cite{ARTICLE:Zeppenfeld_ObservingAnInvisibleHiggsboson}.
+In this analysis we focus on Higgs boson decays into invisible particles produced in association with two final state quark jets. These jets will have large rapidity separation and high invariant mass. An event selection criteria has been developed to take advantage of this distinct topology, by selecting two jets with \gls{VBF} characteristics and large \gls{MET} in order to separate signal from other background processes. We have drawn inspiration from the selection criteria proposed in \cite{ARTICLE:Zeppenfeld_ObservingAnInvisibleHiggsboson}.
 
 The main backgrounds for this analysis are from $\Z (\nu \nu)\text{+jets}$ and $\PW (\ell \nu)\text{+jets}$, where the the lepton was not reconstructed or properly identified. These backgrounds are estimated from yields in control regions where we select each boson decay into charged leptons together with a dijet with \gls{VBF} characteristics. These yields are extrapolated to the signal region, using factors determined with the help of \gls{MC} simulation. The background from \gls{QCD} processes is completely estimated from a control regions in data since we cannot rely on \gls{MC} due to insufficient statistics for the extrapolation to the signal region. All other minor backgrounds like from $\ttbar$, single-top, diboson, and Drell--Yan$(\ell\ell)\text{+jets}$ processes are estimated directly from \gls{MC}. 
 
@@ -20,7 +20,7 @@ The observed data yield together with the estimations of the yields for the sign
 
 In this analysis we use the recorded data by a purpose designed trigger that selects events with at least on dijet with \gls{VBF} characteristics and \gls{MET}. The dijet is required to have its jets in opposite sides of the detector and pass $\pt^{jet_1},\pt^{jet_2} > 40\,\GeV$, $\Delta\eta > 3.5$ and $M_{jj} > 800\,\GeV$. By requiring any dijet instead of the leading dijet we avoid rejecting events where a \gls{PU} jet is leading jet or the effects of the lower energy resolution of the trigger versus offline. We also require $MET_{no-\mu} > 65\,\GeV$, the use of \gls{MET} without muons allows us to record with the same trigger, a control sample of processes  $\PW(\mu\nu)\text{+jets}$ and $\Z(\mu\mu)\text{+jets}$. The \gls{MC} simulated events are re-weighted according to the probability of passing the trigger. Trigger weights are determined in a dataset of event recorded with trigger condition requiring a single muon. This weights are a function of the offline measurements of sub-leading jet \pt, $M_{jj}$ and $MET_{no-\mu}$.
 
-%TODO: Was it METnoMu for trigger weights?
+%TODO: Was it METnoMu for trigger weights? yes
 
 The signal region is defined by selecting a events with a tighter version of the trigger conditions with additional cuts and vetoes. Building on the trigger cuts we require the leading pair of particle flow \cite{ARTICLE:CMSParticleFlowEventRecontruction} anti-$k_T^{\Delta R=0.5}$ jets in the event to pass $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $\Delta\eta_{jj}>4.2$, $M_{jj}>1100\,\GeV$ and we also require large missing energy of at least $130\,\GeV$. We veto events with identified veto electrons or loose muons  with $\pt>10\,\GeV$ to suppress processes with $Z$ or $W$ boson decays. To reduce \gls{QCD} multi-jet backgrounds we additional request the dijet to pass $\Delta\phi < 1.0\,\radian$, since typically \gls{QCD} jets will be back to back and therefore will have high values in this variable. Finally, we require a \glsreset{CJV}, where no additional jet can be present between the two leading jets with $\pt > 30\,\GeV$.
 
@@ -105,21 +105,21 @@ S/B                                      & 70\% \\
 \centering
 \begin{tabular}{|l|c|c|}
 \hline
-Source                              & Total background & Signal \\
+Source                                           & Total background & Signal \\
 \hline\hline
-Control region statistics           & 11\%             & -      \\
-MC statistics                       & 11\%             & 4\%    \\
-Jet/$E_T^{\text{miss}}$ energy scale/resolution   & 7\%              & 13\%   \\
-QCD background estimation           & 4\%              & -      \\
-Lepton efficiency                   & 2\%              & -      \\
-Tau ID efficiency                   & 1\%              & -      \\
-Luminosity                          & 0.2\%            & 2.6\%  \\
-Cross sections                      & 0.5--1\%         & -      \\
-PDFs                                & -                & 5\%    \\
-Factorization/renormalization scale & -                & 4\%    \\
-Gluon fusion signal modelling       & -                & 4\%    \\
+Control region statistics                        & 11\%             & -      \\
+MC statistics                                    & 11\%             & 4\%    \\
+Jet/$E_T^{\text{miss}}$ energy scale/resolution  & 7\%              & 13\%   \\
+QCD background estimation                        & 4\%              & -      \\
+Lepton efficiency                                & 2\%              & -      \\
+Tau ID efficiency                                & 1\%              & -      \\
+Luminosity                                       & 0.2\%            & 2.6\%  \\
+Cross sections                                   & 0.5--1\%         & -      \\
+PDFs                                             & -                & 5\%    \\
+Factorization/renormalization scale              & -                & 4\%    \\
+Gluon fusion signal modelling                    & -                & 4\%    \\
 \hline\hline
-Total                               & 18\%             & 14\%   \\
+Total                                            & 18\%             & 14\%   \\
 \hline 
 \end{tabular}
 \caption{Summary of the uncertainties in the total background and signal yields in the VBF channel. All uncertainties affect the normalization of the yield, and are quoted as the change in the total background or signal estimate, when each systematic effect is varied according to its uncertainties. The signal uncertainties are given for $m_H=125$\GeV and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
