@@ -47,8 +47,9 @@ To estimate the signal yields the \textsc{POWHEG} \gls{MC} generator was used to
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Background Estimation}
+\label{SECTION:PromptDataAnalysis_BackgroundEstimation}
 
-%Status: Writing
+%Status: DONE
 
 The irreducible background $\Z(\nu \nu)\text{+jets}$ is estimated from data using as proxy $\Z (\mu \mu)$ decays. A control region for the \Z background is defined with the same event selection as the signal region, with the following changes: instead of the muons veto a pair of opposite charge tight muons is required with an invariant mass compatible with a \Z decay of $60 < M_{\mu\mu}<120\,\GeV$. We veto the event if any more additional veto electrons or loose muons are present. We use $MET_{no-\mu}$ to emulate the signature from a \Z decay into neutrinos. We can extrapolate the number of events in signal region using equation \ref{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu}.
 
@@ -94,30 +95,29 @@ N^\mathrm{c}_{\mu \mu} = (N^\mathrm{c}_{\mu \text{obs}} - N^\mathrm{c}_\text{bkg
 \label{EQUATION:PromptDataAnalysis_BackgroundEstimation_RegionCrossCheck}
 \end{equation}
 
+The \gls{QCD} multijet background is estimated in the signal region by defining four regions depending or passing or failing the \gls{MET} and \gls{CJV} requirements. We define these regions after the full remaining selection as follows:
 
-% The QCD multijet background in the signal region is estimated using the fractions of events passing the $\ETm$ and CJV requirements.  We define regions A, B, C, and D as follows, after the full remaining selection :
-% 
-% \begin{itemize}
-%         \item{A: fail $\ETm$ selection, fail CJV selection;}
-%         \item{B: pass $\ETm$ selection, fail CJV selection;}
-%         \item{C: fail $\ETm$ selection, pass CJV selection;}
-%         \item{D: pass $\ETm$ selection, pass CJV selection.}
-% \end{itemize}
-% 
-% We estimate the QCD multijet component in regions A, B, and C from data, after subtracting the electroweak backgrounds using estimations from simulation.  The QCD multijet component in the signal region D can then be estimated using $N_\mathrm{D} = N_\mathrm{ B}N_\mathrm{C} / N_\mathrm{A}$, where $N_{i}$ is the number of events in region $i$.  This method is based on the assumption that the $\ETm$ and the CJV are uncorrelated, which has been checked by comparing the $\ETm$ distribution, below the 130\GeV threshold, in events passing and failing the CJV.  The maximum difference in the $\ETm$ distribution between these two samples is 40\%, which is assigned as a systematic uncertainty of the method.  We predict the QCD background in the signal region to be $30.9 \pm 4.8\stat \pm 23.0\syst$ events.  Furthermore, the method is tested on a high statistics sample with selections equivalent to those in the signal region, but dominated by QCD multijet events by changing the $\phijj$ requirement to $\phijj>2.6$~radians.  In this sample, we observe $2551 \pm 57\stat$ events in the pseudo-signal region after subtraction of backgrounds, which are estimated from MC simulation.  The QCD multijet component is predicted to be $2959 \pm 58\stat$, which is compatible with the observation within the systematic uncertainty.  To give further confidence in this estimate, we perform a cross-check using an ABCD method based on the $\ETm$ and $\phijj$ variables, which gives a prediction consistent with the main method.
-% 
-% The remaining SM backgrounds in the signal region---due to $\ttbar$, single-top, VV and DY($\ell\ell$)+jets---are estimated from MC simulation to be $20.0 ^{+6.0}_{-8.2}\syst$ events.  The total expected background is $332 \pm 36\stat \pm 45\syst$.  The background estimates are summarised in Table~\ref{tab:bgSummary} along with the expected yield for a signal with $\mH=125$\GeV and $\BRinv=100$\%.
+\begin{itemize}
+  \item{A: fail $MET$ selection, fail \gls{CJV} selection;}
+  \item{B: pass $MET$ selection, fail \gls{CJV} selection;}
+  \item{C: fail $MET$ selection, pass \gls{CJV} selection;}
+  \item{D: pass $MET$ selection, pass \gls{CJV} selection.}
+\end{itemize}
+
+We use regions A, B and C to estimate the \gls{QCD} multijet contribution in D. These three regions are first subtracted of the electroweak backgrounds, which are already estimated through other control regions, with event yield estimations from \gls{MC} simulation. The \gls{QCD} multijet yield in region D is estimated using $N_\mathrm{D} = N_\mathrm{B}N_\mathrm{C} / N_\mathrm{A}$ where $N_{i}$ is the number of events in region $i$. This method is based on the assumption that the four regions are uncorrelated, which is tested by comparing the \gls{MET} distributions below $MET < 130\,\GeV$ of both pass and fail \gls{CJV}. The maximum observed difference was of 40\%, which is assigned as a method systematic. Using this method the contribution to signal region of \gls{QCD} multijets processes is of $30.9 \pm 4.8\stat \pm 23.0\syst$. To increase the confidence on this method, it was applied to a \gls{QCD} multijet dominated area by changing the $\Delta\phi_{jj}$ requirement to $\Delta\phi_{jj}>2.6\,\radian$. In this region $2551 \pm 57\stat$ events were observed, after subtraction of other backgrounds which were estimated from \gls{MC} simulation. The prediction of the method is $2959 \pm 58\stat$, which is compatible with the observation within systematic uncertainties. Furthermore, a cross-check was performed using as variables \gls{MET} and $\Delta\phi_{jj}$, the obtained predictions is consistent with the main method.
+
+The remaining \gls{SM} background, for the processes $\ttbar$, single-top, VV and DY($\ell\ell$)+jets, in the signal region are estimated  directly form \gls{MC} simulation to be $20.0 ^{+6.0}_{-8.2}\syst$ events. Table \ref{TABLE:PromptDataAnalysis_BackgroundEstimation_BackgroundSumamry} summarizes all background estimations along with the prediction of the yield for a signal with $m_{H}=125\,\GeV$ and $\BRinv=100$\%. The total expected background yield in the signal region is $332 \pm 36\stat \pm 45\syst$. 
 
 \begin{table}[!htb]
 \centering
 \begin{tabular}{|l|c|}
 \hline
 Process                                  & Event yields                  \\
-\hline
+\hline\hline
 $\Z (\nu\nu)\text{+jets}$                & $  99 \pm  29 \stat \pm 25 \syst$  \\
 $\PW (\mu\nu)\text{+jets}$               & $  67 \pm   5 \stat \pm 16 \syst$   \\
 $\PW (\Pe \nu)\text{+jets}$              & $  63 \pm   9 \stat \pm 18 \syst$   \\
-$\PW (\tau_{haf} \nu)\text{+jets}$       & $  53 \pm  18 \stat \pm 18 \syst$  \\
+$\PW (\tau_{had} \nu)\text{+jets}$       & $  53 \pm  18 \stat \pm 18 \syst$  \\
 QCD multijet                             & $  31 \pm   5 \stat \pm 23 \syst$   \\
 Sum (\ttbar, single top quark, $VV$, DY) & $20.0 \pm 8.2 \syst$ \\
 \hline\hline
@@ -129,16 +129,21 @@ Observed data                            & 390  \\
 S/B                                      & 70\% \\
 \hline
 \end{tabular}
-\label{tab:bgSummary}
-\caption{Summary of the estimated number of background and signal events, together with the observed yield, in the \gls{VBF} search signal region.  The signal yield is given for $m_H=125$\GeV and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\label{TABLE:PromptDataAnalysis_BackgroundEstimation_BackgroundSumamry}
+\caption{Summary of the estimated number of background and signal events, together with the observed yield, in the \gls{VBF} search signal region. The signal yield is given for $m_H=125\,\GeV$ and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Sources of uncertainty}
+\label{SECTION:PromptDataAnalysis_SourcesOfUncertainty}
 
-%Status: Writing
+%Status: DONE
+
+The data control event samples for V+jets backgrounds small size translates into a large statistical uncertainty on the estimates in the signal region ranging from $5-30\%$. The systematic uncertainty also associated with this channels is dominated by the \gls{MC} samples statistical uncertainty when calculating the conversion factors from control to signal regions. Also important sources of systematic uncertainty are the effects of the jet and \gls{MET} energy scale and resolution. These effects are estimate by varying the scales and resolutions within their uncertainty, applying them to the jets and uncluttered energy and recalculating the \gls{MET}. Resulting in a systematic uncertainty of 13\% in the signal acceptance, 7-15\% in the V+jets background estimates, and 60\% uncertainty in the \gls{QCD} multijet background estimate. As described in the previous section an additional uncertainty of 40\% is associated with the \gls{QCD} multijet estimation, but this background yield is small compared with the total. Muon and electron efficiency uncertainties appear due to the scale factors used to correct \gls{MC} simulation to data and are small. 
+
+For the minor backgrounds which were estimated from \gls{MC} simulation, the dominates uncertainties are the cross sections which are set according to measurements made by other analyses of the \gls{CMS} collaboration and the jet/\gls{MET} scale uncertainties. Theoretical uncertainties on the \gls{VBF} signal yields result from \gls{PDF} uncertainties, factorization and renormalization scale uncertainties. For the gluon fusion signal the dominating uncertainties arise from \gls{MC} modelling of \gls{ISR} and other effects. It is estimated by comparing the estimates from different \gls{MC} generators and is estimated to be 60\%. Gluon fusion represents a small amount of the total signal so this uncertainty only has a modest effect. Table \ref{TABLE:PromptDataAnalysis_SourcesUncertaintySummary} summarizes the uncertainties taken into account in relation to signal or total background yields. The combined effect of all uncertainties associated with the background results in an increase of about 65\% in the expected upper limit on the \BRinv.
 
 \begin{table}[!htb]
 \centering
@@ -161,7 +166,7 @@ Gluon fusion signal modelling                    & -                & 4\%    \\
 Total                                            & 18\%             & 14\%   \\
 \hline 
 \end{tabular}
-\caption{Summary of the uncertainties in the total background and signal yields in the VBF channel. All uncertainties affect the normalization of the yield, and are quoted as the change in the total background or signal estimate, when each systematic effect is varied according to its uncertainties. The signal uncertainties are given for $m_H=125$\GeV and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\caption{Summary of the uncertainties in the total background and signal yields in the \gls{VBF} channel. All uncertainties affect the normalization of the yield, and are quoted as the change in the total background or signal estimate, when each systematic effect is varied according to its uncertainties. The signal uncertainties are given for $m_H=125\,\GeV$ and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
 \label{TABLE:PromptDataAnalysis_SourcesUncertaintySummary}
 \end{table}
 
@@ -169,26 +174,23 @@ Total                                            & 18\%             & 14\%   \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}
+\section{Results and conclusions}
 
-%Status: Writing
+%Status: DONE
 
-\begin{figure}[htp]
+As shown in table \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}, 390 data events were observed in the signal region, this yield is compatible with the background only prediction. Since no evidence of signal is observed we proceed with setting 95\% \gls{CL} upper limits on the Higgs boson production cross section times branching fraction. The limit are calculated using the $\mathrm{CL}_\mathrm{s}$ method \cite{ARTICLE:HandbookofLHCHiggsCrossSectionsDifferentialDistributions,ARTICLE:CLsTechnique,ARTICLE:CLCompForCombiningSearchesWithSmallStat} based on asymptotic formulae \cite{ARTICLE:AsymptoticCLS}, following the standard CMS Higgs boson searches combination technique \cite{ARTICLE:CMS_HiggsDiscovery,ARTICLE:HiggsCombination}. Systematic uncertainties are incorporated as nuisance parameters and treated according to the frequentist paradigm \cite{ARTICLE:HiggsCombination}. The 95\% \gls{CL} limits on the Higgs boson production  cross section times invisible branching fraction are also present normalised to the \gls{SM} production cross section \cite{ARTICLE:HandbookofLHCHiggsCrossSectionsInclusiveObservables,ARTICLE:HandbookofLHCHiggsCrossSectionsDifferentialDistributions}, which is denoted as $\xi = \sigma \cdot \BRinv / \sigma_\mathrm{SM}$. The choice of the \gls{SM} production cross section is arbitrary, since in the existence of a sizeable invisible cross section width would indicate physics beyond the \gls{SM}, whcih could mean also modification of the production cross-sections. An alternative choice of model for Higgs boson production would not provide additional information since it essentially would scale the limits.
+
+If \gls{SM} production cross sections and acceptances are assumed, the limits on the invisible branching fraction of the $125\,\GeV$ Higgs boson $\xi$ can be interpreted as a limit on the invisible branching fraction.
+
+Figure \ref{FIGURE:PromptDataAnalysis_VBFLimit} shows on the left plot the observed and median expected 95\% \gls{CL} limits on the Higgs boson production cross section times invisible branching fraction, as a function of the Higgs boson mass, for the \gls{VBF} production mode. The right plot shows the corresponding limit on $\xi$.  Assuming the \gls{SM} \gls{VBF} production cross section and acceptance, this corresponds to an observed (expected) upper limit on \BRinv of 0.65 (0.49) for $m_H=125\,\GeV$.
+
+\begin{figure}[!htp]
 \centering
 \includegraphics[width=0.49\textwidth]{Chapter05/Images/vbfxslimit.pdf}
 \includegraphics[width=0.49\textwidth]{Chapter05/Images/vbflimit.pdf}
 \caption{Expected and observed 95\% CL upper limits on the VBF production cross section times invisible branching fraction (left figure), and normalized to the \gls{SM} Higgs boson \gls{VBF} production cross section (right figure). \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
-\label{FIGURE:vbfLimit}
+\label{FIGURE:PromptDataAnalysis_VBFLimit}
 \end{figure}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusion}
-
-%Status: Writing
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -196,6 +198,8 @@ Total                                            & 18\%             & 14\%   \\
 \section{Preparing of parked data analysis}
 
 \subsection{Dijet-MET system topological variables}
+
+\subsection{QCD samples}
 
 \subsection{Track distribution variables}
 
@@ -234,53 +238,4 @@ Total                                            & 18\%             & 14\%   \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-
-
-
-% 
-% \subsection{Systematic uncertainty}
-% \label{sec:vbf-syst}
-% 
-% The V+jets background estimates are affected by large statistical uncertainties, ranging from 5--30\%, due to control samples in data.  The systematic uncertainty in the V+jet background estimates is dominated by the statistical uncertainty in the MC samples used to calculate the control-to-signal region translation factors.  Additional important uncertainties arise due to jet and $\ETm$ energy scale and resolution. These are estimated by varying the scales and resolutions associated with jets and unclustered energy within their uncertainties and recomputing the \ETm, resulting in a 13\% systematic uncertainty in the signal acceptance; 7--15\% in the V+jets background estimates; and 60\% uncertainty in the QCD multijet background estimate. We assign a further 40\% uncertainty to the QCD background estimate, as described in Section~\ref{sec:vbf-backgrounds}.  Although the uncertainty on the QCD background is large, it is a small component of the total background. Small uncertainties in the muon and electron efficiency arise from uncertainties on the scale factors used to correct MC simulation to data, mentioned in Section~\ref{sec:datasets}. For the minor backgrounds estimated from MC, the dominant uncertainties are those associated with the cross sections, which are set according to the corresponding CMS cross section measurements, and the jet/$\ETm$ scale uncertainties.  We consider theoretical uncertainties in the vector boson fusion signal yield resulting from PDF uncertainties and factorization and renormalization scale uncertainties. The uncertainty in the gluon fusion signal yield is dominated by MC modelling of initial-state radiation, amongst other effects, and is estimated to be 60\% by comparing different MC generators. This has a modest overall effect since the gluon fusion yield is small.  These uncertainties are summarized in Table~\ref{tab:syst-qqH}, where they are quoted with respect to the total background or signal yield.  The combined effect of all background uncertainties results in a relative increase of about 65\% in the expected upper limit on the \BRinv.
-% 
-% 
-% \begin{table*}[h!t]
-% \centering
-% \topcaption{Summary of the uncertainties in the total background and signal yields in the VBF channel. All uncertainties affect the normalization of the yield, and are quoted as the change in the total background or signal estimate, when each systematic effect is varied according to its uncertainties. The signal uncertainties are given for $\mH=125$\GeV and $\BRinv=100$\%.}
-% \begin{tabular}{lcc}
-%         \hline \hline
-%         Source                                                          & Total background & Signal     \\
-%         \hline
-%         Control region statistics                       & 11\%          & \NA   \\
-%         MC statistics                                           & 11\%          & 4\% \\
-%         Jet/\ETm\ energy scale/resolution       & 7\%           & 13\%  \\
-%         QCD background estimation                       & 4\%           & \NA \\
-%         Lepton efficiency                                       & 2\%           & \NA   \\
-%         Tau ID efficiency                                       & 1\%           & \NA            \\
-%         Luminosity                                                      & 0.2\%         & 2.6\% \\
-%         Cross sections                                          & 0.5--1\%      & \NA \\
-%         PDFs                                                            & \NA           & 5\%    \\
-%         Factorization/renormalization scale     & \NA           & 4\%    \\
-%         Gluon fusion signal modelling           & \NA           & 4\% \\
-%         \hline
-%         Total                                                           & 18\%          & 14\% \\
-%         \hline \hline
-% \end{tabular}
-% \label{tab:syst-qqH}
-% \end{table*}
-% 
-% 
-% \subsection{Results}
-% \label{sec:vbf-results}
-% 
-% As shown in Table~\ref{tab:bgSummary}, we observe 390 events the signal region in data, compatible with the background only prediction. Figure~\ref{fig:vbfSignalRegion} shows the $\ETm$ and $\mjj$ distributions in data and simulated backgrounds in the signal region.  The simulated V+jets backgrounds shown in this figure are normalized to the estimates from data given in Table~\ref{tab:bgSummary}.
-% 
-% 
-% \begin{figure}[hbtp]
-%         \centering
-%                  \includegraphics[width=0.49\textwidth]{SignalRegionMET.pdf}
-%                  \includegraphics[width=0.49\textwidth]{SignalRegionMjj.pdf}    
-%                 \caption{The $\ETm$ (\cmsLeft) and $\mjj$ (\cmsRight) distributions in data and MC after the full selection in the VBF search signal region.  The simulated background from different processes is normalized to the estimates obtained from control samples in data, and shown cumulatively, with the total systematic uncertainty shown as a hatched region.  Note that the QCD multijet background is not shown due to limited MC statistics, which results in a small apparent discrepancy between data and the backgrounds shown at low values of $\ETm$ and $\mjj$.  The cumulative effect of a signal from a Higgs boson with SM VBF production cross section, $\mH=125$\GeV and \BRinv=100\% is also shown.}
-%                 \label{fig:vbfSignalRegion}
-% \end{figure}
 
