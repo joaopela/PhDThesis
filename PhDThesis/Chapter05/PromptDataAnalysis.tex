@@ -57,84 +57,44 @@ N^\mathrm{s}_{\nu\nu} = (N^\mathrm{c}_{\mu\mu\text{obs}} - N^\mathrm{c}_\text{bk
 \label{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu}
 \end{equation}
 
-% The ratio of cross sections, $\sigma(\Z \to \nu \nu) / \sigma(\Z/\gamma^{*} \to \mu \mu) = 5.651 \pm 0.023\syst$ is calculated with \MCFM~\cite{MCFM} for $m_{\Z/\gamma^{*}} > 50$\GeV, the mass range of the MC sample.  The selection efficiencies in the signal region, $\varepsilon^\mathrm{s}_{\Z \mathrm{MC}} = (1.65 \pm 0.27\syst) \times 10^{-6}$, and the control region, $\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}=(1.11 \pm 0.17\syst) \times 10^{-6}$, are estimated from DY($\ell\ell$)+jets simulation, ignoring the muons when computing the efficiency in the signal region.
-% The observed yield in the control region is $N^\mathrm{c}_{\mu\mu\text{obs}} = 12$~events.  The background in the control region---estimated from $\ttbar$, diboson and single-top MC samples---is $N^\mathrm{c}_\text{bkg}=0.23 \pm 0.15\syst$~events.  The resulting estimate of the $\Z (\nu \nu)$ background in the signal region is $99 \pm 29\stat \pm 25\syst$ events.  The source of systematic uncertainty in the background estimates will be described in Section~\ref{sec:vbf-syst}.
-% Figure~\ref{fig:zCtrl} shows the $\ETm$ and dijet invariant mass, $\mjj$, distributions with a relaxed set of criteria for the \Z control region, with $\mjj>1000$\GeV and no requirements on $\etajj$, $\phijj$, or CJV.  In this figure, the simulated background is normalized to the data.  It should be noted that our estimates of the dominant V+jets background are insensitive to the overall normalization of the simulation, which cancels in the ratio.
-% 
+%TODO: I think its DY to mumu only
+
+The \textsc{MCFM} \gls{MC} generator \cite{ARTICLE:MCFMGenerator} was used to estimate the the ratio of cross sections in equation \ref{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu} as $\sigma(\Z \to \nu \nu) / \sigma(\Z/\gamma^{*} \to \mu \mu) = 5.651 \pm 0.023\syst$ for $m_{\Z/\gamma^{*}} > 50\,\GeV$. The selection efficiency terms are calculated using a DY($\ell\ell$)+jets \gls{MC} simulation, for the signal region the muons are ignored and the obtained efficiency is $\varepsilon^\mathrm{s}_{\Z \mathrm{MC}} = (1.65 \pm 0.27\syst)$ and $\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}=(1.11 \pm 0.17\syst) \times 10^{-6}$ for the control region. The event yield observed in this control region is of $N^\mathrm{c}_{\mu\mu\text{obs}} = 12$ events. The other backgrounds in the control region are estimated using \gls{MC} simulation of the $\ttbar$, diboson and single-top processes being $N^\mathrm{c}_\text{bkg}=0.23 \pm 0.15\syst$ event. Using  these results the contribution of the  $\Z (\nu \nu)$ background in the signal region is estimated as $99 \pm 29\stat \pm 25\syst$ events. Figure \ref{FIGURE:PromptDataAnalysis_BackgroundEstimation_ZControlRegion} shows the \gls{MET} and dijet invariant mass distributions with a less strict \Z control region event selection, where $\Delta\eta_{jj}$, $\Delta\phi_{jj}$ and \gls{CJV} requirements are not enforced and we require dijet $M_{jj}>1000\,\GeV$. 
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter05/Images/ZCtrlMET.pdf}
 \includegraphics[width=0.45\textwidth]{Chapter05/Images/ZCtrlMjj.pdf}   
-\caption{The $MET$ (left plot) and $M_{jj}$ (right plot) distributions in the relaxed $Z$ control region of the \gls{VBF} search, with no requirements on $\Delta\eta_{jj}$, $\Delta\phi_{jj}$, or \gls{CJV}, and with the $M_{jj}$ requirement relaxed to $1000\,\GeV$.  The simulated background from different processes is shown cumulatively, and normalized to the data, with its systematic uncertainty shown as a hatched region.  The lower panels show the ratio of data to the simulated background, again with the systematic uncertainty shown as a hatched region. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
-\label{fig:zCtrl}
+\caption{Distribution for \gls{MET} on the right and $M_{jj}$ on the left for a relaxed $Z$ control region, with no requirements on $\Delta\eta_{jj}$, $\Delta\phi_{jj}$, or \gls{CJV} and with a $M_{jj}>1000\,\GeV$ requirement. Backgrounds are shown cumulatively, normalized to data, and with systematic uncertainty shown as a hatched region. The lower panels show the ratio of data to the simulated background. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\label{FIGURE:PromptDataAnalysis_BackgroundEstimation_ZControlRegion}
 \end{figure}
 
-\begin{table}[!htb]
-\centering
-\begin{tabular}{|l|c|}
-\hline
-Process                                  & Event yields                  \\
-\hline
-$\Z (\nu\nu)\text{+jets}$                & $  99 \pm  29 \stat \pm 25 \syst$  \\
-$\PW (\mu\nu)\text{+jets}$               & $  67 \pm   5 \stat \pm 16 \syst$   \\
-$\PW (\Pe \nu)\text{+jets}$              & $  63 \pm   9 \stat \pm 18 \syst$   \\
-$\PW (\tauh \nu)\text{+jets}$            & $  53 \pm  18 \stat \pm 18 \syst$  \\
-QCD multijet                             & $  31 \pm   5 \stat \pm 23 \syst$   \\
-Sum (\ttbar, single top quark, $VV$, DY) & $20.0 \pm 8.2 \syst$ \\
-\hline\hline
-Total background                         & $332 \pm 36 \stat \pm 45 \syst$ \\
-VBF H(inv.)                              & $210 \pm 29 \syst$ \\
-ggF H(inv.)                              & $ 14 \pm 10 \syst$ \\
-Observed data                            & 390  \\
-\hline\hline
-S/B                                      & 70\% \\
-\hline
-\end{tabular}
-\label{tab:bgSummary}
-\caption{Summary of the estimated number of background and signal events, together with the observed yield, in the VBF search signal region.  The signal yield is given for $m_H=125$\GeV and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
-\end{table}
+The W boson backgrounds, $\PW (\Pe \nu)\text{+jets}$ and $\PW (\mu \nu)\text{+jets}$, are estimated in control region that select a single lepton. Two regions are defined following the approach used for the \Z boson background. The $\PW (\mu \nu)$ control region is defined by replacing the \textit{loose muon} veto by a requirement of one \textit{tight muon} and vetoing any event with additional \textit{loose muons}. For this control region the \gls{MET} is recomputed to not include the muons. The $\PW (\Pe \nu)$ control region is defined by replacing the \textit{veto electron} veto by a requirement of one \textit{tight electron} and vetoing any event with additional \textit{veto electrons}. For this control region we do not recompute \gls{MET} since it is include in the trigger requirements. Equation \ref{EQUATION:PromptDataAnalysis_BackgroundEstimation_WLep} can be used to extrapolate the events in both this control regions to the signal region.
 
-% \subsection{Background estimation}
-% \label{sec:vbf-backgrounds}
-% 
+\begin{equation}
+N^\mathrm{s}_\ell = (N^\mathrm{c}_{\ell\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{N^\mathrm{s}_{\PW \mathrm{MC}}}{N^\mathrm{c}_{\PW \mathrm{MC}}},
+\label{EQUATION:PromptDataAnalysis_BackgroundEstimation_WLep}
+\end{equation}
+
+Where $N^\mathrm{s}_{\PW \mathrm{MC}}$ and $N^\mathrm{c}_{\PW \mathrm{MC}}$  are the number of event in signal and control regions $\PW (\ell \nu)\text{+jets}$ obtained from \gls{MC} simulation. These rations are estimated as $N^\mathrm{s}_{\PW \mathrm{MC}}/N^\mathrm{c}_{\PW \mathrm{MC}}$ is equal to $0.347 \pm 0.045\syst$ for $\PW (\mu \nu)$ and $1.08 \pm 0.21\syst$ for $\PW (\Pe \nu)$. In data the observed yields is the $\PW (\mu \nu)$ control region is 223 events, with estimated backgrounds from other processes of $30.4 \pm 7.0\syst$ events. For the $\PW (\Pe \nu)$ control region the observed yield is 65 events with estimated backgrounds from other processes of $7.1 \pm 4.7\syst$ events. The  extrapolated background in the signal region is $66.8 \pm 5.2\stat \pm 15.7\syst$ events for the $\PW (\mu \nu)$ background and  $62.7 \pm 8.7\stat \pm 18.1\syst$ for the $\PW (\Pe \nu)$ background.
+
+The $\PW (\tau \nu)\text{+jets}$ process where the tau decays hadronically $\tau_{had}$ needs to be estimated differently, since there is no tau veto in the signal selection. The $\PW (\tau_{had} \nu)$ control region is defined like the signal region with the additional requirement of one tau following the description of chapter \ref{CHAPTER:EventReconstructionAndSimulation}, no other additional lepton are allowed, and the \gls{CJV} is not applied to increase the yield. We estimated the yield in the signal region $N^\mathrm{s}_{\tau_{had}}$ using equation \ref{EQUATION:PromptDataAnalysis_BackgroundEstimation_WTau}. A conversion factor is derived by dividing the efficiency of the \gls{CJV} in this selection by the efficiency of the $\PW (\tau_{had} \nu)$ control region including the \gls{CJV} over the $\PW (\tau_{had} \nu)$ process events sample, both determined from \gls{MC} simulation. The efficiency of the tau control region selection with the \gls{CJV} was estimated as $\varepsilon_{\tau}$ is $0.134 \pm 0.023\syst$. 
+
+\begin{equation}
+N^\mathrm{s}_{\tau_{had}} = (N^\mathrm{c}_{\tau\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{\varepsilon_\mathrm{CJV}}{\varepsilon_{\tau}},
+\label{EQUATION:PromptDataAnalysis_BackgroundEstimation_WTau}
+\end{equation}
+ 
+In this control region a yield of $15.2 \pm 3.6\syst$ events was observed, leading to an estimated signal region contribution for the $\PW (\tau_{had} \nu)$ background of $53 \pm 18\stat \pm 18\syst$ events.
+
+To increase the confidence in the \gls{MC} background model and the extrapolations to the signal regions, we compute the expected data yields from one control regions to another using conversion factors determined from \gls{MC} simulation. For example, the $\PW (\mu \nu)$ control region date yield is used to compute yieldof the the $\Z (\mu \mu)$ region is given by using equation \ref{EQUATION:PromptDataAnalysis_BackgroundEstimation_RegionCrossCheck}. In all cases, the estimations agreed, within uncertainties, with the observed yields in data. 
+
+\begin{equation}
+N^\mathrm{c}_{\mu \mu} = (N^\mathrm{c}_{\mu \text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{N^\mathrm{c}_{\Z \mathrm{MC}}}{N^\mathrm{c}_{\PW \mathrm{MC}}},
+\label{EQUATION:PromptDataAnalysis_BackgroundEstimation_RegionCrossCheck}
+\end{equation}
 
 
-% \begin{figure}[hbtp]
-%         \begin{center}
-%                  \includegraphics[width=0.45\textwidth]{ZCtrlMET.pdf}
-%                  \includegraphics[width=0.45\textwidth]{ZCtrlMjj.pdf}   
-%                 \caption{The $\ETm$ (\cmsLeft) and $\mjj$ (\cmsRight) distributions in the relaxed \Z control region of the VBF search, with no requirements on $\etajj$, $\phijj$, or CJV, and with the $\mjj$ requirement relaxed to 1000\GeV.  The simulated background from different processes is shown cumulatively, and normalized to the data, with its systematic uncertainty shown as a hatched region.  The lower panels show the ratio of data to the simulated background, again with the systematic uncertainty shown as a hatched region.}
-%                 \label{fig:zCtrl}
-%         \end{center}
-% \end{figure}
-% 
-% 
-% The $\PW (\Pe \nu)\text{+jets}$ and $\PW (\mu \nu)\text{+jets}$ backgrounds are estimated from single-lepton control samples.
-% We define $\PW (\mu \nu)$ and $\PW (\Pe \nu)$ control regions in a similar way to the \Z\ boson background.  In the $\PW (\mu \nu)$ region, the lepton veto is replaced with a single $\mu$ requirement and a veto on any additional leptons, and the $\ETm$ is recomputed after removing the muon from the \PW\ boson decay.  The $\PW (\Pe \nu)$ region is defined similarly, with a single electron requirement and additional lepton veto, but here the $\ETm$ is not recomputed, since the electron energy is already included in the $\ETm$ at trigger level.  The number of $\PW (\ell \nu)$ (where ${\ell=\Pe,\mu}$) events in the signal region, $N^\mathrm{s}_{\ell}$ is then estimated using:
-% \begin{equation}
-%         \label{eq:w}
-% N^\mathrm{s}_\ell = (N^\mathrm{c}_{\ell\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{N^\mathrm{s}_{\PW \mathrm{MC}}}{N^\mathrm{c}_{\PW \mathrm{MC}}},
-% \end{equation}
-% where $N^\mathrm{s}_{\PW \mathrm{MC}}$ and $N^\mathrm{c}_{\PW \mathrm{MC}}$ are the number of events in the signal and control regions in the $\PW (\ell \nu)\text{+jets}$ MC simulation.  The ratio $N^\mathrm{s}_{\PW \mathrm{MC}}/N^\mathrm{c}_{\PW \mathrm{MC}}$ is equal to $0.347 \pm 0.045\syst$ for $\PW (\mu \nu)$ and $1.08 \pm 0.21\syst$ for $\PW (\Pe \nu)$. In the $\PW (\mu \nu)$ control region the observed yield is 223 events, with a background of $30.4 \pm 7.0\syst$ events.  The observed yield in the $\PW (\Pe \nu)$ control region is 65 events, with a background of $7.1 \pm 4.7\syst$ events.  The $\PW (\mu \nu)$ background in the signal region is then estimated to be $66.8 \pm 5.2\stat \pm 15.7\syst$ events, and the $\PW (\Pe \nu)$ background to be $62.7 \pm 8.7\stat \pm 18.1\syst$ events.
-% 
-% The background arising from $\PW (\tau \nu)\text{+jets}$, where the tau lepton decays hadronically ($\tauh$) is estimated using a slightly different method, since a tau lepton veto is not applied in the invisible Higgs boson signal selection.  Hadronically decaying taus are reconstructed using the ``hadron plus strips'' algorithm~\cite{Chatrchyan:2012zz}. This uses charged hadrons and neutral electromagnetic objects (photons) to reconstruct hadronic tau decay modes with one or three charged particles, in the range $\abs{\eta} < 2.3$. A control region is defined, requiring one hadronic tau with $\pt>20$\GeV and $\abs{\eta}<2.3$, no additional leptons, and the remaining signal region selection. However, in the $\PW (\tauh \nu)$ control region, the CJV is not applied in order to increase the yield.  The number of $\PW (\tauh \nu)$ events in the signal region, $N^\mathrm{s}_{\tauh}$, is then estimated from the control region in the same way as the $\PW (\mu \nu)$ and $\PW (\Pe \nu)$ backgrounds. A yield of 32 events is observed in the control region, with the background estimated from the MC simulation to be $15.2 \pm 3.6\syst$ events, giving an estimate of the $\PW (\tauh \nu)$ background in the signal region of $53 \pm 18\stat \pm 18\syst$ events.
-% 
-% % \begin{equation}
-% %       \label{eq:wtau}
-% % N^\mathrm{s}_{\tauh} = (N^\mathrm{c}_{\tau\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{\varepsilon_\mathrm{CJV}}{\varepsilon_{\tau}},
-% % \end{equation}
-% 
-% %and the efficiency of the tau control region selection, $\varepsilon_{\tau}$ is $0.134 \pm 0.023\syst$.
-% 
-% In order to cross check the backgrounds from V+jets processes (where V represents either a \PW\ or a \Z boson), which dominate in the signal region, the $\PW (\mu \nu)$ control region and MC simulation is used to compute yields in other control regions. For example, the yield in the $\Z (\mu \mu)$ region is given by:
-% \begin{equation}
-%         \label{eq:zfromw}
-% N^\mathrm{c}_{\mu \mu} = (N^\mathrm{c}_{\mu \text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{N^\mathrm{c}_{\Z \mathrm{MC}}}{N^\mathrm{c}_{\PW \mathrm{MC}}},
-% \end{equation}
-% 
-% Similar expressions are used to estimate yields in the $\PW (\Pe \nu)$ and $\PW (\tauh \nu)$ control regions. In all cases, the predictions from data agree with the observed yield within the uncertainty.
-% 
 % The QCD multijet background in the signal region is estimated using the fractions of events passing the $\ETm$ and CJV requirements.  We define regions A, B, C, and D as follows, after the full remaining selection :
 % 
 % \begin{itemize}
@@ -147,30 +107,31 @@ S/B                                      & 70\% \\
 % We estimate the QCD multijet component in regions A, B, and C from data, after subtracting the electroweak backgrounds using estimations from simulation.  The QCD multijet component in the signal region D can then be estimated using $N_\mathrm{D} = N_\mathrm{ B}N_\mathrm{C} / N_\mathrm{A}$, where $N_{i}$ is the number of events in region $i$.  This method is based on the assumption that the $\ETm$ and the CJV are uncorrelated, which has been checked by comparing the $\ETm$ distribution, below the 130\GeV threshold, in events passing and failing the CJV.  The maximum difference in the $\ETm$ distribution between these two samples is 40\%, which is assigned as a systematic uncertainty of the method.  We predict the QCD background in the signal region to be $30.9 \pm 4.8\stat \pm 23.0\syst$ events.  Furthermore, the method is tested on a high statistics sample with selections equivalent to those in the signal region, but dominated by QCD multijet events by changing the $\phijj$ requirement to $\phijj>2.6$~radians.  In this sample, we observe $2551 \pm 57\stat$ events in the pseudo-signal region after subtraction of backgrounds, which are estimated from MC simulation.  The QCD multijet component is predicted to be $2959 \pm 58\stat$, which is compatible with the observation within the systematic uncertainty.  To give further confidence in this estimate, we perform a cross-check using an ABCD method based on the $\ETm$ and $\phijj$ variables, which gives a prediction consistent with the main method.
 % 
 % The remaining SM backgrounds in the signal region---due to $\ttbar$, single-top, VV and DY($\ell\ell$)+jets---are estimated from MC simulation to be $20.0 ^{+6.0}_{-8.2}\syst$ events.  The total expected background is $332 \pm 36\stat \pm 45\syst$.  The background estimates are summarised in Table~\ref{tab:bgSummary} along with the expected yield for a signal with $\mH=125$\GeV and $\BRinv=100$\%.
-% 
-% \begin{table}[!htb]
-% \centering
-% \begin{tabular}{lc}
-% \hline \hline
-% Process                                                 & Event yields \\
-% \hline$\Z (\nu\nu)\text{+jets}$          & $99 \pm 29\stat \pm 25\syst$ \\
-% $\PW (\mu\nu)\text{+jets}$               & $67 \pm 5\stat \pm 16\syst$   \\
-% $\PW (\Pe \nu)\text{+jets}$              & $63 \pm 9\stat \pm 18\syst$   \\
-% $\PW (\tauh \nu)\text{+jets}$            & $53 \pm 18\stat \pm 18\syst$  \\
-% QCD multijet                             & $31 \pm 5\stat \pm 23\syst$   \\
-% Sum (\ttbar, single top quark, $VV$, DY) & $20.0 \pm 8.2\syst$ \\
-% \hline
-% Total background                         & $332 \pm 36\stat \pm 45\syst$  \\
-% VBF H(inv.)                              & $210 \pm 29\syst$ \\
-% ggF H(inv.)                              & $14 \pm 10\syst$ \\
-% Observed data                            & 390  \\
-% \hline
-% S/B                                      & 70\% \\
-% \hline \hline
-% \end{tabular}
-% \label{tab:bgSummary}
-% \caption{Summary of the estimated number of background and signal events, together with the observed yield, in the VBF search signal region.  The signal yield is given for $\mH=125$\GeV and $\BRinv=100$\%.}
-% \end{table}
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|l|c|}
+\hline
+Process                                  & Event yields                  \\
+\hline
+$\Z (\nu\nu)\text{+jets}$                & $  99 \pm  29 \stat \pm 25 \syst$  \\
+$\PW (\mu\nu)\text{+jets}$               & $  67 \pm   5 \stat \pm 16 \syst$   \\
+$\PW (\Pe \nu)\text{+jets}$              & $  63 \pm   9 \stat \pm 18 \syst$   \\
+$\PW (\tau_{haf} \nu)\text{+jets}$       & $  53 \pm  18 \stat \pm 18 \syst$  \\
+QCD multijet                             & $  31 \pm   5 \stat \pm 23 \syst$   \\
+Sum (\ttbar, single top quark, $VV$, DY) & $20.0 \pm 8.2 \syst$ \\
+\hline\hline
+Total background                         & $332 \pm 36 \stat \pm 45 \syst$ \\
+VBF H(inv.)                              & $210 \pm 29 \syst$ \\
+ggF H(inv.)                              & $ 14 \pm 10 \syst$ \\
+Observed data                            & 390  \\
+\hline\hline
+S/B                                      & 70\% \\
+\hline
+\end{tabular}
+\label{tab:bgSummary}
+\caption{Summary of the estimated number of background and signal events, together with the observed yield, in the \gls{VBF} search signal region.  The signal yield is given for $m_H=125$\GeV and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
