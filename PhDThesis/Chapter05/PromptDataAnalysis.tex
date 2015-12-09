@@ -3,11 +3,11 @@
 
 \glsresetall % Resetting all acronyms
 
-%Status: DONE
+%Status: DONE - Reviewed x1 J.Pela
 
-In this analysis we focus on Higgs boson decays into invisible particles produced in association with two final state quark jets. These jets will have large rapidity separation and high invariant mass. An event selection criteria has been developed to take advantage of this distinct topology, by selecting two jets with \gls{VBF} characteristics and large \gls{MET} in order to separate signal from other background processes. We have drawn inspiration from the selection criteria proposed in \cite{ARTICLE:Zeppenfeld_ObservingAnInvisibleHiggsboson}.
+In this analysis we focus on Higgs boson decays into invisible particles produced in association with two final state quark jets. These jets will have large rapidity separation and high invariant mass. An event selection criteria has been developed to take advantage of this distinct topology, by selecting two jets with \gls{VBF} characteristics and large \gls{MET} in order to separate this signal from other background processes. We have drawn inspiration from the selection criteria proposed in \cite{ARTICLE:Zeppenfeld_ObservingAnInvisibleHiggsboson}.
 
-The main backgrounds for this analysis are from $\Z (\nu \nu)\text{+jets}$ and $\PW (\ell \nu)\text{+jets}$, where the the lepton was not reconstructed or properly identified. These backgrounds are estimated from yields in control regions where we select each boson decay into charged leptons together with a dijet with \gls{VBF} characteristics. These yields are extrapolated to the signal region, using factors determined with the help of \gls{MC} simulation. The background from \gls{QCD} processes is completely estimated from a control regions in data since we cannot rely on \gls{MC} due to insufficient statistics for the extrapolation to the signal region. All other minor backgrounds like from $\ttbar$, single-top, diboson, and Drell--Yan$(\ell\ell)\text{+jets}$ processes are estimated directly from \gls{MC}. 
+The main backgrounds for this analysis are from $\Z (\nu \nu)\text{+jets}$ and $\PW (\ell \nu)\text{+jets}$, where the the lepton was not reconstructed or properly identified. These backgrounds are estimated from yields in control regions where we select each boson decay into charged leptons together with a dijet with \gls{VBF} characteristics. These yields are extrapolated to the signal region, using conversion factors determined with the help of \gls{MC} simulation. The background from \gls{QCD} processes is completely estimated from control regions in data since we cannot rely on \gls{MC} simulation due to insufficient statistics for the extrapolation to the signal region. All other minor backgrounds like from $\ttbar$, single-top, diboson, and Drell--Yan$(\ell\ell)\text{+jets}$ processes are estimated directly from \gls{MC}. 
 
 The observed data yield together with the estimations of the yields for the signal and backgrounds, allow us to perform a single counting experiment and draw limits on the Higgs branching fraction to invisible.
 
@@ -17,31 +17,31 @@ The observed data yield together with the estimations of the yields for the sign
 \section{Event Selection}
 \label{SECTION:PromptDataAnalysis_EventSelection}
 
-%Status: DONE
+%Status: DONE - Reviewed x1 J.Pela
 
 %QUESTION: Was it METnoMu for trigger weights? 
 %ANSWER  : yes
 
 %TOPIC: Trigger definition and MC trigger weights
-In this analysis we use the recorded data by a purpose designed trigger that selects events with at least one dijet with \gls{VBF} characteristics and \gls{MET}. The dijet is required to have its jets in opposite sides of the detector and pass $\pt^{jet_1},\pt^{jet_2} > 40\,\GeV$, $\Delta\eta > 3.5$ and $M_{jj} > 800\,\GeV$. By requiring any dijet instead of the leading dijet we avoid rejecting events where a \gls{PU} jet is the leading jet or the effects of the lower energy resolution of the trigger versus offline. We also require $MET_{no-\mu} > 65\,\GeV$, the use of \gls{MET} without muons allows us to record with the same trigger, a control sample of processes  $\PW(\mu\nu)\text{+jets}$ and $\Z(\mu\mu)\text{+jets}$. The \gls{MC} simulated events are re-weighted according to the probability of passing the trigger. The trigger weights are determined in a dataset of event recorded with trigger condition requiring a single muon. They are a function of the offline measurements of sub-leading jet \pt, $M_{jj}$ and $MET_{no-\mu}$.
+In this analysis we use the recorded data by a purpose designed trigger that selects events with at least one dijet with \gls{VBF} characteristics and \gls{MET}. The dijet is required to have its jets in opposite sides of the detector and pass $\pt^{jet_1},\pt^{jet_2} > 40\,\GeV$, $\Delta\eta > 3.5$ and $M_{jj} > 800\,\GeV$. By requiring any dijet instead of the leading dijet we avoid rejecting events where a \gls{PU} jet a leading jet or the effects of the lower energy resolution of the trigger versus offline. We also require $MET_{no-\mu} > 65\,\GeV$, the use of \gls{MET} without muons allows us to record with the same trigger, a control sample of processes  $\PW(\mu\nu)\text{+jets}$ and $\Z(\mu\mu)\text{+jets}$. The \gls{MC} simulated events are re-weighted according to the probability of passing the trigger. The trigger weights are determined in a dataset of event recorded with trigger condition requiring a single muon. They are a function of the offline measurements of sub-leading jet \pt, $M_{jj}$ and $MET_{no-\mu}$.
 
 %TOPIC: Signal event selection
-The signal region is defined by selecting events with a tighter version of the trigger conditions with additional cuts and vetoes. Building on the trigger requirements we select events where the leading pair of particle flow \cite{ARTICLE:CMSParticleFlowEventRecontruction} anti-$k_T^{\Delta R=0.5}$ jets have $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $\Delta\eta_{jj}>4.2$, $M_{jj}>1100\,\GeV$ and large missing energy of at least $130\,\GeV$. We veto events with identified veto electrons or loose muons, as defined in chapter \ref{CHAPTER:EventReconstructionAndSimulation}, to suppress processes with $Z$ or $W$ boson decays. To reduce \gls{QCD} multi-jet backgrounds we additional request the dijet to pass $\Delta\phi < 1.0\,\radian$, since typically \gls{QCD} jets will be back to back and therefore will have high values for this variable. Finally, we require a \acrfull{CJV}, where no additional jet can be present between the two leading jets with $\pt > 30\,\GeV$.
+The signal region is defined by selecting events with a tighter version of the trigger conditions with additional cuts and vetoes. Building on the trigger requirements we select events where the leading pair of particle flow anti-$k_T^{\Delta R=0.5}$ jets have $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $\Delta\eta_{jj}>4.2$, $M_{jj}>1100\,\GeV$ and large missing energy of at least $130\,\GeV$. We veto events with identified veto electrons or loose muons, as defined in chapter \ref{CHAPTER:EventReconstructionAndSimulation}, to suppress processes with $Z$ or $W$ boson decays. To reduce \gls{QCD} multi-jet backgrounds we additionally request the selected dijet to pass $\Delta\phi < 1.0\,\radian$, since typically \gls{QCD} jets will be back to back and therefore will have high values for this variable. Finally, a \acrfull{CJV} is applied where no additional jet can be present between the two leading jets with $\pt > 30\,\GeV$.
 
 %TOPIC: Selection optimization
-The event selection was optimized by setting the lepton vetoes to the recommends values by the relevant \gls{POG} and the \gls{CJV} to a value where its behaviour is well understood. All other thresholds were optimised to obtain the best possible signal significance which was calculated with a profile likelihood method that takes into consideration all relevant systematics. In the calculation the Higgs mass was assumed to be $125\,\GeV$ and a branching ration to invisible of 100\%. The variables involved in the trigger (jet \pt, $M_{jj}$ and \gls{MET}) are constrained to be above the 95\% efficiency working point of the trigger. Distributions of the selected dijet $M_{jj}$, $\Delta\eta$, $\Delta\phi$ and of the \gls{CJV} for \gls{MC} simulation are shown on figure \ref{FIGURE:PromptDataAnalysis_EventSelection_KeyVariables} together with the optimized cut thresholds.
+The event selection was optimized by setting the lepton vetoes to the recommends values by the relevant \gls{POG} and the \gls{CJV} to a value where its behaviour is well understood. All other thresholds were optimised to obtain the best possible signal significance which was calculated with a profile likelihood method that takes into consideration all relevant systematics. In this calculation the Higgs mass was assumed to be $125\,\GeV$ and a branching ration to invisible of 100\%. The variables involved in the trigger (jet \pt, $M_{jj}$ and \gls{MET}) are constrained to be above the 95\% efficiency working point of the trigger. Distributions of the selected dijet $M_{jj}$, $\Delta\eta$, $\Delta\phi$ and of the \gls{CJV} obtained using \gls{MC} simulation are shown on figure \ref{FIGURE:PromptDataAnalysis_EventSelection_KeyVariables} together with the optimized cut thresholds.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-Dijet-M.pdf}
-\includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-Dijet-DEta.pdf}     
-\includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-Dijet-DPhi.pdf}
-\includegraphics[width=0.49\textwidth]{Chapter05/Images/VBF-CJV-pT.pdf} 
-\caption{Distributions of $M_{jj}$ (top left), $\Delta\eta_{jj}$ (top right), $\Delta\phi_{jj}$ (bottom left), and central jet \pt (bottom right) in background and signal MC simulation. The distributions are shown after requiring two jets with $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $M_{jj}>150$\GeV, and $MET > 130\,\GeV$. The arrows correspond to the thresholds applied for the final selection, after optimization. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter05/Images/VBF-Dijet-M.pdf}}\qquad
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter05/Images/VBF-Dijet-DEta.pdf}}\\
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter05/Images/VBF-Dijet-DPhi.pdf}}\qquad
+\subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter05/Images/VBF-CJV-pT.pdf}} 
+\caption{Distributions of (a) $M_{jj}$, (b) $\Delta\eta_{jj}$, (c) $\Delta\phi_{jj}$, (d) and central jet \pt in background and signal MC simulation. The distributions are shown after requiring two jets with $\pt^{jet_1},\pt^{jet_2} > 50\,\GeV$, $|\eta| < 4.7$, $\eta_{jet1} \cdot \eta_{jet2} < 0$, $M_{jj}>150\,\GeV$, and $MET > 130\,\GeV$. The arrows correspond to the thresholds applied for the final selection, after optimization. \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}}
 \label{FIGURE:PromptDataAnalysis_EventSelection_KeyVariables}
 \end{figure}
 
-To estimate the signal yields the \textsc{POWHEG} \gls{MC} generator was used to create events with a Higgs boson produced via the \gls{VBF} channel with \gls{SM} couplings and with mass of $125\,\GeV$. The obtained signal efficiency was $(6.8 \pm 0.3) \times 10^{-3}$, which corresponds to an event yield of $210 \pm 29\syst$. The signal efficiency dependency on jet $\pt$, dijet $M_jj$, and \gls{MET} is correlated and of comparable amounts. Additionally, a small amount of gluon-fusion signal, where \gls{ISR} take the role of the \gls{VBF} jets, is also expected to pass the signal event selection. Using the same \gls{MC} event generator this contribution has been estimated to be of $14 \pm 10\syst$ events.
+To estimate the signal yields the \textsc{POWHEG} \gls{MC} generator \cite{ARTICLE:POWHEG_2007,ARTICLE:POWHEG_2011} was used to create events with a Higgs boson produced via the \gls{VBF} channel with \gls{SM} couplings and with mass of $125\,\GeV$. The obtained signal efficiency was $(6.8 \pm 0.3) \times 10^{-3}$, which corresponds to an event yield of $210 \pm 29\syst$. The signal efficiency dependency on jet $\pt$, dijet $M_jj$, and \gls{MET} is correlated and of comparable amounts. Additionally, a small amount of gluon-fusion signal, where the \gls{ISR} emissions take the role of the \gls{VBF} jets, is also expected to pass the signal event selection. Using the same \gls{MC} event generator this contribution has been estimated to be of $14 \pm 10\syst$ events.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -49,18 +49,18 @@ To estimate the signal yields the \textsc{POWHEG} \gls{MC} generator was used to
 \section{Background Estimation}
 \label{SECTION:PromptDataAnalysis_BackgroundEstimation}
 
-%Status: DONE
+%Status: DONE - Reviewed x1 J.Pela
 
-The irreducible background $\Z(\nu \nu)\text{+jets}$ is estimated from data using as proxy $\Z (\mu \mu)$ decays. A control region for the \Z background is defined with the same event selection as the signal region, with the following changes: instead of the muons veto a pair of opposite charge tight muons is required with an invariant mass compatible with a \Z decay of $60 < M_{\mu\mu}<120\,\GeV$. We veto the event if any more additional veto electrons or loose muons are present. We use $MET_{no-\mu}$ to emulate the signature from a \Z decay into neutrinos. We can extrapolate the number of events in signal region using equation \ref{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu}.
+The irreducible background $\Z(\nu \nu)\text{+jets}$ is estimated from data using as proxy $\Z (\mu \mu)$ decays. A control region for the $\Z$ background is defined with the same event selection as the signal region, with the following changes: instead of the muons veto a pair of opposite charge tight muons is required with an invariant mass compatible with a $\Z$ decay of $60 < M_{\mu\mu}<120\,\GeV$. We veto the event if any more additional veto electrons or loose muons are present. We use $MET_{no-\mu}$ to emulate the signature from a $\Z$ decay into neutrinos. We can extrapolate the number of events in signal region using equation \ref{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu}.
 
 \begin{equation}
 N^\mathrm{s}_{\nu\nu} = (N^\mathrm{c}_{\mu\mu\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{\sigma(\Z \to \nu\nu)}{\sigma(\Z/\gamma^{*} \to \mu\mu)} \cdot \frac{\varepsilon^\mathrm{s}_{\Z \mathrm{MC}}}{\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}}.
 \label{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu}
 \end{equation}
 
-%TODO: I think its DY to mumu only
+%TODO: I think its DY to mumu only. Patrick says yes.
 
-The \textsc{MCFM} \gls{MC} generator \cite{ARTICLE:MCFMGenerator} was used to estimate the the ratio of cross sections in equation \ref{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu} as $\sigma(\Z \to \nu \nu) / \sigma(\Z/\gamma^{*} \to \mu \mu) = 5.651 \pm 0.023\syst$ for $m_{\Z/\gamma^{*}} > 50\,\GeV$. The selection efficiency terms are calculated using a DY($\ell\ell$)+jets \gls{MC} simulation, for the signal region the muons are ignored and the obtained efficiency is $\varepsilon^\mathrm{s}_{\Z \mathrm{MC}} = (1.65 \pm 0.27\syst)$ and $\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}=(1.11 \pm 0.17\syst) \times 10^{-6}$ for the control region. The event yield observed in this control region is of $N^\mathrm{c}_{\mu\mu\text{obs}} = 12$ events. The other backgrounds in the control region are estimated using \gls{MC} simulation of the $\ttbar$, diboson and single-top processes being $N^\mathrm{c}_\text{bkg}=0.23 \pm 0.15\syst$ event. Using  these results the contribution of the  $\Z (\nu \nu)$ background in the signal region is estimated as $99 \pm 29\stat \pm 25\syst$ events. Figure \ref{FIGURE:PromptDataAnalysis_BackgroundEstimation_ZControlRegion} shows the \gls{MET} and dijet invariant mass distributions with a less strict \Z control region event selection, where $\Delta\eta_{jj}$, $\Delta\phi_{jj}$ and \gls{CJV} requirements are not enforced and we require dijet $M_{jj}>1000\,\GeV$. 
+The \textsc{MCFM} \gls{MC} generator \cite{ARTICLE:MCFMGenerator} was used to estimate the the ratio of cross sections in equation \ref{EQUATION:FIGURE:PromptDataAnalysis_BackgroundEstimation_Zmumu} as $\sigma(\Z \to \nu \nu) / \sigma(\Z/\gamma^{*} \to \mu \mu) = 5.651 \pm 0.023\syst$ for $m_{\Z/\gamma^{*}} > 50\,\GeV$. The selection efficiency terms are calculated using a DY($\ell\ell$)+jets \gls{MC} simulation, for the signal region the muons are ignored and the obtained efficiency is $\varepsilon^\mathrm{s}_{\Z \mathrm{MC}} = (1.65 \pm 0.27\syst)$ and $\varepsilon^\mathrm{c}_{\Z \mathrm{MC}}=(1.11 \pm 0.17\syst) \times 10^{-6}$ for the control region. The event yield observed in this control region is of $N^\mathrm{c}_{\mu\mu\text{obs}} = 12$ events. The other backgrounds in the control region are estimated using \gls{MC} simulation of the $\ttbar$, diboson and single-top processes being $N^\mathrm{c}_\text{bkg}=0.23 \pm 0.15\syst$ event. Using  these results the contribution of the  $\Z (\nu \nu)$ background in the signal region is estimated as $99 \pm 29\stat \pm 25\syst$ events. Figure \ref{FIGURE:PromptDataAnalysis_BackgroundEstimation_ZControlRegion} shows the \gls{MET} and dijet invariant mass distributions with a less strict $\Z$ control region event selection, where $\Delta\eta_{jj}$, $\Delta\phi_{jj}$ and \gls{CJV} requirements are not enforced and requiring dijet $M_{jj}>1000\,\GeV$. 
 
 \begin{figure}[!htb]
 \centering
@@ -70,25 +70,20 @@ The \textsc{MCFM} \gls{MC} generator \cite{ARTICLE:MCFMGenerator} was used to es
 \label{FIGURE:PromptDataAnalysis_BackgroundEstimation_ZControlRegion}
 \end{figure}
 
-The W boson backgrounds, $\PW (\Pe \nu)\text{+jets}$ and $\PW (\mu \nu)\text{+jets}$, are estimated in control region that select a single lepton. Two regions are defined following the approach used for the \Z boson background. The $\PW (\mu \nu)$ control region is defined by replacing the \textit{loose muon} veto by a requirement of one \textit{tight muon} and vetoing any event with additional \textit{loose muons}. For this control region the \gls{MET} is recomputed to not include the muons. The $\PW (\Pe \nu)$ control region is defined by replacing the \textit{veto electron} veto by a requirement of one \textit{tight electron} and vetoing any event with additional \textit{veto electrons}. For this control region we do not recompute \gls{MET} since it is include in the trigger requirements. Equation \ref{EQUATION:PromptDataAnalysis_BackgroundEstimation_WLep} can be used to extrapolate the events in both this control regions to the signal region.
+The $\W$ boson backgrounds, $\PW (\Pe \nu)\text{+jets}$ and $\PW (\mu \nu)\text{+jets}$, are estimated in control region that select a single lepton. Two regions are defined following the approach used for the $\Z$ boson background. The $\PW (\mu \nu)$ control region is defined by replacing the \textit{loose muon} veto by a requirement of one \textit{tight muon} and vetoing any event with additional \textit{loose muons}. For this control region the $MET_{no-\mu}$ is used to replicate what would be expected if the muon was miss reconstructed or miss identified. The $\PW (\Pe \nu)$ control region is defined by replacing the \textit{veto electron} veto by a requirement of one \textit{tight electron} and vetoing any event with additional \textit{veto electrons}. For this control region we do not recompute \gls{MET} since it is include in the trigger requirements. Equation \ref{EQUATION:PromptDataAnalysis_BackgroundEstimation_WLep} can be used to extrapolate the events in both this control regions to the signal region.
 
 \begin{equation}
 N^\mathrm{s}_\ell = (N^\mathrm{c}_{\ell\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{N^\mathrm{s}_{\PW \mathrm{MC}}}{N^\mathrm{c}_{\PW \mathrm{MC}}},
 \label{EQUATION:PromptDataAnalysis_BackgroundEstimation_WLep}
 \end{equation}
 
-Where $N^\mathrm{s}_{\PW \mathrm{MC}}$ and $N^\mathrm{c}_{\PW \mathrm{MC}}$  are the number of event in signal and control regions $\PW (\ell \nu)\text{+jets}$ obtained from \gls{MC} simulation. These rations are estimated as $N^\mathrm{s}_{\PW \mathrm{MC}}/N^\mathrm{c}_{\PW \mathrm{MC}}$ is equal to $0.347 \pm 0.045\syst$ for $\PW (\mu \nu)$ and $1.08 \pm 0.21\syst$ for $\PW (\Pe \nu)$. In data the observed yields is the $\PW (\mu \nu)$ control region is 223 events, with estimated backgrounds from other processes of $30.4 \pm 7.0\syst$ events. For the $\PW (\Pe \nu)$ control region the observed yield is 65 events with estimated backgrounds from other processes of $7.1 \pm 4.7\syst$ events. The  extrapolated background in the signal region is $66.8 \pm 5.2\stat \pm 15.7\syst$ events for the $\PW (\mu \nu)$ background and  $62.7 \pm 8.7\stat \pm 18.1\syst$ for the $\PW (\Pe \nu)$ background.
+Where $N^\mathrm{s}_{\PW \mathrm{MC}}$ and $N^\mathrm{c}_{\PW \mathrm{MC}}$  are the number of event in signal and control regions $\PW (\ell \nu)\text{+jets}$ obtained from \gls{MC} simulation. These ratios are estimated as $N^\mathrm{s}_{\PW \mathrm{MC}}/N^\mathrm{c}_{\PW \mathrm{MC}}$ is equal to $0.347 \pm 0.045\syst$ for $\PW (\mu \nu)$ and $1.08 \pm 0.21\syst$ for $\PW (\Pe \nu)$. In data the observed yields is the $\PW (\mu \nu)$ control region is 223 events, with estimated backgrounds from other processes of $30.4 \pm 7.0\syst$ events. For the $\PW (\Pe \nu)$ control region the observed yield is 65 events with estimated backgrounds from other processes of $7.1 \pm 4.7\syst$ events. The  extrapolated background in the signal region is $66.8 \pm 5.2\stat \pm 15.7\syst$ events for the $\PW (\mu \nu)$ background and  $62.7 \pm 8.7\stat \pm 18.1\syst$ for the $\PW (\Pe \nu)$ background.
 
-The $\PW (\tau \nu)\text{+jets}$ process where the tau decays hadronically $\tau_{had}$ needs to be estimated differently, since there is no tau veto in the signal selection. The $\PW (\tau_{had} \nu)$ control region is defined like the signal region with the additional requirement of one tau following the description of chapter \ref{CHAPTER:EventReconstructionAndSimulation}, no other additional lepton are allowed, and the \gls{CJV} is not applied to increase the yield. We estimated the yield in the signal region $N^\mathrm{s}_{\tau_{had}}$ using equation \ref{EQUATION:PromptDataAnalysis_BackgroundEstimation_WTau}. A conversion factor is derived by dividing the efficiency of the \gls{CJV} in this selection by the efficiency of the $\PW (\tau_{had} \nu)$ control region including the \gls{CJV} over the $\PW (\tau_{had} \nu)$ process events sample, both determined from \gls{MC} simulation. The efficiency of the tau control region selection with the \gls{CJV} was estimated as $\varepsilon_{\tau}$ is $0.134 \pm 0.023\syst$. 
-
-\begin{equation}
-N^\mathrm{s}_{\tau_{had}} = (N^\mathrm{c}_{\tau\text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{\varepsilon_\mathrm{CJV}}{\varepsilon_{\tau}},
-\label{EQUATION:PromptDataAnalysis_BackgroundEstimation_WTau}
-\end{equation}
+The $\PW (\tau \nu)\text{+jets}$ process where the tau decays hadronically $\tau_{had}$ is estimated in a similar way to $\PW (\Pe \nu)\text{+jets}$ and $\PW (\mu \nu)\text{+jets}$. The $\PW (\tau_{had} \nu)$ control region is defined like the signal region with the additional requirement of one tau following the description of chapter \ref{CHAPTER:EventReconstructionAndSimulation}, no other additional lepton are allowed, and the \gls{CJV} is not applied to increase the yield. We estimated the yield in the signal region $N^\mathrm{s}_{\tau_{had}}$ using equation \ref{EQUATION:PromptDataAnalysis_BackgroundEstimation_WLep}. The conversion factor is derived again from the prediction of the number of events in the signal and control regions for this process from \gls{MC} simulation. 
  
-In this control region a yield of $15.2 \pm 3.6\syst$ events was observed, leading to an estimated signal region contribution for the $\PW (\tau_{had} \nu)$ background of $53 \pm 18\stat \pm 18\syst$ events.
+In this control region a yield of 32 events was observed with an \gls{MC} simulation estimated background of $15.2 \pm 3.6\syst$, leading to an estimated signal region contribution for the $\PW (\tau_{had} \nu)$ background of $53 \pm 18\stat \pm 18\syst$ events.
 
-To increase the confidence in the \gls{MC} background model and the extrapolations to the signal regions, we compute the expected data yields from one control regions to another using conversion factors determined from \gls{MC} simulation. For example, the $\PW (\mu \nu)$ control region date yield is used to compute yieldof the the $\Z (\mu \mu)$ region is given by using equation \ref{EQUATION:PromptDataAnalysis_BackgroundEstimation_RegionCrossCheck}. In all cases, the estimations agreed, within uncertainties, with the observed yields in data. 
+To increase the confidence in the \gls{MC} background model and the extrapolations to the signal regions, we compute the expected data yields from one control regions to another using conversion factors determined from \gls{MC} simulation. For example, the $\PW (\mu \nu)$ control region date yield is used to compute yield of the the $\Z (\mu \mu)$ region is given by using equation \ref{EQUATION:PromptDataAnalysis_BackgroundEstimation_RegionCrossCheck}. In all cases, the estimations agreed, within uncertainties, with the observed yields in data. 
 
 \begin{equation}
 N^\mathrm{c}_{\mu \mu} = (N^\mathrm{c}_{\mu \text{obs}} - N^\mathrm{c}_\text{bkg}) \cdot \frac{N^\mathrm{c}_{\Z \mathrm{MC}}}{N^\mathrm{c}_{\PW \mathrm{MC}}},
@@ -98,13 +93,13 @@ N^\mathrm{c}_{\mu \mu} = (N^\mathrm{c}_{\mu \text{obs}} - N^\mathrm{c}_\text{bkg
 The \gls{QCD} multijet background is estimated in the signal region by defining four regions depending or passing or failing the \gls{MET} and \gls{CJV} requirements. We define these regions after the full remaining selection as follows:
 
 \begin{itemize}
-  \item{A: fail $MET$ selection, fail \gls{CJV} selection;}
-  \item{B: pass $MET$ selection, fail \gls{CJV} selection;}
-  \item{C: fail $MET$ selection, pass \gls{CJV} selection;}
-  \item{D: pass $MET$ selection, pass \gls{CJV} selection.}
+  \item{A: fail \gls{MET} criteria, fail \gls{CJV} criteria;}
+  \item{B: pass \gls{MET} criteria, fail \gls{CJV} criteria;}
+  \item{C: fail \gls{MET} criteria, pass \gls{CJV} criteria;}
+  \item{D: pass \gls{MET} criteria, pass \gls{CJV} criteria.}
 \end{itemize}
 
-We use regions A, B and C to estimate the \gls{QCD} multijet contribution in D. These three regions are first subtracted of the electroweak backgrounds, which are already estimated through other control regions, with event yield estimations from \gls{MC} simulation. The \gls{QCD} multijet yield in region D is estimated using $N_\mathrm{D} = N_\mathrm{B}N_\mathrm{C} / N_\mathrm{A}$ where $N_{i}$ is the number of events in region $i$. This method is based on the assumption that the four regions are uncorrelated, which is tested by comparing the \gls{MET} distributions below $MET < 130\,\GeV$ of both pass and fail \gls{CJV}. The maximum observed difference was of 40\%, which is assigned as a method systematic. Using this method the contribution to signal region of \gls{QCD} multijets processes is of $30.9 \pm 4.8\stat \pm 23.0\syst$. To increase the confidence on this method, it was applied to a \gls{QCD} multijet dominated area by changing the $\Delta\phi_{jj}$ requirement to $\Delta\phi_{jj}>2.6\,\radian$. In this region $2551 \pm 57\stat$ events were observed, after subtraction of other backgrounds which were estimated from \gls{MC} simulation. The prediction of the method is $2959 \pm 58\stat$, which is compatible with the observation within systematic uncertainties. Furthermore, a cross-check was performed using as variables \gls{MET} and $\Delta\phi_{jj}$, the obtained predictions is consistent with the main method.
+We use regions A, B and C to estimate the \gls{QCD} multijet contribution in D. These three regions are first subtracted of the electroweak backgrounds, which are already estimated using other control regions, with event yield estimations from \gls{MC} simulation. The \gls{QCD} multijet yield in region D is then estimated using $N_\mathrm{D} = N_\mathrm{B}N_\mathrm{C} / N_\mathrm{A}$ where $N_{i}$ is the number of events in region $i$. This method is based on the assumption that the four regions are uncorrelated, which is tested by comparing the \gls{MET} distributions below $MET < 130\,\GeV$ of both pass and fail \gls{CJV}. The maximum observed difference was of 40\%, which is assigned as a method systematic. Using this method the contribution to signal region of \gls{QCD} multijets processes is of $30.9 \pm 4.8\stat \pm 23.0\syst$. To increase the confidence on this method, it was applied to a \gls{QCD} multijet dominated area by changing the $\Delta\phi_{jj}$ requirement to $\Delta\phi_{jj}>2.6\,\radian$. In this region $2551 \pm 57\stat$ events were observed, after subtraction of other backgrounds which were estimated from \gls{MC} simulation. The prediction of this method is of $2959 \pm 58\stat$ events, which is compatible with the observation within systematic uncertainties. Furthermore, a cross-check was performed using as variables \gls{MET} and $\Delta\phi_{jj}$, the obtained predictions is consistent with the main method.
 
 The remaining \gls{SM} background, for the processes $\ttbar$, single-top, VV and DY($\ell\ell$)+jets, in the signal region are estimated  directly form \gls{MC} simulation to be $20.0 ^{+6.0}_{-8.2}\syst$ events. Table \ref{TABLE:PromptDataAnalysis_BackgroundEstimation_BackgroundSumamry} summarizes all background estimations along with the prediction of the yield for a signal with $m_{H}=125\,\GeV$ and $\BRinv=100$\%. The total expected background yield in the signal region is $332 \pm 36\stat \pm 45\syst$. 
 
@@ -139,11 +134,11 @@ S/B                                      & 70\% \\
 \section{Sources of uncertainty}
 \label{SECTION:PromptDataAnalysis_SourcesOfUncertainty}
 
-%Status: DONE
+%Status: DONE - Reviewed x1 J.Pela
 
-The data control event samples for V+jets backgrounds small size translates into a large statistical uncertainty on the estimates in the signal region ranging from $5-30\%$. The systematic uncertainty also associated with this channels is dominated by the \gls{MC} samples statistical uncertainty when calculating the conversion factors from control to signal regions. Also important sources of systematic uncertainty are the effects of the jet and \gls{MET} energy scale and resolution. These effects are estimate by varying the scales and resolutions within their uncertainty, applying them to the jets and uncluttered energy and recalculating the \gls{MET}. Resulting in a systematic uncertainty of 13\% in the signal acceptance, 7-15\% in the V+jets background estimates, and 60\% uncertainty in the \gls{QCD} multijet background estimate. As described in the previous section an additional uncertainty of 40\% is associated with the \gls{QCD} multijet estimation, but this background yield is small compared with the total. Muon and electron efficiency uncertainties appear due to the scale factors used to correct \gls{MC} simulation to data and are small. 
+The data control event samples for V+jets backgrounds small size translates into a large statistical uncertainty on the estimates in the signal region ranging from $5-30\%$. The systematic uncertainty also associated with this channels is dominated by the \gls{MC} samples statistical uncertainty when calculating the conversion factors from control to signal regions. Important sources of systematic uncertainty also arise from the effects of the jet and \gls{MET} energy scale and resolution. These effects are estimate by varying the scales and resolutions within their uncertainty, applying them to the jets and unclustered energy and recalculating the \gls{MET}. Resulting in a systematic uncertainty of 13\% in the signal acceptance, 7-15\% in the V+jets background estimates, and 60\% uncertainty in the \gls{QCD} multijet background estimate. As described in the previous section an additional uncertainty of 40\% is associated with the \gls{QCD} multijet estimation, but this background yield is small compared with the total. Muon and electron efficiency uncertainties appear due to the scale factors used to correct \gls{MC} simulation to data and are small. 
 
-For the minor backgrounds which were estimated from \gls{MC} simulation, the dominates uncertainties are the cross sections which are set according to measurements made by other analyses of the \gls{CMS} collaboration and the jet/\gls{MET} scale uncertainties. Theoretical uncertainties on the \gls{VBF} signal yields result from \gls{PDF} uncertainties, factorization and renormalization scale uncertainties. For the gluon fusion signal the dominating uncertainties arise from \gls{MC} modelling of \gls{ISR} and other effects. It is estimated by comparing the estimates from different \gls{MC} generators and is estimated to be 60\%. Gluon fusion represents a small amount of the total signal so this uncertainty only has a modest effect. Table \ref{TABLE:PromptDataAnalysis_SourcesUncertaintySummary} summarizes the uncertainties taken into account in relation to signal or total background yields. The combined effect of all uncertainties associated with the background results in an increase of about 65\% in the expected upper limit on the \BRinv.
+For the minor backgrounds which were estimated from \gls{MC} simulation, the dominating uncertainties come from the used physics process cross sections, which are set according to measurements made by other \gls{CMS} collaboration analyses, and the jet/\gls{MET} scale uncertainties. Theoretical uncertainties on the \gls{VBF} signal yields result from \gls{PDF} uncertainties, factorization and renormalization scale uncertainties. For the gluon fusion signal the dominating uncertainties arise from \gls{MC} modelling of \gls{ISR} and other effects. It is estimated by comparing the estimates from different \gls{MC} generators and is estimated to be 60\%. Gluon fusion represents a small amount of the total signal so this uncertainty only has a modest effect. Table \ref{TABLE:PromptDataAnalysis_SourcesUncertaintySummary} summarizes the uncertainties taken into account in relation to signal or total background yields. The combined effect of all uncertainties associated with the backgrounds results in an increase of about 65\% in the expected upper limit on the \BRinv.
 
 \begin{table}[!htb]
 \centering
@@ -176,9 +171,9 @@ Total                                            & 18\%             & 14\%   \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results and conclusions}
 
-%Status: DONE
+%Status: DONE - Reviewed x1 J.Pela
 
-As shown in table \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}, 390 data events were observed in the signal region, this yield is compatible with the background only prediction. Since no evidence of signal is observed we proceed with setting 95\% \gls{CL} upper limits on the Higgs boson production cross section times branching fraction. The limit are calculated using the $\mathrm{CL}_\mathrm{s}$ method \cite{ARTICLE:HandbookofLHCHiggsCrossSectionsDifferentialDistributions,ARTICLE:CLsTechnique,ARTICLE:CLCompForCombiningSearchesWithSmallStat} based on asymptotic formulae \cite{ARTICLE:AsymptoticCLS}, following the standard CMS Higgs boson searches combination technique \cite{ARTICLE:CMS_HiggsDiscovery,ARTICLE:HiggsCombination}. Systematic uncertainties are incorporated as nuisance parameters and treated according to the frequentist paradigm \cite{ARTICLE:HiggsCombination}. The 95\% \gls{CL} limits on the Higgs boson production  cross section times invisible branching fraction are also present normalised to the \gls{SM} production cross section \cite{ARTICLE:HandbookofLHCHiggsCrossSectionsInclusiveObservables,ARTICLE:HandbookofLHCHiggsCrossSectionsDifferentialDistributions}, which is denoted as $\xi = \sigma \cdot \BRinv / \sigma_\mathrm{SM}$. The choice of the \gls{SM} production cross section is arbitrary, since in the existence of a sizeable invisible cross section width would indicate physics beyond the \gls{SM}, whcih could mean also modification of the production cross-sections. An alternative choice of model for Higgs boson production would not provide additional information since it essentially would scale the limits.
+As shown in table \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}, 390 data events were observed in the signal region, this yield is compatible with the background only prediction. Since no evidence of signal is observed 95\% \gls{CL} upper limits on the Higgs boson production cross section times branching fraction are computed. The limit are calculated using the $\mathrm{CL}_\mathrm{s}$ method \cite{ARTICLE:HandbookofLHCHiggsCrossSectionsDifferentialDistributions,ARTICLE:CLsTechnique,ARTICLE:CLCompForCombiningSearchesWithSmallStat} based on asymptotic formulae \cite{ARTICLE:AsymptoticCLS}, following the standard \gls{CMS} Higgs boson searches combination technique \cite{ARTICLE:CMS_HiggsDiscovery,ARTICLE:HiggsCombination}. Systematic uncertainties are incorporated as nuisance parameters and treated according to the frequentist paradigm \cite{ARTICLE:HiggsCombination}. The 95\% \gls{CL} limits on the Higgs boson production cross section times invisible branching fraction are also presented normalised to the \gls{SM} production cross section \cite{ARTICLE:HandbookofLHCHiggsCrossSectionsInclusiveObservables,ARTICLE:HandbookofLHCHiggsCrossSectionsDifferentialDistributions}, which is denoted as $\xi = \sigma \cdot \BRinv / \sigma_\mathrm{SM}$. The choice of the \gls{SM} production cross section is arbitrary, since in the existence of a sizeable invisible cross section width would indicate physics beyond the \gls{SM}, which could mean also modification of the production cross-sections. An alternative choice of model for Higgs boson production would not provide additional information since it essentially would scale the limits.
 
 If \gls{SM} production cross sections and acceptances are assumed, the limits on the invisible branching fraction of the $125\,\GeV$ Higgs boson $\xi$ can be interpreted as a limit on the invisible branching fraction.
 
@@ -192,16 +187,41 @@ Figure \ref{FIGURE:PromptDataAnalysis_VBFLimit} shows on the left plot the obser
 \label{FIGURE:PromptDataAnalysis_VBFLimit}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Preparing of parked data analysis}
-
-\subsection{Dijet-MET system topological variables}
-
-\subsection{QCD samples}
-
-\subsection{Track distribution variables}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%% SECTION
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Preparing of parked data analysis}
+% 
+% \subsection{QCD samples}
+% 
+% \begin{table}
+% \centering
+% \begin{tabular}{|c|r|c|r|c|c|}
+%   \hline
+%   Sample          &       Ev. Gen. & Filter Eff. &  Events &  XS $[pb]$ & Eq. Lumi. $[fb^{-1}]$ \\
+%   \hline \hline
+%   QCD-Pt-80to120  & 39376000000 &    0.000049 & 1614416 &  1033680 &  38.09 \\
+%   QCD-Pt-120to170 &  7000000000 &    0.000283 & 2051000 & 156293.3 &  44.79 \\
+%   QCD-Pt-170to300 &  1375000000 &    0.000987 & 1391500 & 34138.15 &  40.28 \\
+%   QCD-Pt-300to470 &    80000000 &    0.002659 &  207840 & 1759.549 &  45.47 \\
+%   QCD-Pt-470to600 &    25000000 &    0.004127 &  104675 & 113.8791 & 219.53 \\
+%   \hline
+% \end{tabular}
+% \end{table}
+% 
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=0.55\textwidth]{Chapter05/ParkedDataPreparation/Images/Joao_140209_p11.png}
+% \caption{Reconstructed PFMET as a function of generator-level MET
+%       in the inclusive QCD samples $80 < \hat{p_T} < 600$ GeV before
+%       any selection.}
+% \label{fig:qcdRecovsGenMET}
+% \end{figure}
+% 
+% \subsection{Dijet-MET system topological variables}
+% 
+% 
+% \subsection{Track distribution variables}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
