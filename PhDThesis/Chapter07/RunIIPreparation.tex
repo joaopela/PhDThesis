@@ -49,7 +49,9 @@ To study new \gls{L1T} algorithms for a never before attempted collision energy 
 
 At the \gls{HLT} the analysed events are already pre-selected at the \gls{L1T} and the dominating processes at this point is dependent on the characteristics of the seeding \gls{L1T} algorithm and the \gls{HLT} conditions to be used. For the \gls{CMS} \gls{VBF} Higgs to invisible analysis the trigger conditions needs take advantage of the topological conditions of the \gls{VBF} jets and \gls{MET}. These characteristics make high energy \gls{QCD} multi-jets events the dominating source of rate for any \gls{HLT} paths that will collect our signal process.
 
+%Rerunning L1T Stage 2 emulator
 
+%Grid search procedure
 
 
 \subsection{Signal path}
@@ -82,10 +84,31 @@ At the \gls{HLT} the analysed events are already pre-selected at the \gls{L1T} a
 % L1T_NoCuts/HLT_DijetVBF90-40_DEta3.7_MJJ600     pf_met  137     4.95    0.0141
 % L1T_NoCuts/HLT_DijetVBF50-50_DEta3.5_MJJ600     pf_met  134     4.69    0.0141
 
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+Algorithm & \multicolumn{2}{|c}{Jets} & \multicolumn{2}{|c}{Dijet} & Rate & \multicolumn{2}{|c|}{Signal Efficiency} \\
+\hline
+Type       & $p_T^{jet_1}\,[\GeV]$  & $p_T^{jet_2}\,[\GeV]$ & Opp. Sides & $\Delta\eta$ & $M_{jj}\,[\GeV]$ & HLT Rate [Hz] & Total [\%] & Additional [\%] \\
+\hline\hline
+\multicolumn{9}{|c|}{Lowest MET Threshold} \\
+\hline\hline
 
+\hline\hline
+\multicolumn{9}{|c|}{Maximum efficiency for jets $p_T>40\,GeV$} \\
+\hline\hline
 
-
-
+\hline\hline
+\multicolumn{9}{|c|}{Maximum Additional Efficiency} \\
+\hline\hline
+Asymmetric &                     60 &                    40 &        Yes &          3.7 &              500 &          4.84 &     0.0513       &            1.55 \\
+Symmetric  &                     40 &                    40 &        Yes &          3.5 &              600 &          4.68 &     5.16   &            1.49 \\
+\hline
+\end{tabular}
+\caption{Table }
+\label{TABLE:}
+\end{table}
 
 
 
