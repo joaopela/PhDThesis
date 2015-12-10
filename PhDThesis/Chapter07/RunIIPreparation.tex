@@ -3,9 +3,6 @@
 
 \glsresetall % Resetting all acronyms
 
-% Working areas
-% At least: /vols/cms02/jca10/work/slc6/dev01/CMSSW_7_2_0/src/VBFHiggsToInvisible/
-
 After the successful completion of the the first data taking period, the \gls{LHC} Run I, the accelerator and detectors went through a two year long technical shut-down which was designated the \gls{LS1}. During the period the accelerator completed a consolidation and improvement program to allow a ramp up of the beams energy up to the design value of $7\,\TeV$ per beam in proton-proton mode. At the same time the experiments also performed maintenance, repair and improvement programs. 
 
 Data analysis continued during this period of no data taking using the datasets already available or the newly reconstructed parked data. After this final work over $8\,\TeV$ data was completed most \gls{CMS} physics analysis started their preparation for the \gls{LHC} Run II, where higher collision energies, even higher values of \gls{PU} and more recorded integrated luminosity are expected. Following this global effort the \gls{CMS} \gls{VBF} Higgs to invisible analysis also started its own preparation work. 
@@ -18,7 +15,25 @@ The first step is always the definition of a trigger condition for data taking. 
 \section{Run II trigger studies}
 \label{SECTION:RunIITriggerStudies}
 
-The first step of any \gls{CMS} physics analysis is to define which trigger to use for data taking. The \gls{TSG} develops generic usage trigger conditions, know as trigger paths, which can be used by any analysis. Typically this conditions cover all possible single objects (single electron, single jets, etc), multiple objects (double electron, triple muon, etc), cross triggers, (single electron $+$ sigle muon, etc). In some cases, like for our analysis, it with better to define a custom condition to obtain maximum physics content. The following reasons drove the decision to create a set dedicated trigger paths.
+% Working areas
+% 
+% /vols/cms02/jca10/work/slc6/dev01/CMSSW_7_2_0_pre8/src
+%
+% Oct 21  2014 jobs
+% Oct 14  2014 jobsHLT
+% Oct 22  2014 jobsHLTv2
+% Oct 22  2014 jobsL1Tv2
+
+% Oct 26  2014 VBFHiggsToInvisible/TriggerStudies/HLT_Run2015
+% Oct 26  2014 VBFHiggsToInvisible/TriggerStudies/HLT_Run2015_DijetVBF-ETM50_NOTPFMET170
+% Oct 27  2014 VBFHiggsToInvisible/TriggerStudies/HLT_Run2015_ETM70
+% Oct 27  2014 VBFHiggsToInvisible/TriggerStudies/HLT_Run2015_ETM70_NOTPFMET170
+% Oct 27  2014 VBFHiggsToInvisible/TriggerStudies/L1TAddRate
+
+% Additional rates study: 
+% /vols/cms02/jca10/work/slc6/dev01/CMSSW_7_2_0/src/VBFHiggsToInvisible/
+
+The first step of any \gls{CMS} physics analysis is to define which trigger to use for data taking. The \gls{TSG} develops generic usage trigger conditions, know as trigger paths, which can be used by any analysis. Typically this conditions cover all possible single objects (single electron, single jets, etc), multiple objects (double electron, triple muon, etc), cross triggers (single electron $+$ sigle muon, etc). In some cases, like for our analysis, it with better to define a custom condition to obtain maximum physics content. The following reasons drove the decision to create a set dedicated trigger paths.
 
 \begin{itemize}
   \item Maximize signal collection efficiency by selecting our signal topology with reduced trigger cuts while compared with generic triggers;
@@ -26,13 +41,53 @@ The first step of any \gls{CMS} physics analysis is to define which trigger to u
   \item Create a new dedicate pre-scaled trigger path with reduced thresholds with objective of reducing systematics;
 \end{itemize}
 
-For the proposal of our triggers it was decided to produce numbers for conservative and aggressive scenarios in terms of available \gls{HLT} bandwidth. For the signal trigger path rate $1.5\,\hertz$ and $5.0\,\hertz$ were considered. While for the systematics paths rate $0.1\,\hertz$ and $0.1\,\hertz$ were considered.
+For the proposal of our triggers it was decided to produce numbers for a low and high rate scenarios in terms of available \gls{HLT} bandwidth. For the signal trigger path rates $1.5\,\hertz$ and $5.0\,\hertz$ were considered. While for the systematics paths rate $0.1\,\hertz$ and $0.1\,\hertz$ were considered.
 
 \subsection{Methodology}
+
+To study new \gls{L1T} algorithms for a never before attempted collision energy we must rely on \gls{MC} simulation. At this level the system will have to analyse all collisions which are produces by the \gls{LHC} which implies that the test simulated events sample cannot have significant generation cuts. For this purpose, so called neutrino gun event samples are used. In this event simulations the hard process is replaced by the production of a single neutrino which will escape the detector without leaving any deposit. \acrfull{PU} jets are added to the event following a Poissonian distribution with its centre being chosen according to predicted \gls{LHC} performance scenarios. This \gls{PU} events are selected randomly from a large \gls{QCD} multi-jet sample which where generated with minimum restrictions, this type of sample normally is denominated \textit{Minimum Bias QCD}. The final event content will be the overlap of of many minimum bias events without any hard process as we expect the grate majority of the collision to be.
+
+At the \gls{HLT} the analysed events are already pre-selected at the \gls{L1T} and the dominating processes at this point is dependent on the characteristics of the seeding \gls{L1T} algorithm and the \gls{HLT} conditions to be used. For the \gls{CMS} \gls{VBF} Higgs to invisible analysis the trigger conditions needs take advantage of the topological conditions of the \gls{VBF} jets and \gls{MET}. These characteristics make high energy \gls{QCD} multi-jets events the dominating source of rate for any \gls{HLT} paths that will collect our signal process.
+
 
 
 
 \subsection{Signal path}
+
+% ==== For L1TETM_70 - 5.0 Hz (NO HLT_PFMET170)
+% Base    Cut Variable    Value   Rate    Efficiency
+% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.7_MJJ500     pf_met  140     4.84    0.0155
+% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.7_MJJ500     pf_met  140     4.72    0.0152
+% L1T_NoCuts/HLT_DijetVBF40-40_DEta3.5_MJJ600     pf_met  140     4.68    0.0149
+% L1T_NoCuts/HLT_DijetVBF50-40_DEta3.5_MJJ600     pf_met  140     4.62    0.0149
+% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.5_MJJ600     pf_met  140     4.48    0.0148
+% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.9_MJJ0       pf_met  140     4.46    0.0146
+% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.9_MJJ500     pf_met  140     4.43    0.0146
+% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.7_MJJ500     pf_met  140     4.39    0.0146
+% L1T_NoCuts/HLT_DijetVBF40-40_DEta3.7_MJJ600     pf_met  140     4.53    0.0145
+% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.5_MJJ600     pf_met  140     4.43    0.0145
+% L1T_NoCuts/HLT_DijetVBF50-40_DEta3.7_MJJ600     pf_met  140     4.47    0.0144
+% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.7_MJJ600     pf_met  140     4.34    0.0144
+% L1T_NoCuts/HLT_DijetVBF100-40_DEta3.5_MJJ600    pf_met  134     4.94    0.0144
+% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.5_MJJ500     pf_met  142     4.99    0.0143
+% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.9_MJJ0       pf_met  140     4.33    0.0143
+% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.9_MJJ500     pf_met  140     4.31    0.0143
+% L1T_NoCuts/HLT_DijetVBF100-40_DEta3.7_MJJ600    pf_met  133     4.95    0.0143
+% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.7_MJJ600     pf_met  140     4.28    0.0141
+% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.5_MJJ600     pf_met  140     4.13    0.0141
+% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.9_MJJ0       pf_met  139     4.99    0.0141
+% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.9_MJJ500     pf_met  139     4.97    0.0141
+% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.7_MJJ600     pf_met  139     4.99    0.0141
+% L1T_NoCuts/HLT_DijetVBF90-40_DEta3.5_MJJ600     pf_met  138     4.97    0.0141
+% L1T_NoCuts/HLT_DijetVBF90-40_DEta3.7_MJJ600     pf_met  137     4.95    0.0141
+% L1T_NoCuts/HLT_DijetVBF50-50_DEta3.5_MJJ600     pf_met  134     4.69    0.0141
+
+
+
+
+
+
+
 
 
 % 2a) lowest MET cut (with >3% efficiency)
@@ -184,12 +239,18 @@ For the proposal of our triggers it was decided to produce numbers for conservat
 % 
 % As for the default HLT:
 % HLT_PFMET170_NoiseCleaned_v1 sigEff: 0.094 qcdRate: 4.515Hz
-
+% 
+% FILE: /vols/cms02/jca10/work/slc6/dev01/CMSSW_7_2_0_pre8/src/VBFHiggsToInvisible/TriggerStudies/jobs/HLT_Run2015_ETM70_NOTPFMET170/results.log
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % => L1T_NoCuts/HLT_DijetVBF40-40_DEta3.5_MJJ600 + pf_met140=> Signal eff: 0.0515843 Total QCD Rate :4.67692
 % => L1T_NoCuts/HLT_DijetVBF60-40_DEta3.5_MJJ600 + pf_met140=> Signal eff: 0.0512509 Total QCD Rate :4.48162
 
+
+
+
+% Extracting informotion 
 
 \section{Additional L1 trigger}
 
