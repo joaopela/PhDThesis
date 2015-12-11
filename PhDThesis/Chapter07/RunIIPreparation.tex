@@ -18,6 +18,7 @@ The first step is always the definition of a trigger condition for data taking. 
 % Working areas
 % 
 % /vols/cms02/jca10/work/slc6/dev01/CMSSW_7_2_0_pre8/src
+% /vols/cms02/jca10/work/slc6/dev01/testPhD/CMSSW_7_2_0_pre8/src
 %
 % Oct 21  2014 jobs
 % Oct 14  2014 jobsHLT
@@ -43,75 +44,207 @@ The first step of any \gls{CMS} physics analysis is to define which trigger to u
 
 For the proposal of our triggers it was decided to produce numbers for a low and high rate scenarios in terms of available \gls{HLT} bandwidth. For the signal trigger path rates $1.5\,\hertz$ and $5.0\,\hertz$ were considered. While for the systematics paths rate $0.1\,\hertz$ and $0.1\,\hertz$ were considered.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Methodology}
 
 To study new \gls{L1T} algorithms for a never before attempted collision energy we must rely on \gls{MC} simulation. At this level the system will have to analyse all collisions which are produces by the \gls{LHC} which implies that the test simulated events sample cannot have significant generation cuts. For this purpose, so called neutrino gun event samples are used. In this event simulations the hard process is replaced by the production of a single neutrino which will escape the detector without leaving any deposit. \acrfull{PU} jets are added to the event following a Poissonian distribution with its centre being chosen according to predicted \gls{LHC} performance scenarios. This \gls{PU} events are selected randomly from a large \gls{QCD} multi-jet sample which where generated with minimum restrictions, this type of sample normally is denominated \textit{Minimum Bias QCD}. The final event content will be the overlap of of many minimum bias events without any hard process as we expect the grate majority of the collision to be.
 
 At the \gls{HLT} the analysed events are already pre-selected at the \gls{L1T} and the dominating processes at this point is dependent on the characteristics of the seeding \gls{L1T} algorithm and the \gls{HLT} conditions to be used. For the \gls{CMS} \gls{VBF} Higgs to invisible analysis the trigger conditions needs take advantage of the topological conditions of the \gls{VBF} jets and \gls{MET}. These characteristics make high energy \gls{QCD} multi-jets events the dominating source of rate for any \gls{HLT} paths that will collect our signal process.
 
-%Rerunning L1T Stage 2 emulator
+Trigger system that was present in the begging of Run II was a upgraded version of the previously used. As such, its response had to be emulated over the available \gls{MC} samples which only contained an out of date version of the system response. The latest version available of the \gls{L1T} stage 2 and \gls{HLT} systems description was used to preform these studies.
 
-%Grid search procedure
+The target conditions defined by the \gls{TSG} for the development of new algorithms were an instantaneous luminosity of  $1.4 \times 10^{34}\,\centi\meter^{-2}\second^{-1}$, average \gls{PU} of 40 simultaneous collisions and a bunch separation of $25\,\nano\second$.
+
+To obtain the best possible algorithm thresholds a \textit{grid search} method was implemented, where all possible configuration of of thresholds were tested. For each set of thresholds the signal efficiency, selection rates, and additional efficiency to reference \gls{TSG} trigger menu algorithms were determined. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{L1T algoritm development}
+
+In the \gls{L1T} trigger menu, the reference trigger was the lowest unprescaled trigger available which was L1\_ETM70. This algorithm was expected to have a pure rate (without accounting for overlaps with other trigger) of $\approx 7\,\kilo\hertz$ and a signal efficiency of 27-28\%. When designing an offline analysis normally normally it is desirable to selected events in a parameter phase space where the trigger efficiency is close to 100\% efficient. Avoiding the need to re-weight the \gls{MC} simulated event to match the trigger behaviour event by event. Unfortunately, even that the default \gls{L1T} algorithm has a reasonable signal collection efficiency it would likely only be fully efficient when selecting events with offline \gls{PF} \gls{MET} two to three times higher than the trigger threshold. This value would mean a significant increase of the selection criteria when compared with what was used during Run I. For these reason the priority was to find a solution that would allow a lower threshold to be applied to \gls{L1T} \gls{MET} by requiring a \gls{L1T} dijet.
+
+
+%Dijet30 + VBF + DEta>=3.5 + ETM>=50.09 with rate 4961 Hz, signal eff of 13.6\% from which 4.0\% are not trigger by ETM70
+%Dijet30 + VBF + DEta>=3.5 + Single Jet pT>=96.72 with rate 4632 Hz, signal eff of 14.6\% from which 5.5\% are not trigger by ETM70 
+
+\begin{figure}[!htp]%
+\centering
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/TriggerStudies/L1T/DijetVBF30_DEta3p5_-_l1t_etm.png}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/TriggerStudies/L1T/DijetVBF30_DEta3p5_-_dijet_pt0.png}}\\
+\caption[L1T]{L1T}
+\label{FIGURE:RunIIPreparation_L1T}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{HLT algoritm development}
+
+
+% 9.4\% from HLT_PFMET170 
+
+%   vector< pair<double,double> > cutsDijetPt;
+%   cutsDijetPt.push_back(pair<double,double>( 20,20));
+%   cutsDijetPt.push_back(pair<double,double>( 40,40));
+%   cutsDijetPt.push_back(pair<double,double>( 50,50));
+%   cutsDijetPt.push_back(pair<double,double>( 60,60));
+%   cutsDijetPt.push_back(pair<double,double>( 50,40));
+%   cutsDijetPt.push_back(pair<double,double>( 60,40));
+%   cutsDijetPt.push_back(pair<double,double>( 70,40));
+%   cutsDijetPt.push_back(pair<double,double>( 80,40));
+%   cutsDijetPt.push_back(pair<double,double>( 90,40));
+%   cutsDijetPt.push_back(pair<double,double>(100,40));
+%   
+%   vector<double> cutsDijetMjj;
+%   cutsDijetMjj.push_back(200);
+%   cutsDijetMjj.push_back(500);
+%   cutsDijetMjj.push_back(600);
+%   cutsDijetMjj.push_back(700);
+%   cutsDijetMjj.push_back(800);
+%   cutsDijetMjj.push_back(900);
+%   cutsDijetMjj.push_back(1000);
+%   cutsDijetMjj.push_back(1100);
+%   
+%   vector<double> cutsDijetDEta;
+%   cutsDijetDEta.push_back(2.5);
+%   cutsDijetDEta.push_back(3.5);
+%   cutsDijetDEta.push_back(3.7);
+%   cutsDijetDEta.push_back(3.9);
+%   cutsDijetDEta.push_back(4.1);
+%   cutsDijetDEta.push_back(4.3);
+%   cutsDijetDEta.push_back(4.5);
 
 
 \subsection{Signal path}
 
-% ==== For L1TETM_70 - 5.0 Hz (NO HLT_PFMET170)
-% Base    Cut Variable    Value   Rate    Efficiency
-% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.7_MJJ500     pf_met  140     4.84    0.0155
-% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.7_MJJ500     pf_met  140     4.72    0.0152
-% L1T_NoCuts/HLT_DijetVBF40-40_DEta3.5_MJJ600     pf_met  140     4.68    0.0149
-% L1T_NoCuts/HLT_DijetVBF50-40_DEta3.5_MJJ600     pf_met  140     4.62    0.0149
-% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.5_MJJ600     pf_met  140     4.48    0.0148
-% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.9_MJJ0       pf_met  140     4.46    0.0146
-% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.9_MJJ500     pf_met  140     4.43    0.0146
-% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.7_MJJ500     pf_met  140     4.39    0.0146
-% L1T_NoCuts/HLT_DijetVBF40-40_DEta3.7_MJJ600     pf_met  140     4.53    0.0145
-% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.5_MJJ600     pf_met  140     4.43    0.0145
-% L1T_NoCuts/HLT_DijetVBF50-40_DEta3.7_MJJ600     pf_met  140     4.47    0.0144
-% L1T_NoCuts/HLT_DijetVBF60-40_DEta3.7_MJJ600     pf_met  140     4.34    0.0144
-% L1T_NoCuts/HLT_DijetVBF100-40_DEta3.5_MJJ600    pf_met  134     4.94    0.0144
-% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.5_MJJ500     pf_met  142     4.99    0.0143
-% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.9_MJJ0       pf_met  140     4.33    0.0143
-% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.9_MJJ500     pf_met  140     4.31    0.0143
-% L1T_NoCuts/HLT_DijetVBF100-40_DEta3.7_MJJ600    pf_met  133     4.95    0.0143
-% L1T_NoCuts/HLT_DijetVBF70-40_DEta3.7_MJJ600     pf_met  140     4.28    0.0141
-% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.5_MJJ600     pf_met  140     4.13    0.0141
-% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.9_MJJ0       pf_met  139     4.99    0.0141
-% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.9_MJJ500     pf_met  139     4.97    0.0141
-% L1T_NoCuts/HLT_DijetVBF80-40_DEta3.7_MJJ600     pf_met  139     4.99    0.0141
-% L1T_NoCuts/HLT_DijetVBF90-40_DEta3.5_MJJ600     pf_met  138     4.97    0.0141
-% L1T_NoCuts/HLT_DijetVBF90-40_DEta3.7_MJJ600     pf_met  137     4.95    0.0141
-% L1T_NoCuts/HLT_DijetVBF50-50_DEta3.5_MJJ600     pf_met  134     4.69    0.0141
 
+\subsubsection{L1T Seed: L1T\_ETM70}
+
+
+% 
 \begin{table}[!htb]
 \centering
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\resizebox{1.00\linewidth}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
 \hline
-Algorithm & \multicolumn{2}{|c}{Jets} & \multicolumn{2}{|c}{Dijet} & Rate & \multicolumn{2}{|c|}{Signal Efficiency} \\
+Algorithm & \multicolumn{6}{c|}{Event Requirements} & Rate & \multicolumn{2|}{c|}{Signal Efficiency} \\
 \hline
-Type       & $p_T^{jet_1}\,[\GeV]$  & $p_T^{jet_2}\,[\GeV]$ & Opp. Sides & $\Delta\eta$ & $M_{jj}\,[\GeV]$ & HLT Rate [Hz] & Total [\%] & Additional [\%] \\
+Type       & $p_T^{jet_1}\,[\GeV]$  & $p_T^{jet_2}\,[\GeV]$ & VBF & $\Delta\eta$ & $M_{jj}\,[\GeV]$ & MET $[\GeV]$ & HLT Rate [Hz] & Total [\%] & Additional [\%] \\
 \hline\hline
-\multicolumn{9}{|c|}{Lowest MET Threshold} \\
+\multicolumn{10}{|c|}{Maximum efficiency for jets} \\
 \hline\hline
-
+Asymmetric &                     70 &                    40 &        Yes &          3.5 &              500 &          144 &          4.99 &      5.18  &            1.37 \\
+Symmetric  &                     40 &                    40 &        Yes &          3.5 &              600 &          140 &          4.68 &      5.16  &            1.49 \\
 \hline\hline
-\multicolumn{9}{|c|}{Maximum efficiency for jets $p_T>40\,GeV$} \\
+\multicolumn{10}{|c|}{Maximum Additional Efficiency} \\
 \hline\hline
-
+Asymmetric &                     60 &                    40 &        Yes &          3.7 &              500 &          140 &          4.84 &      5.13  &            1.55 \\
+Symmetric  &                     40 &                    40 &        Yes &          3.5 &              600 &          140 &          4.68 &      5.16  &            1.49 \\
 \hline\hline
-\multicolumn{9}{|c|}{Maximum Additional Efficiency} \\
+\multicolumn{10}{|c|}{Lowest MET Threshold} \\
 \hline\hline
-Asymmetric &                     60 &                    40 &        Yes &          3.7 &              500 &          4.84 &     0.0513       &            1.55 \\
-Symmetric  &                     40 &                    40 &        Yes &          3.5 &              600 &          4.68 &     5.16   &            1.49 \\
+Symmetric  &                     60 &                    60 &        Yes &          4.1 &              800 &          119 &          4.99 &      $<3\%$ &           1.04 \\
+Asymmetric &                    100 &                    40 &        Yes &          4.3 &             1000 &          122 &          4.94 &      $<3\%$ &           1.01 \\
 \hline
 \end{tabular}
+}
 \caption{Table }
 \label{TABLE:}
 \end{table}
 
+\begin{figure}[!htp]%
+\centering
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/TriggerStudies/HLT/Seed_L1TETM70/HLT_DijetVBF40-40_DEta3p5_MJJ600}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/TriggerStudies/HLT/Seed_L1TETM70/HLT_DijetVBF60-40_DEta3p7_MJJ500}}\\
+\caption[HLT Seed L1TETM70]{HLT Seed L1TETM70}
+\label{FIGURE:RunIIPreparation_HLT_Seed_L1TETM70}
+\end{figure}
 
 
+\subsubsection{L1T Seed: Dijet30 + VBF + DEta>=3.5 + ETM>=50}
+
+
+\begin{table}[!htb]
+\centering
+\resizebox{1.00\linewidth}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Algorithm & \multicolumn{6}{c|}{Event Requirements} & Rate & \multicolumn{2|}{c|}{Signal Efficiency} \\
+\hline
+Type       & $p_T^{jet_1}\,[\GeV]$  & $p_T^{jet_2}\,[\GeV]$ & VBF & $\Delta\eta$ & $M_{jj}\,[\GeV]$ & MET $[\GeV]$ & HLT Rate [Hz] & Total [\%] & Additional [\%] \\
+\hline\hline
+\multicolumn{10}{|c|}{Maximum efficiency for jets} \\
+\hline\hline
+Asymmetric &                     60 &                    40 &        Yes &          3.7 &              500 &          144 &          4.76 &       0.0459 &          1.57 \\
+Symmetric  &                     40 &                    40 &        Yes &          3.5 &              600 &          145 &          4.69 &       0.0448 &          1.52 \\
+\hline\hline
+\multicolumn{10}{|c|}{Maximum Additional Efficiency} \\
+\hline\hline
+Asymmetric &                     60 &                    40 &        Yes &          4.1 &              500 &          140 &          4.77 &       0.0439 &          1.71 \\
+Symmetric  &                     40 &                    40 &        Yes &          4.1 &              600 &          141 &          4.95 &       0.0423 &          1.62 \\
+\hline\hline
+\multicolumn{10}{|c|}{Lowest MET Threshold} \\
+\hline\hline
+Symmetric  &                     60 &                    60 &        Yes &          4.5 &             1000 &          122 &          4.93 &       0.0228 &          1.02 \\
+Asymmetric &                    100 &                    40 &        Yes &          4.5 &             1100 &          125 &          4.87 &       0.0264 &          1.00 \\
+\hline
+\end{tabular}
+}
+\caption{Table }
+\label{TABLE:}
+\end{table}
+
+\begin{figure}[!htp]%
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/TriggerStudies/HLT/Seed_DijetVBF30_DEta3p5_ETM50/HLT_DijetVBF60-40_DEta4p1_MJJ500.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/TriggerStudies/HLT/Seed_DijetVBF30_DEta3p5_ETM50/HLT_DijetVBF40-40_DEta4p1_MJJ600.pdf}}\\
+\caption[HLT Seed L1TETM70]{L1T Seed: Dijet30 + VBF + DEta>=3.5 + ETM>=50}
+\label{FIGURE:RunIIPreparation_HLT_Seed_L1TETM70}
+\end{figure}
+
+
+
+\subsubsection{L1T Seed: Dijet30 + VBF + DEta>=3.5 + Single Jet pT>=96}
+
+\begin{table}[!htb]
+\centering
+\resizebox{1.00\linewidth}{!}{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+Algorithm & \multicolumn{6}{c|}{Event Requirements} & Rate & \multicolumn{2|}{c|}{Signal Efficiency} \\
+\hline
+Type       & $p_T^{jet_1}\,[\GeV]$  & $p_T^{jet_2}\,[\GeV]$ & VBF & $\Delta\eta$ & $M_{jj}\,[\GeV]$ & MET $[\GeV]$ & HLT Rate [Hz] & Total [\%] & Additional [\%] \\
+\hline\hline
+\multicolumn{10}{|c|}{Maximum efficiency} \\
+\hline\hline
+Symmetric  &                     40 &                    40 &        Yes &          3.5 &              500 &          148 &          4.93 &       4.79 &          1.75 \\
+Asymmetric &                     50 &                    40 &        Yes &          3.5 &              500 &          148 &          4.92 &       4.78 &          1.74 \\
+\hline\hline
+\multicolumn{10}{|c|}{Maximum Additional Efficiency} \\
+\hline\hline
+Asymmetric &                     90 &                    40 &        Yes &          4.1 &              500 &          140 &          4.51 &     4.44 &            1.86 \\
+Symmetric  &                     40 &                    40 &        Yes &          4.3 &              800 &          140 &          4.81 &     4.09 &            1.78 \\
+\hline\hline
+\multicolumn{10}{|c|}{Lowest MET Threshold} \\
+\hline\hline
+Symmetric  &                     60 &                     60 &        Yes &          4.3 &             1100 &          123 &         4.89 &     2.53 &             1.20 \\
+Asymmetric &                    100 &                     40 &        Yes &          4.3 &             1100 &          128 &         4.98 &     3.18 &             1.42 \\
+\hline
+\end{tabular}
+}
+\caption{Table }
+\label{TABLE:}
+\end{table}
+
+\begin{figure}[!htp]%
+\centering
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/TriggerStudies/HLT/Seed_DijetVBF30_DEta3p5_SingleJet96/HLT_DijetVBF90-40_DEta4p1_MJJ500.pdf}}\qquad
+\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter07/TriggerStudies/HLT/Seed_DijetVBF30_DEta3p5_SingleJet96/HLT_DijetVBF40-40_DEta4p3_MJJ800.pdf}}\\
+\caption[HLT Seed L1TETM70]{HLT Seed L1TETM70}
+\label{FIGURE:RunIIPreparation_HLT_Seed_L1TETM70}
+\end{figure}
 
 % 2a) lowest MET cut (with >3% efficiency)
 % * 1.5Hz - L1T_ETM70 + HLT_DijetVBF60-60_DEta3.5_MJJ700 + pf_met=144 rate=1.5Hz signalEff=0.0303
