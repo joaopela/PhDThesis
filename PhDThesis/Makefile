@@ -7,9 +7,10 @@ CHAPTERS+=Chapter02/ExperimentalApparatus.tex
 CHAPTERS+=Chapter03/TechnicalWork.tex
 CHAPTERS+=Chapter04/PhysicsObjects.tex
 CHAPTERS+=Chapter05/PromptDataAnalysis.tex
-CHAPTERS+=Chapter06/ParkedDataAnalysis.tex
-CHAPTERS+=Chapter07/RunIIPreparation.tex
-CHAPTERS+=Chapter08/Conclusions.tex
+CHAPTERS+=Chapter06/RunIParkedAnalysisPreparation.tex
+CHAPTERS+=Chapter07/ParkedDataAnalysis.tex
+CHAPTERS+=Chapter08/RunIIPreparation.tex
+CHAPTERS+=Chapter09/Conclusions.tex
 CHAPTERS+=backmatter.tex
 
 all: thesis.pdf

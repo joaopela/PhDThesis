@@ -1,0 +1,81 @@
+{
+//=========Macro generated from canvas: c1_n2/c1_n2
+//=========  (Wed Nov 18 18:37:35 2015) by ROOT version5.34/18
+   TCanvas *c1_n2 = new TCanvas("c1_n2", "c1_n2",0,0,600,600);
+   gStyle->SetOptFit(1);
+   gStyle->SetOptStat(0);
+   gStyle->SetOptTitle(0);
+   c1_n2->SetHighLightColor(2);
+   c1_n2->Range(0,0,1,1);
+   c1_n2->SetFillColor(0);
+   c1_n2->SetBorderMode(0);
+   c1_n2->SetBorderSize(2);
+   c1_n2->SetTickx(1);
+   c1_n2->SetTicky(1);
+   c1_n2->SetLeftMargin(0.15);
+   c1_n2->SetRightMargin(0.15);
+   c1_n2->SetTopMargin(0.05);
+   c1_n2->SetBottomMargin(0.15);
+   c1_n2->SetFrameFillStyle(0);
+   c1_n2->SetFrameBorderMode(0);
+   
+   TH1D *LeadDijet_DEta = new TH1D("LeadDijet_DEta","LeadDijet_DEta",50,0,10);
+   LeadDijet_DEta->SetBinContent(16,56);
+   LeadDijet_DEta->SetBinContent(17,85);
+   LeadDijet_DEta->SetBinContent(18,111);
+   LeadDijet_DEta->SetBinContent(19,135);
+   LeadDijet_DEta->SetBinContent(20,196);
+   LeadDijet_DEta->SetBinContent(21,244);
+   LeadDijet_DEta->SetBinContent(22,275);
+   LeadDijet_DEta->SetBinContent(23,359);
+   LeadDijet_DEta->SetBinContent(24,471);
+   LeadDijet_DEta->SetBinContent(25,538);
+   LeadDijet_DEta->SetBinContent(26,762);
+   LeadDijet_DEta->SetBinContent(27,982);
+   LeadDijet_DEta->SetBinContent(28,1168);
+   LeadDijet_DEta->SetBinContent(29,1448);
+   LeadDijet_DEta->SetBinContent(30,1775);
+   LeadDijet_DEta->SetBinContent(31,1896);
+   LeadDijet_DEta->SetBinContent(32,1949);
+   LeadDijet_DEta->SetBinContent(33,1656);
+   LeadDijet_DEta->SetBinContent(34,1213);
+   LeadDijet_DEta->SetBinContent(35,927);
+   LeadDijet_DEta->SetBinContent(36,642);
+   LeadDijet_DEta->SetBinContent(37,503);
+   LeadDijet_DEta->SetBinContent(38,387);
+   LeadDijet_DEta->SetBinContent(39,235);
+   LeadDijet_DEta->SetBinContent(40,163);
+   LeadDijet_DEta->SetBinContent(41,94);
+   LeadDijet_DEta->SetBinContent(42,73);
+   LeadDijet_DEta->SetBinContent(43,41);
+   LeadDijet_DEta->SetBinContent(44,22);
+   LeadDijet_DEta->SetBinContent(45,10);
+   LeadDijet_DEta->SetBinContent(46,2);
+   LeadDijet_DEta->SetBinContent(47,1);
+   LeadDijet_DEta->SetBinContent(48,1);
+   LeadDijet_DEta->SetEntries(18420);
+
+   Int_t ci;   // for color index setting
+   ci = TColor::GetColor("#000099");
+   LeadDijet_DEta->SetLineColor(ci);
+   LeadDijet_DEta->GetXaxis()->SetTitle("Lead Generator Dijet #Delta#eta");
+   LeadDijet_DEta->GetXaxis()->SetRange(1,200);
+   LeadDijet_DEta->GetXaxis()->SetLabelFont(42);
+   LeadDijet_DEta->GetXaxis()->SetLabelSize(0.035);
+   LeadDijet_DEta->GetXaxis()->SetTitleSize(0.035);
+   LeadDijet_DEta->GetXaxis()->SetTitleFont(42);
+   LeadDijet_DEta->GetYaxis()->SetTitle("Events");
+   LeadDijet_DEta->GetYaxis()->SetLabelFont(42);
+   LeadDijet_DEta->GetYaxis()->SetLabelSize(0.035);
+   LeadDijet_DEta->GetYaxis()->SetTitleSize(0.035);
+   LeadDijet_DEta->GetYaxis()->SetTitleOffset(1.75);
+   LeadDijet_DEta->GetYaxis()->SetTitleFont(42);
+   LeadDijet_DEta->GetZaxis()->SetLabelFont(42);
+   LeadDijet_DEta->GetZaxis()->SetLabelSize(0.035);
+   LeadDijet_DEta->GetZaxis()->SetTitleSize(0.035);
+   LeadDijet_DEta->GetZaxis()->SetTitleFont(42);
+   LeadDijet_DEta->Draw("");
+   c1_n2->Modified();
+   c1_n2->cd();
+   c1_n2->SetSelected(c1_n2);
+}
