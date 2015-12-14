@@ -46,7 +46,7 @@ The first step of any \gls{CMS} physics analysis is to define which trigger to u
   \item Create a new dedicate pre-scaled trigger path with reduced thresholds with objective of reducing systematics;
 \end{itemize}
 
-For the proposal of our triggers it was decided to produce numbers for a low and high rate scenarios in terms of available \gls{HLT} bandwidth. For the signal trigger path rates $1.5\,\hertz$ and $5.0\,\hertz$ were considered. While for the systematics paths rate $0.1\,\hertz$ and $0.1\,\hertz$ were considered.
+For the proposal of new triggers it was decided to consider low rate and high rate scenarios in terms of available \gls{L1T} and \gls{HLT} bandwidth. For the \gls{L1T} the low rate scenario was the usage of only the lowest thresholds unprescaled \gls{MET} algorithm on the menu, while for the high rate scenario would propose a dedicated additional \gls{L1T} seed algorithm with a pure rate up to $5\,\kilo\hertz$. For the \gls{HLT} signal trigger path rates $1.5\,\hertz$ and $5.0\,\hertz$ were considered and a rate of $0.1\,\hertz$ and $0.5\,\hertz$ for the systematics path.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -78,7 +78,7 @@ When designing an offline analysis normally it is desirable to selected events i
 
 To determine the best possible algorithm an automatic optimization method was implemented. Several base dijet configurations were defined with one key variable being allowed to float to achieve a target rate. The a maximum rate of $5\,\kilo\hertz$ was set as an optimistic acceptable pure rate for such a proposed algorithm. All base configurations start by requiring at least on \gls{L1T} jet being on opposite sides of the detector (\gls{VBF} condition). All possible configuration were tested requiring the selected jets to have $\pt>{30,40}$ and the dijet to have $\Delta\eta>{3.0,3.5}$. Scanned variables included lead jet \pt, sub-lead jet \pt, dijet $M_{jj}$, \gls{L1T} \gls{MET} and \gls{L1T} \gls{MHT}. 
 
-Since the reference trigger already collects a significant amount of signal for each possible \gls{L1T} selection criteria the additional signal efficiency to the L1\_ETM70 is calculated. Table \ref{TABLE:RunIITriggerStudies_L1TAlgorithmDevelopment_OptimizationResults} shows the best results obtained the automatic procedure, ordered in descending value of additional efficiency.
+Since the reference trigger already collects a significant amount of signal for each possible \gls{L1T} selection criteria the additional signal efficiency to the \verb|L1_ETM70| is calculated. Table \ref{TABLE:RunIITriggerStudies_L1TAlgorithmDevelopment_OptimizationResults} shows the best results obtained the automatic procedure, ordered in descending value of additional efficiency.
 
 \begin{table}[!htb]
 \centering
@@ -109,8 +109,8 @@ Dijet $\text{VBF} + \pt^{jets}>30 + \Delta\eta>3.5$ & MHT              & 49   & 
 The obtained results are surprising since the highest additional efficiency algorithm found does not included any \gls{L1T} \gls{MET} requirement. Instead it requires that the leading \gls{L1T} jet in the event is at least $97\,\GeV$. As expected by adding a dijet requirement we could reduced the \gls{MET} to about $50\,\GeV$. Both \gls{MHT} and dijet $M_{jj}$ preform significantly worst than the single jet and \gls{MET} options. The two following criteria with requirements rounded to the closest possible \gls{L1T} thresholds were selected for further studies:
 
 \begin{itemize}
-  \item Dijet $\text{VBF} + \pt^{jets}>30 + \Delta\eta>3.5$ + Single Jet $\pt^{jets}>96$ 
   \item Dijet $\text{VBF} + \pt^{jets}>30 + \Delta\eta>3.5$ + $ETM \geq 50$
+  \item Dijet $\text{VBF} + \pt^{jets}>30 + \Delta\eta>3.5$ + Single Jet $\pt^{jets}>96$ 
 \end{itemize}
 
 For both of this algorithms the plots resulting from the scan over the additional variable can be found in figure \ref{FIGURE:RunIIPreparation_L1TAlgorithmDevelopment_VariableScan}. 
@@ -129,49 +129,32 @@ For both of this algorithms the plots resulting from the scan over the additiona
 \subsection{HLT algorithm development}
 \label{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment}
 
-%Status: Writing
+%Status: DONE
 
-In the \gls{HLT} trigger menu, the reference trigger was the lowest unprescaled \gls{PF} \gls{MET} trigger available which was \verb|HLT_PFMET170_NoiseCleaned|. This algorithm is seeded by \verb|L1_ETM70| and selects events with \gls{HLT} \gls{PF} \gls{MET} over $170\,\GeV$ which is calculated in the full $\eta$ range of the detector. It was calculated to have an expected pure rate of $\approx 4.5\,\hertz$ and a signal efficiency of 9.4\%. 
+In the \gls{HLT} trigger menu, the reference trigger was the lowest unprescaled \gls{PF} \gls{MET} trigger available which was \verb|HLT_PFMET170_NoiseCleaned|. This algorithm is seeded by \verb|L1_ETM70| and selects events with \gls{HLT} \gls{PF} \gls{MET} over $170\,\GeV$ which is calculated in the full $\eta$ coverage of the detector. It was calculated to have an expected \gls{HLT} pure rate of $\approx 4.5\,\hertz$ and a signal collection efficiency of 9.4\%. 
 
-To obtain the best possible algorithm thresholds a \textit{grid search} method was implemented, where all possible configuration of thresholds were tested. For each set of thresholds the signal efficiency, selection rates, and additional efficiency to reference \gls{TSG} trigger menu algorithms were determined. 
+Similarly to the \gls{L1T} algorithm search an automatic approach was developed to obtain the best possible algorithm thresholds. In this case the only variable scanned to fulfil the desired rate algorithm was \gls{HLT} \gls{PF} \gls{MET}. A \textit{grid search} method was implemented, where all possible base configuration of thresholds were tested. For each set of thresholds the signal efficiency, selection rates, and additional efficiency to reference \gls{HLT} path were calculated. 
 
+Events were selected when at least one \gls{HLT} dijet was found, where both jets were on opposite sides of the detector (\gls{VBF} condition) passing all the requirements of the base selection and the additional \gls{PF} \gls{MET} minimum. The following base configuration variables and values were tested:
 
-%   vector< pair<double,double> > cutsDijetPt;
-%   cutsDijetPt.push_back(pair<double,double>( 20,20));
-%   cutsDijetPt.push_back(pair<double,double>( 40,40));
-%   cutsDijetPt.push_back(pair<double,double>( 50,50));
-%   cutsDijetPt.push_back(pair<double,double>( 60,60));
-%   cutsDijetPt.push_back(pair<double,double>( 50,40));
-%   cutsDijetPt.push_back(pair<double,double>( 60,40));
-%   cutsDijetPt.push_back(pair<double,double>( 70,40));
-%   cutsDijetPt.push_back(pair<double,double>( 80,40));
-%   cutsDijetPt.push_back(pair<double,double>( 90,40));
-%   cutsDijetPt.push_back(pair<double,double>(100,40));
-%   
-%   vector<double> cutsDijetMjj;
-%   cutsDijetMjj.push_back(200);
-%   cutsDijetMjj.push_back(500);
-%   cutsDijetMjj.push_back(600);
-%   cutsDijetMjj.push_back(700);
-%   cutsDijetMjj.push_back(800);
-%   cutsDijetMjj.push_back(900);
-%   cutsDijetMjj.push_back(1000);
-%   cutsDijetMjj.push_back(1100);
-%   
-%   vector<double> cutsDijetDEta;
-%   cutsDijetDEta.push_back(2.5);
-%   cutsDijetDEta.push_back(3.5);
-%   cutsDijetDEta.push_back(3.7);
-%   cutsDijetDEta.push_back(3.9);
-%   cutsDijetDEta.push_back(4.1);
-%   cutsDijetDEta.push_back(4.3);
-%   cutsDijetDEta.push_back(4.5);
+\begin{itemize}
+  \item Symmetric dijet $p_T^{jets}>{40,50,60}$
+  \item Asymmetric dijet $p_T^{jet_1},p_T^{jet_2}>{(50,40),(60,40),(70,40),(80,40),(90,40),(100,40)}$
+  \item Dijet $M_{jj}>{500,600,700,800,900,1000,1100}$
+  \item Dijet $\Delta\eta>{3.5,3.7,3.9,4.1,4.3,4.5}$
+\end{itemize}
+
+The \gls{PF} \gls{MET} minimum threshold was optimised for the signal \gls{HLT} path to obtain for the low bandwidth scenario a rate of $\approx 1.5\,\hertz$ and $5.0\,\hertz$ for the high bandwidth scenario. For the sake of brevity and since the high rate scenario was accepted by the \gls{TSG} group only this results are showed in the following section.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Signal path with L1T seed L1T\_ETM70}
+\subsubsection{Signal path with L1T seed L1\_ETM70}
+\label{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment_L1ETM70}
 
+%Status: DONE
+
+The baseline \gls{HLT} signal path was optimized for event passing the already available \gls{L1T} reference algorithm which is \verb|L1_ETM70|. All the obtained paths for a $5\,\hertz$ maximum \gls{HLT} rate have significantly lower signal collection efficiency than the reference \gls{HLT} path. Table \ref{TABLE:RunIIPreparation_HLT_Seed_L1TETM70} shows the best algorithm thresholds combinations for maximum total signal efficiency, maximum total signal efficiency and lowest lowest \gls{PF} \gls{MET} threshold. For this categories of results, the best dijet symmetric and asymmetric \pt thresholds results are presented.
 
 \begin{table}[!htb]
 \centering
@@ -182,39 +165,48 @@ Algorithm & \multicolumn{5}{|c|}{Event Requirements} & Rate & \multicolumn{2}{c|
 \hline
 Type       & $p_T^{jet_1},p_T^{jet_2}\,[\GeV]$ & VBF & $\Delta\eta$ & $M_{jj}\,[\GeV]$ & MET $[\GeV]$ & HLT [Hz] & Total [\%] & Additional [\%] \\
 \hline\hline
-\multicolumn{9}{|c|}{Maximum efficiency for jets} \\
+\multicolumn{9}{|c|}{Maximum Total Signal Efficiency} \\
 \hline\hline
 Asymmetric &                             70,40 & Yes &          3.5 &              500 &          144 &     4.99 &      5.18  &            1.37 \\
 Symmetric  &                             40,40 & Yes &          3.5 &              600 &          140 &     4.68 &      5.16  &            1.49 \\
 \hline\hline
-\multicolumn{9}{|c|}{Maximum Additional Efficiency} \\
+\multicolumn{9}{|c|}{Maximum Additional Signal Efficiency} \\
 \hline\hline
 Asymmetric &                             60,40 & Yes &          3.7 &              500 &          140 &     4.84 &      5.13  &            1.55 \\
 Symmetric  &                             40,40 & Yes &          3.5 &              600 &          140 &     4.68 &      5.16  &            1.49 \\
 \hline\hline
-\multicolumn{9}{|c|}{Lowest MET Threshold} \\
+\multicolumn{9}{|c|}{Lowest PF MET Threshold} \\
 \hline\hline
 Symmetric  &                             60,60 & Yes &          4.1 &              800 &          119 &     4.99 &     $<3\%$ &            1.04 \\
 Asymmetric &                            100,40 & Yes &          4.3 &             1000 &          122 &     4.94 &     $<3\%$ &            1.01 \\
 \hline
 \end{tabular}
 }
-\caption{Table }
-\label{TABLE:}
+\caption{Results of the automatic optimization of possible \gls{HLT} path procedure for a maximum rate of $5\,\hertz$ for $8\,\TeV$, $1.4 \times 10^{34}\,\centi\meter^{-2}\second^{-1}$ instantaneous luminosity, 40 average \gls{PU} and $25\,\nano\second$ bunch separation. All \gls{HLT} algorithms are seeded by L1\_ETM70. Results are presented for the best dijet symmetric and asymmetric \pt thresholds, over maximum total signal efficiency, maximum additional signal efficiency to HLT\_PFMET170\_NoiseCleaned, and lowest \gls{PF} \gls{MET}.}
+\label{TABLE:RunIIPreparation_HLT_Seed_L1TETM70}
 \end{table}
+
+The best algorithms for both maximum total and additional efficiency are asymmetric. However the difference to the best symmetric algorithms is small and and comes mostly at a cost of an increase of \gls{PF} \gls{MET} or by lowering $M_{jj}$ while increasing led jet \pt. The algorithms that minimize \gls{PF} \gls{MET}, have only about $\approx 1\%$ signal efficiency but reduce that threshold by $\approx 50\,\GeV$ while compared with the reference \gls{HLT} path. Plots of the two maximum additional signal efficiency algorithms obtained during the scan of \gls{PF} \gls{MET} for those base configurations can be found in figure \ref{FIGURE:RunIIPreparation_HLT_Seed_L1TETM70}.
 
 \begin{figure}[!htp]%
 \centering
 \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/TriggerStudies/HLT/Seed_L1TETM70/HLT_DijetVBF40-40_DEta3p5_MJJ600}}\qquad
 \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/TriggerStudies/HLT/Seed_L1TETM70/HLT_DijetVBF60-40_DEta3p7_MJJ500}}\\
-\caption[HLT Seed L1TETM70]{HLT Seed L1TETM70}
+\caption{Plots produced by the optimization of possible \gls{HLT} path procedure for a maximum rate of $5\,\hertz$ for $8\,\TeV$, $1.4 \times 10^{34}\,\centi\meter^{-2}\second^{-1}$ instantaneous luminosity, 40 average \gls{PU} and $25\,\nano\second$ bunch separation. All \gls{HLT} algorithms are seeded by L1\_ETM70. Figure (a) shows the scan over \gls{HLT} \gls{PF} \gls{MET} for base configuration requiring a dijet on opposite sides of the detector, $p_T^{jet_1},p_T^{jet_2}>40,40\,\GeV$, $\Delta\eta>3.5$ and $M_{jj}>600\,\GeV$ while figure (b) shows the scan over \gls{HLT} \gls{PF} \gls{MET} for base configuration requiring a dijet on opposite sides of the detector, $p_T^{jet_1},p_T^{jet_2}>60,40\,\GeV$, $\Delta\eta>3.7$ and $M_{jj}>500\,\GeV$.}
 \label{FIGURE:RunIIPreparation_HLT_Seed_L1TETM70}
 \end{figure}
+
+Since the difference was small between those two trigger paths, for simplicity the symmetric path was chosen. This dedicated trigger combined with the \gls{HLT} reference trigger records 10.9\% of the simulated signal process, which corresponds to an increase of signal collection efficiency of 15.8\% when compared with just the reference trigger. Due to the lack of time and manpower to study and implement a new \gls{L1T} algorithm, this was the proposed solution for data taking during 2015. This proposal was accepted by the \gls{TSG} and the resulting \gls{HLT} trigger path used \gls{PF} $\text{MET}_{no-\mu}$. It was integrated into the standard \gls{CMS} trigger menu and was used to record data during the full 2015 Run II campaign.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Signal path with L1T seed Dijet + MET}
+\label{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment_L1TDijetMET}
+
+%Status: DONE
+
+Optimization can also be done for the two new proposed \gls{L1T} seeds. Events are selected with a \gls{L1T} dijet with its jets in opposite sides of the detector where $\pt^{jets}>30\,\GeV$, $\Delta\eta>3.5$ and \gls{L1T} $ETM \geq 50\,\GeV$. The same procedure was applied as described in previous section. Results for the best algorithm threshold combinations for maximum total signal efficiency, maximum total signal efficiency and lowest lowest \gls{PF} \gls{MET} threshold can be found in table \ref{TABLE:RunIIPreparation_HLT_Seed_L1TDijetMET}. Again, for each category of results, the best dijet symmetric and asymmetric \pt thresholds results are presented.
 
 \begin{table}[!htb]
 \centering
@@ -242,24 +234,30 @@ Asymmetric &                            100,40 & Yes &          4.5 &           
 \hline
 \end{tabular}
 }
-\caption{Table }
-\label{TABLE:}
+\caption{Results of the automatic optimization of possible \gls{HLT} path procedure for a maximum rate of $5\,\hertz$ for $8\,\TeV$, $1.4 \times 10^{34}\,\centi\meter^{-2}\second^{-1}$ instantaneous luminosity, 40 average \gls{PU} and $25\,\nano\second$ bunch separation. All \gls{HLT} algorithms are seeded by proposed \gls{L1T} algorithm selecting a dijet passing requirements \gls{VBF}, $\pt^{jets}>30\,\GeV$, and $\Delta\eta>3.5$ and $ETM \geq 50\,\GeV$. Results are presented for the best dijet symmetric and asymmetric \pt thresholds, over maximum total signal efficiency, maximum additional signal efficiency to HLT\_PFMET170\_NoiseCleaned, and lowest \gls{PF} \gls{MET}.}
+\label{TABLE:RunIIPreparation_HLT_Seed_L1TDijetMET}
 \end{table}
+
+As expected lowering the \gls{L1T} \gls{MET} threshold allow a bigger additional signal efficiency to be achieved. The best algorithms in this benchmark quantity, similarly to the previous study, also require $140\,\GeV$ of \gls{HLT} \gls{MET} and similar dijet thesholds. Implying the added efficiency comes from recovering events that fail \verb|L1_ETM70|. It is also interesting that the total efficiency is lower than seen in table \ref{TABLE:RunIIPreparation_HLT_Seed_L1TETM70}, which should be caused by the additional \gls{L1T} jet requirements. Plots of the two best additional signal efficiency algorithms scans of \gls{PF} \gls{MET} can be found in figure \ref{FIGURE:RunIIPreparation_HLT_Seed_L1TDijetMET}.
 
 \begin{figure}[!htp]%
 \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/TriggerStudies/HLT/Seed_DijetVBF30_DEta3p5_ETM50/HLT_DijetVBF60-40_DEta4p1_MJJ500.pdf}}\qquad
 \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/TriggerStudies/HLT/Seed_DijetVBF30_DEta3p5_ETM50/HLT_DijetVBF40-40_DEta4p1_MJJ600.pdf}}\\
-\caption[HLT Seed L1TETM70]{L1T Seed: Dijet30 + VBF + DEta>=3.5 + ETM>=50}
-\label{FIGURE:RunIIPreparation_HLT_Seed_L1TETM70}
+\caption{Plots produced by the optimization of possible \gls{HLT} path procedure for a maximum rate of $5\,\hertz$ for $8\,\TeV$, $1.4 \times 10^{34}\,\centi\meter^{-2}\second^{-1}$ instantaneous luminosity, 40 average \gls{PU} and $25\,\nano\second$ bunch separation. All \gls{HLT} algorithms selecting a dijet passing requirements \gls{VBF}, $\pt^{jets}>30\,\GeV$, and $\Delta\eta>3.5$ and $ETM \geq 50\,\GeV$. Figure (a) shows the scan over \gls{HLT} \gls{PF} \gls{MET} for base configuration requiring a dijet on opposite sides of the detector, $p_T^{jet_1},p_T^{jet_2}>60,40\,\GeV$, $\Delta\eta>4.1$ and $M_{jj}>500\,\GeV$ while figure (b) shows the scan over \gls{HLT} \gls{PF} \gls{MET} for base configuration requiring a dijet on opposite sides of the detector, $p_T^{jet_1},p_T^{jet_2}>40,40\,\GeV$, $\Delta\eta>4.1$ and $M_{jj}>600\,\GeV$.}
+\label{FIGURE:RunIIPreparation_HLT_Seed_L1TDijetMET}
 \end{figure}
 
+Further supporting that we are recovering efficiency from events lost by \verb|L1_ETM70| we can see the tail of additional efficiency continuing above \gls{PF} $\text{MET}>170\,\GeV$. The best additional signal efficiency algorithm optimized for this \gls{L1T} dijet plus \gls{MET} seed combined with the \gls{HLT} reference trigger records 11.11\%. This dedicated \gls{HLT} trigger, when compared with the proposed dedicated trigger for Run II, selects more 14.8\% additional efficiency with an increase of 2.0\% in total signal efficiency. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Signal path with L1T seed Dijet + Single Jet}
+\label{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment_L1TDijetSingleJet}
 
-L1T Seed: Dijet30 + VBF + DEta>=3.5 + Single Jet pT>=96
+%Status: DONE
+
+Finally, optimization of \gls{HLT} algorithms was also preformed over a possible \gls{L1T} seed without any \gls{MET} requirement. This seed selected events with a \gls{L1T} dijet with its jets in opposite sides of the detector where $\pt^{jets}>30\,\GeV$, $\Delta\eta>3.5$ and that the highest \pt \gls{L1T} jet in the event has at least $96\,\GeV$. This high \pt jet can and should be in the selected dijet but for simplicity of algorithm design both in hardware, and software and time constraints these conditions were kept separated. Again we applied the same procedure than in previous section and the results can be found in table \ref{TABLE:RunIITriggerStudies_HLT_Seed_L1TDijetSingleJet}.
 
 \begin{table}[!htb]
 \centering
@@ -287,163 +285,41 @@ Asymmetric &                            100,40 & Yes &          4.3 &           
 \hline
 \end{tabular}
 }
-\caption{Table }
-\label{TABLE:}
+\caption{Results of the automatic optimization of possible \gls{HLT} path procedure for a maximum rate of $5\,\hertz$ for $8\,\TeV$, $1.4 \times 10^{34}\,\centi\meter^{-2}\second^{-1}$ instantaneous luminosity, 40 average \gls{PU} and $25\,\nano\second$ bunch separation. All \gls{HLT} algorithms are seeded by proposed \gls{L1T} algorithm selecting a dijet passing requirements \gls{VBF}, $\pt^{jets}>30\,\GeV$, and $\Delta\eta>3.5$ and a single jet $\pt^{jets}>96\,\GeV$. Results are presented for the best dijet symmetric and asymmetric \pt thresholds, over maximum total signal efficiency, maximum additional signal efficiency to HLT\_PFMET170\_NoiseCleaned, and lowest \gls{PF} \gls{MET}.}
+\label{TABLE:RunIITriggerStudies_HLT_Seed_L1TDijetSingleJet}
 \end{table}
+
+Predictably, the best additional signal efficiency \gls{HLT} trigger algorithm found was highly asymmetric. Surprisingly, this is the best additional efficiency algorithm obtained in all studies. Again, the determined \gls{PF} \gls{MET} was $140\,\GeV$, suggesting that the recovered efficiency come from the absence of an \gls{L1T} \gls{MET} restriction combined with the asymmetric topological requirements. Total efficiency is also below the algorithms based on the \verb|L1_ETM70| seed. Since we are selecting the best additional efficiency configurations, this implies that we are recovering phase space lost by reference algorithm at the cost of total efficiency. Plots of the two best additional signal efficiency algorithms \gls{PF} \gls{MET} scans can be found in figure \ref{FIGURE:RunIITriggerStudies_HLT_Seed_L1TDijetSingleJet}.
 
 \begin{figure}[!htp]%
 \centering
 \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/TriggerStudies/HLT/Seed_DijetVBF30_DEta3p5_SingleJet96/HLT_DijetVBF90-40_DEta4p1_MJJ500.pdf}}\qquad
 \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/TriggerStudies/HLT/Seed_DijetVBF30_DEta3p5_SingleJet96/HLT_DijetVBF40-40_DEta4p3_MJJ800.pdf}}\\
-\caption[HLT Seed L1TETM70]{HLT Seed L1TETM70}
-\label{FIGURE:RunIIPreparation_HLT_Seed_L1TETM70}
+\caption{Plots produced by the optimization of possible \gls{HLT} path procedure for a maximum rate of $5\,\hertz$ for $8\,\TeV$, $1.4 \times 10^{34}\,\centi\meter^{-2}\second^{-1}$ instantaneous luminosity, 40 average \gls{PU} and $25\,\nano\second$ bunch separation. All \gls{HLT} algorithms selecting a dijet passing requirements \gls{VBF}, $\pt^{jets}>30\,\GeV$, and $\Delta\eta>3.5$ and a single jet $\pt^{jets}>96\,\GeV$. Figure (a) shows the scan over \gls{HLT} \gls{PF} \gls{MET} for base configuration requiring a dijet on opposite sides of the detector, $p_T^{jet_1},p_T^{jet_2}>90,40$, $\Delta\eta>4.1$ and $M_{jj}>500\,\GeV$ while figure (b) shows the scan over \gls{HLT} \gls{PF} \gls{MET} for base configuration requiring a dijet on opposite sides of the detector, $p_T^{jet_1},p_T^{jet_2}>40,40\,\GeV$, $\Delta\eta>4.3$ and $M_{jj}>800\,\GeV$.}
+\label{FIGURE:RunIITriggerStudies_HLT_Seed_L1TDijetSingleJet}
 \end{figure}
 
-% 2a) lowest MET cut (with >3% efficiency)
-% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF60-60_DEta3.5_MJJ700 + pf_met=144 rate=1.5Hz signalEff=0.0303
-% * 5.0Hz - L1T_ETM + HLT_DijetVBF100-40_DEta2.5_MJJ1100 + pf_met=122 rate=4.96 signalEff=0.0301 (this is the highest MJJ point I have maybe it can go higher)
-% * 5.0Hz - L1T_ETM + HLT_DijetVBF60-60_DEta3.9_MJJ700 + pf_met=125 rate=4.91 signalEff=0.031
-% 
-% 2b. best efficiency for dijet pT>40 GeV (other cuts can vary)
-% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta2.5_MJJ500 + pf_met=164 rate=1.08 signalEff=0.0476
-% * 5.0Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta2.5_MJJ500 + pf_met=152 rate=4.83   Hz signalEff=0.0546
-% 
-% 4a) run plot making on 3. and search for working points with maximum additional efficiency
-% Sadly value are a bit low:
-% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF60-40_DEta3.7_MJJ500 + pf_met=152 rate=1.46 signalEff(NOT HLT_PFMET170)=0.009 (asymmetric)
-% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta3.5_MJJ600 + pf_met=152 rate=1.42 signalEff(NOT HLT_PFMET170)=0.0087 (symmetric)
-% * 5.0Hz - L1T_ETM70 + HLT_DijetVBF60-40_DEta3.7_MJJ500 + pf_met=140 rate=4.36 signalEff(NOT HLT_PFMET170)=0.0155 (asymmetric)
-% * 5.0Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta3.5_MJJ600 + pf_met=140 rate=4.21 signalEff(NOT HLT_PFMET170)=0.0149 (symmetric)
-% 
-% So with 5.0Hz we go for 9.4% from HLT_PFMET170 to 10.9% so an improvement of about 16%.
+The best additional signal efficiency algorithm optimized for this \gls{L1T} dijet plus single jet seed combined with the \gls{HLT} reference trigger records 11.26\%. This dedicated \gls{HLT} trigger, when compared with the proposed dedicated trigger for Run II, selects more 19.8\% additional efficiency with an increase of 3.4\% in total signal efficiency. This trigger configuration most interesting feature is that it avoids completely the slow turn on of \gls{L1T} \gls{MET} which may allow significant gains by allowing lower offline \gls{MET} selection threshold.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Systematics path}
+\subsubsection{Systematics HLT trigger development}
+\label{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment_SystematicsPath}
+%Status: DONE
 
-% From our discussion yesterday, I was asked to look at the path with no L1 seeded (HLT_PFMET_PFVBF_Unseeded_v1) for control trigger, so I only have results without L1 seeded for now (see below).
-% 
-% Here are the unprescaled rates from several (lower) PFMET thresholds 
-% 
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET60  unprescaled rate = 12553.82 Hz
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET70  unprescaled rate =  8139.73 Hz
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET80  unprescaled rate =  4831.11 Hz
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET90  unprescaled rate =  2675.93 Hz 
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET100 unprescaled rate =  1394.83 Hz 
-% 
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET60  unprescaled rate = 9001.48 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET70  unprescaled rate = 5873.20 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET80  unprescaled rate = 3495.69 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET90  unprescaled rate = 1949.82 Hz 
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET100 unprescaled rate = 1033.37 Hz 
-% 
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET60  unprescaled rate = 6905.91 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET70  unprescaled rate = 4525.34 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80  unprescaled rate = 2690.04 Hz <=========================
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET90  unprescaled rate = 1504.46 Hz 
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET100 unprescaled rate = 795.24 Hz 
-% 
-% If we aimed for 0.5 Hz, we need prescale N ~5000 from path you suggest.
-% 
-% You can find rate plots of these working points in attachment. 
+One of the main systematics for the Run II analysis was the lack of statistics on the control regions. To counter this problem in Run II it was seen as desirable to design a a trigger algorithm with lower thresholds to study this regions. To allow the lowering of thresholds the trigger has to be prescaled and aimed to collect for a low bandwidth scenario $0.1\,\hertz$ and $0.5\,\hertz$ for a high bandwidth scenario.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Considering the chosen dedicated \gls{HLT} trigger path presented in section \ref{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment_L1ETM70}, it was decided to make a systematics path with the lowest possible \gls{MET} requirement both at \gls{L1T} and \gls{HLT}. The \gls{L1T} algorithm chosen to seed this trigger path was \verb|L1_ETM50| which in the \gls{TSG} proposed menu is prescaled by 1000. The same automatic procedure used for the signal path studies was used here again, considering that the maximum rate with the seed before any prescale applied would be $500\,\hertz$ for a high bandwidth scenario of an \gls{HLT} output rate of $0.5\,\hertz$. The same base dijet configuration as the dedicated signal path of selecting a dijet on opposite sides of the detector passing requirements: $p_T^{jet_1},p_T^{jet_2}>40,40\,\GeV$, $\Delta\eta>3.5$ and $M_{jj}>600\,\GeV$. The obtained \gls{HLT} \gls{PF} \gls{MET} thresholds was of $80\,\GeV$ for an unprescaled rate of $505.75\,\hertz$. The final predicted rate for an \gls{HLT} prescale of 1  was $0.5\,\hertz$ and $0.1\,\hertz$ for an \gls{HLT} prescale of 5, as required by the study targets for each scenario. A plot of the scan over \gls{HLT} \gls{PF} \gls{MET} results from the optimization procedure can be found in figure \ref{FIGURE:RunIITriggerStudies_SystematicsPath}.
 
-% See below with L1_ETM70 seeded and attached plot for HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET. 
-% 
-% Yes. I got your points but to include other L1 seeds (not L1_ETM70), as you said, I need to modified Joao’s code and I haven’t figured out how to do this yet (it’s in my next to do list), so we decided to look at the path without L1 seeded first. And I agree that producing ntuples which contain L1/HLT jets and MET would make our life easier :) I will do that.
-% 
-% Cheers,
-% Chayanit
-% 
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET60 
-% unprescaled rate = 152.28 Hz
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET70
-% unprescaled rate = 134.91 Hz
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET80
-% unprescaled rate = 112.70 Hz
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET90 
-% unprescaled rate = 86.90 Hz 
-% HLT_DijetVBF35-35_DEta3.5_MJJ600_PFMET100 
-% unprescaled rate = 62.25 Hz 
-% 
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET60
-% unprescaled rate = 139.66 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET70
-% unprescaled rate = 123.25 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET80
-% unprescaled rate = 101.64 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET90 
-% unprescaled rate = 76.71 Hz 
-% HLT_DijetVBF40-40_DEta3.5_MJJ500_PFMET100 
-% unprescaled rate = 53.77 Hz 
-% 
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET60
-% unprescaled rate = 117.72 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET70
-% unprescaled rate = 103.05 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80
-% unprescaled rate = 84.18 Hz
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET90 
-% unprescaled rate = 62.24 Hz 
-% HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET100 
-% unprescaled rate = 44.08 Hz 
+\begin{figure}[!htp]%
+\centering
+\includegraphics[width=0.55\linewidth]{Chapter08/TriggerStudies/HLT/Systematics/L1ETM50_HLT_DijetVBF40_DEta3p5_MJJ600.pdf}
+\caption{TODO}
+\label{FIGURE:RunIITriggerStudies_SystematicsPath}
+\end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% I just got the rates from L1_ETM50 (requiring L1 MET > 50) with unseeded PF HLT.
-% 
-% L1_ETM50 + HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80 : unprescaled rate = 505.75 Hz
-% 
-% For 0.5 Hz, we need HLT prescale = 1
-% 
-% For 0.1 Hz, we need HLT prescale = 5
-% 
-% And see unprescaled rate plot in attachment.
-% 
-% PS. I found something’s a bit odd when I checked the rates between these two : 
-% L1 MET > 70 + HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80 (from unseeded path) rate = 182.03 Hz
-% L1ETM70_HLT_DijetVBF40-40_DEta3.5_MJJ600_PFMET80 (using seeded path) rate = 84.18 Hz
-% 
-% Why are the rates different? Do I miss anything here?
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% OK, numbers are out:
-% 
-% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF100-40_DEta3.7_MJJ500 + pf_met=150 rate=1.45Hz signalEff(NOT HLT_PFMET170)=0.008 (best eff asymmetric, different working point) 
-% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta3.7_MJJ600 + pf_met=154 rate=1.46Hz signalEff(NOT HLT_PFMET170)=0.0075 (best eff symmetric, slight increase in thresholds) 
-% * 1.5Hz - L1T_ETM70 + HLT_DijetVBF60-60_DEta3.7_MJJ1100 + pf_met=129 rate=1.44Hz signalEff(NOT HLT_PFMET170)=0.0062 (lowest met, now showed before)
-% 
-% * 5Hz - L1T_ETM70 + HLT_DijetVBF60-40_DEta3.7_MJJ500 + pf_met=140 rate=4.84Hz signalEff(NOT HLT_PFMET170)=0.0155 (best eff asymmetric, same WP with same sigEff and MET but rate increased)
-% * 5Hz - L1T_ETM70 + HLT_DijetVBF40-40_DEta3.5_MJJ600 + pf_met=140 rate=4.68 signalEff(NOT HLT_PFMET170)=0.0149 (best eff symmetric, same WP with same sigEff and MET but rate increased)
-% * 5Hz - L1T_ETM70 + HLT_DijetVBF60-40_DEta3.5_MJJ600 + pf_met=140 rate=4.48Hz signalEff(NOT HLT_PFMET170)=0.0148 (your request WP, same WP with same sigEff and MET but rate increased)
-% * 5Hz - L1T_ETM70 + HLT_DijetVBF60-60_DEta4.1_MJJ800 + pf_met=119 rate=4.99Hz signalEff(NOT HLT_PFMET170)=0.0104 (lowest met, now showed before)
-% 
-% Code for additional L1T rate has run and first results will be computed as soon as I arrive to IC.
-% 
-% P.S.: I include the plot for your request WP which now shows no kink on rates.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% General points:
-% * Control plots are unaffected. 
-% * I think there may be a problem on my additional rate code. Its returning a total L1T rate of 130 kHz and some unexpected (higher than before) rates for the proposed dijet triggers. So I will do some debugging.
-% 
-% Will make some quick code to extract the individual efficiency of those proposed paths/
-% 
-% As for the default HLT:
-% 
-% 
-% FILE: /vols/cms02/jca10/work/slc6/dev01/CMSSW_7_2_0_pre8/src/VBFHiggsToInvisible/TriggerStudies/jobs/HLT_Run2015_ETM70_NOTPFMET170/results.log
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% => L1T_NoCuts/HLT_DijetVBF40-40_DEta3.5_MJJ600 + pf_met140=> Signal eff: 0.0515843 Total QCD Rate :4.67692
-% => L1T_NoCuts/HLT_DijetVBF60-40_DEta3.5_MJJ600 + pf_met140=> Signal eff: 0.0512509 Total QCD Rate :4.48162
-
+It was decided to propose to \gls{TSG} the lowest rate path with prescale 1000 at \gls{L1T} and 5 at \gls{HLT}. This proposal was accepted and a version of this trigger using \gls{PF} $\text{MET}_{no-\mu}$ was implemented and integrated into the standard \gls{CMS} trigger menu and was used to record data during the full 2015 Run II campaign.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -455,19 +331,6 @@ Asymmetric &                            100,40 & Yes &          4.3 &           
 
 
 
-% Extracting informotion 
-% \section{Additional L1 trigger}
-% Some new results for the "new L1T seed" DijetVBF30 + DEta3p5 + ETM50:
-% 
-% * 1.5Hz - HLT_DijetVBF100-40_DEta4.3_MJJ500 + pf_met=142 rate=1.49 signalEff(NOT HLT_PFMET170)=0.0101 (max efficiency)
-% * 1.5Hz - HLT_DijetVBF60-60_DEta4.3_MJJ1100 + pf_met=132 rate=1.44 signalEff(NOT HLT_PFMET170)=0.0077 (lowest MET)
-% 
-% * 5.0Hz - HLT_DijetVBF60-40_DEta4.1_MJJ500 + pf_met=140 rate=4.77Hz signalEff(NOT HLT_PFMET170)=0.0171 (max efficiency)
-% * 5.0Hz - HLT_DijetVBF60-60_DEta4.5_MJJ1000 + pf_met=122 rate=4.93Hz signalEff(NOT HLT_PFMET170)=0.0102 (lowest MET)
-% 
-% As expected with this seed we can get a bit more efficiency and go up to 11.1% an increase of 18.2% to just HLT_PFMET170
-% 
-% I will add tomorrow morning the study for the extra seed that had no L1T_ETM.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
