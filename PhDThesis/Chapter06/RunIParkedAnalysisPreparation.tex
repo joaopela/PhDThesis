@@ -1,33 +1,43 @@
 \chapter{Preparation for H(Inv) decays in the VBF channel with CMS parked data}
 \label{CHAPTER:PreparationParkedDataAnalysis}
 
+%Status: DONE (reviewed J.Pela x1)
+
+The Run I \gls{CMS} \gls{VBF} Higgs to invisible analysis was performed over two overlapping datasets. The promptly reconstructed data became available almost immediately after recording and its analysis was already presented in chapter \ref{CHAPTER:PromptDataAnalysis}, and became known as the Run I \textit{prompt analysis}. Simultaneously, a second data stream was recorded with lower trigger thresholds which only became available for analysis after the full \gls{LHC} Run I was finished. This chapter describes the studies made to prepare the Run I \textit{parked analysis} over this additional dataset. 
+
+A description of the studies performed to develop the trigger conditions used to record data for the \gls{VBF} Higgs to invisible analysis can be found in section \ref{SECTION:ParkedDataAnalysis_ParkedTriggerDevelopment}. This study was extend to create a condition to select \gls{VBF} Higgs events independently of the final state.
+
+The lower trigger thresholds required a re-optimization of the analysis event selection. Due to the lack of enough simulated event statistics the \textit{prompt analysis} was tuned to suppress the selection of \gls{QCD} multi-jet processes to a negligible level. The ability to lower the selection thresholds to take advantage of the lower parked data trigger requirements was therefore  limited by our understanding of the \gls{QCD} multi-jet background. Having a \gls{MC} description of these type of events would allow easier threshold optimization and create the opportunity for the analysis to evolve to a shape based or \gls{MVA} based analysis.
+
+The production and characterization of \gls{QCD} multi-jet samples with \gls{VBF} characteristics and real \gls{MET} is described in section \ref{SECTION:ParkedDataAnalysis_QCDVBFMET}. Further studies of possible approaches to suppress the \gls{QCD} multi-jet background are presented in sections \ref{SECTION:PreparationParkedDataAnalysis_DijetMETSystemVars} and \ref{SECTION:PreparationParkedDataAnalysis_TrackDistributionVariables}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{L1T Parked Trigger Development}
 \label{SECTION:ParkedDataAnalysis_ParkedTriggerDevelopment}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
 The first step of any analysis is defining or selecting a trigger to collect data. This trigger should have a high signal efficiency while recording an acceptable rate.
 
-At the beginning of 2012 the possibility of recording data without promptly reconstructing it was introduced. This additional data is now known as \textit{parked data}. The \gls{CMS} \gls{VBF} Higgs to invisible analysis saw this as an opportunity to develop a secondary set of triggers with lower thresholds to allow more signal to be collected when compared with the developed prompt trigger. As this effort developed it became clear that an inclusive trigger that would record \gls{VBF} events regardless of final state could be implemented.
+At the beginning of 2012 the possibility of recording data without promptly reconstructing it was introduced. This additional data is now known as \textit{parked data}. The \gls{CMS} \gls{VBF} Higgs to invisible analysis saw this as an opportunity to develop a secondary set of triggers with lower thresholds to allow more signal to be collected when compared with the already developed prompt trigger. As this effort developed it became clear that an inclusive trigger that would record \gls{VBF} events regardless of final state could be implemented.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{VBF Higgs to Invisible Higgs Trigger}
+\subsection{VBF Higgs to Invisible Higgs Level 1 Trigger development}
 \label{SUBSECTION:ParkedDataAnalysis_ParkedTriggerDevelopment_VBFHiggsInvisibleTrigger}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-This study was based on data recorded during the high \gls{PU} special run that happened in late 2011 and was aimed at making a proposal for a viable \gls{L1T} trigger algorithm to be used during the 2012 proton run. 
+Data recorded during the special high \gls{PU} run in late 2011, was used to study \gls{L1T} trigger algorithms to be used during the 2012 proton run. During this \gls{LHC} fill the average \gls{PU} was of $\approx 30$ simultaneous interactions. 
 
 The investigated algorithms select the typical topology of our signal. They look for events with \gls{MET} and and two jets located in opposite sides of the detector by requiring $\eta_{jet1}\times\eta_{jet2}<0$, large pseudo-rapidity separation of at least $\Delta\eta_{jj}>3$. The possibility of using $\Delta\phi_{jj}$ was also studied but was disfavoured since it could lead to lower signal efficiency in some \gls{BSM} models.
 
 The conditions expected for early 2012 were of instantaneous luminosity of $5 \times 10^{33}\,\centi\meter^{-2}\second^{-1}$ and an average \gls{PU} of 28 interactions (scenario A). For late 2012 conditions were expected to increase to instantaneous luminosity of $7 \times 10^{33}\,\centi\meter^{-2}\second^{-1}$ and an average \gls{PU} of 32 interactions (scenario B).
 
-Algorithm parameters we optimized for both this scenarios of \gls{LHC} running and considering several benchmark \gls{L1T} rates. The proposed target rate for the algorithm was assumed to be $2\,\kilo\Hz$, the additional working points were calculated with the intention to adjust the selection cuts according to higher or lower bandwidth available on the menu. The two key variables are $\pt^{\text{jets}}$ and the \gls{MET}. Each of these variables was set in turn to the lowest reasonable value while the other was scanned until the necessary rate value was achieved.  Results for scenario A can be found in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate5E33} and for scenario B in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate7E33}.
+Algorithm parameters were optimized for both this scenarios of \gls{LHC} running and considering several benchmark \gls{L1T} rates. The proposed target rate for the algorithm was assumed to be $2\,\kilo\Hz$, the additional working points were calculated with the intention to adjust the selection cuts according to higher or lower bandwidth available on the menu. The two key variables are $\pt^{\text{jets}}$ and the \gls{MET} and were optimized separately. Each of these variables was set in turn to the lowest reasonable value while the other was scanned until the necessary rate value was achieved.  Results for scenario A can be found in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate5E33} and for scenario B in table \ref{TABLE:ParkedDataAnalysis_L1TParkedTriggerDevelopment_Rate7E33}.
 
 \begin{table}[!htb]
 \begin{minipage}{.5\linewidth}
@@ -118,7 +128,7 @@ to be included on \gls{L1T} Menus. Proposed trigger options were:
 \item Algorithm B: Lead dijet (opp. sides + $\pt^{\text{jets}}>50\,\GeV$ + $\Delta\eta_{jj}>3$) + $\text{MET}>30\,\GeV$
 \end{itemize}
 
-It can be observed that with the at the time predicted increase of luminosity the necessary rate for such proposed algorithms could escalate to $\approx 5\,\kilo\Hz$. For the rate to be maintained at $2\,\kilo\Hz$ the value of the MET cut in algorithm A would have to be raised to $47\,\GeV$ and the value of $\pt^{\text{jets}}$ cut in algorithm B would have to increase to $64\,\GeV$.
+It can be observed that with the predicted increase of instantaneous luminosity and \gls{PU} from scenario A to scenario B, the necessary rate for such proposed algorithms could escalate up to $\approx 5\,\kilo\Hz$. For the rate to be maintained at $2\,\kilo\Hz$ the value of the MET cut in algorithm A would have to be raised to $47\,\GeV$ and the value of $\pt^{\text{jets}}$ cut in algorithm B would have to increase to $64\,\GeV$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -126,68 +136,81 @@ It can be observed that with the at the time predicted increase of luminosity th
 \subsection{VBF Higgs Inclusive Trigger}
 \label{SUBSECTION:ParkedDataAnalysis_ParkedTriggerDevelopment_InclusiveHiggsTrigger}
 
-It would be desirable to have a dedicated \gls{VBF} Higgs inclusive \gls{L1T} trigger that would be decay independent. Such an algorithm would allow analysts to have a single trigger for all \gls{VBF} produced Higgs decay signatures, which would implies less systematics in their comparison. Additionally, if an algorithm is used by more analysis it will become better understood.
+%Status: DONE
 
-When selecting events based only on the presence of a dijet with \gls{VBF} characteristics we can remove the dependency on the Higgs decay. This approach would be suitable since it ignores the Higgs decays themselves. Since we are not making any assumptions of the Higgs model, we could study all possible decays even those predicted by new models with a single trigger. Thus, it would be a model-independent trigger.
+It would be desirable to have a dedicated \gls{VBF} Higgs inclusive \gls{L1T} trigger that would be decay independent. Such an algorithm would allow analysts to have a single trigger for all \gls{VBF} produced Higgs decay signatures, which would imply less systematics in their comparison. Additionally, if an algorithm is used by more analyses it will become better understood.
 
-This trigger can also be used for a WW scattering analysis, which in the case of the absence of the now discovered Higgs boson would allow to eventually exclude the standard model.
+When selecting events based only on the presence of a dijet with \gls{VBF} characteristics we can remove the dependency on the Higgs decay. This approach would be suitable since it ignores the Higgs decays themselves. Since we are not making any assumptions of the Higgs model, we could study all possible decays even those predicted by yet to be defined models with a single trigger. Thus, it would be a model-independent trigger.
 
+This trigger can also be used for analysis of WW scattering, which in the case of the absence of the now discovered Higgs boson would allow to eventually exclude the standard model itself. Since without a Higgs boson this process probability would become larger than unity at the $\TeV$ scale.
+%TODO: need reference here.
 
-%%TODO: Below
+Such a trigger would have to select two forward jets with \gls{VBF} characteristics, and would be limited to what is possible to implement on the current \gls{L1T} hardware. The following variables were considered to suppress the algorithm rate by constrain the dijet system: dijet invariant mass, dijet transverse invariant mass ($M_{T}$), and event \gls{HT}. For this study we always require a \gls{L1T} dijet with both jets in opposite sides of the detector with $\Delta\eta>3$. The selected jets \pt is scanned and \gls{L1T} algorithm rate is calculated for a grid of points of each considered variable.
 
-For such a trigger to work it would have to be based only on the forward dijet which is the defining caracteristic
-of the VBF signature.
-It was decided to study two variables of the dijet system: invariant mass and transverse invariant mass (MT); and an event 
-variable, scalar sum of the hadronic energy (HT). For this study we always require a dijet with $\Delta\eta>3$ and we 
-look at the effects of an additional cut on $\Delta\phi$, the points tested were no cut, $<2.5$, $<2.1$ and $<1.8$.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Dijet invariant mass}
 
-This variable takes advantage from the very high invariant mass of the dijet system but it is not yet implemented
-on the L1 hardware but according to trigger experts it is in principle possible to implement with the current hardware.
+%Status: DONE
 
-Unfortunately, using this variable alone to is not enough. To get acceptable rates we would need to cut too high on
-jet $p_\bot$ or $M_{Inv}$ losing almost all signal efficiency.
+The for \gls{VBF} processes the outgoing dijet is expected to have high invariant mass making this quantity a possible handle at in a \gls{L1T} trigger algorithm. Calculation of dijet invariant mass was not implemented in the \gls{L1T} hardware but according to trigger experts it was in principle possible. Unfortunately, to obtain acceptable rates the required threshold for jet $p_T$ and $M_{jj}$ would reject almost all \gls{SM} \gls{VBF} Higgs signal.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Dijet transverse invariant mass}
 
-This variable is better at suppressing QCD events, it is less pileup-dependent and has lower error associated with it
-(only x-y dependence). It is also not yet implemented on the L1 Hardware but according to trigger experts it is in principle 
-possible to implement with the current hardware.
+%Status: DONE
 
-This variable showed to be promising. A possible working point for a Level 1 rate
-of 5kHz could be $MT>50$ $GeV$ no $\Delta\phi$ cut and dijet $p_\bot \sim 45$ $GeV$ which should give a signal
-efficiency of $\lesssim70\%$ (see R. Lane 3 Months PhD Report).
+The dijet transverse mass was also considered and was proved to be more effective at suppressing \gls{QCD} multi-jet events. Again, this quantity is not implemented on the \gls{L1T} hardware but could be implemented. A possible working point for scenario A was obtained with a predicted \gls{L1T} rate of $5\kilo\hertz$. Events would be selected with at least one dijet with $\Delta\eta>3$ and $M_T>50\,\GeV$ where both jets have $p_T \sim 45\,\GeV$ and are in opposite sides of the detector. The expected signal efficiency was calculated to be $\approx 70\%$ for a \gls{SM} \gls{VBF} Higgs with $m_H=125\,\GeV$ decaying to $\tau\tau$.
 
-\subsubsection{Event scaler sum of the transverse energy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Event scaler sum of the transverse hadronic energy}
 
-Theoretically, this is the best variable to separate signal from background and has the advantage of being already
-implemented on L1 hardware.
+%Status: Writting
 
-This was shown to be the most promising variable. A possible working point for a Level 1 rate of 5kHz could be $HT>100$ 
-$GeV$ no $\Delta\phi$ cut and dijet $p_\bot \sim 40$ $GeV$ which should give a signal efficiency of $\lesssim98\%$
-(see Figures \ref{figure_PU28_5e33_RateFBDijetDEtaDPhi00HT100} and \ref{figure_sig_eff_l1_ht}).
+The event scaler sum of the transverse hadronic energy is the sum of the energy of all \gls{L1T} jets in the event. This variable has the advantage of being already implemented in the \gls{L1T} hardware. Again, a possible working point for scenario A was obtained with a predicted \gls{L1T} rate of $5\kilo\hertz$. Events would be selected with $HT>100\,\GeV$ and with at least one dijet with $\Delta\eta>3$ where both jets have $p_T \sim 40\,\GeV$ and are in opposite sides of the detector. The expected signal efficiency was calculated to be $\approx 98\%$ for a \gls{SM} \gls{VBF} Higgs with $m_H=125\,\GeV$ decaying to $\tau\tau$. A plot of the scan over \gls{L1T} $\pt^{jets}$ for $HT>100\,\GeV$ can be found in figure \ref{FIGURE:ParkedDataAnalysis_ParkedTriggerDevelopment_PU28_5e33_RateFBDijetDEtaDPhi00HT100}.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.60\textwidth]{Chapter07/ParkedDataTriggerDevelopment/Images/PU28_5e33_RateFBDijetDEtaDPhi00HT100.png}
-\caption{Level 1 rate as a function of dijet $p_\bot$ while selecting events with $HT>100$ $GeV$. Results based on
-data from the high pileup special run taken late 2011.}
-\label{figure_PU28_5e33_RateFBDijetDEtaDPhi00HT100}
+\caption{Level 1 rate as a function of dijet $p_T^{jets}$ while selecting events with at least one dijet with $\Delta\eta>3$ where are in opposite sides of the detector and $HT>100\,\GeV$ for scenario A. Results based on data from the high pileup special run taken late 2011. The red lines indicate the selected working point of \gls{L1T} rate of $5\,\kilo\hertz$ resulting in a $p_T^{jets} \gtrsim 40\,\GeV$ threshold.}
+\label{FIGURE:ParkedDataAnalysis_ParkedTriggerDevelopment_PU28_5e33_RateFBDijetDEtaDPhi00HT100}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Final proposal}
+
+%Status: DONE
+
+The \gls{L1T} algorithm selecting \gls{MET} bigger than $40\,\GeV$ was unprescaled in the trigger menus used during Run I, it was decided to use this algorithm as seed for the invisible component of \gls{VBF} Higgs decays. Thus avoiding the additional complication of having to implement a dijet plus \gls{MET} \gls{L1T} algorithm for minimal threshold gain. For the \gls{VBF} channels with visible decays and considering the findings of this study, a similar simplified approach was taken. Depending on the delivered instantaneous luminosity and prescale events with \gls{HT} bigger than 150 or $170\,\GeV$ would be selected. The developed inclusive \gls{VBF} Higgs \gls{HLT} path was seeded by a logical or the these three \gls{L1T} seeds.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{QCD VBF+MET Monte Carlo simulation}
+\label{SECTION:ParkedDataAnalysis_QCDVBFMET}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% QCD VFB + MET samples
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 20140204_ICVBFHiggs_JPela_VBFQCD.pdf (plot on the AN)
+% 20140506_ICVBFHiggs_JPela.pdf (selection test)
+% 
+% Something odd here
+% /home/hep/jca10/work/vbfinv/ws08/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu
+
 
 \begin{table}
 \centering
 \begin{tabular}{|c|r|c|r|c|c|}
   \hline
-  Sample          &       Ev. Gen. & Filter Eff. &  Events &  XS $[pb]$ & Eq. Lumi. $[fb^{-1}]$ \\
+  Sample          &    Ev. Gen. & Filter Eff. &  Events & XS $[pb]$ & Eq. Lumi. $[fb^{-1}]$ \\
   \hline \hline
   QCD-Pt-80to120  & 39376000000 &    0.000049 & 1614416 &  1033680 &  38.09 \\
   QCD-Pt-120to170 &  7000000000 &    0.000283 & 2051000 & 156293.3 &  44.79 \\
@@ -198,7 +221,7 @@ data from the high pileup special run taken late 2011.}
 \end{tabular}
 \end{table}
 
-\begin{figure}[h!]
+\begin{figure}[!htb]
 \centering
 \includegraphics[width=0.55\textwidth]{Chapter05/ParkedDataPreparation/Images/Joao_140209_p11.png}
 \caption{Reconstructed PFMET as a function of generator-level MET
@@ -207,15 +230,11 @@ data from the high pileup special run taken late 2011.}
 \label{fig:qcdRecovsGenMET}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Dijet-MET system topological variables}
-
-
-\section{Track distribution variables}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Jet topology variables
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{SECTION:PreparationParkedDataAnalysis_DijetMETSystemVars}
 % 18 Months report was on the Sep 9 2013
 % 
 % /home/hep/jca10/work/vbfinv/ws04/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu/PLOTS_mjj1200_dijetFrac/nunu/MET130/n_vtx_2012_DijetFraction_log.pdf
@@ -228,22 +247,42 @@ data from the high pileup special run taken late 2011.}
 % Looks like plots are from Feb 20 2014
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Track variables
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Track distribution variables}
+\label{SECTION:PreparationParkedDataAnalysis_TrackDistributionVariables}
+
 % 20140603_ICVBFHiggs_JPela.pdf
 % /afs/cern.ch/user/p/pela/work/cms/vbfinv/ws03/CMSSW_5_3_11/src/VBFHiggsToInvisible/VariableAnalyser/python/PowhegSignal_cfi.py
-% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% QCD VFB + MET samples
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 20140204_ICVBFHiggs_JPela_VBFQCD.pdf (plot on the AN)
-% 20140506_ICVBFHiggs_JPela.pdf (selection test)
-% 
-% Something odd here
-% /home/hep/jca10/work/vbfinv/ws08/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu
+% Plots remade here:
+% /afs/cern.ch/user/p/pela/work/cms/vbfinv/ws03/slc6/CMSSW_5_3_11/src/VBFHiggsToInvisible/VariableAnalyser/results/
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+One of the important features of \gls{VBF} processes is that there is no colour connection between the outgoing quark jets. Since \gls{QCD} multi-jet processes do have colour connection, it is expected that \gls{QCD} background events will have hadronic activity between the leading jets. Motivating the use of a central jet veto in the Run I prompt analysis. Events were vetoed if a jet identified as coming from \gls{PV} with enough \pt was found between the two leading jets. But colour connection can result simply in a spread of energy in the event which may be clustered into \gls{PU} jets or remain unclustered. Also by having a minimum \pt requirement on a single veto jet may result in accepting events where multiple jets coming from the \gls{PV} are present with low \pt, but if combined would pass the veto threshold.
+
+For colour connected jets it is expected that a significant amount tracks coming from the primary vertex would be spread in the event specially between the selected jets. It forward physics analysis with similar unconnected dijet signal topologies it is common to use variables like the fraction of tracks inside the selected jets to isolate the signal from background \cite{ARTICLE:AnalysisDiffractiveJets}. Considering tracks has the advantages of not depending on jet clustering or veto jet selection and using directly the excellent resolution of the \gls{CMS} inner tracking system. 
+
+Two variables were considered for inclusion in a cut or \gls{MVA} based signal selection criteria, the fraction of track coming from the \gls{PV} contained inside the selected jets and the fraction of summed momentum associated with tracks from the \gls{PV} contained inside the selected jets, $\phi$.
+
+%TODO: Continue here
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/Tracks1_TracksNRatio.pdf} 
+\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/Tracks1_TracksERatio.pdf} \\
+\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/Tracks1_CJVPass_TracksERation.pdf}
+\caption{TODO}
+\label{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Selection}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/BB_Tracks1_TracksERatio.pdf}
+\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/BE_Tracks1_TracksERatio.pdf} \\
+\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/EE_Tracks1_TracksERatio.pdf}
+\caption{TODO}
+\label{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Acceptance}
+\end{figure}
 
