@@ -266,7 +266,7 @@ d_{ij} &= \text{min}({\pT}_{i}^{2p},{\pT}_{j}^{2p})\frac{\Delta R_{ij}^{2}}{R^{2
 d_{iB} &= {\pT}_{i}^{2p}\ \label{EQUATION:EventReconstructionAndSimulation_AKDistances2} 
 \end{align}
 
-Where $\Delta R$ is the separation the $\eta-\phi$ plane and $R$ is the maximum diameter for the jet. The parameter $p$ determines the type of algorithm. When $p$ equal to 1 its a $k_T$ algorithm, 0 for the Cambridge/Aachen algorithm and -1 for the anti-$k_T$. 
+Where $\Delta R$ is the separation the $\eta-\phi$ plane and $R$ is the maximum radius for the jet. The parameter $p$ determines the type of algorithm. When $p$ equal to 1 its a $k_T$ algorithm, 0 for the Cambridge/Aachen algorithm and -1 for the anti-$k_T$. 
 
 After determining all the $d_{ij}$ and $d_{iB}$ we determine which is the minimum distance. If it is a $d_{ij}$ we combine those two object and recalculate all the distances. If the minimum is a $d_{iB}$ we declare $i$ to be a \textit{final state jet}, and remove it from the list of particles and recalculate all distances the again. The procedure continues until there are no more objects remaining.
 
