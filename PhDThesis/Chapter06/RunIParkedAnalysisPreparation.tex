@@ -259,21 +259,26 @@ The approach taken was to methodically removed variable ranges on reference dist
 
 The \gls{QCD} multi-jet events passing this pre-selection were weighted so their total number would be the difference between data and all other estimate backgrounds estimated from \gls{MC} simulation. The selection signal efficiency for a \gls{SM} \gls{VBF} Higgs decay to invisible with $m_H=125\,\GeV$ was estimated to be 76\%. Figure \ref{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_PreSectionVariables} contains plots comparing data and \gls{MC} simulation for some of the key variables used in the \textit{prompt analysis} signal event selection.
 
+%TODO: FIX THIS
 \begin{figure}[!htb]
+\vspace{-50px}
 \centering
-\subfloat[]{\includegraphics[width=0.48\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijet_M.pdf}}
-\subfloat[]{\includegraphics[width=0.48\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/ht_LogY.pdf}} \\ 
-\subfloat[]{\includegraphics[width=0.48\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijet_deta.pdf}}
-\subfloat[]{\includegraphics[width=0.48\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijet_dphi.pdf}} \\ 
-\subfloat[]{\includegraphics[width=0.48\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/met.pdf}}
-\subfloat[]{\includegraphics[width=0.48\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/metSig.pdf}} \\
-\label{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_PreSectionVariables}
+\subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijet_M.pdf}}
+\subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/ht_LogY.pdf}} \\ 
+\subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijet_deta.pdf}}
+\subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijet_dphi.pdf}} \\ 
+\subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/met.pdf}}
+\subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/metSig.pdf}} \\
 \caption{Plots of the the number of events for some of the key analysis variables after the proposed pre-selection using \gls{MC} simulation including the new \gls{QCD} multi-jet samples and 19.8 $fb^{-1}$ of data. Plot are, (a) dijet invariant mass, (b) hadronic energy total, (c) dijet $\Delta\phi$, (d) dijet $\Delta\eta$, (e) \gls{MET} and (f) \gls{MET} significance. Where red vertical lines can be seen they represent the applied cut by the pre-selection.}
+\label{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_PreSectionVariables}
 \end{figure}
 
 Data description by the \gls{MC} event samples was seen as acceptable in all variables to proceed with further studies. The biggest observed discrepancies were observed at low values of \gls{MET} and \gls{MET} significance and high values of dijet $\Delta\eta$.
 
 Unfortunately, when analysing the control regions already defined for the \textit{prompt analysis} with the additional pre-selection requirements the agreement became unacceptable for many variables, making it not possible to use this samples for shape comparison of \gls{BDT} training. The new \gls{QCD} multi-jet samples had special difficulty describing events where the \gls{MET} was aligned with a jet axis which points to \gls{MET} miss measurement. Although, this \gls{QCD} multi-jet event samples could not fully describe this component of data they still model a significant part this background and have been used to study new variables to attempt to suppress at least those types of events. 
+
+% To force plots to be in this section
+\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
