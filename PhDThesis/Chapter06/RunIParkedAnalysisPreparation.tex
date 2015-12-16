@@ -204,6 +204,9 @@ The \gls{L1T} algorithm selecting \gls{MET} bigger than $40\,\GeV$ was unprescal
 % 
 % Something odd here
 % /home/hep/jca10/work/vbfinv/ws08/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu
+% 
+% Not this but QCD VBF Studies
+% /home/hep/jca10/work/vbfinv/results/2014-01_StudyQCDVBF
 
 %Status: DONE
 
@@ -259,7 +262,15 @@ The approach taken was to methodically removed variable ranges on reference dist
 
 The \gls{QCD} multi-jet events passing this pre-selection were weighted so their total number would be the difference between data and all other estimate backgrounds estimated from \gls{MC} simulation. The selection signal efficiency for a \gls{SM} \gls{VBF} Higgs decay to invisible with $m_H=125\,\GeV$ was estimated to be 76\%. Figure \ref{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_PreSectionVariables} contains plots comparing data and \gls{MC} simulation for some of the key variables used in the \textit{prompt analysis} signal event selection.
 
-%TODO: FIX THIS
+% NOTE:
+%
+% This plots were produced at:
+% /home/pela/work
+%
+% To redo:
+% => Source sw/ICTools and:
+% cd ../sw/ICTools/lib/; make all; cd -; 
+% g++ -g img/doPlots.cxx -o img/doPlots.exe `root-config --cflags --libs` `ictools-config --libs` `ictools-config --cflags` -lTMVA
 \begin{figure}[!htb]
 \vspace{-50px}
 \centering
