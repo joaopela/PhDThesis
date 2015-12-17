@@ -291,10 +291,12 @@ Unfortunately, when analysing the control regions already defined for the \texti
 % To force plots to be in this section
 \clearpage
 
+\section{QCD suppression}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Dijet-MET system topological variables}
+\subsection{Dijet-MET system topological variables}
 \label{SECTION:PreparationParkedDataAnalysis_DijetMETSystemVars}
 % 18 Months report was on the Sep 9 2013
 % 
@@ -306,15 +308,44 @@ Unfortunately, when analysing the control regions already defined for the \texti
 % 
 % /vols/cms02/jca10/work/ws01/CMSSW_5_3_11/src/UserCode/ICHiggsTauTau/Analysis/HiggsNuNu/plots/DPhiSIGNAL_CJVpass/dijetMet/dijetFrac_htMET.png
 % Looks like plots are from Feb 20 2014
+% 
+% Presentations about topological variables
+% IC_VBFHiggs/2013-05-14_Looking_For_New_Variables_to_Attack_QCD/20130514_JPela_LookingForNewVariables.pdf
+% Higgs_VBF_Invisible/2013-06-17/2013-06-17_CMSVBFInv_JPela_StudyNewVariables.pdf
+%
+% Plots were redone here:
+% /home/pela/work/balanceVars
+%
+% Need to do to redo:
+% => Source sw/ICTools and:
+% g++ -g getPlots.cxx -o getPlots.exe `root-config --cflags --libs` `ictools-config --libs` `ictools-config --cflags` -lTMVA
+% ./getPlots.exe
 
 
-% \includegraphics[width=0.48\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijetmet_ptfraction.pdf}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.45\textwidth]{Chapter06/TopologicalVariables/Images/JetPair_scalSumTriObjectPt.pdf} 
+\includegraphics[width=0.45\textwidth]{Chapter06/TopologicalVariables/Images/JetPair_vecSumTriObjectPt.pdf} 
+\caption{TODO}
+\label{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_2}
+\end{figure}
+
+
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.45\textwidth]{Chapter06/TopologicalVariables/Images/JetPair_dijetOverMetPt.pdf} 
+\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijetmet_ptfraction.pdf}
+\caption{TODO}
+\label{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_2}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Track distribution variables}
+\subsection{Track distribution variables}
 \label{SECTION:PreparationParkedDataAnalysis_TrackDistributionVariables}
 
 % 20140603_ICVBFHiggs_JPela.pdf
