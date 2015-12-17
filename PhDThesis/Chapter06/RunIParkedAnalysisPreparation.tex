@@ -1,4 +1,4 @@
-\chapter{Preparation for H(Inv) decays in the VBF channel with CMS parked data}
+\chapter{Run I parked data analysis preparation}
 \label{CHAPTER:PreparationParkedDataAnalysis}
 
 %Status: DONE (reviewed J.Pela x1)
@@ -271,6 +271,8 @@ The \gls{QCD} multi-jet events passing this pre-selection were weighted so their
 % => Source sw/ICTools and:
 % cd ../sw/ICTools/lib/; make all; cd -; 
 % g++ -g img/doPlots.cxx -o img/doPlots.exe `root-config --cflags --libs` `ictools-config --libs` `ictools-config --cflags` -lTMVA
+% ./img/doPlots.exe StudyPreSelection_DEta3p6_MetSig3p0_MinDPhiJetsMet1p5.root
+
 \begin{figure}[!htb]
 \vspace{-50px}
 \centering
@@ -330,11 +332,11 @@ The re-optimization of the signal event selection to use with parked data will h
 When analysing events from \gls{VBF} produced Higgs decays, the products of the Higgs boson should be recoiling from the outgoing \gls{VBF} jets. When the Higgs decays invisibly the measurement \gls{MET} should have the same magnitude than the dijet system transverse momentum and they should be pointing in opposite directions. This topological constrains do not apply to \gls{QCD} multi jets backgrounds and therefore can be used to discriminate between this processes. Two variables are defined to explore this properties $\alpha_{\text{vec}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_1}) and $\alpha_{\text{balance}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_2}). Additionally, a  dijet plus \gls{MET} energy scale variable can be defined as  $\alpha_{\text{scale}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_3}).
 
 \begin{align}
-\alpha_{\text{vec}}     &= |\sum \vec{\pt^{jet_1}} + \vec{\pt^{jet_1}} + \vec{MET}|
+\alpha_{\text{vec}}     &= |\vec{\pt^{jet_1}} + \vec{\pt^{jet_2}} + \vec{MET}|
 \label{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_1} \\
-\alpha_{\text{balance}} &= \frac{Dijet \pt}{Dijet \pt + MET} 
+\alpha_{\text{balance}} &= \frac{\text{Dijet } \pt}{\text{Dijet } \pt + MET} 
 \label{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_2} \\
-\alpha_{\text{scale}}   &= \sum \pt^{jet_1} + \pt^{jet_1} + MET 
+\alpha_{\text{scale}}   &= \pt^{jet_1} + \pt^{jet_2} + MET 
 \label{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_3} \\
 \end{align}
 
@@ -356,7 +358,7 @@ It can be observed that in $\alpha_{\text{scale}}$ the signal as expected is har
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter06/TopologicalVariables/Images/JetPair_dijetOverMetPt.pdf} 
 \includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijetmet_ptfraction.pdf}
-\caption{Shape distributions for $\alpha_{\text{balance}}$. The left plot shows the comparison of \gls{VBF} Higgs to invisible decays with $m_H=120\,\GeV$ and \gls{QCD} multi-jets ($\hat{\pt}>80\,\GeV$) inclusive decays, each shape integral is normalized to 1. The right plot events are selected using the preselected defined in section \ref{}. Simulated backgrounds including the new \gls{QCD} multi-jet samples are compared with 19.8 $fb^{-1}$ of data.}
+\caption{Shape distributions for $\alpha_{\text{balance}}$. The left plot shows the comparison of \gls{VBF} Higgs to invisible decays with $m_H=120\,\GeV$ and \gls{QCD} multi-jets ($\hat{\pt}>80\,\GeV$) inclusive decays, each shape integral is normalized to 1. The right plot events are selected using the preselected defined in section \ref{SECTION:PreparationParkedDataAnalysis_QCDVBFMETPreselection}. Simulated backgrounds including the new \gls{QCD} multi-jet samples are compared with 19.8 $fb^{-1}$ of data.}
 \label{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_2}
 \end{figure}
 
@@ -370,34 +372,51 @@ Good description of the data is observed and it is showed that both the new samp
 
 % 20140603_ICVBFHiggs_JPela.pdf
 % /afs/cern.ch/user/p/pela/work/cms/vbfinv/ws03/CMSSW_5_3_11/src/VBFHiggsToInvisible/VariableAnalyser/python/PowhegSignal_cfi.py
+%
 % Plots remade here:
 % /afs/cern.ch/user/p/pela/work/cms/vbfinv/ws03/slc6/CMSSW_5_3_11/src/VBFHiggsToInvisible/VariableAnalyser/results/
+% To recompile
+% cd /afs/cern.ch/user/p/pela/work/cms/vbfinv/ws03/slc6/CMSSW_5_3_11/src/VBFHiggsToInvisible/VariableAnalyser/bin/
+% scramv1 b
+%
+% To redo:
+% cmsenv
+% vbfinvVariableAnalysisTracks_makePlots
 
-% Status: Writing
+% Status: DONE
 
-One of the important features of \gls{VBF} processes is that there is no colour connection between the outgoing quark jets. Since \gls{QCD} multi-jet processes do exhibit this property, it is expected that \gls{QCD} background events will have hadronic activity between the leading jets. Motivating the use of a central jet veto in the Run I prompt analysis. Events were vetoed if a jet identified as coming from \gls{PV} with enough \pt was found between the two leading jets. But colour connection can result simply in a spread of energy in the event which may be clustered into \gls{PU} jets or remain unclustered. Also by having a minimum \pt requirement on a single veto jet may result in accepting events where multiple jets coming from the \gls{PV} are present with low \pt, but if combined would pass the veto threshold.
+One of the important features of \gls{VBF} processes is that there is no colour connection between the outgoing quark jets. Since \gls{QCD} multi-jet processes do exhibit this property, it is expected that this background events will have significant hadronic activity between the event jets. Motivating the use of a central jet veto in the Run I \textit{prompt analysis}. Events were vetoed if a jet with enough \pt was found between the two leading jets, identified as coming from \gls{PV}. But colour connection can result simply in a spread of energy in the event which may be clustered into \gls{PU} jets or remain unclustered. Also by having a minimum \pt requirement on a single veto jet may result in accepting events where multiple jets coming from the \gls{PV} are present with low \pt, which combined would pass the veto threshold.
 
-For colour connected jets it is expected that a significant amount tracks coming from the primary vertex would be spread in the event specially between the selected jets. Some forward physics analysis with similar unconnected dijet signal topologies it is common to use variables like the fraction of tracks inside the selected jets to isolate the signal from background \cite{ARTICLE:AnalysisDiffractiveJets}. Considering tracks has the advantages of not depending on jet clustering or veto jet definition and uses directly the excellent resolution of the \gls{CMS} inner tracking system. 
+For colour connected jets it is expected that a significant amount tracks coming from the primary vertex would be spread in the event specially between the selected jets. Some forward physics analysis which target similar unconnected dijet signal topologies, it is common to use variables like the fraction of tracks inside the selected jets, to discriminate the signal from background \cite{ARTICLE:AnalysisDiffractiveJets}. Using tracks has the advantage of not depending on jet clustering or veto jet definition and uses directly the excellent resolution of the \gls{CMS} inner tracking system. 
 
-Two variables were considered for inclusion in a cut or \gls{MVA} based signal selection criteria, the fraction of track coming from the \gls{PV} contained inside the selected jets and the fraction of summed momentum associated with tracks from the \gls{PV} contained inside the selected jets, $\phi$. In both cases only tracks above $1\,\GeV$ were considered.
-
-%TODO: Continue here
+Two variables were considered for inclusion in a cut or \gls{MVA} based signal selection criteria using tracks from the \gls{PV}. The fraction of tracks contained inside the selected jets ($\beta_{\text{PV Tracks}}^{\text{dijet }n}$), and the fraction of summed momentum contained inside the selected jets ($\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$). In both cases only tracks above $1\,\GeV$ were considered, but this thresholds could be further optimised. Figure \ref{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Selection} shows plots for both this variables when selecting events where the leading dijet has $M_{jj}>700\,\GeV$ and $\Delta\eta>3.5$ where both jets are in opposite sided of the detector, pass \gls{PU} identification criteria, have $\pt>50\,\GeV$ and $|\eta|<4.7$. Simulated \gls{MC} \gls{VBF} Higgs to invisible decays with $m_H=125\,\GeV$ are used for signal the new \gls{QCD} multi-jet samples are used for background.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/Tracks1_TracksNRatio.pdf} 
-\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/Tracks1_TracksERatio.pdf} \\
-\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/Tracks1_CJVPass_TracksERation.pdf}
-\caption{TODO}
+\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/Tracks1_TracksERatio.pdf}
+\caption{Distributions of $\beta_{\text{PV Tracks}}^{\text{dijet }n}$ (left) and $\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$ (right) for track $\pt>1\,\GeV$. Events are selected where the leading dijet has $M_{jj}>700\,\GeV$ and $\Delta\eta>3.5$ where both jets are in opposite sided of the detector, pass \gls{PU} identification criteria, have $\pt>50\,\GeV$ and $|\eta|<4.7$.}
 \label{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Selection}
 \end{figure}
+
+Form both analysed variables in this event selection the $\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$ is the most promising variable to separate signal and \gls{QCD} multi-jet. To prove that this variable allows additional discrimination gains to the usage of a \gls{CJV}, this variable was plotted in figure \ref{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_SelectionCJV} after vetoing event where a jet with  $\pt>30\,\GeV$ passing \gls{PU} identification criteria is found between the two leading jets.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/Tracks1_CJVPass_TracksERation.pdf}
+\caption{Distributions of $\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$ (right) for track $\pt>1\,\GeV$. Events are selected where the leading dijet has $M_{jj}>700\,\GeV$ and $\Delta\eta>3.5$ where both jets are in opposite sided of the detector, pass \gls{PU} identification criteria, have $\pt>50\,\GeV$ and $|\eta|<4.7$. Events are vetoed when a jet with  $\pt>30\,\GeV$ passing \gls{PU} identification criteria is found between the two leading jets.}
+\label{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_SelectionCJV}
+\end{figure}
+
+It can be observed that this variable still has good discrimination power to isolate the signal from background. There is a caveat it its usage which is the tracker coverage. The majority of the signal events have both or at least one of the selected jets inside of the tracker acceptable, but there is a category of events that will have both jets in regions where tracking is not possible, which in turn will also make it very difficult to determine which is the primary vertex. Figure \ref{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Acceptance} shows the $\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$ distributions for events with both of a single selected jets inside the tracker acceptance without the application of a \gls{CJV}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/BB_Tracks1_TracksERatio.pdf}
-\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/BE_Tracks1_TracksERatio.pdf} \\
-\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/EE_Tracks1_TracksERatio.pdf}
-\caption{TODO}
+\includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/BE_Tracks1_TracksERatio.pdf}
+% \includegraphics[width=0.45\textwidth]{Chapter06/TrackVariables/Images/EE_Tracks1_TracksERatio.pdf}
+\caption{Distributions of $\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$ for track $\pt>1\,\GeV$ for events where both (left) and only one (right)  selected jets inside tracker acceptance. Events are selected where the leading dijet has $M_{jj}>700\,\GeV$ and $\Delta\eta>3.5$ where both jets are in opposite sided of the detector, pass \gls{PU} identification criteria, have $\pt>50\,\GeV$ and $|\eta|<4.7$.}
 \label{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Acceptance}
 \end{figure}
 
+In both cases this variable remains able to discriminate signal from \gls{QCD} backgrounds. There are three well categories for this variable depending on how many selected jets are inside the tracker acceptance. To use this type of variables in a possible event selection may imply the need to split it into categories depending on jet location. Such problem would not arise from a \gls{MVA} based analysis since this categories would be automatically learned by this methods and even possibly extended.
