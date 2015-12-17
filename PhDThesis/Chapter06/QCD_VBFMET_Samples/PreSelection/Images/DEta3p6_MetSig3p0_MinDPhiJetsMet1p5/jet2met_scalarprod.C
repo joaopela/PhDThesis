@@ -1,6 +1,6 @@
 {
 //=========Macro generated from canvas: c1/c1
-//=========  (Wed Dec 16 21:42:06 2015) by ROOT version5.34/11
+//=========  (Thu Dec 17 20:22:20 2015) by ROOT version5.34/11
    TCanvas *c1 = new TCanvas("c1", "c1",0,0,600,600);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
@@ -336,10 +336,10 @@
    VBF_jet2met_scalarprod->SetBinError(40,0.07650233);
    VBF_jet2met_scalarprod->SetEntries(12571);
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    VBF_jet2met_scalarprod->SetFillColor(ci);
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    VBF_jet2met_scalarprod->SetLineColor(ci);
    VBF_jet2met_scalarprod->SetLineStyle(0);
    VBF_jet2met_scalarprod->SetMarkerStyle(20);
@@ -474,7 +474,7 @@
    entry->SetMarkerStyle(20);
    entry->SetMarkerSize(0.8);
    entry->SetTextFont(62);
-   entry=leg->AddEntry("BKG_jet2met_scalarprod","Others","F");
+   entry=leg->AddEntry("BKG_jet2met_scalarprod","Other Bkg.","F");
 
    ci = TColor::GetColor("#3399cc");
    entry->SetFillColor(ci);
@@ -487,13 +487,13 @@
    entry->SetMarkerStyle(21);
    entry->SetMarkerSize(1);
    entry->SetTextFont(62);
-   entry=leg->AddEntry("VBF_jet2met_scalarprod","QCD","F");
+   entry=leg->AddEntry("VBF_jet2met_scalarprod","QCD VBF+MET","F");
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    entry->SetFillColor(ci);
    entry->SetFillStyle(1001);
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    entry->SetLineColor(ci);
    entry->SetLineWidth(1);
    entry->SetMarkerColor(1);

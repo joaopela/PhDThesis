@@ -1,6 +1,6 @@
 {
 //=========Macro generated from canvas: c1/c1
-//=========  (Wed Dec 16 21:42:04 2015) by ROOT version5.34/11
+//=========  (Thu Dec 17 20:22:18 2015) by ROOT version5.34/11
    TCanvas *c1 = new TCanvas("c1", "c1",0,0,600,600);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
@@ -241,10 +241,10 @@
    VBF_dijetmet_ptfraction->SetBinError(21,1.560365);
    VBF_dijetmet_ptfraction->SetEntries(12571);
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    VBF_dijetmet_ptfraction->SetFillColor(ci);
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    VBF_dijetmet_ptfraction->SetLineColor(ci);
    VBF_dijetmet_ptfraction->SetLineStyle(0);
    VBF_dijetmet_ptfraction->SetMarkerStyle(20);
@@ -351,7 +351,7 @@
    entry->SetMarkerStyle(20);
    entry->SetMarkerSize(0.8);
    entry->SetTextFont(62);
-   entry=leg->AddEntry("BKG_dijetmet_ptfraction","Others","F");
+   entry=leg->AddEntry("BKG_dijetmet_ptfraction","Other Bkg.","F");
 
    ci = TColor::GetColor("#3399cc");
    entry->SetFillColor(ci);
@@ -364,13 +364,13 @@
    entry->SetMarkerStyle(21);
    entry->SetMarkerSize(1);
    entry->SetTextFont(62);
-   entry=leg->AddEntry("VBF_dijetmet_ptfraction","QCD","F");
+   entry=leg->AddEntry("VBF_dijetmet_ptfraction","QCD VBF+MET","F");
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    entry->SetFillColor(ci);
    entry->SetFillStyle(1001);
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    entry->SetLineColor(ci);
    entry->SetLineWidth(1);
    entry->SetMarkerColor(1);

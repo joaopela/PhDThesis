@@ -1,6 +1,6 @@
 {
 //=========Macro generated from canvas: c1/c1
-//=========  (Wed Dec 16 21:42:07 2015) by ROOT version5.34/11
+//=========  (Thu Dec 17 20:22:21 2015) by ROOT version5.34/11
    TCanvas *c1 = new TCanvas("c1", "c1",0,0,600,600);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
@@ -318,10 +318,10 @@
    VBF_metunclet_dphi->SetBinError(32,7.852326);
    VBF_metunclet_dphi->SetEntries(12571);
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    VBF_metunclet_dphi->SetFillColor(ci);
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    VBF_metunclet_dphi->SetLineColor(ci);
    VBF_metunclet_dphi->SetLineStyle(0);
    VBF_metunclet_dphi->SetMarkerStyle(20);
@@ -452,7 +452,7 @@
    entry->SetMarkerStyle(20);
    entry->SetMarkerSize(0.8);
    entry->SetTextFont(62);
-   entry=leg->AddEntry("BKG_metunclet_dphi","Others","F");
+   entry=leg->AddEntry("BKG_metunclet_dphi","Other Bkg.","F");
 
    ci = TColor::GetColor("#3399cc");
    entry->SetFillColor(ci);
@@ -465,13 +465,13 @@
    entry->SetMarkerStyle(21);
    entry->SetMarkerSize(1);
    entry->SetTextFont(62);
-   entry=leg->AddEntry("VBF_metunclet_dphi","QCD","F");
+   entry=leg->AddEntry("VBF_metunclet_dphi","QCD VBF+MET","F");
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    entry->SetFillColor(ci);
    entry->SetFillStyle(1001);
 
-   ci = TColor::GetColor("#ffccff");
+   ci = TColor::GetColor("#00ffff");
    entry->SetLineColor(ci);
    entry->SetLineWidth(1);
    entry->SetMarkerColor(1);
