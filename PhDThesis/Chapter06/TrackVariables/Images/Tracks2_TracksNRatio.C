@@ -1,12 +1,12 @@
 {
 //=========Macro generated from canvas: c1_n5/c1_n5
-//=========  (Tue Dec 15 19:15:38 2015) by ROOT version5.32/00
+//=========  (Thu Dec 17 23:23:25 2015) by ROOT version5.32/00
    TCanvas *c1_n5 = new TCanvas("c1_n5", "c1_n5",0,0,600,600);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
    gStyle->SetOptTitle(0);
    c1_n5->SetHighLightColor(2);
-   c1_n5->Range(-0.2142857,-0.02994441,1.214286,0.169685);
+   c1_n5->Range(0,0,1,1);
    c1_n5->SetFillColor(0);
    c1_n5->SetBorderMode(0);
    c1_n5->SetBorderSize(2);
@@ -18,8 +18,25 @@
    c1_n5->SetBottomMargin(0.15);
    c1_n5->SetFrameFillStyle(0);
    c1_n5->SetFrameBorderMode(0);
-   c1_n5->SetFrameFillStyle(0);
-   c1_n5->SetFrameBorderMode(0);
+  
+// ------------>Primitives in pad: upper
+   TPad *upper = new TPad("upper", "pad",0,0,1,1);
+   upper->Draw();
+   upper->cd();
+   upper->Range(-0.2142857,-0.03353774,1.214286,0.1900472);
+   upper->SetFillColor(0);
+   upper->SetBorderMode(0);
+   upper->SetBorderSize(2);
+   upper->SetTickx(1);
+   upper->SetTicky(1);
+   upper->SetLeftMargin(0.15);
+   upper->SetRightMargin(0.15);
+   upper->SetTopMargin(0.05);
+   upper->SetBottomMargin(0.15);
+   upper->SetFrameFillStyle(0);
+   upper->SetFrameBorderMode(0);
+   upper->SetFrameFillStyle(0);
+   upper->SetFrameBorderMode(0);
    
    TH1D *TracksNRation = new TH1D("TracksNRation","TracksNRation",25,0,1);
    TracksNRation->SetBinContent(1,0.01919574);
@@ -49,23 +66,25 @@
    TracksNRation->SetBinContent(25,0.0003168876);
    TracksNRation->SetBinContent(26,0.05165075);
    TracksNRation->SetMinimum(0);
-   TracksNRation->SetMaximum(0.1597035);
+   TracksNRation->SetMaximum(0.1788679);
    TracksNRation->SetEntries(541735.9);
 
    Int_t ci;   // for color index setting
-   ci = TColor::GetColor("#00ff00");
+   ci = TColor::GetColor("#00ffff");
+   TracksNRation->SetFillColor(ci);
+   TracksNRation->SetFillStyle(3005);
+
+   ci = TColor::GetColor("#00ffff");
    TracksNRation->SetLineColor(ci);
-   TracksNRation->GetXaxis()->SetTitle("N^{PV Tracks}(Sel. Jets)/N^{PV Tracks}");
+   TracksNRation->SetLineWidth(2);
+   TracksNRation->GetXaxis()->SetTitle("#beta_{PV Tracks}^{dijet n}");
    TracksNRation->GetXaxis()->SetLabelFont(42);
    TracksNRation->GetXaxis()->SetLabelSize(0.035);
-   TracksNRation->GetXaxis()->SetTitleSize(0.035);
-   TracksNRation->GetXaxis()->SetTitleFont(42);
+   TracksNRation->GetXaxis()->SetTitleOffset(1.4);
    TracksNRation->GetYaxis()->SetTitle("Arbitrary Units");
+   TracksNRation->GetYaxis()->SetNdivisions(505);
    TracksNRation->GetYaxis()->SetLabelFont(42);
-   TracksNRation->GetYaxis()->SetLabelSize(0.035);
-   TracksNRation->GetYaxis()->SetTitleSize(0.035);
    TracksNRation->GetYaxis()->SetTitleOffset(1.5);
-   TracksNRation->GetYaxis()->SetTitleFont(42);
    TracksNRation->GetZaxis()->SetLabelFont(42);
    TracksNRation->GetZaxis()->SetLabelSize(0.035);
    TracksNRation->GetZaxis()->SetTitleSize(0.035);
@@ -101,8 +120,13 @@
    TracksNRation->SetEntries(1855);
 
    ci = TColor::GetColor("#ff0000");
+   TracksNRation->SetFillColor(ci);
+   TracksNRation->SetFillStyle(3004);
+
+   ci = TColor::GetColor("#ff0000");
    TracksNRation->SetLineColor(ci);
-   TracksNRation->GetXaxis()->SetTitle("N^{PV Tracks}(Sel. Jets)/N^{PV Tracks}");
+   TracksNRation->SetLineWidth(2);
+   TracksNRation->GetXaxis()->SetTitle("#beta_{PV Tracks}^{dijet n}");
    TracksNRation->GetXaxis()->SetLabelFont(42);
    TracksNRation->GetXaxis()->SetLabelSize(0.035);
    TracksNRation->GetXaxis()->SetTitleSize(0.035);
@@ -118,35 +142,96 @@
    TracksNRation->GetZaxis()->SetTitleFont(42);
    TracksNRation->Draw("same");
    
-   TLegend *leg = new TLegend(0.5,0.8,0.85,0.95,NULL,"brNDC");
-   leg->SetBorderSize(1);
+   TLegend *leg = new TLegend(0.55,0.7,0.89,0.89,NULL,"brNDC");
+   leg->SetBorderSize(0);
    leg->SetTextFont(62);
-   leg->SetLineColor(1);
+   leg->SetLineColor(10);
    leg->SetLineStyle(1);
    leg->SetLineWidth(1);
    leg->SetFillColor(19);
-   leg->SetFillStyle(1001);
-   TLegendEntry *entry=leg->AddEntry("TracksNRation","VBF Higgs Inv","lpf");
-   entry->SetFillStyle(1001);
+   leg->SetFillStyle(0);
+   TLegendEntry *entry=leg->AddEntry("TracksNRation","VBF Higgs Inv","LF");
 
-   ci = TColor::GetColor("#00ff00");
+   ci = TColor::GetColor("#00ffff");
+   entry->SetFillColor(ci);
+   entry->SetFillStyle(3005);
+
+   ci = TColor::GetColor("#00ffff");
    entry->SetLineColor(ci);
    entry->SetLineStyle(1);
-   entry->SetLineWidth(1);
+   entry->SetLineWidth(2);
    entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(1);
+   entry->SetMarkerStyle(21);
    entry->SetMarkerSize(1);
-   entry=leg->AddEntry("TracksNRation","QCD","lpf");
-   entry->SetFillStyle(1001);
+   entry=leg->AddEntry("TracksNRation","QCD VBF+MET","LF");
+
+   ci = TColor::GetColor("#ff0000");
+   entry->SetFillColor(ci);
+   entry->SetFillStyle(3004);
 
    ci = TColor::GetColor("#ff0000");
    entry->SetLineColor(ci);
    entry->SetLineStyle(1);
-   entry->SetLineWidth(1);
+   entry->SetLineWidth(2);
    entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(1);
+   entry->SetMarkerStyle(21);
    entry->SetMarkerSize(1);
    leg->Draw();
+   
+   TH1D *TracksNRation__5 = new TH1D("TracksNRation__5","TracksNRation",25,0,1);
+   TracksNRation__5->SetBinContent(1,0.01919574);
+   TracksNRation__5->SetBinContent(2,0.002068583);
+   TracksNRation__5->SetBinContent(3,0.006240261);
+   TracksNRation__5->SetBinContent(4,0.009618529);
+   TracksNRation__5->SetBinContent(5,0.01035412);
+   TracksNRation__5->SetBinContent(6,0.02058911);
+   TracksNRation__5->SetBinContent(7,0.0243775);
+   TracksNRation__5->SetBinContent(8,0.02787045);
+   TracksNRation__5->SetBinContent(9,0.03852227);
+   TracksNRation__5->SetBinContent(10,0.03441155);
+   TracksNRation__5->SetBinContent(11,0.06058957);
+   TracksNRation__5->SetBinContent(12,0.05451286);
+   TracksNRation__5->SetBinContent(13,0.07142298);
+   TracksNRation__5->SetBinContent(14,0.06527212);
+   TracksNRation__5->SetBinContent(15,0.05694681);
+   TracksNRation__5->SetBinContent(16,0.08604607);
+   TracksNRation__5->SetBinContent(17,0.07154029);
+   TracksNRation__5->SetBinContent(18,0.0647404);
+   TracksNRation__5->SetBinContent(19,0.06093432);
+   TracksNRation__5->SetBinContent(20,0.04049134);
+   TracksNRation__5->SetBinContent(21,0.05351367);
+   TracksNRation__5->SetBinContent(22,0.03351978);
+   TracksNRation__5->SetBinContent(23,0.02421407);
+   TracksNRation__5->SetBinContent(24,0.01103996);
+   TracksNRation__5->SetBinContent(25,0.0003168876);
+   TracksNRation__5->SetBinContent(26,0.05165075);
+   TracksNRation__5->SetMinimum(0);
+   TracksNRation__5->SetMaximum(0.1788679);
+   TracksNRation__5->SetEntries(541735.9);
+   TracksNRation__5->SetDirectory(0);
+
+   ci = TColor::GetColor("#00ffff");
+   TracksNRation__5->SetFillColor(ci);
+   TracksNRation__5->SetFillStyle(3005);
+
+   ci = TColor::GetColor("#00ffff");
+   TracksNRation__5->SetLineColor(ci);
+   TracksNRation__5->SetLineWidth(2);
+   TracksNRation__5->GetXaxis()->SetTitle("#beta_{PV Tracks}^{dijet n}");
+   TracksNRation__5->GetXaxis()->SetLabelFont(42);
+   TracksNRation__5->GetXaxis()->SetLabelSize(0.035);
+   TracksNRation__5->GetXaxis()->SetTitleOffset(1.4);
+   TracksNRation__5->GetYaxis()->SetTitle("Arbitrary Units");
+   TracksNRation__5->GetYaxis()->SetNdivisions(505);
+   TracksNRation__5->GetYaxis()->SetLabelFont(42);
+   TracksNRation__5->GetYaxis()->SetTitleOffset(1.5);
+   TracksNRation__5->GetZaxis()->SetLabelFont(42);
+   TracksNRation__5->GetZaxis()->SetLabelSize(0.035);
+   TracksNRation__5->GetZaxis()->SetTitleSize(0.035);
+   TracksNRation__5->GetZaxis()->SetTitleFont(42);
+   TracksNRation__5->Draw("sameaxis");
+   upper->Modified();
+   c1_n5->cd();
    c1_n5->Modified();
    c1_n5->cd();
    c1_n5->SetSelected(c1_n5);
