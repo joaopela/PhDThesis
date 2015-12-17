@@ -293,6 +293,8 @@ Unfortunately, when analysing the control regions already defined for the \texti
 
 \section{QCD control studies}
 
+% Status: DONE
+
 The re-optimization of the signal event selection to use with parked data will had to lower some of the requirements imposed in the \textit{prompt analysis}. This relaxing of variables allowed backgrounds to also be accepted being \gls{QCD} multi-jet process one of the most preoccupying for its quantity and lack of complete and statistically sufficient \gls{MC} description. To control and suppress this  background new variables were used studied for possible inclusion in the new event selection, taking advantage of the physical properties expected of the signal process. At the stage where this studies were developed, this new variables were being considered as inputs for both a cut based event selection and for the training of a \gls{BDT} discriminator against all backgrounds or simply against \gls{QCD} multi-jet processes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -323,7 +325,7 @@ The re-optimization of the signal event selection to use with parked data will h
 % g++ -g getPlots.cxx -o getPlots.exe `root-config --cflags --libs` `ictools-config --libs` `ictools-config --cflags` -lTMVA
 % ./getPlots.exe
 
-% Status: Writing
+% Status: DONE
 
 When analysing events from \gls{VBF} produced Higgs decays, the products of the Higgs boson should be recoiling from the outgoing \gls{VBF} jets. When the Higgs decays invisibly the measurement \gls{MET} should have the same magnitude than the dijet system transverse momentum and they should be pointing in opposite directions. This topological constrains do not apply to \gls{QCD} multi jets backgrounds and therefore can be used to discriminate between this processes. Two variables are defined to explore this properties $\alpha_{\text{vec}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_1}) and $\alpha_{\text{balance}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_2}). Additionally, a  dijet plus \gls{MET} energy scale variable can be defined as  $\alpha_{\text{scale}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_3}).
 
@@ -338,13 +340,13 @@ When analysing events from \gls{VBF} produced Higgs decays, the products of the 
 
 Variable $\alpha_{\text{vec}}$ should be zero for a balanced dijet plus \gls{MET} systems found in the signal process, only smeared by the detector energy/momentum and direction resolutions. While this is a good variable resolution changes with jets and \gls{MET} magnitudes which affects the spread of this variable. The system energy balance variable $\alpha_{\text{balance}}$ should peak at 0.5 for signal and should only depend on the energy/momentum resolution. Signal events are only possible when large amounts of momentum are exchanged by the incoming partons which should be higher than the vast majority of \gls{QCD} multi-jet events. The $\alpha_{\text{scale}}$ allows to set a minimum amount total amount of momentum present in the objects of interest and can be combined with $\alpha_{\text{vec}}$ or $\alpha_{\text{balance}}$ to further isolate the signal.
 
-To study the shapes of this variables \gls{MC} simulation was used, \gls{VBF} Higgs to Invisible decays with $m_H=120\,\GeV$ events were used for signal and inclusive \gls{QCD} multi-jets events starting $\hat{\pt}>80\,\GeV$ for background. Events where selected if the leading two jets had $\pt^>50\,\GeV$ and $|\eta|<4.7$, these jets would compose the selected dijet. Figure \ref{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_1} and \ref{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_2} show the shape of this variable for both signal and \gls{QCD} multi-jet events in this minimal selection.
+To study the shapes of this variables \gls{MC} simulation was used, \gls{VBF} Higgs to invisible decays with $m_H=120\,\GeV$ events were used for signal and inclusive \gls{QCD} multi-jets events starting $\hat{\pt}>80\,\GeV$ for background. Events where selected if the leading two jets had $\pt^>50\,\GeV$ and $|\eta|<4.7$, these jets would compose the selected dijet. Figure \ref{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_1} and \ref{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_2} show the shape of this variable for both signal and \gls{QCD} multi-jet events in this minimal selection.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter06/TopologicalVariables/Images/JetPair_scalSumTriObjectPt.pdf} 
 \includegraphics[width=0.45\textwidth]{Chapter06/TopologicalVariables/Images/JetPair_vecSumTriObjectPt.pdf} 
-\caption{TODO}
+\caption{Shape distributions for $\alpha_{\text{scale}}$ (left) and $\alpha_{\text{vec}}$ (right). Signal is \gls{VBF} Higgs to invisible decays with $m_H=120\,\GeV$ and \gls{QCD} multi-jets ($\hat{\pt}>80\,\GeV$) inclusive decays are the background. Shapes integral is normalized to 1.}
 \label{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_1}
 \end{figure}
 
@@ -354,7 +356,7 @@ It can be observed that in $\alpha_{\text{scale}}$ the signal as expected is har
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter06/TopologicalVariables/Images/JetPair_dijetOverMetPt.pdf} 
 \includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijetmet_ptfraction.pdf}
-\caption{TODO}
+\caption{Shape distributions for $\alpha_{\text{balance}}$. The left plot shows the comparison of \gls{VBF} Higgs to invisible decays with $m_H=120\,\GeV$ and \gls{QCD} multi-jets ($\hat{\pt}>80\,\GeV$) inclusive decays, each shape integral is normalized to 1. The right plot events are selected using the preselected defined in section \ref{}. Simulated backgrounds including the new \gls{QCD} multi-jet samples are compared with 19.8 $fb^{-1}$ of data.}
 \label{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_2}
 \end{figure}
 
