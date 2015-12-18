@@ -3,7 +3,10 @@
 
 \glsresetall % Resetting all acronyms
 
-This chapter describes the analysis performed over the \gls{CMS} Run I parked data collected over 2012 and 2013. This data was collected and stored without reconstruction and only became fully available a few months after data taking was finished. The advantage of this dataset is the possibility to use lower threshold triggers which can collect more signal but also more backgrounds. To take full advantage of this data the analysis had to be redesigned and extended with new control regions.
+% PAS 14-038
+% AN-14-243
+
+This chapter describes the analysis performed over the \gls{CMS} Run I proton-proton parked data collected over 2012. This data was recorded and stored without reconstruction and only became fully available a few months after data taking was finished. The advantage of approach was the possibility of using lower threshold triggers which can collect more signal but also more backgrounds. To take full advantage of this data the analysis had to be redesigned and extended with new control regions.
 
 % The search for an invisible decay of a vector boson produced Higgs boson was first made public with CMS Physics Analysis Summary (PAS) HIG-13-013 which was further improved and combined with other Higgs boson production channel in the CMS paper HIG-13-30. Additional support material can be found at the CMS Analysis Notes (AN) AN-2012/403 \cite{CMS_AN_2013-403} and AN-2013/205.
 % 
@@ -32,6 +35,8 @@ To analyse those initial ntuple an independent code framework was developed in o
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data and MC samples}
 
+%Status: Writing
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -56,56 +61,61 @@ The difference between certified and analysed numbers is due to our analysis tri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Monte Carlo Samples}
 
-% \resizebox{1.00\linewidth}{!}{
-\begin{longtable}{| l | c | c | c |}
-  \caption{\label{tab:MCSamples} MC processes, corresponding cross sections (at NLO or NNLO when available) and equivalent integrated
-    luminosity analysed.} \\
-  \hline 
-  Dataset & $\sigma$ [pb] & No. of Events & Equivalent $\int L$ [fb$^{-1}$] \\
-  \hline 
-  ($Z \rightarrow \nu\nu$) + jets (50 $<$ HT $<$ 100 GeV)       & 381.2         &  4040980 &    10.6 \\
-  ($Z \rightarrow \nu\nu$) + jets (100 $<$ HT $<$ 200 GeV)      & 160.3         &  4416646 &    27.6 \\
-  ($Z \rightarrow \nu\nu$) + jets (200 $<$ HT $<$ 400 GeV)      & 41.49         &  5055885 &     122 \\
-  ($Z \rightarrow \nu\nu$) + jets (400 $<$ HT $<$ $\infty$ GeV) & 5.274         &  1006928 &     191 \\
-  ($W \rightarrow l\nu$) + jets (inclusive)                     & 37509(NNLO)   & 76102995 &    2.03 \\
-  ($W \rightarrow l\nu$) + 1 jet                                & 5400          & 23141598 &    42.9 \\
-  ($W \rightarrow l\nu$) + 2 jet                                & 1750          & 34044921 &    19.5 \\
-  ($W \rightarrow l\nu$) + 3 jet                                & 519           & 15539503 &    29.9 \\
-  ($W \rightarrow l\nu$) + 4 jet                                & 214           & 13382803 &    62.5 \\
-  ($Z/\gamma \rightarrow ll$) + jets (Mll $>$ 50)               & 3503.71(NNLO) & 30459503 &     8.7 \\
-  ($Z/\gamma \rightarrow ll$) + 1 jets (Mll $>$ 50)             & 561           & 24045248 &    42.9 \\
-  ($Z/\gamma \rightarrow ll$) + 2 jets (Mll $>$ 50)             & 181           & 21852156 &     121 \\
-  ($Z/\gamma \rightarrow ll$) + 3 jets (Mll $>$ 50)             & 51.1          & 11015445 &     216 \\
-  ($Z/\gamma \rightarrow ll$) + 4 jets (Mll $>$ 50)             & 23.04         &  6402827 &     278 \\
-  EWK ($Z/\gamma \rightarrow ll$) + 2 jets                      & 0.888         &  2978717 &    3354 \\
-  EWK ($W^{+} \rightarrow l\nu$) + 2 jets                       & 6.48          &  8996164 &    1388 \\
-  EWK ($W^{-} \rightarrow l\nu$) + 2 jets                       & 4.09          &  5994018 &    1466 \\ 
-  WW                                                            & 54.838(NLO)   & 10000431 &     182 \\
-  WZ                                                            & 33.21(NLO)    & 10000283 &     301 \\
-  ZZ                                                            & 17.654(NLO)   &  9799908 &     555 \\
-  $W \gamma$                                                    & 461.6         &  4802358 &    10.4 \\
-  tt + jets                                                     & 245.8(NNLO)   &  6923750 &    28.2 \\
-  t (t-channel)                                                 & 56.4(NLO)     &  3758227 &    66.6 \\
-  t (tW-channel)                                                & 11.1(NLO)     &   497658 &    44.8 \\
-  t (s-channel)                                                 & 3.79(NLO)     &   259961 &    68.6 \\
-  $\bar{t}$ (t-channel)                                         & 30.7(NLO      &  1935072 &    63.0 \\
-  $\bar{t}$ (tW-channel)                                        & 11.1(NLO)     &   493460 &    44.5 \\
-  $\bar{t}$ (s-channel)                                         & 1.76(NLO)     &   139974 &    79.5 \\
-  QCD (30 $<$ p T $<$ 50 GeV)                                   & 66285328.0    &  6000000 & 0.00009 \\
-  QCD (50 $<$ p T $<$ 80 GeV)                                   & 8148778.0     &  5998860 & 0.00074 \\
-  QCD (80 $<$ p T $<$ 120 GeV)                                  & 1033680.0     &  5994864 &  0.0058 \\
-  QCD (120 $<$ p T $<$ 170 GeV)                                 & 156293.3      &  5985732 &   0.038 \\
-  QCD (170 $<$ p T $<$ 300 GeV)                                 & 34138.15      &  5814398 &   0.170 \\
-  QCD (300 $<$ p T $<$ 470 GeV)                                 & 1759.549      &  5978500 &    3.40 \\
-  QCD (470 $<$ p T $<$ 600 GeV)                                 & 113.8791      &  3964848 &    34.8 \\
-  QCD (600 $<$ p T $<$ 800 GeV)                                 & 26.9921       &  3996864 &     148 \\
-  QCD (800 $<$ p T $<$ 1000 GeV)                                & 3.550036      &  3998563 &    1130 \\
-  QCD (1000 $<$ p T $<$ 1400 GeV)                               & 0.737844      &   964088 &    1310 \\
-  QCD (1400 $<$ p T $<$ 1800 GeV)                               & 0.03352235    &  2000062 &   60000 \\
-  QCD (1800 $<$ p T $<$ $\infty$ GeV)                           & 0.001829005   &   977586 &  534000 \\
-  \hline
-\end{longtable}
-% }
+%Status: Writing
+
+\begin{table}
+\centering
+\resizebox{0.80\linewidth}{!}{
+\begin{tabular}{|l|c|c|}
+\hline 
+Dataset & $\sigma$ [pb] & Equivalent $\int L$ [fb$^{-1}$] \\
+\hline\hline
+($Z \rightarrow \nu\nu$) + jets ($50  < HT < 100   \,\GeV$) & 381.2         &    10.6 \\
+($Z \rightarrow \nu\nu$) + jets ($100 < HT < 200   \,\GeV$) & 160.3         &    27.6 \\
+($Z \rightarrow \nu\nu$) + jets ($200 < HT < 400   \,\GeV$) & 41.49         &     122 \\
+($Z \rightarrow \nu\nu$) + jets ($400 < HT < \infty\,\GeV$) & 5.274         &     191 \\
+($W \rightarrow l\nu$) + jets (inclusive)                   & 37509(NNLO)   &    2.03 \\
+($W \rightarrow l\nu$) + 1 jet                              & 5400          &    42.9 \\
+($W \rightarrow l\nu$) + 2 jet                              & 1750          &    19.5 \\
+($W \rightarrow l\nu$) + 3 jet                              & 519           &    29.9 \\
+($W \rightarrow l\nu$) + 4 jet                              & 214           &    62.5 \\
+($Z/\gamma \rightarrow ll$) + jets ($M_{ll}>50\,\GeV$)      & 3503.71(NNLO) &     8.7 \\
+($Z/\gamma \rightarrow ll$) + 1 jets ($M_{ll}>50\,\GeV$)    & 561           &    42.9 \\
+($Z/\gamma \rightarrow ll$) + 2 jets ($M_{ll}>50\,\GeV$)    & 181           &     121 \\
+($Z/\gamma \rightarrow ll$) + 3 jets ($M_{ll}>50\,\GeV$)    & 51.1          &     216 \\
+($Z/\gamma \rightarrow ll$) + 4 jets ($M_{ll}>50\,\GeV$)    & 23.04         &     278 \\
+EWK ($Z/\gamma \rightarrow ll$) + 2 jets                    & 0.888         &    3354 \\
+EWK ($W^{+} \rightarrow l\nu$) + 2 jets                     & 6.48          &    1388 \\
+EWK ($W^{-} \rightarrow l\nu$) + 2 jets                     & 4.09          &    1466 \\ 
+WW                                                          & 54.838(NLO)   &     182 \\
+WZ                                                          & 33.21(NLO)    &     301 \\
+ZZ                                                          & 17.654(NLO)   &     555 \\
+$W \gamma$                                                  & 461.6         &    10.4 \\
+tt + jets                                                   & 245.8(NNLO)   &    28.2 \\
+t (t-channel)                                               & 56.4(NLO)     &    66.6 \\
+t (tW-channel)                                              & 11.1(NLO)     &    44.8 \\
+t (s-channel)                                               & 3.79(NLO)     &    68.6 \\
+$\bar{t}$ (t-channel)                                       & 30.7(NLO      &    63.0 \\
+$\bar{t}$ (tW-channel)                                      & 11.1(NLO)     &    44.5 \\
+$\bar{t}$ (s-channel)                                       & 1.76(NLO)     &    79.5 \\
+QCD ($30  <\pt<50    \,\GeV$)                               & 66285328.0    & 0.00009 \\
+QCD ($50  <\pt<80    \,\GeV$)                               & 8148778.0     & 0.00074 \\
+QCD ($80  <\pt<120   \,\GeV$)                               & 1033680.0     &  0.0058 \\
+QCD ($120 <\pt<170   \,\GeV$)                               & 156293.3      &   0.038 \\
+QCD ($170 <\pt<300   \,\GeV$)                               & 34138.15      &   0.170 \\
+QCD ($300 <\pt<470   \,\GeV$)                               & 1759.549      &    3.40 \\
+QCD ($470 <\pt<600   \,\GeV$)                               & 113.8791      &    34.8 \\
+QCD ($600 <\pt<800   \,\GeV$)                               & 26.9921       &     148 \\
+QCD ($800 <\pt<1000  \,\GeV$)                               & 3.550036      &    1130 \\
+QCD ($1000<\pt<1400  \,\GeV$)                               & 0.737844      &    1310 \\
+QCD ($1400<\pt<1800  \,\GeV$)                               & 0.03352235    &   60000 \\
+QCD ($1800<\pt<\infty\,\GeV$)                               & 0.001829005   &  534000 \\
+\hline
+\end{tabular}
+}
+\caption{Table of the \gls{MC} processes, corresponding cross sections (at NLO or NNLO when available) and equivalent integrated luminosity analysed.}
+\label{TABLE:ParkedDataAnalysis}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -120,6 +130,10 @@ To correctly compare \gls{MC} with data all relevant aspects must be correctly t
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Pile-up}
+
+%Status: DONE?
+
+The distribution of \gls{PU} in data and \gls{MC} simulated events samples is not the same. Each \gls{MC} dataset is re weighted event by event in order to match the observed distribution in the analysed data.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -155,18 +169,24 @@ Where $\varepsilon_{max}$ os the maximum efficiency of the trigger in the bin, $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Lepton Identification}
 
+%Status: Writing
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Top reweighting}
 
+%Status: Writing
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Signal event selection}
+\label{SECTION:ParkedDataAnalysis_SignalEventSelection}
 
+%Status: Writing
 
-\begin{table}[htp]
+\begin{table}[!htp]
 \centering
 \begin{tabular}{|l|c|c|c|c||c|}
 \hline
@@ -186,7 +206,8 @@ $MET_{Significance}$ cut        &     786 &      3396 &      5988 &      5567 & 
 $Min(\Delta\phi(MET,jets))$ cut &      34 &        91 &       205 &       178 &       508 \\
 \hline
 \end{tabular}
-\caption{Event Yield for the Signal Region.}
+\caption{Table of the step by step event yield for the signal region obtained by the cross check analysis section.}
+\label{TABLE:ParkedDataAnalysis_SignalEventSelection_CrossSectionYields}
 \end{table}
 
 
@@ -196,83 +217,107 @@ $Min(\Delta\phi(MET,jets))$ cut &      34 &        91 &       205 &       178 & 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Control Regions}
 
+%Status: Writing
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Top background estimation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{W background estimation}
+%Status: Writing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{W background estimation}
+
+%Status: Writing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{W background estimation}
+
+%Status: Writing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{W to electron+neutrino}
 
+%Status: Writing
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{W to muon+neutrino}
+
+%Status: Writing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{W to tau+neutrino}
 
+%Status: Writing
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Z background estimation}
+
+%Status: Writing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QCD background estimation}
 
+%Status: Writing
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{QDC VBF-like + MET Monte Carlo Sample}
+
+%Status: Writing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Data driven QCD estimation}
 
+%Status: Writing
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Systematics}
 
+%Status: Writing
+
 \begin{table}[!htb]
 \centering
-\label{tab:syst-qqH}
-\begin{tabular}{lcc}
-\hline \hline
-Source  & Total background & Signal     \\
+\begin{tabular}{|l|c|c|}
+\hline 
+Source                                            & Total background &     Signal \\
+\hline\hline
+Control region data stat.                          &            9.3  &          - \\
+MC stat.                                           &            5.4  &        3.8 \\
+Jet energy scale                                   &            4.6  &         11 \\
+$W\rightarrow\tau\nu$ control region extrapolation &            4.3  &          - \\
+QCD normalisation                                  &            3.2  &          - \\
+Jet energy resolution                              &            3.0  &        1.8 \\
+Lepton ID efficiency                               &            2.4  &          - \\
+Unclustered energy scale                           &            1.9  &        1.6 \\
+Pileup weight                                      &            1.1  &        1.5 \\
+Top MC scale factor unc.                           &            0.25 &          - \\
+Luminosity                                         &            0.02 &        2.6 \\
+QCD scale, PDF and cross section uncertainties     &            0.01 &        5.2 \\
 \hline
-Control region data stat. & 9.3 & - \\
-MC stat. & 5.4 & 3.8 \\
-Jet energy scale & 4.6 & 11 \\ 
-$W\rightarrow\tau\nu$ control region extrapolation & 4.3 & - \\ 
-QCD normalisation & 3.2 & - \\ 
-Jet energy resolution & 3.0 & 1.8 \\ 
-Lepton ID efficiency & 2.4 & - \\ 
-Unclustered energy scale & 1.9 & 1.6 \\ 
-Pileup weight & 1.1 & 1.5 \\ 
-Top MC scale factor unc. & 0.25 & - \\ 
-Luminosity & 0.02 & 2.6 \\ 
-QCD scale, PDF and cross section uncertainties & 0.01 & 5.2 \\
-\hline \hline
 \end{tabular}
-\caption{Summary of the uncertainties on the total background and signal yields. All uncertainties affect the normalization of the yield, and are quoted as the change in \% in the total background or signal estimate, when each systematic effect is varied according to its uncertainties. The signal uncertainties are given for $m_H=125$\GeV and $\BRinv=100$\%.}
+\caption{Summary of the uncertainties on the total background and signal yields. All uncertainties affect the normalization of the yield, and are quoted as the change in \% in the total background or signal estimate, when each systematic effect is varied according to its uncertainties. The signal uncertainties are given for $m_H=125$\GeV and $\BRinv=100$\%. \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}}
+\label{TABLE:ParkedDataAnalysis_Systematics_Summary}
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -280,33 +325,68 @@ QCD scale, PDF and cross section uncertainties & 0.01 & 5.2 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 
-\begin{tabular}{lc}
-\hline \hline
+%Status: Writing
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|l|c|}
+\hline 
 Process & Event yields \\
+\hline\hline
+$Z\rightarrow\nu\nu$  & $158.1 \pm 37.3 \pm 21.2$ \\
+$W\rightarrow\mu\nu$  & $102.5 \pm 6.2  \pm 11.7$ \\
+$W\rightarrow e\nu$   & $ 57.9 \pm 7.4  \pm  7.7$ \\
+$W\rightarrow\tau\nu$ & $ 94.6 \pm 13.1 \pm 23.8$ \\
+top                   & $  5.5 \pm 1.8$           \\
+VV                    & $  3.9 \pm 0.7$           \\
+QCD multijet          & $ 17   \pm 14$            \\
+\hline\hline
+Total Background      & $439.4 \pm 40.7 \pm 43.5$ \\
+\hline\hline
+Signal(VBF)           & $273.1 \pm 31.2 $         \\
+Signal(ggH)           & $ 23.1 \pm 15.9 $         \\
+\hline\hline
+Observed data         & 508                       \\
 \hline
-$Z\rightarrow\nu\nu$&$158.1 \pm 37.3 \pm 21.2$\\
-$W\rightarrow\mu\nu$&$102.5 \pm 6.2 \pm 11.7$\\
-$W\rightarrow e\nu$&$57.9 \pm 7.4 \pm 7.7$\\
-$W\rightarrow\tau\nu$&$94.6 \pm 13.1 \pm 23.8$\\
-top&$5.5 \pm  1.8$\\
-VV&$3.9 \pm 0.7$\\
-QCD multijet &$17\pm 14$\\
-\hline
-Total Background &$439.4 \pm 40.7 \pm 43.5 $\\
-\hline
-Signal(VBF) &$273.1 \pm 31.2 $\\
-Signal(ggH) &$23.1 \pm 15.9 $\\
-\hline
-Observed data & 508 \\
-\hline \hline
 \end{tabular}
+\caption{TODO \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}}
+\label{TABLE:ParkedDataAnalysis_Results_Summary}
+\end{table}
 
 \subsection{Comparison with the cross-check analysis}
+
+%Status: Writing
+
+\begin{table}[!htb]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Region                & Main & Cross Check & Difference [\%] \\
+\hline\hline
+$Z\rightarrow\nu\nu$  &   18 &          18 &             0.0 \\
+$W\rightarrow\mu\nu$  &  300 &         300 &             0.0 \\
+$W\rightarrow e\nu$   &   68 &          68 &             0.0 \\
+$W\rightarrow\tau\nu$ &   76 &          76 &             0.0 \\
+top                   &   21 &          21 &             0.0 \\
+QCD Norm1             & 1586 &        1603 &            +1.1 \\
+QCD Norm2             &  411 &         412 &            +0.2 \\
+QCD Norm3             & 1517 &        1523 &            +0.4 \\
+\hline\hline
+Signal                &  508 &         508 &             0.0 \\
+\hline
+\end{tabular}
+\caption{TODO}
+\label{TABLE:ParkedDataAnalysis_Results_MainCrossCheckComparison}
+\end{table}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Extraction of limits}
+
+%Status: Writing
 
 \begin{figure}[h!]
   \begin{center}
@@ -315,7 +395,7 @@ Observed data & 508 \\
  \caption{The 95\% C.L. limit on \BRinv\, of a SM Higgs
 boson (left) and the 95\% C.L. limit on the cross section times
 \BRinv\, (right)as a function of the Higgs
-boson mass, assuming SM Higgs boson acceptances.}
+boson mass, assuming SM Higgs boson acceptances. \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}}
     \label{fig:limits}
   \end{center}
 \end{figure}
