@@ -136,43 +136,42 @@ It can be observed that with the predicted increase of instantaneous luminosity 
 \subsection{VBF Higgs inclusive Level 1 trigger development}
 \label{SUBSECTION:ParkedDataAnalysis_ParkedTriggerDevelopment_InclusiveHiggsTrigger}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
 It would be desirable to have a dedicated \gls{VBF} Higgs inclusive \gls{L1T} trigger that would be decay independent. Such an algorithm would allow analysts to have a single trigger for all \gls{VBF} produced Higgs decay signatures, which would imply less systematics in their comparison. Additionally, if an algorithm is used by more analyses it will become better understood.
 
 When selecting events based only on the presence of a dijet with \gls{VBF} characteristics we can remove the dependency on the Higgs decay. This approach would be suitable since it ignores the Higgs decays themselves. Since we are not making any assumptions of the Higgs model, we could study all possible decays even those predicted by yet to be defined models with a single trigger. Thus, it would be a model-independent trigger.
 
-This trigger can also be used for analysis of WW scattering, which in the case of the absence of the now discovered Higgs boson would allow to eventually exclude the standard model itself. Since without a Higgs boson this process probability would become larger than unity at the $\TeV$ scale.
-%TODO: need reference here.
+This trigger can also be used for analysis of WW scattering, which in the case of the absence of the now discovered Higgs boson would allow to eventually exclude the standard model itself. Since without a Higgs boson the prediction of the \gls{SM} would violate unitarity at the $\TeV$ scale \cite{BOOK:PerspectivesonHiggsPhysicsII}.
 
-Such a trigger would have to select two forward jets with \gls{VBF} characteristics, and would be limited to what is possible to implement on the current \gls{L1T} hardware. The following variables were considered to suppress the algorithm rate by constrain the dijet system: dijet invariant mass, dijet transverse invariant mass ($M_{T}$), and event \gls{HT}. For this study we always require a \gls{L1T} dijet with both jets in opposite sides of the detector with $\Delta\eta>3$. The selected jets \pt is scanned and \gls{L1T} algorithm rate is calculated for a grid of points of each considered variable.
+Such a trigger would have to select two forward jets with \gls{VBF} characteristics, and would be limited to what is possible to implement on the current \gls{L1T} hardware. The following variables were considered to suppress the algorithm rate by constrain the dijet system: dijet invariant mass, dijet transverse invariant mass ($M_{T}$), and event \gls{HT}. For this study we always require a \gls{L1T} dijet with both jets in opposite sides of the detector with $\Delta\eta>3$. The selected jets \pt is scanned and \gls{L1T} algorithm rate is calculated for a grid of points of each considered q.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Dijet invariant mass}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The for \gls{VBF} processes the outgoing dijet is expected to have high invariant mass making this quantity a possible handle at in a \gls{L1T} trigger algorithm. Calculation of dijet invariant mass was not implemented in the \gls{L1T} hardware but according to trigger experts it was in principle possible. Unfortunately, to obtain acceptable rates the required threshold for jet $p_T$ and $M_{jj}$ would reject almost all \gls{SM} \gls{VBF} Higgs signal.
+For \gls{VBF} processes the outgoing dijet is expected to have high invariant mass making this quantity a possible handle to select this type of events with a \gls{L1T} trigger algorithm. Calculation of dijet invariant mass was not implemented in the \gls{L1T} hardware but according to trigger experts it was in principle possible. Unfortunately, to obtain acceptable rates the required threshold for jet $p_T$ and $M_{jj}$ would reject almost all \gls{SM} \gls{VBF} Higgs signal.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Dijet transverse invariant mass}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The dijet transverse mass was also considered and was proved to be more effective at suppressing \gls{QCD} multi-jet events. Again, this quantity is not implemented on the \gls{L1T} hardware but could be implemented. A possible working point for scenario A was obtained with a predicted \gls{L1T} rate of $5\kilo\hertz$. Events would be selected with at least one dijet with $\Delta\eta>3$ and $M_T>50\,\GeV$ where both jets have $p_T \sim 45\,\GeV$ and are in opposite sides of the detector. The expected signal efficiency was calculated to be $\approx 70\%$ for a \gls{SM} \gls{VBF} Higgs with $m_H=125\,\GeV$ decaying to $\tau\tau$.
+The dijet transverse mass was also considered and was proved to be more effective at suppressing the selection of \gls{QCD} multi-jet events. This quantity is also not implemented in the \gls{L1T} hardware but, similarly to $M_{jj}$, could be implemented. A possible working point for scenario A was obtained with a predicted \gls{L1T} rate of $5\kilo\hertz$. Events would be selected with at least one dijet with $\Delta\eta>3$ and $M_T>50\,\GeV$ where both jets have $p_T \sim 45\,\GeV$ and are in opposite sides of the detector. The expected signal efficiency was calculated to be $\approx 70\%$ for a \gls{VBF} produced \gls{SM} Higgs with $m_H=125\,\GeV$ decaying to $\tau\tau$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Event scaler sum of the transverse hadronic energy}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The event scaler sum of the transverse hadronic energy is the sum of the energy of all \gls{L1T} jets in the event. This variable has the advantage of being already implemented in the \gls{L1T} hardware. Again, a possible working point for scenario A was obtained with a predicted \gls{L1T} rate of $5\kilo\hertz$. Events would be selected with $HT>100\,\GeV$ and with at least one dijet with $\Delta\eta>3$ where both jets have $p_T \sim 40\,\GeV$ and are in opposite sides of the detector. The expected signal efficiency was calculated to be $\approx 98\%$ for a \gls{SM} \gls{VBF} Higgs with $m_H=125\,\GeV$ decaying to $\tau\tau$. A plot of the scan over \gls{L1T} $\pt^{jets}$ for $HT>100\,\GeV$ can be found in figure \ref{FIGURE:ParkedDataAnalysis_ParkedTriggerDevelopment_PU28_5e33_RateFBDijetDEtaDPhi00HT100}.
+The event scaler sum of the transverse hadronic energy is the sum of the energy of all \gls{L1T} jets in the event. This variable has the advantage of being already implemented in the \gls{L1T} hardware. A possible working point for scenario A was obtained with a predicted \gls{L1T} rate of $5\kilo\hertz$. Events would be selected with $HT>100\,\GeV$ and with at least one dijet with $\Delta\eta>3$ where both jets have $p_T \sim 40\,\GeV$ and are in opposite sides of the detector. The expected signal efficiency was calculated to be $\approx 98\%$ for a \gls{SM} \gls{VBF} Higgs with $m_H=125\,\GeV$ decaying to $\tau\tau$. A plot of the rate scan over \gls{L1T} $\pt^{jets}$ for $HT>100\,\GeV$ can be found in figure \ref{FIGURE:ParkedDataAnalysis_ParkedTriggerDevelopment_PU28_5e33_RateFBDijetDEtaDPhi00HT100}.
 
 \begin{figure}[ht]
 \centering
@@ -181,14 +180,16 @@ The event scaler sum of the transverse hadronic energy is the sum of the energy 
 \label{FIGURE:ParkedDataAnalysis_ParkedTriggerDevelopment_PU28_5e33_RateFBDijetDEtaDPhi00HT100}
 \end{figure}
 
+The two selected jet will contribute to at least $80\,\GeV$ of the required \gls{HT}. The additional necessary $20\,\GeV$ can come from the Higgs decay products or other unrelated energy deposits in the events. This characteristic add some dependency on the decay channel through the need of visible decay products, but this was deemed acceptable.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Final proposal}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The \gls{L1T} algorithm selecting \gls{MET} bigger than $40\,\GeV$ was unprescaled in the trigger menus used during Run I, it was decided to use this algorithm as seed for the invisible component of \gls{VBF} Higgs decays. Thus avoiding the additional complication of having to implement a dijet plus \gls{MET} \gls{L1T} algorithm for minimal threshold gain. For the \gls{VBF} channels with visible decays and considering the findings of this study, a similar simplified approach was taken. Depending on the delivered instantaneous luminosity and prescale events with \gls{HT} bigger than 150 or $170\,\GeV$ would be selected. The developed inclusive \gls{VBF} Higgs \gls{HLT} path was seeded by a logical or the these three \gls{L1T} seeds.
+The \gls{L1T} algorithm selecting \gls{MET} bigger than $40\,\GeV$ remained unprescaled in the trigger menus used during Run I. A decision was made to use this algorithm as seed for the invisible component of \gls{VBF} Higgs decays. Thus avoiding the additional complication of having to implement a dijet plus \gls{MET} \gls{L1T} algorithm for minimal threshold gain. For the \gls{VBF} channels with visible decays, taking into consideration the findings of this study, a similar simplified approach was taken. Depending on the delivered instantaneous luminosity, events with \gls{HT} bigger than 150 or $170\,\GeV$ would be selected. The developed inclusive \gls{VBF} Higgs \gls{HLT} path was seeded by a logical or of the these three \gls{L1T} seeds.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -208,17 +209,17 @@ The \gls{L1T} algorithm selecting \gls{MET} bigger than $40\,\GeV$ was unprescal
 % Not this but QCD VBF Studies
 % /home/hep/jca10/work/vbfinv/results/2014-01_StudyQCDVBF
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
 Simulating and reconstructing quantities of \gls{QCD} multi-jet events comparable to the ones produced at the \gls{LHC} experiments is impractical. At every second of \gls{LHC} physics operation several millions of bunch crossings happen, each one able to create several simultaneous collisions. With the currently available hardware it takes in excess of one minute to fully simulate one of such bunch crossings. Further more, most of this events have only low transverse momentum collisions and are unlikely to be picked up by any physics analysis selections.
 
 This constraints lead to \gls{QCD} multi-jets events being simulated in $p_T$ hats, where the first simulated collision outgoing particles summed $p_T$ is generated within a predefined range. Then several other collisions are added to the event as \gls{PU}. This additional collisions are generated without any constraints in $p_T$. 
 
-This binned method allows the user to have access to \gls{QCD} hard scattering samples with increasing energies. Such event samples allow studying the contribution of each \gls{QCD} multi-jet energy range to an hypothetical analysis selection. As a practical example we do not need to look over millions of \gls{QCD} events to find high energy jets. We can just start from the highest \gls{QCD} $p_T$ hat and add lower bins until the contributing to the event selection is negligible. On the other hand, analysis like the \gls{CMS} \gls{VBF} Higgs to invisible analysis, searches for event topologies with low energy jets and/or \gls{MET}. In this cases, available inclusive \gls{QCD} samples will not have enough statistics to provide insight into this backgrounds behaviour.
+This binned method allows the user to have access to \gls{QCD} hard scattering samples with increasing energies. Such event samples allow studying the contribution of each \gls{QCD} multi-jet energy range to an hypothetical analysis selection. As a practical example we do not need to look over millions of \gls{QCD} events to find high energy jets. We can just start from the highest \gls{QCD} $p_T$ hat and add lower bins until the contributing to the event selection is negligible. On the other hand, analyses like the \gls{CMS} \gls{VBF} Higgs to invisible analysis, search for event topologies with low energy jets and/or \gls{MET}. In those cases, available inclusive \gls{QCD} multi-jet event samples will not have enough statistics to provide insight into this backgrounds behaviour.
 
-The signal for this analysis has well separated jets in $\eta$ and large \gls{MET}. Generating \gls{QCD} multi-jet events with such characteristics could allow us to simulate enough statistics to compare with the recorded data and would hopefully describe this background. To create such simulated event sample a generator level filter had to be implemented. Simulation was done using the \textsc{PYTHIA 6} \gls{MC} event generator where events would only be kept if at least one generator anti-$k_T$ dijet would be found with $p_T^{jets}>20\,\GeV$, $|\eta_{jets}|<5.0$, $\Delta\eta>3.2$ and $M_{jj}>700\,\GeV$. Additionally, the vectorial sum of all the neutrinos in the event was required to be bigger than $40\,\GeV$. 
+The signal for this analysis has well separated jets in $\eta$ and large \gls{MET}. Generating \gls{QCD} multi-jet processes with such characteristics could allow us to simulate enough events statistics to compare with the Run I recorded data and would hopefully provide an accurate description for this background. To create such simulated events sample a generator level filter had to be implemented. The \textsc{PYTHIA 6} \gls{MC} event generator was used. Events would only be kept if at least one generator anti-$k_T^{R=0.5}$ dijet would be found with $p_T^{jets}>20\,\GeV$, $|\eta_{jets}|<5.0$, $\Delta\eta>3.2$ and $M_{jj}>700\,\GeV$. Additionally, the vectorial sum of all the neutrinos in the event was required to be bigger than $40\,\GeV$. 
 
-Similarly to the official \gls{QCD} multi-jet samples, these new simulated data sets were produced in the same bins, covering the \pt range from 80 to $600\,\GeV$. Higher \pt bins where not simulated since the official samples already had enough equivalent luminosity to be directly compared to data. Table \ref{TABLE:PreparationParkedDataAnalysis_QCDVBFMET_KeyParameters} summarizes the key parameters for each produced $\pt$ hat.
+Similarly to the official inclusive \gls{QCD} multi-jet samples, these new simulated datasets were produced in the same \pt hat bins, in the range from 80 to $600\,\GeV$. Higher \pt bins where not simulated since the official samples already had enough equivalent luminosity to be directly compared to data. Table \ref{TABLE:PreparationParkedDataAnalysis_QCDVBFMET_KeyParameters} summarizes the key parameters for each produced $\pt$ hat.
 
 \begin{table}[!htb]
 \centering
@@ -237,7 +238,7 @@ Similarly to the official \gls{QCD} multi-jet samples, these new simulated data 
 \label{TABLE:PreparationParkedDataAnalysis_QCDVBFMET_KeyParameters}
 \end{table}
 
-Each sub-sample has approximately twice the integrated luminosity recorded during Run I except the bin $470-600\,\GeV$ which had approximately ten times the equivalent luminosity. Figure \ref{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_RecovsGenMET} show the generator \gls{MET} versus the reconstructed \gls{PF} \gls{MET} for all the produced events after being reweighed by their respective cross section. 
+Each sub-sample has approximately twice the integrated luminosity recorded during Run I except the bin $470-600\,\GeV$ which had approximately ten times the equivalent luminosity. To illustrate the applied generator level \gls{MET} requirement, figure \ref{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_RecovsGenMET} show the generator \gls{MET} versus the reconstructed \gls{PF} \gls{MET} for the inclusive \gls{QCD} multi-jet samples after being reweighed by their respective cross section. 
 
 \begin{figure}[!htb]
 \centering
@@ -246,7 +247,7 @@ Each sub-sample has approximately twice the integrated luminosity recorded durin
 \label{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_RecovsGenMET}
 \end{figure}
 
-Two event populations can be observed on this plot. The first along the diagonal of the two variables, when generator \gls{MET} is correctly reconstructed. The second population is along the vertical line at zero generator level \gls{MET}, which corresponds to events with miss reconstruction of \gls{MET}. When selecting events with \gls{PF} $\text{MET}>130\,\GeV$ the number of events with generator \gls{MET} bigger than $40\,\GeV$ is only 17-31\% of the total. Showing that most \gls{QCD} muli-jet events with high \gls{PF} \gls{MET} are miss measured. The produced \gls{QCD} multi-jet samples do not simulate miss measurement, but it was hoped at this time that a suitable event selection would suppress this type of events leaving only the real \gls{MET} topologies.
+Two event populations can be observed in this plot. The first is along the diagonal of the two variables, where the generator \gls{MET} is correctly reconstructed into \gls{PF} \gls{MET}. The second population is along the vertical line at zero generator level \gls{MET}, which corresponds to events with miss reconstructed \gls{MET}. When selecting events with \gls{PF} $\text{MET}>130\,\GeV$, the \textit{prompt analysis} offline requirement, the number of events with generator \gls{MET} bigger than $40\,\GeV$ is only 17-31\% of the total. Showing that most \gls{QCD} muli-jet events with high \gls{PF} \gls{MET} are miss measured. The produced \gls{QCD} multi-jet samples do not simulate miss measurement, but it was hoped at this time that a suitable event selection would suppress this type of events leaving only the real \gls{MET} topologies.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -254,13 +255,13 @@ Two event populations can be observed on this plot. The first along the diagonal
 \subsection{Pre-selection for data comparison}
 \label{SECTION:PreparationParkedDataAnalysis_QCDVBFMETPreselection}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-In an attempt to be use this samples effectively an event pre-selection was defined where the key variables of the \gls{VBF} Higgs to invisible analysis could be described by \gls{MC} simulation including the new \gls{QCD} multi-jet samples. If proven reliable it would be the ideal starting point for the optimization of a cut based analysis or to train a machine learning discriminator like a \gls{BDT}.
+In an attempt to be use this samples effectively an event pre-selection was defined where the key variables of the \gls{VBF} Higgs to invisible analysis could be described by the \gls{MC} simulated datasets including the new \gls{QCD} multi-jet samples. If proven reliable such a pre-selection would be the ideal starting point for the optimization of a cut based analysis or to train a machine learning discriminator like a \gls{BDT}.
 
-The approach taken was to methodically removed variable ranges on reference distributions where fake \gls{MET} events are likely to dominate. For data the trigger bit was required and for \gls{MC} simulated events the trigger reweighing was applied while he \textit{prompt analysis} lepton veto was applied to both. Events where only be accepted if the leading two jets have $p_T>50\,\GeV$, $|\eta|<4.7$ and their $\Delta\phi$ to the \gls{MET} vector is at least 1.5. Additionally, the dijet formed by these selected jets has $\Delta\eta>3.6$ and the significance of the \gls{MET} is at least 3. 
+The approach taken was to methodically removed variable ranges on reference distributions where fake \gls{MET} events are likely to dominate. Starting by requiring that the trigger bits were passed for data and for \gls{MC} simulated events the trigger reweighing were applied. The lepton vetos were applied to both data and simulation. Furthermore, events leading dijet had to pass $\Delta\eta>3.6$, with its composing jets passing $p_T>50\,\GeV$, $|\eta|<4.7$, and $\Delta\phi$ to the \gls{MET} vector is at least 1.5. The significance of the \gls{MET} was required to be at least 3. 
 
-The \gls{QCD} multi-jet events passing this pre-selection were weighted so their total number would be the difference between data and all other estimate backgrounds estimated from \gls{MC} simulation. The selection signal efficiency for a \gls{SM} \gls{VBF} Higgs decay to invisible with $m_H=125\,\GeV$ was estimated to be 76\%. Figure \ref{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_PreSectionVariables} contains plots comparing data and \gls{MC} simulation for some of the key variables used in the \textit{prompt analysis} signal event selection.
+The \gls{QCD} multi-jet events passing this pre-selection were weighted so their total number would be the difference between data and all other estimate backgrounds estimated from \gls{MC} simulation. The selection signal efficiency for a \gls{VBF} produced \gls{SM} Higgs decay to invisible with $m_H=125\,\GeV$ was estimated to be 76\%. Figure \ref{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_PreSectionVariables} contains plots comparing data and \gls{MC} simulation for some of the key variables used in the \textit{prompt analysis} signal event selection.
 
 % NOTE:
 %
@@ -282,22 +283,22 @@ The \gls{QCD} multi-jet events passing this pre-selection were weighted so their
 \subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijet_dphi.pdf}} \\ 
 \subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/met.pdf}}
 \subfloat[]{\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/metSig.pdf}} \\
-\caption{Plots of the the number of events for some of the key analysis variables after the proposed pre-selection using \gls{MC} simulation including the new \gls{QCD} multi-jet samples and 19.8 $fb^{-1}$ of data. Plot are, (a) dijet invariant mass, (b) hadronic energy total, (c) dijet $\Delta\phi$, (d) dijet $\Delta\eta$, (e) \gls{MET} and (f) \gls{MET} significance. Where red vertical lines can be seen they represent the applied cut by the pre-selection.}
+\caption{Plots of the number of events for some of the key analysis variables after the proposed pre-selection using \gls{MC} simulation including the new \gls{QCD} multi-jet samples and 19.5 $fb^{-1}$ of data. Plot are, (a) sub-leading dijet \pt, (b) dijet invariant mass, (c) dijet $\Delta\phi$, (d) dijet $\Delta\eta$, (e) \gls{MET} and (f) \gls{MET} significance. The red vertical lines represent the applied cuts by the pre-selection.}
 \label{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_PreSectionVariables}
 \end{figure}
 
-Data description by the \gls{MC} event samples was seen as acceptable in all variables to proceed with further studies. The biggest observed discrepancies were observed at low values of \gls{MET} and \gls{MET} significance and high values of dijet $\Delta\eta$.
+Data description by the \gls{MC} event samples was seen as acceptable in all variables to proceed with further studies. The biggest observed discrepancies were at low values of \gls{MET} and \gls{MET} significance and high values of dijet $\Delta\eta$.
 
-Unfortunately, when analysing the control regions already defined for the \textit{prompt analysis} with the additional pre-selection requirements the agreement became unacceptable for many variables, making it not possible to use this samples for shape comparison of \gls{BDT} training. The new \gls{QCD} multi-jet samples had special difficulty describing events where the \gls{MET} was aligned with a jet axis which points to \gls{MET} miss measurement. Although, this \gls{QCD} multi-jet event samples could not fully describe this component of data they still model a significant part this background and have been used to study new variables to attempt to suppress at least those types of events. 
+Unfortunately, when analysing the control regions already defined for the \textit{prompt analysis} with the additional pre-selection requirements, the agreement became unacceptable for many variables, making it not possible to use this samples for shape comparison of \gls{BDT} training. The new \gls{QCD} multi-jet samples had special difficulty describing events where the \gls{MET} was aligned with a jet axis which points to \gls{MET} miss measurement. Although, this \gls{QCD} multi-jet event samples could not fully describe this component of data they still model a significant part of this the \gls{QCD} multi-jet background and have been used to study new variables to attempt to suppress at least those types of events. 
 
 % To force plots to be in this section
 \clearpage
 
 \section{QCD control studies}
 
-% Status: DONE
+% Status: DONE (reviewed J.Pela x1)
 
-The re-optimization of the signal event selection to use with parked data will had to lower some of the requirements imposed in the \textit{prompt analysis}. This relaxing of variables allowed backgrounds to also be accepted being \gls{QCD} multi-jet process one of the most preoccupying for its quantity and lack of complete and statistically sufficient \gls{MC} description. To control and suppress this  background new variables were used studied for possible inclusion in the new event selection, taking advantage of the physical properties expected of the signal process. At the stage where this studies were developed, this new variables were being considered as inputs for both a cut based event selection and for the training of a \gls{BDT} discriminator against all backgrounds or simply against \gls{QCD} multi-jet processes.
+Some of the requirements imposed in the \textit{prompt analysis} signal selection, will have to lowered to take advantage of the parked data relaxed trigger thresholds. This tuning of variables may allow backgrounds to also be accepted. The \gls{QCD} multi-jet background is one of the most preoccupying for its event quantity and lack of complete and statistically sufficient \gls{MC} description. To control and suppress this  background new variables were studied for possible inclusion in the new event selection, taking advantage of the physical properties expected of the signal process. This new variables were being considered as inputs for both a cut based event selection and also for the training of a \gls{BDT} discriminator against all backgrounds or simply against the \gls{QCD} multi-jet background.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -327,9 +328,9 @@ The re-optimization of the signal event selection to use with parked data will h
 % g++ -g getPlots.cxx -o getPlots.exe `root-config --cflags --libs` `ictools-config --libs` `ictools-config --cflags` -lTMVA
 % ./getPlots.exe
 
-% Status: DONE
+% Status: DONE (reviewed J.Pela x1)
 
-When analysing events from \gls{VBF} produced Higgs decays, the products of the Higgs boson should be recoiling from the outgoing \gls{VBF} jets. When the Higgs decays invisibly the measurement \gls{MET} should have the same magnitude than the dijet system transverse momentum and they should be pointing in opposite directions. This topological constrains do not apply to \gls{QCD} multi jets backgrounds and therefore can be used to discriminate between this processes. Two variables are defined to explore this properties $\alpha_{\text{vec}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_1}) and $\alpha_{\text{balance}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_2}). Additionally, a  dijet plus \gls{MET} energy scale variable can be defined as  $\alpha_{\text{scale}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_3}).
+When analysing events from \gls{VBF} produced Higgs decays, the products of the Higgs boson should be recoiling from the outgoing \gls{VBF} jets. When the Higgs decays invisibly the measured \gls{MET} should have the same magnitude than the dijet system transverse momentum and they should be pointing in opposite directions. This topological constrains do not apply to \gls{QCD} multi-jet events and therefore can be used to discriminate between these processes. Two variables are defined to explore these properties $\alpha_{\text{vec}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_1}) and $\alpha_{\text{balance}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_2}). Additionally, jets plus \gls{MET} energy scale variable similar to \gls{HT} can be defined as $\alpha_{\text{scale}}$ (eq. \ref{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_3}).
 
 \begin{align}
 \alpha_{\text{vec}}     &= |\vec{\pt^{jet_1}} + \vec{\pt^{jet_2}} + \vec{MET}|
@@ -340,9 +341,9 @@ When analysing events from \gls{VBF} produced Higgs decays, the products of the 
 \label{EQUATION:PreparationParkedDataAnalysis_DijetMETSystemVars_3} \\
 \end{align}
 
-Variable $\alpha_{\text{vec}}$ should be zero for a balanced dijet plus \gls{MET} systems found in the signal process, only smeared by the detector energy/momentum and direction resolutions. While this is a good variable resolution changes with jets and \gls{MET} magnitudes which affects the spread of this variable. The system energy balance variable $\alpha_{\text{balance}}$ should peak at 0.5 for signal and should only depend on the energy/momentum resolution. Signal events are only possible when large amounts of momentum are exchanged by the incoming partons which should be higher than the vast majority of \gls{QCD} multi-jet events. The $\alpha_{\text{scale}}$ allows to set a minimum amount total amount of momentum present in the objects of interest and can be combined with $\alpha_{\text{vec}}$ or $\alpha_{\text{balance}}$ to further isolate the signal.
+Variable $\alpha_{\text{vec}}$ should be zero for a balanced dijet plus \gls{MET} systems like in the signal process, the measurement will only smeared by the detector energy/momentum and direction resolutions. While this is a good variable, resolution changes with jets and \gls{MET} magnitudes which affects the spread of this variable. The system energy balance variable $\alpha_{\text{balance}}$ should peak at 0.5 for signal and should only depend on the energy/momentum resolution. Signal events are only possible when large amounts of momentum are exchanged by the incoming partons contrarily to the vast majority of \gls{QCD} multi-jet events. The $\alpha_{\text{scale}}$ allows to set a minimum amount of total amount of momentum present in the objects of interest and can be combined with $\alpha_{\text{vec}}$ or $\alpha_{\text{balance}}$ to further isolate the signal.
 
-To study the shapes of this variables \gls{MC} simulation was used, \gls{VBF} Higgs to invisible decays with $m_H=120\,\GeV$ events were used for signal and inclusive \gls{QCD} multi-jets events starting $\hat{\pt}>80\,\GeV$ for background. Events where selected if the leading two jets had $\pt^>50\,\GeV$ and $|\eta|<4.7$, these jets would compose the selected dijet. Figure \ref{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_1} and \ref{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_2} show the shape of this variable for both signal and \gls{QCD} multi-jet events in this minimal selection.
+To study the shapes of this variables \gls{MC} simulation was used. Simulated \gls{VBF} Higgs to invisible decays with $m_H=120\,\GeV$ events were used for signal and inclusive \gls{QCD} multi-jets events starting $\hat{\pt}>80\,\GeV$ for background. Events were selected if the leading two jets had $\pt^>50\,\GeV$ and $|\eta|<4.7$, these jets would compose the selected dijet. Figure \ref{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_1} and \ref{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_2} show the shape of this variables for both signal and \gls{QCD} multi-jet events in this minimal selection.
 
 \begin{figure}[!htb]
 \centering
@@ -358,11 +359,11 @@ It can be observed that in $\alpha_{\text{scale}}$ the signal as expected is har
 \centering
 \includegraphics[width=0.45\textwidth]{Chapter06/TopologicalVariables/Images/JetPair_dijetOverMetPt.pdf} 
 \includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/PreSelection/Images//DEta3p6_MetSig3p0_MinDPhiJetsMet1p5/dijetmet_ptfraction.pdf}
-\caption{Shape distributions for $\alpha_{\text{balance}}$. The left plot shows the comparison of \gls{VBF} Higgs to invisible decays with $m_H=120\,\GeV$ and \gls{QCD} multi-jets ($\hat{\pt}>80\,\GeV$) inclusive decays, each shape integral is normalized to 1. The right plot events are selected using the preselected defined in section \ref{SECTION:PreparationParkedDataAnalysis_QCDVBFMETPreselection}. Simulated backgrounds including the new \gls{QCD} multi-jet samples are compared with 19.8 $fb^{-1}$ of data.}
+\caption{Plots of $\alpha_{\text{balance}}$ distributions. The left plot shows the comparison of \gls{VBF} Higgs to invisible decays with $m_H=120\,\GeV$ and \gls{QCD} multi-jets ($\hat{\pt}>80\,\GeV$) inclusive decays, each shape integral is normalized to 1. The right plot shows events selected using the pre-selection defined in section \ref{SECTION:PreparationParkedDataAnalysis_QCDVBFMETPreselection}. Simulated backgrounds including the new \gls{QCD} multi-jet samples are compared with 19.5 $fb^{-1}$ of data.}
 \label{FIGURE:PreparationParkedDataAnalysis_DijetMETSystemVars_2}
 \end{figure}
 
-Good description of the data is observed and it is showed that both the new samples are able to describe effects that were not modelled before, but also that $\alpha_{\text{balance}}$ could be used to suppress a significant part of the \gls{QCD} multi jet background.
+Good description of the data is observed and it is showed that the new \gls{QCD} multi jet samples are able to describe effects from this background that were not modelled before, but also that $\alpha_{\text{balance}}$ could be used to suppress a significant part of the \gls{QCD} multi jet background.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -383,13 +384,13 @@ Good description of the data is observed and it is showed that both the new samp
 % cmsenv
 % vbfinvVariableAnalysisTracks_makePlots
 
-% Status: DONE
+% Status: DONE (reviewed J.Pela x1)
 
-One of the important features of \gls{VBF} processes is that there is no colour connection between the outgoing quark jets. Since \gls{QCD} multi-jet processes do exhibit this property, it is expected that this background events will have significant hadronic activity between the event jets. Motivating the use of a central jet veto in the Run I \textit{prompt analysis}. Events were vetoed if a jet with enough \pt was found between the two leading jets, identified as coming from \gls{PV}. But colour connection can result simply in a spread of energy in the event which may be clustered into \gls{PU} jets or remain unclustered. Also by having a minimum \pt requirement on a single veto jet may result in accepting events where multiple jets coming from the \gls{PV} are present with low \pt, which combined would pass the veto threshold.
+One of the important features of \gls{VBF} processes is that there is no colour connection between the outgoing quark jets. Since \gls{QCD} multi-jet processes do exhibit this property, it is expected that these background events will have significant hadronic activity between the event jets. Motivating the use of a central jet veto in the Run I \textit{prompt analysis}. Events were vetoed if a jet identified as coming from \gls{PV} with enough \pt was found between the two leading jets. But colour connection can result simply in a spread of energy in the event which may be clustered into \gls{PU} jets or remain unclustered. Also by having a minimum \pt requirement on a single veto jet may result in accepting events where multiple low \pt jets coming from the \gls{PV} are present, which combined would pass the veto threshold.
 
-For colour connected jets it is expected that a significant amount tracks coming from the primary vertex would be spread in the event specially between the selected jets. Some forward physics analysis which target similar unconnected dijet signal topologies, it is common to use variables like the fraction of tracks inside the selected jets, to discriminate the signal from background \cite{ARTICLE:AnalysisDiffractiveJets}. Using tracks has the advantage of not depending on jet clustering or veto jet definition and uses directly the excellent resolution of the \gls{CMS} inner tracking system. 
+For colour connected jets it is expected that a significant amount tracks coming from the primary vertex would be spread in the event specially between the selected jets. Forward physics analysis which target similar unconnected dijet signal topologies, use variables like the fraction of tracks inside the selected jets, to discriminate the signal from background \cite{ARTICLE:AnalysisDiffractiveJets}. Using tracks has the advantage of not depending on jet clustering or veto jet definition and uses directly the excellent resolution of the \gls{CMS} inner tracking system. 
 
-Two variables were considered for inclusion in a cut or \gls{MVA} based signal selection criteria using tracks from the \gls{PV}. The fraction of tracks contained inside the selected jets ($\beta_{\text{PV Tracks}}^{\text{dijet }n}$), and the fraction of summed momentum contained inside the selected jets ($\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$). In both cases only tracks above $1\,\GeV$ were considered, but this thresholds could be further optimised. Figure \ref{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Selection} shows plots for both this variables when selecting events where the leading dijet has $M_{jj}>700\,\GeV$ and $\Delta\eta>3.5$ where both jets are in opposite sided of the detector, pass \gls{PU} identification criteria, have $\pt>50\,\GeV$ and $|\eta|<4.7$. Simulated \gls{MC} \gls{VBF} Higgs to invisible decays with $m_H=125\,\GeV$ are used for signal the new \gls{QCD} multi-jet samples are used for background.
+Two variables were considered for inclusion in a cut or \gls{MVA} based signal selection criteria using tracks from the \gls{PV}. The fraction of tracks contained inside the selected jets ($\beta_{\text{PV Tracks}}^{\text{dijet }n}$), and the fraction of summed momentum contained inside the selected jets ($\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$). In both cases only tracks above $1\,\GeV$ were considered, but this threshold could be further optimised. Figure \ref{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Selection} shows plots for both this variables when selecting events where the leading dijet has $M_{jj}>700\,\GeV$ and $\Delta\eta>3.5$ where both jets are in opposite sided of the detector, pass \gls{PU} identification criteria, $\pt>50\,\GeV$ and $|\eta|<4.7$. Simulated \gls{MC} \gls{VBF} Higgs to invisible decays with $m_H=125\,\GeV$ are used for signal the new \gls{QCD} multi-jet samples are used for background.
 
 \begin{figure}[!htb]
 \centering
@@ -399,7 +400,7 @@ Two variables were considered for inclusion in a cut or \gls{MVA} based signal s
 \label{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Selection}
 \end{figure}
 
-Form both analysed variables in this event selection the $\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$ is the most promising variable to separate signal and \gls{QCD} multi-jet. To prove that this variable allows additional discrimination gains to the usage of a \gls{CJV}, this variable was plotted in figure \ref{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_SelectionCJV} after vetoing event where a jet with  $\pt>30\,\GeV$ passing \gls{PU} identification criteria is found between the two leading jets.
+Form both analysed variables in this event selection the $\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$ is the most promising variable to separate signal and \gls{QCD} multi-jet. To prove that this variable allows additional discrimination gains to the usage of a \gls{CJV}, this variable was plotted in figure \ref{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_SelectionCJV} after vetoing event where a jet with $\pt>30\,\GeV$ passing \gls{PU} identification criteria is found between the two leading jets.
 
 \begin{figure}[!htb]
 \centering
@@ -408,7 +409,7 @@ Form both analysed variables in this event selection the $\beta_{\text{PV Tracks
 \label{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_SelectionCJV}
 \end{figure}
 
-It can be observed that this variable still has good discrimination power to isolate the signal from background. There is a caveat it its usage which is the tracker coverage. The majority of the signal events have both or at least one of the selected jets inside of the tracker acceptable, but there is a category of events that will have both jets in regions where tracking is not possible, which in turn will also make it very difficult to determine which is the primary vertex. Figure \ref{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Acceptance} shows the $\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$ distributions for events with both of a single selected jets inside the tracker acceptance without the application of a \gls{CJV}
+It can be observed that this variable still has good discrimination power to isolate the signal from background. There is a caveat in its usage which is the tracker coverage. The majority of the signal events have both or at least one of the selected jets inside of the tracker acceptable, but there is a category of events that will have both jets in regions where tracking is not possible, which in turn will also make it very difficult to determine which is the primary vertex. Figure \ref{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Acceptance} shows the $\beta_{\text{PV Tracks}}^{\text{dijet }\pt}$ distributions for events with both or a single selected jets inside the tracker acceptance without the application of a \gls{CJV}. In both cases this variable remains able to discriminate signal from \gls{QCD} backgrounds. 
 
 \begin{figure}[!htb]
 \centering
@@ -419,4 +420,15 @@ It can be observed that this variable still has good discrimination power to iso
 \label{FIGURE:PreparationParkedDataAnalysis_TrackDistributionVariables_Acceptance}
 \end{figure}
 
-In both cases this variable remains able to discriminate signal from \gls{QCD} backgrounds. There are three well categories for this variable depending on how many selected jets are inside the tracker acceptance. To use this type of variables in a possible event selection may imply the need to split it into categories depending on jet location. Such problem would not arise from a \gls{MVA} based analysis since this categories would be automatically learned by this methods and even possibly extended.
+There are three well categories for this quantity depending on how many selected jets are inside the tracker acceptance. To use this type of variables in a possible event selection may be necessary to split the selection into categories depending on jets location. Such problem would not arise from a \gls{MVA} based analysis, since this categories would be automatically learned by this methods and even possibly extended.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Summary}
+
+% Status: DONE (reviewed J.Pela x1)
+
+New quantities were found that are able to discriminate between signal and background which could be used to improve the criteria used for signal selection in the \textit{prompt analysis}. Because of the lack of a full description of the \gls{QCD} multi-jet background it was difficult to optimise the signal event selection in a relaxed threshold region with a significant component of this background. To avoid this problem, it was decided to take again the approach to suppress the \gls{QCD} multi-jet background to negligible levels introducing a hard cut in the minimum $\Delta\phi$ between the selected jets and \gls{MET}. At this point the presented variables could not contribute significantly to the improvement of the event selection in order to obtain better expected exclusion limits and therefore were not used.
+
+However, for the Run II re-optimisation of the \gls{CMS} Higgs to invisible analysis these quantities are again being considered for inclusion in the signal event selection.
