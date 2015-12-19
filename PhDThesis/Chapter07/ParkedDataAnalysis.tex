@@ -40,7 +40,7 @@ The analysis of these \textit{ntuples} was performed by an independent code fram
 % The total integrated luminosity analysed is $19.2 \pm 0.5$
 % fb$^{-1}$~\cite{CMS-PAS-LUM-13-001}.
 
-\cite{ARTICLE:CMSLuminosityBasedonPixelClusterCounting}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -49,17 +49,11 @@ The analysis of these \textit{ntuples} was performed by an independent code fram
 
 %Status: DONE
 
-In this analysis we used the full certified data with collisions at $\sqrt{s}=8\,\TeV$ from 2012-13 data acquisition (Run I), using golden \gls{JSON} file:
-
-\begin{verbatim}
-Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt
-\end{verbatim}
-
-It amounts to an integrated luminosity of $19.2 \pm 0.5 \,\femto\barn^{-1}$. A summary of the dataset names and their integrated luminosity can be found in table \ref{TABLE:ParkedData_Data_RunI_IntegratedLuminosity}.
+This analysis used the full  $\sqrt{s}=8\,\TeV$ Run I proton-proton certified collision data. The total integrated luminosity analysed is $19.2 \pm 0.5 \,\femto\barn^{-1}$ \cite{ARTICLE:CMSLuminosityBasedonPixelClusterCounting}. A summary of the datasets used and their integrated luminosity can be found in table \ref{TABLE:ParkedData_Data_RunI_IntegratedLuminosity}.
 
 \input{Chapter07/Tables/table_Data_RunI_IntegratedLuminosity.tex}
 
-The difference between certified and analysed numbers is due to our analysis trigger not being active for the first few runs of of Run 2012B.
+The \gls{VBF} Higgs inclusive parked trigger only became available in the beginning of the 2012 Run B. Similarly to the \textit{prompt analysis}, for Run A the prompt data recorded by the dedicated \gls{VBF} Higgs to invisible trigger is used. The difference between the certified and analysed numbers is due to the new \gls{VBF} Higgs inclusive parked trigger being present but not active for the first few runs of the 2012 Run B.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -67,6 +61,74 @@ The difference between certified and analysed numbers is due to our analysis tri
 \subsection{Monte Carlo Samples}
 
 %Status: Writing
+
+% \section{Simulation and object description}
+% \label{sec:objects}
+% 
+% The analysis presented here uses the same event quality selection, definitions of physics objects and Monte Carlo (MC) samples as described in
+% ~\cite{Chatrchyan:2014tja}, and summarised below.
+% 
+% The VBF signal is simulated using the \POWHEG 2.0 event
+% generator~\cite{Nason:2004rx,Frixione:2007vw,Alioli:2009je,Hamilton:2009za,Nason:2009ai,Alioli:2010xd,Re:2010bp} hadronised with \PYTHIA 6.4.26~\cite{Sjostrand:2006za}. The
+% VBF production cross sections are taken from
+% ~\cite{Dittmaier:2011ti,Dittmaier:2012vm}. The main background
+% processes, W and Z produced in association with jets (W/Z+jets), and
+% $\ttbar$ also produced in association with jets, are
+% simulated using \MADGRAPH 5.1.1~\cite{Alwall:2011uj,MadGraph} interfaced with
+% \PYTHIA. For the W and Z ($\ttbar$) simulation up to 4 (3) additional partons are considered. Also for the W and Z simulation, events are generated where the W or Z boson is produced via electroweak processes as well as where they are produced via QCD processes. A VBF-topology enriched QCD multijets sample, where genuine \MET is required at generator level, has been generated with PYTHIA. Detector
+% effects are then simulated using the \GEANTfour
+% package~\cite{Agostinelli:2002hh,Allison:2006ve}. All MC samples are reweighted
+% event-by-event to reproduce the distribution of minimum bias
+% interactions (pileup) observed in data. The average number of pileup events is estimated at 21 interactions per bunch crossing.
+% 
+% %Additional weights are applied to simulated events to                                                                                                     
+% %ensure trigger efficiency, lepton identification efficiency, and                                                                                          
+% %b-tagging efficiency match measurements from data.\par}                                                                                                    
+% 
+% The main objects used in this analysis are jets and missing transverse energy, which are the signatures of an invisibly decaying VBF produced Higgs. Several background estimation methods used in the analysis require using control regions containing charged leptons.
+% These objects are reconstructed with a particle-flow (PF)
+% algorithm~\cite{CMS-PAS-PFT-09-001,CMS-PAS-PFT-10-001}. Pileup
+% mitigation techniques are in place to correct the objects as well as remove objects not from the primary vertex, as
+% described in detail in ~\cite{Chatrchyan:2014tja}.
+% 
+% Electrons~\cite{CMS:2013hoa} (muons~\cite{CMS-PAS-MUO-10-002})
+% are selected in the pseudorapidity range $\abs{\eta}< 2.4 (2.1)$ and
+% with p$_T> 10$\,GeV. For electrons, the $1.44 < \abs{\eta}< 1.57$
+% transition region between the barrel and endcap of the electromagnetic calorimeter is excluded. Different isolation and identification criteria are used
+% depending on whether the lepton is explicitly required (a tight
+% lepton), where tighter criteria and p$_T> 20$\,GeV are applied, or being used for a
+% veto (a veto lepton), where looser criteria and p$_T> 10$\,GeV are
+% applied. A loose isolation requirement is still applied for veto
+% leptons, implying that events with leptons in jets will a priori not be
+% rejected. Hadronic taus are identified using the ``hadron-plus-strips''
+% algorithm \cite{Chatrchyan:2012zz} which reconstructs the main
+% hadronic tau decay modes using charged hadrons and photons, and leads
+% to an expected efficiency of 55\% for a fake rate less than 3\%, for
+% taus with p$_{T}>20$\,GeV and $|\eta|<2.3$. MC samples are reweighted
+% event-by-event to match the lepton reconstruction, identification and
+% isolation efficiencies measured in data.
+% 
+% Jets are clustered using the anti-\kt clustering
+% algorithm~\cite{Cacciari:2008gp}, with a distance parameter of 0.5, as
+% implemented in the \textsc{fastjet}
+% package~\cite{Cacciari:fastjet1,Cacciari:fastjet2}. Jets are selected
+% in the pseudorapidity range $\abs{\eta}< 4.7$ and with transverse momentum
+% p$_T>30$\,GeV. Jet energy corrections are
+% applied~\cite{Chatrchyan:2011ds}, as well as identification criteria
+% to remove contributions from calorimeter noise or from pileup
+% interactions. Jets with an identified tight electron or tight muon
+% within $\Delta R < 0.5$ are filtered out.
+% 
+% %!!FIND ALL 4 line sentences and cut                                                                                                                  
+% We define the missing transverse energy, \MET and $\phi_{\MET}$ as the
+% modulus and azimuthal angle of the negative vectorial sum of the
+% transverse momentum of all PF objects except the muons. Muons are
+% ignored in the calculation of the \MET from trigger level onwards to
+% increase the number of events in background estimation control regions
+% where muons are required. Jet energy corrections (including effects
+% from pileup) are propagated to the \MET object. We also use \MET significance, \METsig, defined as the ratio of the vectorial sum to the
+% square root of the scalar sum of the transverse energy of all reconstructed PF
+% candidates.
 
 \begin{table}
 \centering
@@ -145,6 +207,76 @@ The distribution of \gls{PU} in data and \gls{MC} simulated events samples is no
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trigger efficiency}
 \label{SUBSECTION:ParkedDataAnalysis_CorrectionFactors_TriggerEfficiency}
+
+% \section{Triggering and selection}
+% \label{sec:sel}
+% The same analysis strategy as in ~\cite{Chatrchyan:2014tja} is
+% used. The pair of jets from VBF production have the distinct topology
+% of being well separated in $\eta$, in opposite forward/backward halves
+% of the detector, and having a high dijet invariant mass,
+% M$_{jj}$. Final states with the two highest p$_{T}$ two jets with this VBF topology and large
+% missing transverse energy are therefore selected.
+% 
+% The triggers available during 2012 varied across different data-taking
+% periods. For each period (named A, B, C and D) the unprescaled
+% VBF-specific trigger with the loosest selection criteria is used, this
+% leads to three different triggers being used in total. At the first trigger level (L1T) used by CMS all three have the same selection, requiring L1T \MET$>40$\,GeV, which is the \MET calculated using calorimeter trigger towers with $|\eta|<3$. The trigger used
+% in run A is the same as the prompt trigger used in
+% Ref.~\cite{Chatrchyan:2008aa}, and selects, among all possible jet
+% pairs to minimise the impact of pileup, at least one pair of PF jets
+% with p$_T>40$\,GeV, M$_{jj}>800$\,GeV, dijet
+% pseudorapidity difference $\Delta\eta_{jj}>3.5$ and $\MET>65$\,GeV. The integrated
+% luminosity for run A is $0.89 \pm 0.02$\,fb$^{-1}$. The trigger used
+% for run B and C (D) is a parked trigger that selects a pair of
+% calorimeter jets with p$_T>35 (30)$\,GeV, M$_{jj}>700$\,GeV and
+% $\Delta\eta_{jj}>3.5$. The integrated luminosity for runs B and C (D)
+% is $11.0 \pm 0.3$ ($7.3 \pm 0.2$)\,fb$^{-1}$. To take into account the
+% correlations between the different variables, the efficiency of each
+% trigger is measured as a function of \MET in bins of M$_{jj}$ and
+% sub-leading jet p$_{T}$, using independent events recorded by a
+% single-muon trigger. All MC samples are then weighted event-by-event
+% by the luminosity-weighted average of the three measured efficiencies.
+% 
+% The data recorded by the triggers is dominated by QCD multijet
+% events. Multijet events have two distinct origins: (1) events with
+% fake \MET, where the \MET comes from mismeasured jets in the events;
+% and (2) events with genuine \MET, where the \MET comes from the decay
+% of hadrons involving neutrinos, in particular heavy-flavour
+% decays. The fake \MET contribution can be reduced by requiring \METsig 
+% to be large. Both components can be reduced by isolating
+% the \MET, by requiring that the minimum azimuthal angle separation
+% between any reconstructed jet with p$_T>30$ GeV and the \MET,
+% \mindphiall, be large.
+% 
+% The trigger requirements together with the need to reduce the QCD multijet
+% contribution to negligible levels drive the choice of the following
+% selection criteria:
+% 
+% \begin{equation}
+%   \label{eq:sel}
+%   \begin{aligned}
+%     &\eta_{j1} \cdot \eta_{j2}<0,\, \eta_{j1}<4.7,\, \eta_{j2}<4.7,\\
+%     &p_{T}^{\text{j1}}>50 \,\text{GeV},\,p_{T}^{\text{j2}}>40\,\text{GeV},\\
+%     &\Delta\eta_{jj}>3.6,\, M_{jj}>1000\,\text{GeV}, \\
+%     &\MET>90\,\text{GeV},\\
+%     & \mindphiall > 2.0,\,\METsig>4.
+%   \end{aligned}
+% \end{equation}
+% 
+% where j1 and j2 are the two leading jets ordered by decreasing p$_T$.  In
+% addition, the selected events are required to have no electrons or muons fulfilling the veto identification criteria (as defined in Sec. \ref{sec:objects}).
+% 
+% At this stage in the selection, the background processes leading to a
+% similar final state are, by order of decreasing importance:
+% W($\ell\nu$) and Z($\nu\nu$) + jets, QCD multijet production, all top
+% channels (\ttbar and single top channels), dibosons, and
+% Drell--Yan$(\ell\ell)\text{+jets}$. The selection is further optimised
+% by tightening the requirements listed above to find the best 95\%
+% C.L. expected limit on \BRinv for a \mH=125 GeV Higgs boson.  The
+% optimal additional selection is found to be $\mindphiall > 2.3$,
+% p$_{T}^{j2}>45$\,GeV and M$_{jj}>1200$\,GeV, and these requirements
+% along with those in Eq.~\ref{eq:sel} are used to define the signal
+% region.
 
 %Status: DONE
 
@@ -299,7 +431,20 @@ $Min(\Delta\phi(MET,jets))$ cut &      34 &        91 &       205 &       178 & 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Systematics}
 
-%Status: Writing
+%Status: DONE
+
+The dominant source of uncertainty is due to the statistical uncertainty associated with the yields of the control regions both in data and \gls{MC} simulation, which are used for the estimation of the different backgrounds in signal region. 
+
+The errors associated to the jet energy scale, unclustered energy scale and jet energy resolution are estimated for both signal and background processes by varying each quantity independently by its uncertainties \cite{ARTICLE:CMSDeterminationJetEnergyCalibration}. For each variation the \gls{MET} is recomputed and the signal and backgrounds predictions are recalculated. A similar procedure is applied for the lepton efficiency and \gls{PU} scale factors which are applied to the \gls{MC} simulation, which are also varied by their uncertainties and propagated through the analysis \cite{ARTICLE:CMSMuonReconstruction7TeV,ARTICLE:CMSElectronReconstruction8TeV}.
+
+The uncertainty associated with the integrated luminosity measurement is of 2.6\% and is only applied to the \gls{MC} simulated signal and backgrounds \cite{ARTICLE:CMSLuminosityBasedonPixelClusterCounting}. The main backgrounds are normalised using a data-driven method which takes into account the trigger efficiency, while the impact of the luminosity measurement in the signal and minor backgrounds was found to be negligible.
+
+Uncertainties associated with diboson cross sections are taken from \gls{CMS} measurements \cite{ARTICLE:CMSMeasurmentOfWWandZZxsec}, while the theoretical uncertainties due to \gls{PDF} and \gls{QCD} scales associated to the signal cross section are taken from the \gls{LHC} Higgs Cross Section Working Groups Yellow Report 3 \cite{ARTICLE:HandbookofLHCHiggsCrossSectionsInclusiveObservables,ARTICLE:HandbookofLHCHiggsCrossSectionsDifferentialDistributions}.
+
+% TODO: Ask patrick, ``compatible within statistical uncertainty`` of what?
+The uncertainty of the extrapolation of the  $Z\rightarrow\nu\nu$ background obtained from the \gls{QCD} production of $Z/\gamma^{*}\rightarrow\mu\mu$ was estimated by comparing the prediction from \textsc{MADGRAPH} and a\textsc{MC@NLO\_MG5} \cite{ARTICLE:aMCatNLO}. The results from both generators were compatible within statistical uncertainty, leading to no additional uncertainties being added. 
+
+Table \ref{TABLE:ParkedDataAnalysis_Systematics_Summary} shows a summary of the overall size of each uncertainty as a percentage of the total signal and background predictions.
 
 \begin{table}[!htb]
 \centering
@@ -419,143 +564,8 @@ boson mass, assuming SM Higgs boson acceptances. \cite{ARTICLE:CMSVBFHiggsInvisi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-% \section{Simulation and object description}
-% \label{sec:objects}
 % 
-% The analysis presented here uses the same event quality selection, definitions of physics objects and Monte Carlo (MC) samples as described in
-% ~\cite{Chatrchyan:2014tja}, and summarised below.
-% 
-% The VBF signal is simulated using the \POWHEG 2.0 event
-% generator~\cite{Nason:2004rx,Frixione:2007vw,Alioli:2009je,Hamilton:2009za,Nason:2009ai,Alioli:2010xd,Re:2010bp} hadronised with \PYTHIA 6.4.26~\cite{Sjostrand:2006za}. The
-% VBF production cross sections are taken from
-% ~\cite{Dittmaier:2011ti,Dittmaier:2012vm}. The main background
-% processes, W and Z produced in association with jets (W/Z+jets), and
-% $\ttbar$ also produced in association with jets, are
-% simulated using \MADGRAPH 5.1.1~\cite{Alwall:2011uj,MadGraph} interfaced with
-% \PYTHIA. For the W and Z ($\ttbar$) simulation up to 4 (3) additional partons are considered. Also for the W and Z simulation, events are generated where the W or Z boson is produced via electroweak processes as well as where they are produced via QCD processes. A VBF-topology enriched QCD multijets sample, where genuine \MET is required at generator level, has been generated with PYTHIA. Detector
-% effects are then simulated using the \GEANTfour
-% package~\cite{Agostinelli:2002hh,Allison:2006ve}. All MC samples are reweighted
-% event-by-event to reproduce the distribution of minimum bias
-% interactions (pileup) observed in data. The average number of pileup events is estimated at 21 interactions per bunch crossing.
-% 
-% %Additional weights are applied to simulated events to                                                                                                     
-% %ensure trigger efficiency, lepton identification efficiency, and                                                                                          
-% %b-tagging efficiency match measurements from data.\par}                                                                                                    
-% 
-% The main objects used in this analysis are jets and missing transverse energy, which are the signatures of an invisibly decaying VBF produced Higgs. Several background estimation methods used in the analysis require using control regions containing charged leptons.
-% These objects are reconstructed with a particle-flow (PF)
-% algorithm~\cite{CMS-PAS-PFT-09-001,CMS-PAS-PFT-10-001}. Pileup
-% mitigation techniques are in place to correct the objects as well as remove objects not from the primary vertex, as
-% described in detail in ~\cite{Chatrchyan:2014tja}.
-% 
-% Electrons~\cite{CMS:2013hoa} (muons~\cite{CMS-PAS-MUO-10-002})
-% are selected in the pseudorapidity range $\abs{\eta}< 2.4 (2.1)$ and
-% with p$_T> 10$\,GeV. For electrons, the $1.44 < \abs{\eta}< 1.57$
-% transition region between the barrel and endcap of the electromagnetic calorimeter is excluded. Different isolation and identification criteria are used
-% depending on whether the lepton is explicitly required (a tight
-% lepton), where tighter criteria and p$_T> 20$\,GeV are applied, or being used for a
-% veto (a veto lepton), where looser criteria and p$_T> 10$\,GeV are
-% applied. A loose isolation requirement is still applied for veto
-% leptons, implying that events with leptons in jets will a priori not be
-% rejected. Hadronic taus are identified using the ``hadron-plus-strips''
-% algorithm \cite{Chatrchyan:2012zz} which reconstructs the main
-% hadronic tau decay modes using charged hadrons and photons, and leads
-% to an expected efficiency of 55\% for a fake rate less than 3\%, for
-% taus with p$_{T}>20$\,GeV and $|\eta|<2.3$. MC samples are reweighted
-% event-by-event to match the lepton reconstruction, identification and
-% isolation efficiencies measured in data.
-% 
-% Jets are clustered using the anti-\kt clustering
-% algorithm~\cite{Cacciari:2008gp}, with a distance parameter of 0.5, as
-% implemented in the \textsc{fastjet}
-% package~\cite{Cacciari:fastjet1,Cacciari:fastjet2}. Jets are selected
-% in the pseudorapidity range $\abs{\eta}< 4.7$ and with transverse momentum
-% p$_T>30$\,GeV. Jet energy corrections are
-% applied~\cite{Chatrchyan:2011ds}, as well as identification criteria
-% to remove contributions from calorimeter noise or from pileup
-% interactions. Jets with an identified tight electron or tight muon
-% within $\Delta R < 0.5$ are filtered out.
-% 
-% %!!FIND ALL 4 line sentences and cut                                                                                                                  
-% We define the missing transverse energy, \MET and $\phi_{\MET}$ as the
-% modulus and azimuthal angle of the negative vectorial sum of the
-% transverse momentum of all PF objects except the muons. Muons are
-% ignored in the calculation of the \MET from trigger level onwards to
-% increase the number of events in background estimation control regions
-% where muons are required. Jet energy corrections (including effects
-% from pileup) are propagated to the \MET object. We also use \MET significance, \METsig, defined as the ratio of the vectorial sum to the
-% square root of the scalar sum of the transverse energy of all reconstructed PF
-% candidates.
-% 
-% \section{Triggering and selection}
-% \label{sec:sel}
-% The same analysis strategy as in ~\cite{Chatrchyan:2014tja} is
-% used. The pair of jets from VBF production have the distinct topology
-% of being well separated in $\eta$, in opposite forward/backward halves
-% of the detector, and having a high dijet invariant mass,
-% M$_{jj}$. Final states with the two highest p$_{T}$ two jets with this VBF topology and large
-% missing transverse energy are therefore selected.
-% 
-% The triggers available during 2012 varied across different data-taking
-% periods. For each period (named A, B, C and D) the unprescaled
-% VBF-specific trigger with the loosest selection criteria is used, this
-% leads to three different triggers being used in total. At the first trigger level (L1T) used by CMS all three have the same selection, requiring L1T \MET$>40$\,GeV, which is the \MET calculated using calorimeter trigger towers with $|\eta|<3$. The trigger used
-% in run A is the same as the prompt trigger used in
-% Ref.~\cite{Chatrchyan:2008aa}, and selects, among all possible jet
-% pairs to minimise the impact of pileup, at least one pair of PF jets
-% with p$_T>40$\,GeV, M$_{jj}>800$\,GeV, dijet
-% pseudorapidity difference $\Delta\eta_{jj}>3.5$ and $\MET>65$\,GeV. The integrated
-% luminosity for run A is $0.89 \pm 0.02$\,fb$^{-1}$. The trigger used
-% for run B and C (D) is a parked trigger that selects a pair of
-% calorimeter jets with p$_T>35 (30)$\,GeV, M$_{jj}>700$\,GeV and
-% $\Delta\eta_{jj}>3.5$. The integrated luminosity for runs B and C (D)
-% is $11.0 \pm 0.3$ ($7.3 \pm 0.2$)\,fb$^{-1}$. To take into account the
-% correlations between the different variables, the efficiency of each
-% trigger is measured as a function of \MET in bins of M$_{jj}$ and
-% sub-leading jet p$_{T}$, using independent events recorded by a
-% single-muon trigger. All MC samples are then weighted event-by-event
-% by the luminosity-weighted average of the three measured efficiencies.
-% 
-% The data recorded by the triggers is dominated by QCD multijet
-% events. Multijet events have two distinct origins: (1) events with
-% fake \MET, where the \MET comes from mismeasured jets in the events;
-% and (2) events with genuine \MET, where the \MET comes from the decay
-% of hadrons involving neutrinos, in particular heavy-flavour
-% decays. The fake \MET contribution can be reduced by requiring \METsig 
-% to be large. Both components can be reduced by isolating
-% the \MET, by requiring that the minimum azimuthal angle separation
-% between any reconstructed jet with p$_T>30$ GeV and the \MET,
-% \mindphiall, be large.
-% 
-% The trigger requirements together with the need to reduce the QCD multijet
-% contribution to negligible levels drive the choice of the following
-% selection criteria:
-% 
-% \begin{equation}
-%   \label{eq:sel}
-%   \begin{aligned}
-%     &\eta_{j1} \cdot \eta_{j2}<0,\, \eta_{j1}<4.7,\, \eta_{j2}<4.7,\\
-%     &p_{T}^{\text{j1}}>50 \,\text{GeV},\,p_{T}^{\text{j2}}>40\,\text{GeV},\\
-%     &\Delta\eta_{jj}>3.6,\, M_{jj}>1000\,\text{GeV}, \\
-%     &\MET>90\,\text{GeV},\\
-%     & \mindphiall > 2.0,\,\METsig>4.
-%   \end{aligned}
-% \end{equation}
-% 
-% where j1 and j2 are the two leading jets ordered by decreasing p$_T$.  In
-% addition, the selected events are required to have no electrons or muons fulfilling the veto identification criteria (as defined in Sec. \ref{sec:objects}).
-% 
-% At this stage in the selection, the background processes leading to a
-% similar final state are, by order of decreasing importance:
-% W($\ell\nu$) and Z($\nu\nu$) + jets, QCD multijet production, all top
-% channels (\ttbar and single top channels), dibosons, and
-% Drell--Yan$(\ell\ell)\text{+jets}$. The selection is further optimised
-% by tightening the requirements listed above to find the best 95\%
-% C.L. expected limit on \BRinv for a \mH=125 GeV Higgs boson.  The
-% optimal additional selection is found to be $\mindphiall > 2.3$,
-% p$_{T}^{j2}>45$\,GeV and M$_{jj}>1200$\,GeV, and these requirements
-% along with those in Eq.~\ref{eq:sel} are used to define the signal
-% region.
+
 %
 %%%%%%%%%%%
 %
@@ -789,28 +799,6 @@ boson mass, assuming SM Higgs boson acceptances. \cite{ARTICLE:CMSVBFHiggsInvisi
 %
 %%%%%%%%%%%
 %
-% \section{Systematic uncertainties}
-% \label{sec:syst}
-% The dominant source of uncertainty is the statistical
-% uncertainty relating to the finite number of events in both data and simulation in each of the control regions used for the normalisation of the different backgrounds. In order to estimate the effect of the jet energy scale,
-% unclustered energy scale and jet energy resolution on both the signal
-% and background processes, each quantity is varied separately by its
-% uncertainties~\cite{Chatrchyan:2011ds}, the \MET is recalculated and the full background and signal estimations are
-% repeated. Similarly, the lepton efficiency and pileup scale factors
-% applied to the MC are varied by their uncertainties \cite{Chatrchyan:2012xi,CMS:2013hoa} and the analysis is repeated.
-% 
-% The integrated luminosity uncertainty of 2.6\% is applied only to the signal and to the 
-% backgrounds estimated from MC. The data-based normalisation
-% for the main backgrounds also ensures that the trigger efficiency is properly
-% taken into account and its impact on the signal and minor backgrounds was found to be negligible.
-% 
-% The uncertainties on the diboson cross sections are taken from the CMS published cross section
-% measurements~\cite{Chatrchyan:2013oev}. Theoretical uncertainties on the signal cross sections due to PDF and QCD scales are taken from the LHC
-% Higgs Cross Section Working Groups Yellow Report 3~\cite{Dittmaier:2011ti,Dittmaier:2012vm}.
-% 
-% The extrapolation of the $Z\rightarrow\nu\nu$ background from the QCD production of $Z/\gamma^{*}\rightarrow\mu\mu$ has been tested by comparing the \MADGRAPH and aMC@NLO\_MG5 \cite{Alwall:2014hca} predictions. Both were found to be compatible within the statistical uncertainty of the study and, therefore, no additional theoretical uncertainty has been added.
-% 
-% The overall size of these uncertainties, as a percentage of the total signal and background estimates, can be found in Table~\ref{tab:syst-qqH}.
 % \section{Results}
 % \label{sec:results}
 % The final number of events for each process that passes the selection
