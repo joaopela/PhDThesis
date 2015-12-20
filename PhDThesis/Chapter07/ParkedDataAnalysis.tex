@@ -3,6 +3,7 @@
 
 \glsresetall % Resetting all acronyms
 
+% Documentation
 % PAS 14-038
 % AN-14-243
 
@@ -55,7 +56,7 @@ The \gls{VBF} Higgs inclusive parked trigger only became available in the beginn
 
 %Status: DONE
 
-A variety of event generator were used to simulate the background of this analysis. The \gls{VBF} Higgs to invisible signal was simulated using the \textsc{POWHEG} 2 event generator \cite{ARTICLE:POWHEG_2004,ARTICLE:POWHEG_2007,ARTICLE:POWHEG_2009v1,ARTICLE:POWHEG_2009v2,ARTICLE:POWHEG_2010v1,ARTICLE:POWHEG_2010v2,ARTICLE:POWHEG_2011v1,ARTICLE:POWHEG_2011v2} and its hadronization was performed with \textsc{PYTHIA} 6.4.26 \cite{ARTICLE:Pythia6p4PhysicsAndManual}. The main backgrounds arising from W and Z decays associated with jets (W/Z+jets) and $t\bar{t}$ also with associated additional jets are simulated using \textsc{MADGRAPH} 5.1.1 \cite{ARTICLE:MadGraph5,ARTICLE:aMCatNLO} hadronization is also done using \textsc{PYTHIA}. Additional samples are produced for \gls{EWK} Z and W processes. Table \ref{TABLE:ParkedDataAnalysis_MCSamples_Summary} shows the cross sections for the usedsamples and their equivalent integrated luminosity.
+A variety of event generator were used to simulate the background of this analysis. The \gls{VBF} Higgs to invisible signal was simulated using the \textsc{POWHEG} 2 event generator \cite{ARTICLE:POWHEG_2004,ARTICLE:POWHEG_2007,ARTICLE:POWHEG_2009v1,ARTICLE:POWHEG_2009v2,ARTICLE:POWHEG_2010v1,ARTICLE:POWHEG_2010v2,ARTICLE:POWHEG_2011v1,ARTICLE:POWHEG_2011v2} and its hadronization was performed with \textsc{PYTHIA} 6.4.26 \cite{ARTICLE:Pythia6p4PhysicsAndManual}. The main backgrounds arising from W and Z decays associated with jets (W/Z+jets) and $t\bar{t}$ also with associated additional jets are simulated using \textsc{MADGRAPH} 5.1.1 \cite{ARTICLE:MadGraph5,ARTICLE:aMCatNLO} hadronization is also done using \textsc{PYTHIA}. Additional samples are produced for \gls{EWK} Z and W processes. Table \ref{TABLE:ParkedDataAnalysis_MCSamples_Summary} shows the cross sections for the used samples and their equivalent integrated luminosity.
 
 \begin{table}
 \centering
@@ -107,7 +108,7 @@ QCD ($1800<\pt<\infty\,\GeV$)                               & 0.001829005   &  5
 \hline
 \end{tabular}
 }
-\caption{Table of the \gls{MC} processes, corresponding cross sections (at NLO or NNLO when available) and equivalent integrated luminosity analysed.}
+\caption{Table of the \gls{MC} processes, corresponding cross sections (at \gls{NLO} or \gls{NNLO} when available) and equivalent integrated luminosity analysed.}
 \label{TABLE:ParkedDataAnalysis_MCSamples_Summary}
 \end{table}
 
@@ -142,7 +143,7 @@ The distribution of \gls{PU} in data and \gls{MC} simulated events samples is no
 
 The initial event selection for data in this analysis starts with a dedicated set of triggers. During Run A the same trigger used in the \textit{prompt analysis} while for runs B, C and D new parked data triggers are used. To maximize the usage of the event statistics of the selected \gls{MC} samples, we do not veto events that fail the trigger conditions. Instead an event by event weight is calculated which takes into account how much luminosity was recorded by each one of the individual triggers. The applies weight depends on offline quantities corresponding to the ones used in the trigger conditions: \gls{PF} $MET_{no-\mu}$, leading dijet $m_{jj}$ and sub-leading jet \pt. 
 
-To determined the weights, turn on curves were obtained according to these offline variables as a function of \gls{PF} $MET_{no-\mu}$ in bins of dijet $m_{jj}$ and sub-leading jet \pt. This approach allows the determination of the weights which include the correlations between these variables. The turn on curves are obtained by fitting equation \ref{EQUATION:ParkedDataAnalysis_TriggerEfficiency_Efficiency} to each bin.
+To determined the weights, turn on curves were obtained according to these offline variables as a function of \gls{PF} $MET_{no-\mu}$ in bins of dijet $m_{jj}$ and sub-leading jet \pt using independent events recorded by a single-muon trigger. This approach allows the determination of the weights which include the correlations between these variables. The turn on curves are obtained by fitting equation \ref{EQUATION:ParkedDataAnalysis_TriggerEfficiency_Efficiency} to each bin.
 
 \begin{equation}
 \frac{\varepsilon_{max}}{2}\text{Erf}\left(\frac{x-x_{0}}{\sqrt{\Gamma}}\right)+1,
@@ -161,161 +162,46 @@ Where $\varepsilon_{max}$ os the maximum efficiency of the trigger in the bin, $
 The used lepton identification criteria follows \gls{CMS} Electron-Gamma and Moun \gls{POG} recommendations. The same \gls{POG} have measured the efficiency of identifying for each lepton criteria as a function of \pt and $\eta$. When selecting leptons the events are reweighed using scale factors per lepton. When vetoing events in the presence of leptons, veto efficiencies are applied per lepton identified at generator level passing the acceptance requirements of electrons (muons) of $\pt>10\,\GeV$ and $|\eta|<2.4(2.1)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Top reweighting}
-% 
-% %Status: Writing
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Signal event selection}
 \label{SECTION:ParkedDataAnalysis_SignalEventSelection}
 
-%Status: Writing
+%Status: DONE
 
+Most of the events recorded by the triggers are origin in \gls{QCD} multi-jet processes. For this type of events the \gls{MET} requirement is fulfilled in two different ways, events with miss measured jets creating \textit{fake} \gls{MET} and event with genuine \gls{MET} involving neutrinos coming particularly heavy-flavour decays. The introduction of a \gls{MET} significance, $\text{MET}_{sig}$, hard requirement reduces the contribution from \textit{fake} \gls{MET} events significantly. Both types of of \gls{QCD} multi-jet events can be suppressed by requiring that the all jets above $\pt>30\,\GeV$ are separated by a minimum azimuthal angle to the \gls{MET} vector, $\Delta\phi(\text{MET},jets)$.
 
+The trigger requirements and the need to reduce the contribution to a negligible level drive the choice of the following base criteria. Events are selected where the leading pair of particle flow anti-$k_T^{\Delta R=0.5}$ jets have $\eta_{j1} \cdot \eta_{j2}<0$, $\pt^{jet_1},\pt^{jet_2} > 50,40\,\GeV$, $|\eta_{jets}| < 4.7$, $\Delta\eta_{jj}>3.6$, $M_{jj}>1000\,\GeV$.  Where $jet_1$ and $jet_2$ are respectively the leading and sub-leading jets in decreasing \pt order of the event. Missing transverse energy is required to be at least $90\,\GeV$, $\text{MET}_{sig}>4.0$ and $\Delta\phi(\text{MET},jets)>2.0$. Additionally, events are vetoed if an veto electron or a loose muon are found with identification criteria defined in chapter \ref{CHAPTER:EventReconstructionAndSimulation}.
 
-
-% To take into account the
-% correlations between the different variables, the efficiency of each
-% trigger is measured as a function of \MET in bins of M$_{jj}$ and
-% sub-leading jet p$_{T}$, using independent events recorded by a
-% single-muon trigger. All MC samples are then weighted event-by-event
-% by the luminosity-weighted average of the three measured efficiencies.
-% 
-% The data recorded by the triggers is dominated by QCD multijet
-% events. Multijet events have two distinct origins: (1) events with
-% fake \MET, where the \MET comes from mismeasured jets in the events;
-% and (2) events with genuine \MET, where the \MET comes from the decay
-% of hadrons involving neutrinos, in particular heavy-flavour
-% decays. The fake \MET contribution can be reduced by requiring \METsig 
-% to be large. Both components can be reduced by isolating
-% the \MET, by requiring that the minimum azimuthal angle separation
-% between any reconstructed jet with p$_T>30$ GeV and the \MET,
-% \mindphiall, be large.
-% 
-% The trigger requirements together with the need to reduce the QCD multijet
-% contribution to negligible levels drive the choice of the following
-% selection criteria:
-% 
-% \begin{equation}
-%   \label{eq:sel}
-%   \begin{aligned}
-%     &\eta_{j1} \cdot \eta_{j2}<0,\, \eta_{j1}<4.7,\, \eta_{j2}<4.7,\\
-%     &p_{T}^{\text{j1}}>50 \,\text{GeV},\,p_{T}^{\text{j2}}>40\,\text{GeV},\\
-%     &\Delta\eta_{jj}>3.6,\, M_{jj}>1000\,\text{GeV}, \\
-%     &\MET>90\,\text{GeV},\\
-%     & \mindphiall > 2.0,\,\METsig>4.
-%   \end{aligned}
-% \end{equation}
-% 
-% where j1 and j2 are the two leading jets ordered by decreasing p$_T$.  In
-% addition, the selected events are required to have no electrons or muons fulfilling the veto identification criteria (as defined in Sec. \ref{sec:objects}).
-% 
-% At this stage in the selection, the background processes leading to a
-% similar final state are, by order of decreasing importance:
-% W($\ell\nu$) and Z($\nu\nu$) + jets, QCD multijet production, all top
-% channels (\ttbar and single top channels), dibosons, and
-% Drell--Yan$(\ell\ell)\text{+jets}$. The selection is further optimised
-% by tightening the requirements listed above to find the best 95\%
-% C.L. expected limit on \BRinv for a \mH=125 GeV Higgs boson.  The
-% optimal additional selection is found to be $\mindphiall > 2.3$,
-% p$_{T}^{j2}>45$\,GeV and M$_{jj}>1200$\,GeV, and these requirements
-% along with those in Eq.~\ref{eq:sel} are used to define the signal
-% region.
-
-
-
-
-
-
-
-
-
-%All MC samples are reweighted
-% event-by-event to reproduce the distribution of minimum bias
-% interactions (pileup) observed in data. The average number of pileup events is estimated at 21 interactions per bunch crossing.
-% 
-% %Additional weights are applied to simulated events to                                                                                                     
-% %ensure trigger efficiency, lepton identification efficiency, and                                                                                          
-% %b-tagging efficiency match measurements from data.\par}                                                                                                    
-% 
-% The main objects used in this analysis are jets and missing transverse energy, which are the signatures of an invisibly decaying VBF produced Higgs. Several background estimation methods used in the analysis require using control regions containing charged leptons.
-% These objects are reconstructed with a particle-flow (PF)
-% algorithm~\cite{CMS-PAS-PFT-09-001,CMS-PAS-PFT-10-001}. Pileup
-% mitigation techniques are in place to correct the objects as well as remove objects not from the primary vertex, as
-% described in detail in ~\cite{Chatrchyan:2014tja}.
-% 
-% Electrons~\cite{CMS:2013hoa} (muons~\cite{CMS-PAS-MUO-10-002})
-% are selected in the pseudorapidity range $\abs{\eta}< 2.4 (2.1)$ and
-% with p$_T> 10$\,GeV. For electrons, the $1.44 < \abs{\eta}< 1.57$
-% transition region between the barrel and endcap of the electromagnetic calorimeter is excluded. Different isolation and identification criteria are used
-% depending on whether the lepton is explicitly required (a tight
-% lepton), where tighter criteria and p$_T> 20$\,GeV are applied, or being used for a
-% veto (a veto lepton), where looser criteria and p$_T> 10$\,GeV are
-% applied. A loose isolation requirement is still applied for veto
-% leptons, implying that events with leptons in jets will a priori not be
-% rejected. Hadronic taus are identified using the ``hadron-plus-strips''
-% algorithm \cite{Chatrchyan:2012zz} which reconstructs the main
-% hadronic tau decay modes using charged hadrons and photons, and leads
-% to an expected efficiency of 55\% for a fake rate less than 3\%, for
-% taus with p$_{T}>20$\,GeV and $|\eta|<2.3$. MC samples are reweighted
-% event-by-event to match the lepton reconstruction, identification and
-% isolation efficiencies measured in data.
-% 
-% Jets are clustered using the anti-\kt clustering
-% algorithm~\cite{Cacciari:2008gp}, with a distance parameter of 0.5, as
-% implemented in the \textsc{fastjet}
-% package~\cite{Cacciari:fastjet1,Cacciari:fastjet2}. Jets are selected
-% in the pseudorapidity range $\abs{\eta}< 4.7$ and with transverse momentum
-% p$_T>30$\,GeV. Jet energy corrections are
-% applied~\cite{Chatrchyan:2011ds}, as well as identification criteria
-% to remove contributions from calorimeter noise or from pileup
-% interactions. Jets with an identified tight electron or tight muon
-% within $\Delta R < 0.5$ are filtered out.
-% 
-% %!!FIND ALL 4 line sentences and cut                                                                                                                  
-% We define the missing transverse energy, \MET and $\phi_{\MET}$ as the
-% modulus and azimuthal angle of the negative vectorial sum of the
-% transverse momentum of all PF objects except the muons. Muons are
-% ignored in the calculation of the \MET from trigger level onwards to
-% increase the number of events in background estimation control regions
-% where muons are required. Jet energy corrections (including effects
-% from pileup) are propagated to the \MET object. We also use \MET significance, \METsig, defined as the ratio of the vectorial sum to the
-% square root of the scalar sum of the transverse energy of all reconstructed PF
-% candidates.
-
+The events selected by this criteria are in order of decreasing predicted yield, W($\ell\nu$) and Z($\nu\nu$) + jets, QCD multi-jet processes, $t\bar{t}$ and single top, dibosons and Drell--Yan$(\ell\ell)\text{+jets}$. The selection is optimised by tightening the proposed requirements in order to obtain the best 95\% C.L. expected limit on \BRinv for a $m_H=125\,\GeV$ Higgs boson. The optimal selection, which is defined as the signal region, is found to be the presented base criteria with the additional tighter requirements of $\Delta\phi(\text{MET},jets)>2.3$, $\pt^{jet_2}>45\,\GeV$ and $M_{jj}>1200\,\GeV$. Table \ref{TABLE:ParkedDataAnalysis_SignalEventSelection_CrossSectionYields} shows the obtained yield for each step of the event selection obtained by the cross check analysis.
 
 \begin{table}[!htp]
 \centering
+\resizebox{1.00\linewidth}{!}{
 \begin{tabular}{|l|c|c|c|c||c|}
 \hline
  & \rotatebox{90}{Prompt Run A} & \rotatebox{90}{Parked Run B} & \rotatebox{90}{Parked Run C} & \rotatebox{90}{Parked Run D} & \rotatebox{90}{Total Data} \\
 \hline \hline
-Vertex Filter                   & 3606391 & 132346320 & 228049748 & 308041846 & 672044305 \\
-Event Quality Filters           & 2658960 & 131554431 & 226680352 & 305918529 & 666812272 \\
-ECAL Laser Filter               & 2634271 & 131543040 & 226680352 & 305918529 & 666776192 \\
-HCAL Laser Filter               & 2634080 & 131543040 & 226679741 & 305918529 & 666775390 \\
-L1T ETM Filter                  & 2461217 &  88174347 & 160560859 & 227801622 & 478998045 \\
-HLT Filter                      &   97522 &  75100422 & 137527238 & 152041761 & 364766943 \\
-$N(Electrons_{veto})=0$         &   96600 &  74947192 & 137241812 & 151725585 & 364011189 \\
-$N(Muon_{loose})=0$             &   94864 &  74913002 & 137179173 & 151652654 & 363839693 \\
-Dijet cut                       &   18338 &  13678405 &  25090291 &  24082304 &  62869338 \\
-MET cut                         &    4167 &     38178 &     68047 &     79723 &    190115 \\
-$MET_{Significance}$ cut        &     786 &      3396 &      5988 &      5567 &     15737 \\
-$Min(\Delta\phi(MET,jets))$ cut &      34 &        91 &       205 &       178 &       508 \\
+Vertex Filter                     & 3606391 & 132346320 & 228049748 & 308041846 & 672044305 \\
+Event Quality Filters             & 2658960 & 131554431 & 226680352 & 305918529 & 666812272 \\
+ECAL Laser Filter                 & 2634271 & 131543040 & 226680352 & 305918529 & 666776192 \\
+HCAL Laser Filter                 & 2634080 & 131543040 & 226679741 & 305918529 & 666775390 \\
+L1T $\text{MET}\geq 40\,\GeV$     & 2461217 &  88174347 & 160560859 & 227801622 & 478998045 \\
+HLT Trigger                       &   97522 &  75100422 & 137527238 & 152041761 & 364766943 \\
+$N(Electron_{veto})=0$            &   96600 &  74947192 & 137241812 & 151725585 & 364011189 \\
+$N(Muon_{loose})=0$               &   94864 &  74913002 & 137179173 & 151652654 & 363839693 \\
+Dijet requirement                 &   18338 &  13678405 &  25090291 &  24082304 &  62869338 \\
+$\text{MET}>90\,\GeV$             &    4167 &     38178 &     68047 &     79723 &    190115 \\
+$\text{MET}_{sig}>4$              &     786 &      3396 &      5988 &      5567 &     15737 \\
+$\Delta\phi(\text{MET},jets)>2.3$ &      34 &        91 &       205 &       178 &       508 \\
 \hline
 \end{tabular}
-\caption{Table of the step by step event yield for the signal region obtained by the cross check analysis section.}
+}
+\caption{Table of the step by step event yield for the signal region obtained by the cross check analysis. Yields per are discriminated by Run I period where exact yield matching was achieved with the main analysis.}
 \label{TABLE:ParkedDataAnalysis_SignalEventSelection_CrossSectionYields}
 \end{table}
 
-
+The observed yield for this region was of 508 events in both analyses, and are exactly the same in total and for each Run I period.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -324,6 +210,150 @@ $Min(\Delta\phi(MET,jets))$ cut &      34 &        91 &       205 &       178 & 
 
 %Status: Writing
 
+% \section{Background Estimation}
+% \label{sec:bkg}
+% The major W and Z backgrounds are estimated using MC normalised to the
+% data in independent control regions, described below. The QCD
+% background is estimated from data. The contributions from other minor
+% backgrounds, \ie top, dibosons and Drell Yan, are taken directly from MC.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Z background estimation}
+
+% The contribution to the signal region from the Z($\nu\nu$)+jets process is normalised
+% using visible Z$\rightarrow\mu\mu$ decays as a control region. The control
+% region is defined as the region satisfying the same selection as the signal region,
+%  except that the lepton veto is replaced with a requirement that the only leptons present in the event
+% are a pair of oppositely charged tight muons with their invariant mass, $M_{\mu\mu}$, between
+% 60 and 120 GeV. The number of Z($\nu\nu$) events in the
+% signal region is then taken to be:
+
+\begin{equation}
+  N_{S}^{Z\rightarrow\nu\nu}=\left(N_{C}^{Data}-N_{C}^{bkg}\right) \cdot\frac{\sigma\left(Z\rightarrow\nu\nu\right)}{\sigma\left(Z/\gamma^{*}\rightarrow\mu\mu\right)}\cdot \frac{\epsilon_{S}^{ZMC}}{\epsilon_{C}^{ZMC}},
+\label{eq:mumueq}
+\end{equation}
+
+% where the ratio of cross-sections
+% $\sigma(Z\rightarrow\nu\nu)$/$\sigma(Z/\gamma^{*}\rightarrow\mu\mu)=5.651\pm
+% 0.023$ \syst, $\epsilon_{S}^{ZMC}=(1.8\pm 0.1)\cdot 10^{-6}$ and $\epsilon_{C}^{ZMC}=(1.2\pm 0.1)\cdot 10^{-6}$ are the efficiency of the selection in the signal and control regions respectively, $N_{C}^{Data}=18\pm 4.2$ is the number of data events in the control region, and $N_{C}^{bkg}=0.2 \pm 0.1 \stat$ is the number of
+% events from other processes leading to the $\mu\mu$ final state estimated from MC simulation. The
+% contribution from electroweak produced Z+jets events to the final estimate is
+% 21\%. Distributions of the pseudorapidity of the two leading jets,
+% M$_{jj}$, \METsig and \MET are shown in Fig.~\ref{fig:mumucontplots}. Within
+% the statistics available, a good agreement between data and MC is
+% observed. The final estimate of the $Z\rightarrow \nu\nu$ background
+% is $N_{S}^{Z\rightarrow\nu\nu}= 158.1 \pm 37.8 \stat \pm 21.2
+% \syst$.
+% 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/mumu_dijet_deta.pdf}
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/mumu_dijet_M.pdf}
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/mumu_metnomu_significance.pdf}
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/mumu_metnomuons.pdf}
+\caption{Top: Pseudorapidity difference between the two VBF tag jets $\Delta\eta_{jj}$ (left), dijet mass $m_{jj}$ (right) bottom: \MET significiance $\text{MET}_{sig}$ (left) and \MET (right), in the $Z\rightarrow \mu\mu$ control region. The last bin contains the overflow of the distribution.}
+\label{fig:mumucontplots}
+\end{figure}
+
+% Similarly, in the case of the W background, events in which a lepton
+% is explicitly identified are used to compare the MC to data, and
+% extract a normalisation factor. This factor is then used to
+% normalise the events predicted by the MC in the signal region. The W
+% control regions are defined by replacing the signal region's lepton
+% veto with a requirement for exactly one lepton (tight electron or
+% tight muon) or hadronic tau in order to enrich the sample in W
+% events. The number of W events in the signal region is then taken to
+% be:
+% 
+\begin{align}
+  \begin{split}
+  \label{eq:ddmethod}
+  N_{S}^{W}&=N_{S}^{W\,MC}\frac{N_{C}^{Data}-N_{C}^{bkg}}{N_{C}^{W\,MC}}=N_{S}^{W\,MC}\cdot \rm{SF},
+  \end{split}
+\end{align}
+% 
+% calculated separately for W decaying to each of e, $\mu$ (with $W\rightarrow\tau\nu\rightarrow e/\mu\nu\nu\nu$ included) and hadronic $\tau$. The number of
+% events $N_{C}^{bkg}$ from the backgrounds to the W control regions
+% come mainly from the top processes, and are estimated from MC.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{W background estimation}
+
+% In the W$\rightarrow\tau_{\mathrm{h}}\nu$ control region, almost no
+% events pass the \mindphiall selection. The criteria on \mindphiall is
+% hence replaced by a criteria on the minimum azimuthal angle separation
+% between the \MET and one of the leading two jets, \mindphileading, required
+% to be greater than 1. To reject the background from multijet events,
+% an additional requirement that the transverse mass of the W be greater
+% than 20 GeV is used. By studying the W$\rightarrow\mu\nu$ region
+% (which has enough events to observe the full range of the \mindphiall
+% distribution), a 20\% systematic uncertainty is added to the
+% W$\rightarrow\tau_{\mathrm{h}}\nu$ background estimate to cover the
+% small discrepancy in shape of the \mindphiall variable observed
+% between data and MC. Distributions of M$_{jj}$, \MET, and \mindphiall
+% are shown in Figs.~\ref{fig:wmjjcontplots},\,\ref{fig:wmetcontplots} and \ref{fig:wmindphicontplots}. Good agreement between data
+% and MC is observed. The final estimates of the $W\rightarrow l\nu$
+% backgrounds, together with the number of events selected in signal and
+% control regions, are shown in Table \ref{tab:ZWTopRes}.
+
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_dijet_M.pdf}
+    \includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_dijet_M.pdf} \\
+    \includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_dijet_M.pdf}
+    \caption{Dijet mass $m_{jj}$ for the $W\rightarrow e\nu$ (top left), $W\rightarrow\mu\nu$ (top right) and $W\rightarrow\tau\nu$ (bottom) control regions. The last bin represents all those events falling above the range of the histogram.}
+   \label{fig:wmjjcontplots}
+  \end{center}
+\end{figure}
+% 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_metnomuons.pdf}
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_metnomuons.pdf} \\
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_metnomuons.pdf}
+\caption{\MET for the $W\rightarrow e\nu$ (top left), $W\rightarrow\mu\nu$ (top right) and $W\rightarrow\tau\nu$ (bottom) control regions. The last bin represents all those events falling above the range of the histogram.}
+\label{fig:wmetcontplots}
+\end{figure}
+
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_alljetsmetnomu_mindphi.pdf}
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_alljetsmetnomu_mindphi.pdf} \\
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_alljetsmetnomu_mindphi.pdf}
+\caption{Minimum azimuthal angle separation between any jet with $p_{T}>30$ GeV and the \gls{MET} $\Delta\phi(\text{MET},jets)$ for the $W\rightarrow e\nu$ (top left), $W\rightarrow\mu\nu$ (top right) and $W\rightarrow\tau\nu$ (bottom) control regions.}
+\label{fig:wmindphicontplots}
+\end{figure}
+ 
+
+\begin{table}[!htp]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+ & W$\rightarrow$e$\nu$ & W$\rightarrow\mu\nu$ & W$\rightarrow\tau\nu$ \\
+\hline\hline
+$N_{C}^{data}$ & $68\pm 8.2$& $300\pm 17.3$ & $76\pm 8.7$\\
+$N_{C}^{bkg}$   &$3.5\pm 1.2$ & $14.8\pm 2.5$ & $13.3\pm 2.8$ \\
+$N_{C}^{MC}$ &  $128.0\pm 8.0$ & $399.9\pm 14.9$ & $80.8\pm 6.4$   \\
+$N_{S}^{MC}$ & $114.9\pm8.9$ & $143.7\pm10.2$ & $121.9\pm8.7$  \\
+\hline\hline
+SF & $0.50\pm0.06\pm0.03$ & $0.71\pm0.04\pm0.03$ & $0.78\pm0.11\pm0.07$ \\
+\hline\hline
+$N_{S}$ & $57.9\pm7.4\pm7.7$ & $102.5\pm6.2\pm11.7$ & $94.6\pm13.1\pm23.8$ \\
+\hline
+\end{tabular}
+\caption{\label{tab:ZWTopRes} Summary of the W background estimates. The quoted uncertainties are of statistical origin. Systematic uncertainties are shown, as well, for SF and $N_S$. Systematic uncertainties are described in Section~\ref{sec:syst}. The systematic uncertainty given for SF contains only the MC statistics, whereas for $N_{S}$ it represents the full systematic as described in section \ref{sec:syst}.}
+\end{table}
+
+% The data-to-simulation scale factors shown in Table~\ref{tab:ZWTopRes} vary from
+% 0.5 to 0.8. This difference is caused by a mismodelling of the distribution of the 
+% dijet mass and \mindphiall variables; tighter requirements on these variables lead to decreasing
+% scale factors.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -331,47 +361,27 @@ $Min(\Delta\phi(MET,jets))$ cut &      34 &        91 &       205 &       178 & 
 
 %Status: Writing
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{W background estimation}
-
-%Status: Writing
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{W background estimation}
-
-%Status: Writing
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{W to electron+neutrino}
-
-%Status: Writing
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{W to muon+neutrino}
-
-%Status: Writing
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{W to tau+neutrino}
-
-%Status: Writing
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Z background estimation}
-
-%Status: Writing
+% Two top control regions have also been investigated. One (region 1) is
+% driven by the selection of two leptons, either of different flavour (e$\mu$), or
+% of the same flavour (ee or $\mu\mu$) with a veto on the Z mass region.
+% This region is found to be composed almost entirely of \ttbar
+% events. The other (region 2) is based on the selection of one lepton (e
+% or $\mu$), and the requirement that one of the two leading jets is identified as a jet from a b quark
+% (using the Combined Secondary Vertex algorithm ~\cite{Chatrchyan:2012jua}). This region is found to be composed of 10\%
+% single top, 50\% \ttbar and 40\% W+jets. The number of events expected from simulation is found to be in good agreement with the
+% observed number of events in both control regions. The data-to-simulation scale factors obtained are
+% $1.21\pm 0.19$ (data stat.)$ \pm 0.16 $(syst.) from 21 events observed in region 1 and
+% $0.88\pm 0.07$ (data stat.)$ \pm 0.08$ (syst.) from 429 events observed in region 2.
+% The systematic uncertainty in these scale factors is dominated by the limited statistics in the simulation.
+% Based on these results we assign a 20\% systematic uncertainty to the nominal prediction for the top quark contribution
+% in the signal region.
+% 
+% %The grey shaded band in the signal region figure is the total
+% %systematic and statistical uncertainty on the total background
+% %estimation. It should be noted that the QCD contribution, estimated at
+% %17 events across the distribution, is not shown. 
+% %All plots have the W, Z and top backgrounds normalised to the
+% %date in their respective control regions
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -380,19 +390,53 @@ $Min(\Delta\phi(MET,jets))$ cut &      34 &        91 &       205 &       178 & 
 
 %Status: Writing
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{QDC VBF-like + MET Monte Carlo Sample}
+% For the QCD background, a data-based method using events with non-isolated \MET is employed. Three
+% regions are defined: (i) a region denoted as "inverted" that 
+% gives a description of the QCD shape; (ii) a region denoted as "3-jet"
+% where a cross-check of how well the QCD shape
+% describes the data is performed; and (iii) a region denoted as "sideband" from which
+% a normalisation of the QCD shape to be applied in
+% the signal region is extracted.
+% 
+% The inverted region is selected by changing the requirement on
+% \mindphiall to \mindphiall$<$1.0, and requiring \mindphileading $>$ 2.3, thus providing a region where the leading two jets are signal like, but the \MET is not isolated.
+%  The distribution of \METsig is shown after this
+% inverted selection in Fig.~\ref{fig:invqcd} (left). About 20\% of the
+% events are expected to come from W, Z and top processes. The QCD
+% shape is defined as the shape of the data in this region after subtracting the MC predictions for the non QCD processes which are normalised by the SF determined from the corresponding control regions selected in the same conditions as the inverted region. Good
+% agreement is found between the data and the shape predicted by the VBF-enriched QCD MC simulation in this region as shown in Fig.~\ref{fig:invqcd}
+% (left).
+% 
+% To ensure that the QCD shape is adequate to describe the isolated \MET the 3-jet
+% QCD-dominated control region is defined by requiring \mindphiall$>1$, \METsig$>3$ and at least three jets with p$_{T}>30$\,GeV.
+% From simulation we expect a negligible contribution from signal after requiring a third jet in the event. The expected number of QCD events
+% in the 3-jet region, n$_{QCD}^{3j}$, is then taken as the
+% background-subtracted data, with the W and Z expectations being
+% normalised to their respective leptonic control regions.  We then compare the QCD shape, taken from the inverted region with \mindphileading$>1.0$ and normalised to n$_{QCD}^{3j}$, with the data in this region. The distribution of \METsig is shown in this
+% QCD-enriched selection in Fig.~\ref{fig:invqcd} (right). The discrepancy between data and prediction in this QCD-dominated 3-jet region is found to be less than 20\%. However, because most of the events passing
+% the final selection have only two jets, this control region can not be
+% used in the final QCD estimate.
+% 
+\begin{figure}[!htp]
+\centering
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_invqcd_qcd_metnomu_significance.pdf}
+\includegraphics[width=.49\textwidth]{Chapter07/Images/output_invqcd_3j_nunu_metnomu_significance.pdf}
+\caption{Left: \MET significance $\text{MET}_{sig}$ for events with $\Delta\phi(\text{MET},jets)<1.0$ and $\Delta\phi(\text{MET},jet_{1,2})>2.3$. MCQCD is the QCD MC normalised to the background-subtracted data yield. Right: \gls{MET} significance $\text{MET}_{sig}$ for events with $\Delta\phi(\text{MET},jets)>1.0$ and at least 3 jets with p$_T>30$\,GeV. The QCD is modelled by data using the inverted $\Delta\phi(\text{MET},jets)<1.0$ and $\Delta\phi(\text{MET},jet_{1,2})>1$ selection, after background subtraction, and normalised to the background-subtracted data yield. In both figures, the W and Z backgrounds have been normalised to their respective control regions in the same conditions. The last bin represents all those events falling above the range of the histogram.}
+\label{fig:invqcd}
+\end{figure}
 
-%Status: Writing
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SUBSUBSECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Data driven QCD estimation}
-
-%Status: Writing
+% A sideband region is used
+% to provide a  normalisation of the QCD shape to be used in the signal region. 
+% The normalisation sideband is defined as those events in which 
+% 3$<$\METsig$<$4 and 1.0$<$\mindphileading$<$2.0.
+%  It is observed that the normalisation
+% factor decreases rapidly as the requirements on \METsig and \mindphileading
+% are tightened. To model this behaviour the normalisation factor is
+% measured as a function of the requirement placed on \METsig and
+% as a function of the requirement placed on \mindphileading. Both
+% functional forms are then extrapolated to the signal region
+% requirements. The average of the two extrapolations is used as the central prediction and the envelope is used to assign the systematic uncertainty on the QCD multijets normalisation.
+%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -471,6 +515,9 @@ Observed data         & 508                       \\
 \label{TABLE:ParkedDataAnalysis_Results_Summary}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison with the cross-check analysis}
 
 %Status: Writing
@@ -502,9 +549,14 @@ Signal                &  508 &         508 &             0.0 \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Extraction of limits}
+\section{Limits on the cross section of invisibly decaying Higgs bosons}
+\label{SECTION:ParkedDataAnalysis_Limits}
 
-%Status: Writing
+%Status: DONE
+
+As shown in table \ref{TABLE:PromptDataAnalysis_BackgroundEstimation_BackgroundSummary}, 508 data events were observed in the signal region, this yield is compatible with the background only prediction. Since no evidence of signal is observed 95\% \gls{CL} upper limits on the Higgs boson production cross section times branching fraction are computed. The limits are calculated using the asymptotic $\mathrm{CL}_\mathrm{s}$ method \cite{ARTICLE:CLsTechnique,ARTICLE:CLCompForCombiningSearchesWithSmallStat,ARTICLE:HandbookofLHCHiggsCrossSectionsDifferentialDistributions} based on asymptotic formulae \cite{ARTICLE:AsymptoticCLS}, following the standard \gls{CMS} Higgs boson searches combination technique \cite{ARTICLE:CMS_HiggsDiscovery,ARTICLE:HiggsCombination}. Systematic uncertainties are incorporated as nuisance parameters and treated according to the frequentist paradigm \cite{ARTICLE:HiggsCombination} and all correlations between processes are taken into account.
+
+If \gls{SM} production cross sections and acceptances are assumed, the observed (expected) 95\% C.L. limit on \BRinv of a \gls{SM} $125\,\GeV$ Higgs boson is 57\% (40\%). Figure \ref{FIGURE:ParkedDataAnalysis_Limits_VBFLimit} shows the the 95\% C.L. limit on \BRinv and the 95\% C.L. limit on the cross section times \BRinv, both under the assumption of \gls{SM} Higgs boson acceptances as a function of Higgs mass. .
 
 \begin{figure}[h!]
   \begin{center}
@@ -512,18 +564,17 @@ Signal                &  508 &         508 &             0.0 \\
     \includegraphics[width=0.49\textwidth]{Chapter07/Images/vbfxslimit.pdf}
  \caption{The 95\% C.L. limit on \BRinv\, of a SM Higgs
 boson (left) and the 95\% C.L. limit on the cross section times
-\BRinv\, (right)as a function of the Higgs
-boson mass, assuming SM Higgs boson acceptances. \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}}
-    \label{fig:limits}
+\BRinv (right)as a function of the Higgs
+boson mass, assuming SM Higgs boson acceptances \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
+    \label{FIGURE:ParkedDataAnalysis_Limits_VBFLimit}
   \end{center}
 \end{figure}
 
+AS it can be observed in table \ref{TABLE:ParkedDataAnalysis_Systematics_Summary}, similarly to the \textit{prompt analysis} the dominant source of systematic uncertainty is the limited number of events present in the control regions both in data and \gls{MC} simulation. This effect is particularly noticeable in the Z control region, if this region statistical uncertainty was of the order of the one measured in the $W\rightarrow\mu\nu$ control region the expected 95\% C.L. limit on the cross section times \BRinv for a \gls{SM} 125 GeV Higgs boson would be reduced to 33\%.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% SECTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Summary}
-\label{SECTION:ParkedDataAnalysis_Summary}
+%TODO: Should I write the combined stuff???
+% The result is also combined with that obtained by CMS in searches in the channel where the Higgs boson is produced in association with a Z which was reported in ~\cite{Chatrchyan:2014tja}. The procedure for this combination is also described in ~\cite{Chatrchyan:2014tja}. The 95\% C.L. observed (expected) limit on \BRinv\, after combination is 47\% (35\%) for a SM 125 GeV Higgs boson.
+
 
 
 
@@ -537,234 +588,7 @@ boson mass, assuming SM Higgs boson acceptances. \cite{ARTICLE:CMSVBFHiggsInvisi
 %
 %%%%%%%%%%%
 %
-% \section{Background Estimation}
-% \label{sec:bkg}
-% The major W and Z backgrounds are estimated using MC normalised to the
-% data in independent control regions, described below. The QCD
-% background is estimated from data. The contributions from other minor
-% backgrounds, \ie top, dibosons and Drell Yan, are taken directly from MC.
-% 
-% The contribution to the signal region from the Z($\nu\nu$)+jets process is normalised
-% using visible Z$\rightarrow\mu\mu$ decays as a control region. The control
-% region is defined as the region satisfying the same selection as the signal region,
-%  except that the lepton veto is replaced with a requirement that the only leptons present in the event
-% are a pair of oppositely charged tight muons with their invariant mass, $M_{\mu\mu}$, between
-% 60 and 120 GeV. The number of Z($\nu\nu$) events in the
-% signal region is then taken to be:
-% 
-% \begin{equation}
-%   \label{eq:mumueq}
-%   N_{S}^{Z\rightarrow\nu\nu}=\left(N_{C}^{Data}-N_{C}^{bkg}\right) \cdot\frac{\sigma\left(Z\rightarrow\nu\nu\right)}{\sigma\left(Z/\gamma^{*}\rightarrow\mu\mu\right)}\cdot \frac{\epsilon_{S}^{ZMC}}{\epsilon_{C}^{ZMC}},
-% \end{equation}
-% 
-% where the ratio of cross-sections
-% $\sigma(Z\rightarrow\nu\nu)$/$\sigma(Z/\gamma^{*}\rightarrow\mu\mu)=5.651\pm
-% 0.023$ \syst, $\epsilon_{S}^{ZMC}=(1.8\pm 0.1)\cdot 10^{-6}$ and $\epsilon_{C}^{ZMC}=(1.2\pm 0.1)\cdot 10^{-6}$ are the efficiency of the selection in the signal and control regions respectively, $N_{C}^{Data}=18\pm 4.2$ is the number of data events in the control region, and $N_{C}^{bkg}=0.2 \pm 0.1 \stat$ is the number of
-% events from other processes leading to the $\mu\mu$ final state estimated from MC simulation. The
-% contribution from electroweak produced Z+jets events to the final estimate is
-% 21\%. Distributions of the pseudorapidity of the two leading jets,
-% M$_{jj}$, \METsig and \MET are shown in Fig.~\ref{fig:mumucontplots}. Within
-% the statistics available, a good agreement between data and MC is
-% observed. The final estimate of the $Z\rightarrow \nu\nu$ background
-% is $N_{S}^{Z\rightarrow\nu\nu}= 158.1 \pm 37.8 \stat \pm 21.2
-% \syst$.
-% 
-% \begin{figure}[h!]
-%   \begin{center}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/mumu_dijet_deta.pdf}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/mumu_dijet_M.pdf}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/mumu_metnomu_significance.pdf}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/mumu_metnomuons.pdf}
-% 
-%     \caption{Top: Pseudorapidity difference between the two VBF tag jets $\Delta\eta_{jj}$ (left), dijet mass $m_{jj}$ (right) bottom: \MET significiance \METsig (left) and \MET (right), in the $Z\rightarrow \mu\mu$ control region. The last bin contains the overflow of the distribution.}
-%    \label{fig:mumucontplots}
-%   \end{center}
-% \end{figure}
-% 
-% Similarly, in the case of the W background, events in which a lepton
-% is explicitly identified are used to compare the MC to data, and
-% extract a normalisation factor. This factor is then used to
-% normalise the events predicted by the MC in the signal region. The W
-% control regions are defined by replacing the signal region's lepton
-% veto with a requirement for exactly one lepton (tight electron or
-% tight muon) or hadronic tau in order to enrich the sample in W
-% events. The number of W events in the signal region is then taken to
-% be:
-% 
-% \begin{align}
-%   \begin{split}
-%   \label{eq:ddmethod}
-%   N_{S}^{W}&=N_{S}^{W\,MC}\frac{N_{C}^{Data}-N_{C}^{bkg}}{N_{C}^{W\,MC}}=N_{S}^{W\,MC}\cdot \rm{SF},
-%   \end{split}
-% \end{align}
-% 
-% calculated separately for W decaying to each of e, $\mu$ (with $W\rightarrow\tau\nu\rightarrow e/\mu\nu\nu\nu$ included) and hadronic $\tau$. The number of
-% events $N_{C}^{bkg}$ from the backgrounds to the W control regions
-% come mainly from the top processes, and are estimated from MC.
-% 
-% In the W$\rightarrow\tau_{\mathrm{h}}\nu$ control region, almost no
-% events pass the \mindphiall selection. The criteria on \mindphiall is
-% hence replaced by a criteria on the minimum azimuthal angle separation
-% between the \MET and one of the leading two jets, \mindphileading, required
-% to be greater than 1. To reject the background from multijet events,
-% an additional requirement that the transverse mass of the W be greater
-% than 20 GeV is used. By studying the W$\rightarrow\mu\nu$ region
-% (which has enough events to observe the full range of the \mindphiall
-% distribution), a 20\% systematic uncertainty is added to the
-% W$\rightarrow\tau_{\mathrm{h}}\nu$ background estimate to cover the
-% small discrepancy in shape of the \mindphiall variable observed
-% between data and MC. Distributions of M$_{jj}$, \MET, and \mindphiall
-% are shown in Figs.~\ref{fig:wmjjcontplots},\,\ref{fig:wmetcontplots} and \ref{fig:wmindphicontplots}. Good agreement between data
-% and MC is observed. The final estimates of the $W\rightarrow l\nu$
-% backgrounds, together with the number of events selected in signal and
-% control regions, are shown in Table \ref{tab:ZWTopRes}.
-% 
-% 
-% \begin{figure}[h!]
-%   \begin{center}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/enu_dijet_M.pdf}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/munu_dijet_M.pdf}
-% 
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/taunu_dijet_M.pdf}
-%     \caption{Dijet mass $m_{jj}$ for the $W\rightarrow e\nu$ (top left), $W\rightarrow\mu\nu$ (top right) and $W\rightarrow\tau\nu$ (bottom) control regions. The last bin represents all those events falling above the range of the histogram.}
-%    \label{fig:wmjjcontplots}
-%   \end{center}
-% \end{figure}
-% 
-% \begin{figure}[h!]
-%   \begin{center}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/enu_metnomuons.pdf}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/munu_metnomuons.pdf}
-% 
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/taunu_metnomuons.pdf}
-% 
-%     \caption{\MET for the $W\rightarrow e\nu$ (top left), $W\rightarrow\mu\nu$ (top right) and $W\rightarrow\tau\nu$ (bottom) control regions. The last bin represents all those events falling above the range of the histogram.}
-%    \label{fig:wmetcontplots}
-%   \end{center}
-% \end{figure}
-% 
-% \begin{figure}[h!]
-%   \begin{center}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/enu_alljetsmetnomu_mindphi.pdf}
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/munu_alljetsmetnomu_mindphi.pdf}
-% 
-%     \includegraphics[width=.49\textwidth]{figures/output_sigreg/taunu_alljetsmetnomu_mindphi.pdf}
-%     \caption{Minimum azimuthal angle separation between any jet with $p_{T}>30$ GeV and the \MET \mindphiall for the $W\rightarrow e\nu$ (top left), $W\rightarrow\mu\nu$ (top right) and $W\rightarrow\tau\nu$ (bottom) control regions.}
-%    \label{fig:wmindphicontplots}
-%   \end{center}
-% \end{figure}
-% 
-% 
-% \begin{table}[h!]
-% \begin{center}
-%   \topcaption{\label{tab:ZWTopRes} Summary of the W background estimates.
-%     The quoted uncertainties are of statistical origin. Systematic uncertainties are shown, as well, for
-%     SF and $N_S$. Systematic uncertainties are
-%     described in Section~\ref{sec:syst}. The systematic
-%     uncertainty given for SF contains only the MC statistics, whereas for $N_{S}$ it represents the full systematic as described in section \ref{sec:syst}.}
-% 
-% \begin{tabular}{|l|c|c|c|}
-% \hline
-%  & W$\rightarrow$e$\nu$ & W$\rightarrow\mu\nu$ & W$\rightarrow\tau\nu$ \\
-%  \hline
-% $N_{C}^{data}$ & $68\pm 8.2$& $300\pm 17.3$ & $76\pm 8.7$\\
-% $N_{C}^{bkg}$   &$3.5\pm 1.2$ & $14.8\pm 2.5$ & $13.3\pm 2.8$ \\
-% $N_{C}^{MC}$ &  $128.0\pm 8.0$ & $399.9\pm 14.9$ & $80.8\pm 6.4$   \\
-% $N_{S}^{MC}$ & $114.9\pm8.9$ & $143.7\pm10.2$ & $121.9\pm8.7$  \\
-%  \hline
-%  SF & $0.50\pm0.06\pm0.03$ & $0.71\pm0.04\pm0.03$ & $0.78\pm0.11\pm0.07$ \\
-%  \hline
-% $N_{S}$ & $57.9\pm7.4\pm7.7$ & $102.5\pm6.2\pm11.7$ & $94.6\pm13.1\pm23.8$ \\
-%  \hline
-% \end{tabular}
-% \end{center}
-% \end{table}
-% 
-% The data-to-simulation scale factors shown in Table~\ref{tab:ZWTopRes} vary from
-% 0.5 to 0.8. This difference is caused by a mismodelling of the distribution of the 
-% dijet mass and \mindphiall variables; tighter requirements on these variables lead to decreasing
-% scale factors.
-% 
-% Two top control regions have also been investigated. One (region 1) is
-% driven by the selection of two leptons, either of different flavour (e$\mu$), or
-% of the same flavour (ee or $\mu\mu$) with a veto on the Z mass region.
-% This region is found to be composed almost entirely of \ttbar
-% events. The other (region 2) is based on the selection of one lepton (e
-% or $\mu$), and the requirement that one of the two leading jets is identified as a jet from a b quark
-% (using the Combined Secondary Vertex algorithm ~\cite{Chatrchyan:2012jua}). This region is found to be composed of 10\%
-% single top, 50\% \ttbar and 40\% W+jets. The number of events expected from simulation is found to be in good agreement with the
-% observed number of events in both control regions. The data-to-simulation scale factors obtained are
-% $1.21\pm 0.19$ (data stat.)$ \pm 0.16 $(syst.) from 21 events observed in region 1 and
-% $0.88\pm 0.07$ (data stat.)$ \pm 0.08$ (syst.) from 429 events observed in region 2.
-% The systematic uncertainty in these scale factors is dominated by the limited statistics in the simulation.
-% Based on these results we assign a 20\% systematic uncertainty to the nominal prediction for the top quark contribution
-% in the signal region.
-% 
-% %The grey shaded band in the signal region figure is the total
-% %systematic and statistical uncertainty on the total background
-% %estimation. It should be noted that the QCD contribution, estimated at
-% %17 events across the distribution, is not shown. 
-% %All plots have the W, Z and top backgrounds normalised to the
-% %date in their respective control regions
-% 
-% For the QCD background, a data-based method using events with non-isolated \MET is employed. Three
-% regions are defined: (i) a region denoted as "inverted" that 
-% gives a description of the QCD shape; (ii) a region denoted as "3-jet"
-% where a cross-check of how well the QCD shape
-% describes the data is performed; and (iii) a region denoted as "sideband" from which
-% a normalisation of the QCD shape to be applied in
-% the signal region is extracted.
-% 
-% The inverted region is selected by changing the requirement on
-% \mindphiall to \mindphiall$<$1.0, and requiring \mindphileading $>$ 2.3, thus providing a region where the leading two jets are signal like, but the \MET is not isolated.
-%  The distribution of \METsig is shown after this
-% inverted selection in Fig.~\ref{fig:invqcd} (left). About 20\% of the
-% events are expected to come from W, Z and top processes. The QCD
-% shape is defined as the shape of the data in this region after subtracting the MC predictions for the non QCD processes which are normalised by the SF determined from the corresponding control regions selected in the same conditions as the inverted region. Good
-% agreement is found between the data and the shape predicted by the VBF-enriched QCD MC simulation in this region as shown in Fig.~\ref{fig:invqcd}
-% (left).
-% 
-% To ensure that the QCD shape is adequate to describe the isolated \MET the 3-jet
-% QCD-dominated control region is defined by requiring \mindphiall$>1$, \METsig$>3$ and at least three jets with p$_{T}>30$\,GeV.
-% From simulation we expect a negligible contribution from signal after requiring a third jet in the event. The expected number of QCD events
-% in the 3-jet region, n$_{QCD}^{3j}$, is then taken as the
-% background-subtracted data, with the W and Z expectations being
-% normalised to their respective leptonic control regions.  We then compare the QCD shape, taken from the inverted region with \mindphileading$>1.0$ and normalised to n$_{QCD}^{3j}$, with the data in this region. The distribution of \METsig is shown in this
-% QCD-enriched selection in Fig.~\ref{fig:invqcd} (right). The discrepancy between data and prediction in this QCD-dominated 3-jet region is found to be less than 20\%. However, because most of the events passing
-% the final selection have only two jets, this control region can not be
-% used in the final QCD estimate.
-% 
-% \begin{figure}[h!]
-%   \begin{center}
-%     \includegraphics[width=.49\textwidth]{figures/output_invqcd_qcd_metnomu_significance.pdf}
-%     \includegraphics[width=.49\textwidth]{figures/output_invqcd_3j_nunu_metnomu_significance.pdf}
-%    \caption{Left: \MET significance \METsig for events with \mindphiall$<1.0$ and
-%      \mindphileading$>2.3$. MCQCD is the QCD MC normalised to
-%      the background-subtracted data yield. Right: \MET significance \METsig for events
-%      with \mindphiall$>1.0$ and at least 3 jets with
-%      p$_T>30$\,GeV. The QCD is modelled by data using the inverted
-%      \mindphiall$<1.0$ and \mindphileading$>1$ selection, after
-%      background subtraction, and normalised to the
-%      background-subtracted data yield. In both figures, the W and Z
-%      backgrounds have been normalised to their respective control
-%      regions in the same conditions. The last bin represents all those events falling above the range of the histogram.}
-%     \label{fig:invqcd}
-%   \end{center}
-% \end{figure}
-% 
-% 
-% A sideband region is used
-% to provide a  normalisation of the QCD shape to be used in the signal region. 
-% The normalisation sideband is defined as those events in which 
-% 3$<$\METsig$<$4 and 1.0$<$\mindphileading$<$2.0.
-%  It is observed that the normalisation
-% factor decreases rapidly as the requirements on \METsig and \mindphileading
-% are tightened. To model this behaviour the normalisation factor is
-% measured as a function of the requirement placed on \METsig and
-% as a function of the requirement placed on \mindphileading. Both
-% functional forms are then extrapolated to the signal region
-% requirements. The average of the two extrapolations is used as the central prediction and the envelope is used to assign the systematic uncertainty on the QCD multijets normalisation.
-%
+
 %%%%%%%%%%%
 %
 % \section{Results}
@@ -846,34 +670,6 @@ boson mass, assuming SM Higgs boson acceptances. \cite{ARTICLE:CMSVBFHiggsInvisi
 % \end{tabular}
 % \end{table*}
 % 
-% \section{Limits on the cross section of invisibly decaying Higgs bosons}
-% \label{sec:limits}
-% Upper limits on the Higgs boson production cross section times \BRinv\,
-% are placed at 95\% C.L. using an
-% asymptotic CLs method~\cite{Read1,junkcls,Dittmaier:2012vm}, following the
-% standard LHC Higgs combination technique~\cite{Chatrchyan:2013lba,HiggsCombination}.
-% Systematic uncertainties are treated as nuisance parameters in a frequentist paradigm, as described in~\cite{HiggsCombination},
-% and all correlations between processes are taken into account.
-% 
-% Using this procedure and assuming SM Higgs boson production cross sections and acceptances,
-%  the observed (expected) 95\% C.L. limit on \BRinv\,
-%  of a SM 125 GeV Higgs boson is 57\% (40\%). The 95\% C.L. limit on %!!MAKE SURE UP TO DATE                                                                   
-% \BRinv\, and the 95\% C.L. limit on the cross section times \BRinv, both assuming SM Higgs boson acceptances are
-% shown as a function of Higgs boson mass in Fig. \ref{fig:limits}. As can be seen from Table~\ref{tab:syst-qqH} the dominant systematic uncertainty in the analysis is that from the limited numbers of data events in some control regions, in particular the Z control region. If the Z control region statistical uncertainty were to be reduced to the level of that from the $W\rightarrow\mu\nu$ control region the expected 95\% C.L. limit on the cross section times \BRinv for a SM 125 GeV Higgs boson would be reduced to 33\%.
-% 
-% The result is also combined with that obtained by CMS in searches in the channel where the Higgs boson is produced in association with a Z which was reported in ~\cite{Chatrchyan:2014tja}. The procedure for this combination is also described in ~\cite{Chatrchyan:2014tja}. The 95\% C.L. observed (expected) limit on \BRinv\, after combination is 47\% (35\%) for a SM 125 GeV Higgs boson.
-% 
-% \begin{figure}[h!]
-%   \begin{center}
-%     \includegraphics[width=0.49\textwidth]{figures/vbflimit.pdf} %!!UNBLIND ALREADY IN                                                                       
-%     \includegraphics[width=0.49\textwidth]{figures/vbfxslimit.pdf}
-%  \caption{The 95\% C.L. limit on \BRinv\, of a SM Higgs
-% boson (\cmsLeft) and the 95\% C.L. limit on the cross section times
-% \BRinv\, (\cmsRight)as a function of the Higgs
-% boson mass, assuming SM Higgs boson acceptances.}
-%     \label{fig:limits}
-%   \end{center}
-% \end{figure}
 
 
 
