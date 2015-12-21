@@ -227,9 +227,7 @@ N_{S}^{Z\rightarrow\nu\nu}=\left(N_{C}^{Data}-N_{C}^{bkg}\right) \cdot\frac{\sig
 \label{EQUATION:ParkedDataAnalysis_ZBackground}
 \end{equation}
 
-The ratio of cross sections $\sigma(Z\rightarrow\nu\nu)$/$\sigma(Z/\gamma^{*}\rightarrow\mu\mu)$ was determined to be $5.651\pm 0.023$ (syst) and the selection efficiencies for the signal and control regions are respectively $\epsilon_{S}^{ZMC}=(1.8\pm 0.1) \times 10^{-6}$ and $\epsilon_{C}^{ZMC}=(1.2\pm 0.1) \times 10^{-6}$. The number of observed events, by both the main and cross check analysis, in this data control region is $N_{C}^{Data}=18\pm 4.2$, and the number of events estimated from \gls{MC} simulation in this control region originating from other backgrounds is $N_{C}^{bkg}=0.2 \pm 0.1 \stat$. The estimated contribution from \gls{EWK} produced Z+jets is 21\%. 
-
-Figure \ref{FIGURE:ParkedDataAnalysis_ZBackground_KeyDistributions} shows distributions of $\Delta\eta_{jj}$, $M_{jj}$, $\text{MET}_{sig}$ and \gls{MET}.
+The ratio of cross sections $\sigma(Z\rightarrow\nu\nu)$/$\sigma(Z/\gamma^{*}\rightarrow\mu\mu)$ was determined to be $5.651\pm 0.023$ (syst) and the selection efficiencies for the signal and control regions are respectively $\epsilon_{S}^{ZMC}=(1.8\pm 0.1) \times 10^{-6}$ and $\epsilon_{C}^{ZMC}=(1.2\pm 0.1) \times 10^{-6}$. The number of observed events, by both the main and cross check analysis, in this data control region is $N_{C}^{Data}=18\pm 4.2$, and the number of events estimated from \gls{MC} simulation in this control region originating from other backgrounds is $N_{C}^{bkg}=0.2 \pm 0.1 \stat$. The estimated contribution from \gls{EWK} produced Z+jets is 21\%. Figure \ref{FIGURE:ParkedDataAnalysis_ZBackground_KeyDistributions} shows distributions of $\Delta\eta_{jj}$, $M_{jj}$, $\text{MET}_{sig}$ and \gls{MET}.
 
 Within the statistics available, a good agreement between data and MC is observed. The final estimate of the $Z\rightarrow \nu\nu$ background is $N_{S}^{Z\rightarrow\nu\nu}= 158.1 \pm 37.8 \stat \pm 21.2 \syst$.
 % 
@@ -251,100 +249,71 @@ Good agreement between data and \gls{MC} simulation is observed considering the 
 \subsection{W background estimation}
 \label{SECTION:ParkedDataAnalysis_ControlRegions_WBackground}
 
-%Status: Writing
+%Status: DONE
 
-% Similarly, in the case of the W background, events in which a lepton
-% is explicitly identified are used to compare the MC to data, and
-% extract a normalisation factor. This factor is then used to
-% normalise the events predicted by the MC in the signal region. The W
-% control regions are defined by replacing the signal region's lepton
-% veto with a requirement for exactly one lepton (tight electron or
-% tight muon) or hadronic tau in order to enrich the sample in W
-% events. The number of W events in the signal region is then taken to
-% be:
-% 
+A similar approach is taken for the W background, the control region is defined by the signal region criteria except that we explicitly require the presence of exactly one single lepton (tight electron or tight muon) or hadronic tau and no other additional leptons. The data event yield obtained in this region is extrapolated to the signal region with a conversion factor determined from \gls{MC} simulation. Equation \ref{EQUATION:ParkedDataAnalysis_WBackground} is used to obtain the predicted number of events in the signal region.
+
 \begin{align}
-  \begin{split}
-  \label{eq:ddmethod}
-  N_{S}^{W}&=N_{S}^{W\,MC}\frac{N_{C}^{Data}-N_{C}^{bkg}}{N_{C}^{W\,MC}}=N_{S}^{W\,MC}\cdot \rm{SF},
-  \end{split}
+%   \begin{split}
+%   \end{split}
+N_{S}^{W}&=N_{S}^{W\,MC}\frac{N_{C}^{Data}-N_{C}^{bkg}}{N_{C}^{W\,MC}}=N_{S}^{W\,MC}\cdot \rm{SF}
+\label{EQUATION:ParkedDataAnalysis_WBackground}
 \end{align}
-% 
-% calculated separately for W decaying to each of e, $\mu$ (with $W\rightarrow\tau\nu\rightarrow e/\mu\nu\nu\nu$ included) and hadronic $\tau$. The number of
-% events $N_{C}^{bkg}$ from the backgrounds to the W control regions
-% come mainly from the top processes, and are estimated from MC.
 
+The prediction of each W decay channel is calculated separately for e, $\mu$ (which include $W\rightarrow\tau\nu\rightarrow \nu_\tau l\nu_l$ with $l$ equal to e and $\mu$ respectively) and hadronic $\tau$. In these control region the number of events from other background $N_{C}^{bkg}$ is mainly composed of event from top processes which are estimated from \gls{MC}.
 
-% In the W$\rightarrow\tau_{\mathrm{h}}\nu$ control region, almost no
-% events pass the \mindphiall selection. The criteria on \mindphiall is
-% hence replaced by a criteria on the minimum azimuthal angle separation
-% between the \MET and one of the leading two jets, \mindphileading, required
-% to be greater than 1. To reject the background from multijet events,
-% an additional requirement that the transverse mass of the W be greater
-% than 20 GeV is used. By studying the W$\rightarrow\mu\nu$ region
-% (which has enough events to observe the full range of the \mindphiall
-% distribution), a 20\% systematic uncertainty is added to the
-% W$\rightarrow\tau_{\mathrm{h}}\nu$ background estimate to cover the
-% small discrepancy in shape of the \mindphiall variable observed
-% between data and MC. Distributions of M$_{jj}$, \MET, and \mindphiall
-% are shown in Figs.~\ref{fig:wmjjcontplots},\,\ref{fig:wmetcontplots} and \ref{fig:wmindphicontplots}. Good agreement between data
-% and MC is observed. The final estimates of the $W\rightarrow l\nu$
-% backgrounds, together with the number of events selected in signal and
-% control regions, are shown in Table \ref{tab:ZWTopRes}.
+In the W$\rightarrow\tau_{\mathrm{h}}\nu$ control region the a very small amount of events passes the $\Delta\phi(\text{MET},jets)$ requirement. In order to increase event statistics it is replaces by a requirement on the minimal azimuthal angle separation between the \gls{MET} and one of the leading two jets $\Delta\phi(\text{MET},jet_{1,2})$ greater than 1. To reject event from \gls{QCD} multi-jet processes an additional requirement on the transverse mass of the W to be greater than $20\,\GeV$ is used. The W$\rightarrow\mu\nu$ region has enough statistics to study the full range of $\Delta\phi(\text{MET},jets)$, a 20\% systematic uncertainty is added to account for the observed difference in shape of the $\Delta\phi(\text{MET},jets)$ variable observed between \gls{MC} simulation and data. Distributions of $M_{jj}$, \gls{MET} and $\Delta\phi(\text{MET},jets)$ are should in figures \ref{FIGURE:ParkedDataAnalysis_WBackground_Mjj}, \ref{FIGURE:ParkedDataAnalysis_WBackground_MetNoMu} and \ref{FIGURE:ParkedDataAnalysis_WBackground_MinDeltaPhi}
 
-
-\begin{figure}[!htb]
-  \begin{center}
-    \includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_dijet_M.pdf}
-    \includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_dijet_M.pdf} \\
-    \includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_dijet_M.pdf}
-    \caption{Dijet mass $m_{jj}$ for the $W\rightarrow e\nu$ (top left), $W\rightarrow\mu\nu$ (top right) and $W\rightarrow\tau\nu$ (bottom) control regions. The last bin represents all those events falling above the range of the histogram \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
-   \label{fig:wmjjcontplots}
-  \end{center}
-\end{figure}
-% 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_metnomuons.pdf}
-\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_metnomuons.pdf} \\
-\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_metnomuons.pdf}
-\caption{\MET for the $W\rightarrow e\nu$ (top left), $W\rightarrow\mu\nu$ (top right) and $W\rightarrow\tau\nu$ (bottom) control regions. The last bin represents all those events falling above the range of the histogram \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
-\label{fig:wmetcontplots}
+\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_dijet_M.pdf}}
+\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_dijet_M.pdf}} \\
+\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_dijet_M.pdf}}
+\caption{ Dijet mass $M_{jj}$ for the (a) $W\rightarrow e\nu$, (b) $W\rightarrow\mu\nu$ and (c) $W\rightarrow\tau\nu$ control regions. The last bin represents all those events falling above the range of the histogram \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
+\label{FIGURE:ParkedDataAnalysis_WBackground_Mjj}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_alljetsmetnomu_mindphi.pdf}
-\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_alljetsmetnomu_mindphi.pdf} \\
-\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_alljetsmetnomu_mindphi.pdf}
-\caption{Minimum azimuthal angle separation between any jet with $p_{T}>30$ GeV and the \gls{MET} $\Delta\phi(\text{MET},jets)$ for the $W\rightarrow e\nu$ (top left), $W\rightarrow\mu\nu$ (top right) and $W\rightarrow\tau\nu$ (bottom) control regions \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
-\label{fig:wmindphicontplots}
+\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_metnomuons.pdf}}
+\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_metnomuons.pdf}} \\
+\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_metnomuons.pdf}}
+\caption{\gls{MET} for the (a) $W\rightarrow e\nu$, (b) $W\rightarrow\mu\nu$ and (c) $W\rightarrow\tau\nu$ control regions. The last bin represents all those events falling above the range of the histogram \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
+\label{FIGURE:ParkedDataAnalysis_WBackground_MetNoMu}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_alljetsmetnomu_mindphi.pdf}}
+\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_alljetsmetnomu_mindphi.pdf}} \\
+\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_alljetsmetnomu_mindphi.pdf}}
+\caption{Minimum azimuthal angle separation between any jet with $p_{T}>30$ GeV and the \gls{MET} $\Delta\phi(\text{MET},jets)$ for the (a) $W\rightarrow e\nu$, (b) $W\rightarrow\mu\nu$ and (c) $W\rightarrow\tau\nu$ control regions \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
+\label{FIGURE:ParkedDataAnalysis_WBackground_MinDeltaPhi}
 \end{figure}
  
-
+All presented distribution show good agreement between data and \gls{MC} simulation. The event yields in each control region for both data and \gls{MC} simulation and the final estimations of the W$\rightarrow l\nu$ backgrounds in the signal region can be found in table \ref{TABLE:ParkedDataAnalysis_WBackground_Summary}.
+ 
 \begin{table}[!htb]
 \centering
 \begin{tabular}{|l|c|c|c|}
 \hline
  & W$\rightarrow$e$\nu$ & W$\rightarrow\mu\nu$ & W$\rightarrow\tau\nu$ \\
 \hline\hline
-$N_{C}^{data}$ & $68\pm 8.2$& $300\pm 17.3$ & $76\pm 8.7$\\
-$N_{C}^{bkg}$   &$3.5\pm 1.2$ & $14.8\pm 2.5$ & $13.3\pm 2.8$ \\
-$N_{C}^{MC}$ &  $128.0\pm 8.0$ & $399.9\pm 14.9$ & $80.8\pm 6.4$   \\
-$N_{S}^{MC}$ & $114.9\pm8.9$ & $143.7\pm10.2$ & $121.9\pm8.7$  \\
+$N_{C}^{data}$ &    $68\pm8.2$ &   $300\pm17.3$ &    $76\pm8.7$ \\
+$N_{C}^{bkg}$  &   $3.5\pm1.2$ &  $14.8\pm2.5$  &  $13.3\pm2.8$ \\
+$N_{C}^{MC}$   & $128.0\pm8.0$ & $399.9\pm14.9$ &  $80.8\pm6.4$ \\
+$N_{S}^{MC}$   & $114.9\pm8.9$ & $143.7\pm10.2$ & $121.9\pm8.7$ \\
 \hline\hline
-SF & $0.50\pm0.06\pm0.03$ & $0.71\pm0.04\pm0.03$ & $0.78\pm0.11\pm0.07$ \\
+SF             & $0.50\pm0.06\pm0.03$ & $0.71\pm0.04\pm0.03$ & $0.78\pm0.11\pm0.07$ \\
 \hline\hline
-$N_{S}$ & $57.9\pm7.4\pm7.7$ & $102.5\pm6.2\pm11.7$ & $94.6\pm13.1\pm23.8$ \\
+$N_{S}$        & $57.9\pm7.4\pm7.7$ & $102.5\pm6.2\pm11.7$ & $94.6\pm13.1\pm23.8$ \\
 \hline
 \end{tabular}
-\caption{\label{tab:ZWTopRes} Summary of the W background estimates. The quoted uncertainties are of statistical origin. Systematic uncertainties are shown, as well, for SF and $N_S$. Systematic uncertainties are described in Section~\ref{sec:syst}. The systematic uncertainty given for SF contains only the MC statistics, whereas for $N_{S}$ it represents the full systematic as described in section \ref{sec:syst} \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
+\caption{Summary of the W background estimates. The quoted uncertainties are of statistical origin. Systematic uncertainties are shown, as well, for SF and $N_S$. The systematic uncertainty given for SF contains only the \gls{MC} statistics, whereas for $N_{S}$ it represents the full systematic are shown \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
+\label{TABLE:ParkedDataAnalysis_WBackground_Summary}
 \end{table}
 
-% The data-to-simulation scale factors shown in Table~\ref{tab:ZWTopRes} vary from
-% 0.5 to 0.8. This difference is caused by a mismodelling of the distribution of the 
-% dijet mass and \mindphiall variables; tighter requirements on these variables lead to decreasing
-% scale factors.
+The cross check analysis has determined exactly the same data event yields for all W control selection regions further validating the obtained predictions in the signal region.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -353,6 +322,8 @@ $N_{S}$ & $57.9\pm7.4\pm7.7$ & $102.5\pm6.2\pm11.7$ & $94.6\pm13.1\pm23.8$ \\
 \label{SECTION:ParkedDataAnalysis_ControlRegions_TopBackground}
 
 %Status: Writing
+
+To
 
 % Two top control regions have also been investigated. One (region 1) is
 % driven by the selection of two leptons, either of different flavour (e$\mu$), or
