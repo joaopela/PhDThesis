@@ -7,9 +7,9 @@
 % PAS 14-038
 % AN-14-243
 
-%STATUS: DONE
+%STATUS: DONE (reviewed J.Pela x1)
 
-The search for Higgs boson invisible decays has already been attempted in past experiments and is also the topic of many \gls{LHC} analyses. Searches were performed by the \gls{LEP} experiments \cite{ARTICLE:LEPSearchesForInvisibleHiggsBosons,ARTICLE:LEPDELPHISearchesForInvisibleDecayingHiggsBosons,ARTICLE:LEPOPALSearchForInvisiblyDecayingHiggsBosons} and at the \gls{LHC} with the full 7 and $8\,\TeV$ datasets, by the \gls{ATLAS} collaboration \cite{ARTICLE:ATLASSearchForInvisibleDecaysHiggsBosonAssociatedZ,ARTICLE:ATLASSearchForDarkMatterWithHadronicallyWorZ,ARTICLE:ATLASMonoJetPlusMET,ARTICLE:ATLASVBFHiggsInvConfNote} and by the \gls{CMS} collaboration \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination} where the most sensitive analysis was presented at chapter \ref{CHAPTER:PromptDataAnalysis}. With the assumption of the \gls{SM} production cross section and acceptance for the Higgs boson and using the \gls{VBF} production mode, the \gls{ATLAS} collaboration has placed a preliminary observed (expected) upper limit on the Higgs boson branching fraction to Invisible, \BRinv, of 0.29 (0.35) at 95\% confidence level for $m_H=125.5\,\GeV$ \cite{ARTICLE:ATLASVBFHiggsInvConfNote}. The \gls{CMS} collaboration had combined both the \gls{VBF} and ZH production modes to set an observed (expected) upper limit on the \BRinv at  $m_H=125\,\GeV$ of 0.58\,(0.44) at 95\% confidence level \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}.
+The search for Higgs boson invisible decays has already been attempted in past experiments and is also the topic of many \gls{LHC} analyses. Searches were performed by the \gls{LEP} experiments \cite{ARTICLE:LEPSearchesForInvisibleHiggsBosons,ARTICLE:LEPDELPHISearchesForInvisibleDecayingHiggsBosons,ARTICLE:LEPOPALSearchForInvisiblyDecayingHiggsBosons} and at the \gls{LHC} with the full 7 and $8\,\TeV$ datasets, by the \gls{ATLAS} collaboration \cite{ARTICLE:ATLASSearchForInvisibleDecaysHiggsBosonAssociatedZ,ARTICLE:ATLASSearchForDarkMatterWithHadronicallyWorZ,ARTICLE:ATLASMonoJetPlusMET,ARTICLE:ATLASVBFHiggsInvConfNote} and by the \gls{CMS} collaboration \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}. With the assumption of the \gls{SM} production cross section and acceptance for the Higgs boson and using the \gls{VBF} production mode, the \gls{ATLAS} collaboration has placed a preliminary observed (expected) upper limit on the Higgs boson branching fraction to Invisible, \BRinv, of 0.29 (0.35) at 95\% confidence level for $m_H=125.5\,\GeV$ \cite{ARTICLE:ATLASVBFHiggsInvConfNote}. The \gls{CMS} collaboration had combined both the \gls{VBF}, as presented in chapter \ref{CHAPTER:PromptDataAnalysis}, and ZH production modes to set an observed (expected) upper limit on the \BRinv at  $m_H=125\,\GeV$ of 0.58\,(0.44) at 95\% confidence level \cite{ARTICLE:CMSVBFHiggsToInvAndZHCombination}.
 
 This chapter describes the analysis performed over the \gls{CMS} Run I proton-proton parked data collected over 2012. A total integrated luminosity of $19.2 \pm 0.5$ was analysed. This data was recorded and stored without reconstruction and only became fully available a few months after data taking during the \gls{LS1}. The advantage of this approach was the possibility of using lower threshold triggers which can collect more signal but unfortunately also more backgrounds. To take full advantage of this data the analysis had to be redesigned and extended with new control regions. To validate the obtained results a new cross check analysis was also preformed.
 
@@ -19,11 +19,11 @@ This chapter describes the analysis performed over the \gls{CMS} Run I proton-pr
 \section{The Cross Check Analysis}
 \label{CHAPTER:ParkedDataAnalysis_CrossCheckAnalysis}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-It is normally a requirement for many \gls{CMS} publications to have a cross check analysis implemented independently from the main result in order to be able to ensure the accuracy of the final results due to possible errors with the software implementation. For this purpose the \gls{CMS} \gls{VBF} Higgs to invisible result using prompt data presented in chapter \ref{CHAPTER:PromptDataAnalysis}, was produced by two different and independent code frameworks. Before publication a good level of synchronization was obtained validating the obtained measurement. Due to lack of man power and time it was decide for the 2012-13 parked data analysis to only proceed with a single framework. At a later stage of the analysis it was thought that at least some level of cross check would be a good measure to limit the possibility of implementation errors and to allow extra confidence on the final results.
+It is a normal a requirement for many \gls{CMS} publications to have a cross check analysis implemented independently from the main result in order to be able to ensure the accuracy of the final results due to possible errors with the software implementation. For this purpose the \gls{CMS} \gls{VBF} Higgs to invisible result using prompt data presented in chapter \ref{CHAPTER:PromptDataAnalysis}, was produced by two different and independent code frameworks. Before publication a good level of synchronization was obtained validating the obtained measurement. Due to lack of man power and the time it was decide for the 2012 parked data analysis to only proceed with a single framework. At a later stage of the analysis it was thought that at least some level of cross check would be a good measure to limit the possibility of implementation errors and to allow extra confidence in the final results.
  
-This cross check analysis starts from the physics object files, \textit{ntuples}, produced by the main analysis for all the relevant datasets. The software used for this object extraction process and its data formats are also used by other analyses at Imperial College London, including both the \gls{SM}, and \gls{MSSM} Higgs to $\tau\bar{\tau}$, the Higgs to $\tau\bar{\tau}b\bar{b}$ and prompt Higgs to invisible analyses. These analysis have been cross checked independently and therefore the part of the software is considered to be sufficiently validated. No event requirements are applied at this physics object production level except the official \gls{CMS} list of certified good luminosity sections for physics usage.
+This cross check analysis starts from the physics object files, \textit{ntuples}, produced by the main analysis for all the relevant datasets. The software used for this object extraction process and its data formats are also used by other analyses at Imperial College London, including both the \gls{SM} and \gls{MSSM} Higgs to $\tau\bar{\tau}$, the Higgs to $\tau\bar{\tau}b\bar{b}$, and prompt Higgs to invisible analyses. These past analysis have been cross checked independently and therefore that part of the software is considered to be sufficiently validated. No event requirements are applied at this physics object production level except the official \gls{CMS} list of certified good luminosity sections for physics usage.
  
 The analysis of these \textit{ntuples} was performed by an independent code framework which was developed in order to replicate all relevant event yields produced by the main analysis for data. Due to time constraints to the planned unbinding of the analysis, only the yields in data were cross checked.  
 
@@ -32,31 +32,31 @@ The analysis of these \textit{ntuples} was performed by an independent code fram
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data and MC samples}
 
-%Status: Writing
+%Status: DONE (reviewed J.Pela x1)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-This analysis used the full  $\sqrt{s}=8\,\TeV$ Run I proton-proton certified collision data. The total integrated luminosity analysed is $19.2 \pm 0.5 \,\femto\barn^{-1}$ \cite{ARTICLE:CMSLuminosityBasedonPixelClusterCounting}. The \gls{LHC} Run I was composed of four periods A, B, C and D which identify major changes on either the \gls{LHC} or \gls{CMS}, like de deployment of new reconstruction software.
+This analysis used the full  $\sqrt{s}=8\,\TeV$ Run I proton-proton certified collision data. The total integrated luminosity analysed is $19.2 \pm 0.5 \,\femto\barn^{-1}$ \cite{ARTICLE:CMSLuminosityBasedonPixelClusterCounting}. The \gls{LHC} Run I was composed of four periods A, B, C and D which identify major changes on either the \gls{LHC} or \gls{CMS} operation, like the deployment of new reconstruction software.
 
-The triggers used in this analysis, selected events with two jets with the distinct \gls{VBF} topology and \gls{MET}. Three trigger were used during 2012 depending on the data taking period. All selected trigger paths are seeded by the same \gls{L1T} condition which required then event to have \gls{L1T} \gls{MET}$>40\,\GeV$, the quantity us calculated using the calorimeter trigger towers up to $|\eta|<3.0$. The trigger used during Run A is the same as the one used in the \textit{prompt analysis} already presented in chapter \ref{CHAPTER:PromptDataAnalysis}, and selects events with one pair of \gls{PF} jets with $\pt>40\,\GeV$, $M_{jj}>800\,\GeV$, and $\Delta\eta_{jj}>3.5$ and \gls{PF} $MET_{no-\mu}>65\,\GeV$. The trigger used in Run B and C (D) are the new parked triggers which select events with at least one pair of calorimeter jets with $\pt>35(30)\,\GeV$, $M_{jj}>700\,\GeV$ and $\Delta\eta>3.5$. A summary of the integrated luminosity used according the each data taking period and provenance can be found in table \ref{TABLE:ParkedData_Data_RunI_IntegratedLuminosity}.
+The triggers used in this analysis, selected events with two jets with the distinct \gls{VBF} topology and \gls{MET}. Three trigger were used during 2012 depending on the data taking period. All selected trigger paths are seeded by the same \gls{L1T} condition which required the event to have \gls{L1T} \gls{MET}$>40\,\GeV$, this quantity was calculated using calorimeter trigger towers up to $|\eta|<3.0$. The trigger used during Run A is the same as the one used in the \textit{prompt analysis} already presented in chapter \ref{CHAPTER:PromptDataAnalysis}, and selects events with one pair of \gls{PF} jets in opposite side of the detector with $\pt>40\,\GeV$, $M_{jj}>800\,\GeV$, and $\Delta\eta_{jj}>3.5$ and \gls{PF} $MET_{no-\mu}>65\,\GeV$. The trigger used in Run B and C (D) are the new parked triggers which select events with at least one pair of calorimeter jets in opposite side of the detector with $\pt>35(30)\,\GeV$, $M_{jj}>700\,\GeV$ and $\Delta\eta>3.5$. A summary of the integrated luminosity used according the each data taking period and provenance can be found in table \ref{TABLE:ParkedData_Data_RunI_IntegratedLuminosity}.
 
 \input{Chapter07/Tables/table_Data_RunI_IntegratedLuminosity.tex}
 
-The \gls{VBF} Higgs inclusive parked trigger only became available in the beginning of the 2012 Run B. Similarly to the \textit{prompt analysis}, for Run A the prompt data recorded by the dedicated \gls{VBF} Higgs to invisible trigger is used. The difference between the certified and analysed numbers is due to the new \gls{VBF} Higgs inclusive parked trigger being present but not active for the first few runs of the 2012 Run B. 
+The \gls{VBF} Higgs inclusive parked trigger only became available in the beginning of the 2012 Run B. The difference between the certified and analysed numbers is due to the new \gls{VBF} Higgs inclusive parked trigger being present but not active for the first few runs of the 2012 Run B. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Monte Carlo Samples}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-A variety of event generator were used to simulate the background of this analysis. The \gls{VBF} Higgs to invisible signal was simulated using the \textsc{POWHEG} 2 event generator \cite{ARTICLE:POWHEG_2004,ARTICLE:POWHEG_2007,ARTICLE:POWHEG_2009v1,ARTICLE:POWHEG_2009v2,ARTICLE:POWHEG_2010v1,ARTICLE:POWHEG_2010v2,ARTICLE:POWHEG_2011v1,ARTICLE:POWHEG_2011v2} and its hadronization was performed with \textsc{PYTHIA} 6.4.26 \cite{ARTICLE:Pythia6p4PhysicsAndManual}. The main backgrounds arising from W and Z decays associated with jets (W/Z+jets) and $t\bar{t}$ also with associated additional jets are simulated using \textsc{MADGRAPH} 5.1.1 \cite{ARTICLE:MadGraph5,ARTICLE:aMCatNLO} hadronization is also done using \textsc{PYTHIA}. Additional samples are produced for \gls{EWK} Z and W processes. Table \ref{TABLE:ParkedDataAnalysis_MCSamples_Summary} shows the cross sections for the used samples and their equivalent integrated luminosity.
+A variety of event generator were used to simulate the background of this analysis. The \gls{VBF} Higgs to invisible signal was simulated using the \textsc{POWHEG} 2 event generator \cite{ARTICLE:POWHEG_2004,ARTICLE:POWHEG_2007,ARTICLE:POWHEG_2009v1,ARTICLE:POWHEG_2009v2,ARTICLE:POWHEG_2010v1,ARTICLE:POWHEG_2010v2,ARTICLE:POWHEG_2011v1,ARTICLE:POWHEG_2011v2} and its hadronization was performed with \textsc{PYTHIA} 6.4.26 \cite{ARTICLE:Pythia6p4PhysicsAndManual}. The main backgrounds arising from W and Z decays associated with jets (W/Z+jets) and $t\bar{t}$ also with associated additional jets are simulated using \textsc{MADGRAPH} 5.1.1 \cite{ARTICLE:MadGraph5,ARTICLE:aMCatNLO} and hadronization is also done using \textsc{PYTHIA}. Additional samples are used for \gls{EWK} Z and W processes. Table \ref{TABLE:ParkedDataAnalysis_MCSamples_Summary} shows the cross sections for the used samples and their equivalent integrated luminosity.
 
 \begin{table}[!htb]
 \centering
@@ -121,19 +121,18 @@ As it can be observed the equivalent integrated luminosities for the inclusive \
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Monte Carlo simulation to Data correction factors}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-To compare \gls{MC} with data the simulation must re-weights to match observed key distribution. Simulated events are individually reweighed by  to match data \gls{PU} distribution, probability of passing the trigger, lepton identification probability.
-%TODO: top sample re-weighting.
+To compare \gls{MC} simulation with data events must reweighed to match observed key distribution. Weights for each events are calculated to match data \gls{PU} distribution, probability of passing the trigger and to get the correct lepton identification probability.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Pile-up}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The distribution of \gls{PU} in data and \gls{MC} simulated events samples is not the same. Each \gls{MC} dataset is re weighted event by event in order to match the observed distribution in the analysed data. The average \gls{PU} is estimated to be os 21 simultaneous interactions per bunch crossing. 
+The distribution of \gls{PU} in data and \gls{MC} simulated events samples is not the same. Each \gls{MC} dataset is reweighed event by event in order to match the observed distribution in the analysed data. The average \gls{PU} is estimated to be of 21 simultaneous interactions per bunch crossing. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -141,27 +140,27 @@ The distribution of \gls{PU} in data and \gls{MC} simulated events samples is no
 \subsection{Trigger efficiency}
 \label{SUBSECTION:ParkedDataAnalysis_CorrectionFactors_TriggerEfficiency}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The initial event selection for data in this analysis starts with a dedicated set of triggers. During Run A the same trigger used in the \textit{prompt analysis} while for runs B, C and D new parked data triggers are used. To maximize the usage of the event statistics of the selected \gls{MC} samples, we do not veto events that fail the trigger conditions. Instead an event by event weight is calculated which takes into account how much luminosity was recorded by each one of the individual triggers. The applies weight depends on offline quantities corresponding to the ones used in the trigger conditions: \gls{PF} $MET_{no-\mu}$, leading dijet $m_{jj}$ and sub-leading jet \pt. 
+The initial event selection for data in this analysis starts with a dedicated set of triggers. During Run A the same trigger as used in the \textit{prompt analysis} is taken while for runs B, C and D new parked data triggers are used. To maximize the usage of the event statistics of the selected \gls{MC} samples, events are not vetoed  when failing the trigger conditions. Instead an event by event weight is calculated which takes into account how much luminosity was recorded by each one of the individual triggers. The applies weights depends on offline quantities corresponding to the ones used in the trigger conditions: \gls{PF} $MET_{no-\mu}$, leading dijet $M_{jj}$ and sub-leading jet \pt. 
 
-To determined the weights, turn on curves were obtained according to these offline variables as a function of \gls{PF} $MET_{no-\mu}$ in bins of dijet $m_{jj}$ and sub-leading jet \pt using independent events recorded by a single-muon trigger. This approach allows the determination of the weights which include the correlations between these variables. The turn on curves are obtained by fitting equation \ref{EQUATION:ParkedDataAnalysis_TriggerEfficiency_Efficiency} to each bin.
+To determined the weights, turn on curves were obtained according to these offline variables as a function of \gls{PF} $MET_{no-\mu}$ in bins of dijet $M_{jj}$ and sub-leading jet \pt using independently recorded events by a single-muon trigger. This approach allows the determination of weights which include the correlations between these variables. The turn on curves are obtained by fitting equation \ref{EQUATION:ParkedDataAnalysis_TriggerEfficiency_Efficiency} to each bin.
 
 \begin{equation}
 \frac{\varepsilon_{max}}{2}\text{Erf}\left(\frac{x-x_{0}}{\sqrt{\Gamma}}\right)+1,
 \label{EQUATION:ParkedDataAnalysis_TriggerEfficiency_Efficiency} 
 \end{equation}
 
-Where $\varepsilon_{max}$ os the maximum efficiency of the trigger in the bin, $x_{0}$ is the mid-value of the turn on and $\Gamma$ is the width of the turn on.
+Where $\varepsilon_{max}$ is the maximum efficiency of the trigger in the bin, $x_{0}$ is the mid-value of the turn on and $\Gamma$ is the width of the turn on.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Lepton Identification}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The used lepton identification criteria follows \gls{CMS} Electron-Gamma and Moun \gls{POG} recommendations. The same \gls{POG} have measured the efficiency of identifying for each lepton criteria as a function of \pt and $\eta$. When selecting leptons the events are reweighed using scale factors per lepton. When vetoing events in the presence of leptons, veto efficiencies are applied per lepton identified at generator level passing the acceptance requirements of electrons (muons) of $\pt>10\,\GeV$ and $|\eta|<2.4(2.1)$.
+The used lepton identification criteria follows the \gls{CMS} Electron-Gamma and Moun \gls{POG} recommendations. The same \gls{POG} have measured the efficiency of identifying each lepton criteria as a function of \pt and $\eta$. When selecting leptons the events are reweighed using scale factors per lepton. When vetoing events in the presence of leptons, veto efficiencies are applied per lepton identified at generator level passing the acceptance requirements of electrons (muons) of $\pt>10\,\GeV$ and $|\eta|<2.4(2.1)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -169,13 +168,13 @@ The used lepton identification criteria follows \gls{CMS} Electron-Gamma and Mou
 \section{Signal event selection}
 \label{SECTION:ParkedDataAnalysis_SignalEventSelection}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-Most of the events recorded by the triggers are origin in \gls{QCD} multi-jet processes. For this type of events the \gls{MET} requirement is fulfilled in two different ways, events with miss measured jets creating \textit{fake} \gls{MET} and event with genuine \gls{MET} involving neutrinos coming particularly heavy-flavour decays. The introduction of a \gls{MET} significance, $\text{MET}_{sig}$, hard requirement reduces the contribution from \textit{fake} \gls{MET} events significantly. Both types of of \gls{QCD} multi-jet events can be suppressed by requiring that the all jets above $\pt>30\,\GeV$ are separated by a minimum azimuthal angle to the \gls{MET} vector, $\Delta\phi(\text{MET},jets)$.
+Most events recorded by the triggers originate from \gls{QCD} multi-jet processes. In this type of events the \gls{MET} requirement is fulfilled in two different ways, events with miss measured jets creating \textit{fake} \gls{MET} and event with genuine \gls{MET} involving neutrinos coming typically from heavy-flavour decays. The introduction of a \gls{MET} significance, $\text{MET}_{sig}$, hard requirement reduces the contribution from \textit{fake} \gls{MET} events significantly. Both types of \gls{QCD} multi-jet events can be suppressed by requiring that the all jets in the event above $\pt>30\,\GeV$ are separated by a minimum azimuthal angle in respected to the \gls{MET} vector, $\Delta\phi(\text{MET},jets)$.
 
-The trigger requirements and the need to reduce the contribution to a negligible level drive the choice of the following base criteria. Events are selected where the leading pair of particle flow anti-$k_T^{\Delta R=0.5}$ jets have $\eta_{j1} \cdot \eta_{j2}<0$, $\pt^{jet_1},\pt^{jet_2} > 50,40\,\GeV$, $|\eta_{jets}| < 4.7$, $\Delta\eta_{jj}>3.6$, $M_{jj}>1000\,\GeV$.  Where $jet_1$ and $jet_2$ are respectively the leading and sub-leading jets in decreasing \pt order of the event. Missing transverse energy is required to be at least $90\,\GeV$, $\text{MET}_{sig}>4.0$ and $\Delta\phi(\text{MET},jets)>2.0$. Additionally, events are vetoed if an veto electron or a loose muon are found with identification criteria defined in chapter \ref{CHAPTER:EventReconstructionAndSimulation}.
+The trigger requirements and the need to reduce the \gls{QCD} multi-jet contribution to a negligible level drives the choice of the following base criteria. Events are selected where the leading pair of \gls{PF} anti-$k_T^{\Delta R=0.5}$ jets pass the requirements $\eta_{j1} \cdot \eta_{j2}<0$, $\pt^{jet_1},\pt^{jet_2} > 50,40\,\GeV$, $|\eta_{jets}| < 4.7$, $\Delta\eta_{jj}>3.6$, $M_{jj}>1000\,\GeV$.  Where $jet_1$ and $jet_2$ are respectively the leading and sub-leading jets in decreasing order of \pt in the event. Missing transverse energy is required to be at least $90\,\GeV$, $\text{MET}_{sig}>4.0$ and $\Delta\phi(\text{MET},jets)>2.0$. Additionally, events are rejected if an veto electron or a loose muon are found with identification criteria defined in chapter \ref{CHAPTER:EventReconstructionAndSimulation}.
 
-The events selected by this criteria are in order of decreasing predicted yield, W($\ell\nu$) and Z($\nu\nu$) + jets, QCD multi-jet processes, $t\bar{t}$ and single top, dibosons and Drell--Yan$(\ell\ell)\text{+jets}$. The selection is optimised by tightening the proposed requirements in order to obtain the best 95\% C.L. expected limit on \BRinv for a $m_H=125\,\GeV$ Higgs boson. The optimal selection, which is defined as the signal region, is found to be the presented base criteria with the additional tighter requirements of $\Delta\phi(\text{MET},jets)>2.3$, $\pt^{jet_2}>45\,\GeV$ and $M_{jj}>1200\,\GeV$. Table \ref{TABLE:ParkedDataAnalysis_SignalEventSelection_CrossSectionYields} shows the obtained yield for each step of the event selection obtained by the cross check analysis.
+The events selected by this criteria are in order of decreasing predicted yield, W($\ell\nu$) and Z($\nu\nu$) + jets, \gls{QCD} multi-jet, $t\bar{t}$ and single top, dibosons, and Drell--Yan$(\ell\ell)\text{+jets}$. The selection is further optimised by tightening the proposed requirements in order to obtain the best 95\% C.L. expected limit on \BRinv\, for a $m_H=125\,\GeV$ Higgs boson. The optimal selection, which is defined as the signal region, is found to be the presented base criteria with the additional tighter requirements of $\Delta\phi(\text{MET},jets)>2.3$, $\pt^{jet_2}>45\,\GeV$ and $M_{jj}>1200\,\GeV$. Table \ref{TABLE:ParkedDataAnalysis_SignalEventSelection_CrossSectionYields} shows the obtained yield for each step of the event selection obtained by the cross check analysis.
 
 \begin{table}[!htb]
 \centering
@@ -199,20 +198,21 @@ $\Delta\phi(\text{MET},jets)>2.3$ &      34 &        91 &       205 &       178 
 \hline
 \end{tabular}
 }
-\caption{Table of the step by step event yield for the signal region obtained by the cross check analysis. Yields per are discriminated by Run I period where exact yield matching was achieved with the main analysis.}
+\caption{Table of the step by step event yields for the signal region obtained by the cross check analysis. Yields per are discriminated by Run I period. Exact matching was achieved with the main analysis in each run period.}
 \label{TABLE:ParkedDataAnalysis_SignalEventSelection_CrossSectionYields}
 \end{table}
 
-The observed yield for this region was of 508 events in both analyses, and are exactly the same in total and for each Run I period.  
+The observed yield for this region is of 508 events in both main and cross check analyses. synchronization was also achieved for each Run I data taking period.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Control Regions}
 \label{SECTION:ParkedDataAnalysis_ControlRegions}
-%Status: DONE
 
-The dominant backgrounds in this analysis come from W and Z decays, they are estimated by using independent data control regions which are extrapolated to the signal region with the help of \gls{MC} simulation. The \gls{QCD} multi-jet background is directly estimated from data. The remaining minor backgrounds coming from top, dibosons and Drell Yan, are taken directly from \gls{MC} simulation.
+%Status: DONE (reviewed J.Pela x1)
+
+The dominant backgrounds in this analysis come from W and Z decays, they are estimated by using independent data control regions which are extrapolated to the signal region with the help of \gls{MC} simulation. A new control region is introduced to estimate the minor background from $t\bar{t}$, the procedure used is the same as for the W and Z backgrounds. The \gls{QCD} multi-jet background is directly estimated from data. The remaining minor backgrounds coming from dibosons and Drell Yan, are taken directly from \gls{MC} simulation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -220,7 +220,7 @@ The dominant backgrounds in this analysis come from W and Z decays, they are est
 \subsection{Z background estimation}
 \label{SECTION:ParkedDataAnalysis_ControlRegions_ZBackground}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
 The contribution of the Z($\nu\nu$)+jets process in the signal region is estimated by selecting the visible decay Z$\rightarrow\mu\mu$. The extrapolation to the signal region takes into consideration the difference of cross sections of these processes. The control region criteria is the same as the one used for the signal region with the exception that the lepton veto is replaced by requiring that the only leptons in the event are a pair of \textit{tight muons} with an invariant mass, $M_{\mu\mu}$, compatible with a Z decay, $60<M_{\mu\mu}<120\,\GeV$. The events on the signal region are estimated using equation \ref{EQUATION:ParkedDataAnalysis_ZBackground}.
 
@@ -231,7 +231,7 @@ N_{S}^{Z\rightarrow\nu\nu}=\left(N_{C}^{Data}-N_{C}^{bkg}\right) \cdot\frac{\sig
 
 The ratio of cross sections $\sigma(Z\rightarrow\nu\nu)$/$\sigma(Z/\gamma^{*}\rightarrow\mu\mu)$ was determined to be $5.651\pm 0.023$ (syst) and the selection efficiencies for the signal and control regions are respectively $\epsilon_{S}^{ZMC}=(1.8\pm 0.1) \times 10^{-6}$ and $\epsilon_{C}^{ZMC}=(1.2\pm 0.1) \times 10^{-6}$. The number of observed events, by both the main and cross check analysis, in this data control region is $N_{C}^{Data}=18\pm 4.2$, and the number of events estimated from \gls{MC} simulation in this control region originating from other backgrounds is $N_{C}^{bkg}=0.2 \pm 0.1 \stat$. The estimated contribution from \gls{EWK} produced Z+jets is 21\%. Figure \ref{FIGURE:ParkedDataAnalysis_ZBackground_KeyDistributions} shows distributions of $\Delta\eta_{jj}$, $M_{jj}$, $\text{MET}_{sig}$ and \gls{MET}.
 
-Within the statistics available, a good agreement between data and MC is observed. The final estimate of the $Z\rightarrow \nu\nu$ background is $N_{S}^{Z\rightarrow\nu\nu}= 158.1 \pm 37.8 \stat \pm 21.2 \syst$.
+Within the event statistics available, a good agreement between data and MC is observed. The final estimate of the $Z\rightarrow \nu\nu$ background is $N_{S}^{Z\rightarrow\nu\nu}= 158.1 \pm 37.8 \stat \pm 21.2 \syst$.
 % 
 \begin{figure}[!htb]
 \centering
@@ -251,7 +251,7 @@ Good agreement between data and \gls{MC} simulation is observed considering the 
 \subsection{W background estimation}
 \label{SECTION:ParkedDataAnalysis_ControlRegions_WBackground}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
 A similar approach is taken for the W background, the control region is defined by the signal region criteria except that we explicitly require the presence of exactly one single lepton (tight electron or tight muon) or hadronic tau and no other additional leptons. The data event yield obtained in this region is extrapolated to the signal region with a conversion factor determined from \gls{MC} simulation. Equation \ref{EQUATION:ParkedDataAnalysis_WBackground} is used to obtain the predicted number of events in the signal region.
 
@@ -264,7 +264,7 @@ N_{S}^{W}&=N_{S}^{W\,MC}\frac{N_{C}^{Data}-N_{C}^{bkg}}{N_{C}^{W\,MC}}=N_{S}^{W\
 
 The prediction of each W decay channel is calculated separately for e, $\mu$ (which include $W\rightarrow\tau\nu\rightarrow \nu_\tau l\nu_l$ with $l$ equal to e and $\mu$ respectively) and hadronic $\tau$. In these control region the number of events from other background $N_{C}^{bkg}$ is mainly composed of event from top processes which are estimated from \gls{MC}.
 
-In the W$\rightarrow\tau_{\mathrm{h}}\nu$ control region the a very small amount of events passes the $\Delta\phi(\text{MET},jets)$ requirement. In order to increase event statistics it is replaces by a requirement on the minimal azimuthal angle separation between the \gls{MET} and one of the leading two jets $\Delta\phi(\text{MET},jet_{1,2})$ greater than 1. To reject event from \gls{QCD} multi-jet processes an additional requirement on the transverse mass of the W to be greater than $20\,\GeV$ is used. The W$\rightarrow\mu\nu$ region has enough statistics to study the full range of $\Delta\phi(\text{MET},jets)$, a 20\% systematic uncertainty is added to account for the observed difference in shape of the $\Delta\phi(\text{MET},jets)$ variable observed between \gls{MC} simulation and data. Distributions of $M_{jj}$, \gls{MET} and $\Delta\phi(\text{MET},jets)$ are should in figures \ref{FIGURE:ParkedDataAnalysis_WBackground_Mjj}, \ref{FIGURE:ParkedDataAnalysis_WBackground_MetNoMu} and \ref{FIGURE:ParkedDataAnalysis_WBackground_MinDeltaPhi}
+In the W$\rightarrow\tau_{\mathrm{h}}\nu$ control region a very small amount of events passes the $\Delta\phi(\text{MET},jets)$ requirement. In order to increase event statistics it is replaces by a requirement on the minimal azimuthal angle separation between the \gls{MET} and one of the leading two jets $\Delta\phi(\text{MET},jet_{1,2})$ greater than 1. To reject events from \gls{QCD} multi-jet processes an additional requirement on the transverse mass of the W to be greater than $20\,\GeV$ is used. The W$\rightarrow\mu\nu$ region has enough statistics to study the full range of $\Delta\phi(\text{MET},jets)$, a 20\% systematic uncertainty is added to account for the observed difference in shape of the $\Delta\phi(\text{MET},jets)$ variable observed between \gls{MC} simulation and data. Distributions of $M_{jj}$, \gls{MET} and $\Delta\phi(\text{MET},jets)$ are shown in figures \ref{FIGURE:ParkedDataAnalysis_WBackground_Mjj}, \ref{FIGURE:ParkedDataAnalysis_WBackground_MetNoMu} and \ref{FIGURE:ParkedDataAnalysis_WBackground_MinDeltaPhi}
 
 \begin{figure}[!htb]
 \centering
@@ -317,19 +317,21 @@ $N_{S}$        & $57.9\pm7.4\pm7.7$ & $102.5\pm6.2\pm11.7$ & $94.6\pm13.1\pm23.8
 
 The cross check analysis has determined exactly the same data event yields for all W control selection regions further validating the obtained predictions in the signal region.
 
+\clearpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Top background estimation}
 \label{SECTION:ParkedDataAnalysis_ControlRegions_TopBackground}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
 %TODO: Wrong definition of region 1 in the article
-To estimate the contribution of process involving the top quark in the signal region, two control regions were defined. The first region is the same as the one used for the signal region with the exception that the lepton vetoes are replaced by selecting two tight leptons, exactly one tight electron and one tight muon and no other additional leptons. The $\Delta\phi(\text{MET},jets)$ is not performed to increase statistics.  This region is found to be composed almost entirely of $t\bar{t}$ events. The data event yield for this region was determined to be of 21 events, by both main and cross check analysis. The data-to-simulation scale factor obtained are $1.21\pm 0.19$ (data stat.)$ \pm 0.16 $(syst.). 
+To estimate the contribution of processes involving the top quark in the signal region, two control regions were defined. The first region is the same as the one used for the signal region with the exception that the lepton vetoes are replaced by selecting two tight leptons, exactly one tight electron and one tight muon and no other additional leptons. The $\Delta\phi(\text{MET},jets)$ is not performed to increase statistics.  This region is found to be composed almost entirely of $t\bar{t}$ events. The data event yield in this region was determined to be of 21 events, by both main and cross check analysis. The data-to-simulation scale factor obtained are $1.21\pm 0.19$ (data stat.)$ \pm 0.16 $(syst.).
 
 %TODO: Not in the analysis note, how was this combined into the final result?
-A second region is selected events with same criteria as the signal region with the exception selection  that the lepton vetoes are replaced by selecting a single lepton (e or $\mu$) and no other additional leptons. Additionally, one of the leading jets is required to be identified as a jet from a b quark (using the Combined Secondary Vertex algorithm \cite{ARTICLE:CMSIdentificationOfbQuarks}). The composition of this region was determined to be with the help of \gls{MC} simulation 10\% single top, 50\% \ttbar and 40\% W+jets. For this region the main analysis observed 429 events which lead to a data-to-simulation scale factor of $0.88\pm 0.07$ (data stat.)$ \pm 0.08$ (syst.). The systematics uncertainties associated with the determined scale factors are dominated by the small statistics available in \gls{MC} simulation. Taking into account these results a 20\% systematic uncertainty is assigned to the top quark contribution to the signal region. 
+A second region selects events with same criteria as the signal region with the exception that the lepton vetoes are replaced by selecting a single tight lepton (e or $\mu$) and no other additional leptons. Additionally, one of the leading jets is required to be identified as a jet from a b quark (using the Combined Secondary Vertex algorithm \cite{ARTICLE:CMSIdentificationOfbQuarks}). The composition of this region was determined to be with the help of \gls{MC} simulation 10\% single top, 50\% $t\bar{t}$ and 40\% W+jets. For this region the main analysis observed 429 events which lead to a data-to-simulation scale factor of $0.88\pm 0.07$ (data stat.)$ \pm 0.08$ (syst.). The systematics uncertainties associated with the determined scale factors are dominated by the small statistics available in \gls{MC} simulation. Taking into account these results a 20\% systematic uncertainty is assigned to the top quark contribution to the signal region. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -337,21 +339,22 @@ A second region is selected events with same criteria as the signal region with 
 \subsection{QCD background estimation}
 \label{SECTION:ParkedDataAnalysis_ControlRegions_QCDBackground}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The contribution of \gls{QCD} multi-jet processes is determined with a data driven method using non-isolated \gls{MET}. Three regions are defined: Region I is denoted as ``inverted'' and gives the description of \gls{QCD} multi-jet shapes; Region II is denoted as ``3-jet'' where a cross check is preformed to see how well the \gls{QCD} multi-jet shapes are described; and Region III is denoted as ``sideband'' in this region the normalization of the \gls{QCD} multi-jet shapes is extracted to apply to the signal region.
+%TODO: What shape?
+The contribution of \gls{QCD} multi-jet processes is determined with a data driven method using non-isolated \gls{MET}. Three regions are defined: Region I is denoted as ``inverted'' and gives the description of the \gls{QCD} multi-jet shape; Region II is denoted as ``3-jet'' where a cross check is preformed to see how well the \gls{QCD} multi-jet shapes are described; and Region III is denoted as ``sideband'' in this region the normalization of the \gls{QCD} multi-jet shapes is extracted to apply to the signal region.
 
 % QCD Shape region
-The \textit{inverted region} is selected by changing the $\Delta\phi(\text{MET},jets)$ requirement to $min(\Delta\phi(\text{MET}),jets)<1.0$ while requiring $\Delta\phi(\text{MET},jet_{1,2})>2.3$. The change in requirement provided two leading jets which are signal like, but at the same time \gls{MET} will not be isolated. The distribution of $\text{MET}_{sig}$ after in the inverted region is shown in figure \ref{FIGURE:ParkedDataAnalysis_QCDBackground_Plots}. The selected events in this region are expected to be about 20\% from W, Z and top processes. The \gls{QCD} shape is defined as the shape observed in data after the subtraction of non-\gls{QCD} backgrounds which are normalised by scale factors determined in their respective control regions but with the same inverted selection. Good agreement between data and the and the \gls{VBF} enriched \gls{QCD} \gls{MC} simulation in this region as shown in figure \ref{FIGURE:ParkedDataAnalysis_QCDBackground_Plots}.
+The \gls{QCD} multi-jet \textit{inverted region}, is selected by changing the $\Delta\phi(\text{MET},jets)$ requirement to $min(\Delta\phi(\text{MET}),jets)<1.0$ while requiring $\Delta\phi(\text{MET},jet_{1,2})>2.3$. The change in requirements provides two leading jets which are signal like, but at the same time ensures \gls{MET} will not be isolated. The distribution of $\text{MET}_{sig}$ after in the inverted region is shown in figure \ref{FIGURE:ParkedDataAnalysis_QCDBackground_Plots}. The selected events in this region are expected to originate about 20\% from W, Z and top processes. The \gls{QCD} shape is defined as the shape observed in data after the subtraction of non-\gls{QCD} backgrounds which are normalised by scale factors determined in their respective control regions but with the same inverted selection. Good agreement between data and the \gls{VBF} enriched \gls{QCD} \gls{MC} simulation in this region is observed as shown in figure \ref{FIGURE:ParkedDataAnalysis_QCDBackground_Plots}.
 
 % TODO: NOT IN THE AN!!! is it norm 3?
-The \textit{3-jet region} is defined by requiring $\Delta\phi(\text{MET},jets)>1.0$, $\text{MET}_{sig}>3$ and at least three jets with p$_{T}>30\,\GeV$. Using \gls{MC} simulation the contribution from signal to this region is negligible and it is \gls{QCD} multi-jet dominated.  We use this region to ensure that the \gls{QCD} shape is adequate. The expected number of \gls{QCD} events in the \textit{3-jet region}, n$_{QCD}^{3j}$, is the data yield in this region subtracted from backgrounds with the W and Z predictions being normalised to their control leptonic regions. The \gls{QCD} shape can now be compared between the data in this region and the \textit{inverted region} with $\Delta\phi(\text{MET},jet_{1,2})>1.0$ and normalizing it to n$_{QCD}^{3j}$. The distribution of $\text{MET}_{sig}$ in the \textit{3-jet region} is shown in figure \ref{FIGURE:ParkedDataAnalysis_QCDBackground_Plots}. The discrepancy between data and the prediction is found to be less than 20\%. unfortunately, since most of the events in the signal region will only have two jets, this control region cannot be used for the final \gls{QCD} multi-jet estimation.
+The \textit{3-jet region} is defined by requiring $\Delta\phi(\text{MET},jets)>1.0$, $\text{MET}_{sig}>3$ and at least three jets with p$_{T}>30\,\GeV$. Using \gls{MC} simulation the contribution from signal to this region was determined to be negligible. This region is used to ensure that the \gls{QCD} shape is adequate. The expected number of \gls{QCD} events in the \textit{3-jet region}, n$_{QCD}^{3j}$, is the data yield in this region subtracted from backgrounds with the W and Z predictions being normalised to their control leptonic regions. The \gls{QCD} shape can now be compared between the data in this region and the \textit{inverted region} with $\Delta\phi(\text{MET},jet_{1,2})>1.0$ and normalizing it to n$_{QCD}^{3j}$. The distribution of $\text{MET}_{sig}$ in the \textit{3-jet region} is shown in figure \ref{FIGURE:ParkedDataAnalysis_QCDBackground_Plots}. The discrepancy between data and the prediction is found to be less than 20\%. unfortunately, since most of the events in the signal region will only have two jets, this control region cannot be used for the final \gls{QCD} multi-jet estimation.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=.45\textwidth]{Chapter07/Images/output_invqcd_qcd_metnomu_significance.pdf}
 \includegraphics[width=.45\textwidth]{Chapter07/Images/output_invqcd_3j_nunu_metnomu_significance.pdf}
-\caption{Left: \MET significance $\text{MET}_{sig}$ for events with $\Delta\phi(\text{MET},jets)<1.0$ and $\Delta\phi(\text{MET},jet_{1,2})>2.3$. MCQCD is the QCD MC normalised to the background-subtracted data yield. Right: \gls{MET} significance $\text{MET}_{sig}$ for events with $\Delta\phi(\text{MET},jets)>1.0$ and at least 3 jets with $p_T>30$\,GeV. The QCD is modelled by data using the inverted $\Delta\phi(\text{MET},jets)<1.0$ and $\Delta\phi(\text{MET},jet_{1,2})>1$ selection, after background subtraction, and normalised to the background-subtracted data yield. In both figures, the W and Z backgrounds have been normalised to their respective control regions in the same conditions. The last bin represents all those events falling above the range of the histogram \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
+\caption{(left) \MET significance $\text{MET}_{sig}$ for events with $\Delta\phi(\text{MET},jets)<1.0$ and $\Delta\phi(\text{MET},jet_{1,2})>2.3$. MC QCD is the \gls{QCD} \gls{MC} normalised to the background-subtracted data yield. (right) \gls{MET} significance, $\text{MET}_{sig}$, for events with $\Delta\phi(\text{MET},jets)>1.0$ and at least 3 jets with $p_T>30\,\GeV$. The \gls{QCD} is modelled by data using the inverted $\Delta\phi(\text{MET},jets)<1.0$ and $\Delta\phi(\text{MET},jet_{1,2})>1$ selection, after background subtraction, and normalised to the background-subtracted data yield. In both figures, the W and Z backgrounds have been normalised to their respective control regions in the same conditions. The last bin represents all those events falling above the range of the histogram \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
 \label{FIGURE:ParkedDataAnalysis_QCDBackground_Plots}
 \end{figure}
 
@@ -364,7 +367,7 @@ The \textit{sideband region} is used to determine the normalization of the \gls{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Systematics}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
 The dominant source of uncertainty is due to the statistical uncertainty associated with the yields of the control regions both in data and \gls{MC} simulation, which are used for the estimation of the different backgrounds in signal region. 
 
@@ -408,9 +411,9 @@ QCD scale, PDF and cross section uncertainties     &            0.01 &        5.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The final estimations of the number of events predicted in the signal region are estimated from \gls{MC} simulation for the W, Z and top backgrounds, or this the use of non-isolated \gls{MET} events in the case of QCD multi-jet events, with normalization obtained from control regions and are summarized in table \ref{TABLE:ParkedDataAnalysis_Results_Summary}.
+The final estimations of the number of events predicted in the signal region are estimated from \gls{MC} simulation for the W, Z and top backgrounds, or with the use of non-isolated \gls{MET} events in the case of the \gls{QCD} multi-jet background, with normalizations obtained from control regions. These results are summarized in table \ref{TABLE:ParkedDataAnalysis_Results_Summary}.
 
 \begin{table}[!htb]
 \centering
@@ -450,14 +453,16 @@ Distributions of the $\Delta\eta_{jj}$, $M_{jj}$, $\text{MET}_{sig}$ and \gls{ME
 \label{FIGURE:ParkedDataAnalysis_Results_SigRegPlots}
 \end{figure}
 
+\clearpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison with the cross-check analysis}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
-The cross check analysis has successfully validated the main analysis by reproducing the data event yields in all the relevant regions. All event yields were measured to be exactly the same in both analysis except the yield in the \gls{QCD} Sideband region where a discrepancy of +1.1\% was observed. Since the \gls{QCD} multi-jet background is one minor background, representing less than 4\% of the total background, this level of synchronization was deemed acceptable. Table \ref{TABLE:ParkedDataAnalysis_Results_MainCrossCheckComparison} shows a comparison of the event yield obtained by both analysis as the fractional difference for each region.
+The cross check analysis has successfully validated the main analysis by reproducing the data event yields in all the relevant regions. All event yields were measured to be exactly the same in both analysis except the yield in the \gls{QCD} sideband region where a discrepancy of +1.1\% was observed. Since the \gls{QCD} multi-jet background is a minor background, representing less than 4\% of the total background, this level of synchronization was deemed acceptable. Table \ref{TABLE:ParkedDataAnalysis_Results_MainCrossCheckComparison} shows a comparison of the event yield obtained by both analysis and the fractional difference for each region.
 
 \begin{table}[!htb]
 \centering
@@ -487,22 +492,18 @@ Signal                &  508 &         508 &             0.0 \\
 \section{Limits on the cross section of invisibly decaying Higgs bosons}
 \label{SECTION:ParkedDataAnalysis_Limits}
 
-%Status: DONE
+%Status: DONE (reviewed J.Pela x1)
 
 As shown in table \ref{TABLE:PromptDataAnalysis_BackgroundEstimation_BackgroundSummary}, 508 data events were observed in the signal region, this yield is compatible with the background only prediction. Since no evidence of signal is observed 95\% \gls{CL} upper limits on the Higgs boson production cross section times branching fraction are computed. The limits are calculated using the asymptotic $\mathrm{CL}_\mathrm{s}$ method \cite{ARTICLE:CLsTechnique,ARTICLE:CLCompForCombiningSearchesWithSmallStat,ARTICLE:HandbookofLHCHiggsCrossSectionsDifferentialDistributions} based on asymptotic formulae \cite{ARTICLE:AsymptoticCLS}, following the standard \gls{CMS} Higgs boson searches combination technique \cite{ARTICLE:CMS_HiggsDiscovery,ARTICLE:HiggsCombination}. Systematic uncertainties are incorporated as nuisance parameters and treated according to the frequentist paradigm \cite{ARTICLE:HiggsCombination} and all correlations between processes are taken into account.
 
-If \gls{SM} production cross sections and acceptances are assumed, the observed (expected) 95\% C.L. limit on \BRinv of a \gls{SM} $125\,\GeV$ Higgs boson is 57\% (40\%). Figure \ref{FIGURE:ParkedDataAnalysis_Limits_VBFLimit} shows the the 95\% C.L. limit on \BRinv and the 95\% C.L. limit on the cross section times \BRinv, both under the assumption of \gls{SM} Higgs boson acceptances as a function of Higgs mass. .
+If \gls{SM} production cross sections and acceptances are assumed, the observed (expected) 95\% C.L. limit on \BRinv\, of a \gls{SM} $125\,\GeV$ Higgs boson is 57\% (40\%). Figure \ref{FIGURE:ParkedDataAnalysis_Limits_VBFLimit} shows the the 95\% C.L. limit on \BRinv and the 95\% C.L. limit on the cross section times \BRinv\,, both under the assumption of \gls{SM} Higgs boson acceptances as a function of Higgs mass.
 
-\begin{figure}[h!]
-  \begin{center}
-    \includegraphics[width=0.49\textwidth]{Chapter07/Images/vbflimit.pdf} %!!UNBLIND ALREADY IN                                                                       
-    \includegraphics[width=0.49\textwidth]{Chapter07/Images/vbfxslimit.pdf}
- \caption{The 95\% C.L. limit on \BRinv\, of a SM Higgs
-boson (left) and the 95\% C.L. limit on the cross section times
-\BRinv (right)as a function of the Higgs
-boson mass, assuming SM Higgs boson acceptances \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
-    \label{FIGURE:ParkedDataAnalysis_Limits_VBFLimit}
-  \end{center}
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.49\textwidth]{Chapter07/Images/vbflimit.pdf}
+\includegraphics[width=0.49\textwidth]{Chapter07/Images/vbfxslimit.pdf}
+\caption{The 95\% C.L. limit on \BRinv\, of a SM Higgs boson (left) and the 95\% C.L. limit on the cross section times \BRinv\ (right) as a function of the Higgs boson mass, assuming SM Higgs boson acceptances \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
+\label{FIGURE:ParkedDataAnalysis_Limits_VBFLimit}
 \end{figure}
 
 AS it can be observed in table \ref{TABLE:ParkedDataAnalysis_Systematics_Summary}, similarly to the \textit{prompt analysis} the dominant source of systematic uncertainty is the limited number of events present in the control regions both in data and \gls{MC} simulation. This effect is particularly noticeable in the Z control region, if this region statistical uncertainty was of the order of the one measured in the $W\rightarrow\mu\nu$ control region the expected 95\% C.L. limit on the cross section times \BRinv for a \gls{SM} 125 GeV Higgs boson would be reduced to 33\%.
