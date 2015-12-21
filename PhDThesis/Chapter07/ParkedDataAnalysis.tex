@@ -114,6 +114,8 @@ QCD ($1800<\pt<\infty\,\GeV$)                               & 0.001829005   &  5
 
 As it can be observed the equivalent integrated luminosities for the inclusive \gls{QCD} multi-jet samples are small compared to the amount of analysed data up to the \pt hat $470<\pt<600\,\GeV$. Motivating the production and usage of the dedicated \gls{QCD} multi-jet samples with \gls{VBF} like jets and real \gls{MET} described in section \ref{SECTION:PreparationParkedDataAnalysis_QCDVBFMET}.
 
+\clearpage
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -266,27 +268,27 @@ In the W$\rightarrow\tau_{\mathrm{h}}\nu$ control region the a very small amount
 
 \begin{figure}[!htb]
 \centering
-\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_dijet_M.pdf}}
-\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_dijet_M.pdf}} \\
-\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_dijet_M.pdf}}
+\subfloat[]{\includegraphics[width=.45\textwidth]{Chapter07/Images/output_sigreg/enu_dijet_M.pdf}}
+\subfloat[]{\includegraphics[width=.45\textwidth]{Chapter07/Images/output_sigreg/munu_dijet_M.pdf}} \\
+\subfloat[]{\includegraphics[width=.45\textwidth]{Chapter07/Images/output_sigreg/taunu_dijet_M.pdf}}
 \caption{ Dijet mass $M_{jj}$ for the (a) $W\rightarrow e\nu$, (b) $W\rightarrow\mu\nu$ and (c) $W\rightarrow\tau\nu$ control regions. The last bin represents all those events falling above the range of the histogram \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
 \label{FIGURE:ParkedDataAnalysis_WBackground_Mjj}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
-\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_metnomuons.pdf}}
-\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_metnomuons.pdf}} \\
-\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_metnomuons.pdf}}
+\subfloat[]{\includegraphics[width=.45\textwidth]{Chapter07/Images/output_sigreg/enu_metnomuons.pdf}}
+\subfloat[]{\includegraphics[width=.45\textwidth]{Chapter07/Images/output_sigreg/munu_metnomuons.pdf}} \\
+\subfloat[]{\includegraphics[width=.45\textwidth]{Chapter07/Images/output_sigreg/taunu_metnomuons.pdf}}
 \caption{\gls{MET} for the (a) $W\rightarrow e\nu$, (b) $W\rightarrow\mu\nu$ and (c) $W\rightarrow\tau\nu$ control regions. The last bin represents all those events falling above the range of the histogram \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
 \label{FIGURE:ParkedDataAnalysis_WBackground_MetNoMu}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
-\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/enu_alljetsmetnomu_mindphi.pdf}}
-\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/munu_alljetsmetnomu_mindphi.pdf}} \\
-\subfloat[]{\includegraphics[width=.49\textwidth]{Chapter07/Images/output_sigreg/taunu_alljetsmetnomu_mindphi.pdf}}
+\subfloat[]{\includegraphics[width=.45\textwidth]{Chapter07/Images/output_sigreg/enu_alljetsmetnomu_mindphi.pdf}}
+\subfloat[]{\includegraphics[width=.45\textwidth]{Chapter07/Images/output_sigreg/munu_alljetsmetnomu_mindphi.pdf}} \\
+\subfloat[]{\includegraphics[width=.45\textwidth]{Chapter07/Images/output_sigreg/taunu_alljetsmetnomu_mindphi.pdf}}
 \caption{Minimum azimuthal angle separation between any jet with $p_{T}>30$ GeV and the \gls{MET} $\Delta\phi(\text{MET},jets)$ for the (a) $W\rightarrow e\nu$, (b) $W\rightarrow\mu\nu$ and (c) $W\rightarrow\tau\nu$ control regions \cite{ARTICLE:CMSVBFHiggsInvisibleParkedAnalysisPAS}.}
 \label{FIGURE:ParkedDataAnalysis_WBackground_MinDeltaPhi}
 \end{figure}
@@ -321,31 +323,13 @@ The cross check analysis has determined exactly the same data event yields for a
 \subsection{Top background estimation}
 \label{SECTION:ParkedDataAnalysis_ControlRegions_TopBackground}
 
-%Status: Writing
+%Status: DONE
 
-To
+%TODO: Wrong definition of region 1 in the article
+To estimate the contribution of process involving the top quark in the signal region, two control regions were defined. The first region is the same as the one used for the signal region with the exception that the lepton vetoes are replaced by selecting two tight leptons, exactly one tight electron and one tight muon and no other additional leptons. The $\Delta\phi(\text{MET},jets)$ is not performed to increase statistics.  This region is found to be composed almost entirely of $t\bar{t}$ events. The data event yield for this region was determined to be of 21 events, by both main and cross check analysis. The data-to-simulation scale factor obtained are $1.21\pm 0.19$ (data stat.)$ \pm 0.16 $(syst.). 
 
-% Two top control regions have also been investigated. One (region 1) is
-% driven by the selection of two leptons, either of different flavour (e$\mu$), or
-% of the same flavour (ee or $\mu\mu$) with a veto on the Z mass region.
-% This region is found to be composed almost entirely of \ttbar
-% events. The other (region 2) is based on the selection of one lepton (e
-% or $\mu$), and the requirement that one of the two leading jets is identified as a jet from a b quark
-% (using the Combined Secondary Vertex algorithm ~\cite{Chatrchyan:2012jua}). This region is found to be composed of 10\%
-% single top, 50\% \ttbar and 40\% W+jets. The number of events expected from simulation is found to be in good agreement with the
-% observed number of events in both control regions. The data-to-simulation scale factors obtained are
-% $1.21\pm 0.19$ (data stat.)$ \pm 0.16 $(syst.) from 21 events observed in region 1 and
-% $0.88\pm 0.07$ (data stat.)$ \pm 0.08$ (syst.) from 429 events observed in region 2.
-% The systematic uncertainty in these scale factors is dominated by the limited statistics in the simulation.
-% Based on these results we assign a 20\% systematic uncertainty to the nominal prediction for the top quark contribution
-% in the signal region.
-% 
-% %The grey shaded band in the signal region figure is the total
-% %systematic and statistical uncertainty on the total background
-% %estimation. It should be noted that the QCD contribution, estimated at
-% %17 events across the distribution, is not shown. 
-% %All plots have the W, Z and top backgrounds normalised to the
-% %date in their respective control regions
+%TODO: Not in the analysis note, how was this combined into the final result?
+A second region is selected events with same criteria as the signal region with the exception selection  that the lepton vetoes are replaced by selecting a single lepton (e or $\mu$) and no other additional leptons. Additionally, one of the leading jets is required to be identified as a jet from a b quark (using the Combined Secondary Vertex algorithm \cite{ARTICLE:CMSIdentificationOfbQuarks}). The composition of this region was determined to be with the help of \gls{MC} simulation 10\% single top, 50\% \ttbar and 40\% W+jets. For this region the main analysis observed 429 events which lead to a data-to-simulation scale factor of $0.88\pm 0.07$ (data stat.)$ \pm 0.08$ (syst.). The systematics uncertainties associated with the determined scale factors are dominated by the small statistics available in \gls{MC} simulation. Taking into account these results a 20\% systematic uncertainty is assigned to the top quark contribution to the signal region. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -354,6 +338,8 @@ To
 \label{SECTION:ParkedDataAnalysis_ControlRegions_QCDBackground}
 
 %Status: Writing
+
+The contribution of \gls{QCD} multi-jet processes is determined with a data driven method using non-isolated \gls{MET}. Three regions are defined
 
 % For the QCD background, a data-based method using events with non-isolated \MET is employed. Three
 % regions are defined: (i) a region denoted as "inverted" that 
@@ -497,10 +483,10 @@ $Z\rightarrow\nu\nu$  &   18 &          18 &             0.0 \\
 $W\rightarrow\mu\nu$  &  300 &         300 &             0.0 \\
 $W\rightarrow e\nu$   &   68 &          68 &             0.0 \\
 $W\rightarrow\tau\nu$ &   76 &          76 &             0.0 \\
-top                   &   21 &          21 &             0.0 \\
-QCD Norm1             & 1586 &        1603 &            +1.1 \\
-QCD Norm2             &  411 &         412 &            +0.2 \\
-QCD Norm3             & 1517 &        1523 &            +0.4 \\
+top (Region 1)        &   21 &          21 &             0.0 \\
+QCD Region I          & 1586 &        1603 &            +1.1 \\
+QCD Region II         &  411 &         412 &            +0.2 \\
+QCD Region III        & 1517 &        1523 &            +0.4 \\
 \hline\hline
 Signal                &  508 &         508 &             0.0 \\
 \hline
