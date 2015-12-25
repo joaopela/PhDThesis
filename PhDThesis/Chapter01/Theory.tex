@@ -63,10 +63,11 @@ Generation                &     Symbol &            Mass & Q/e & Symbol &       
 
 \subsection{Fundamental forces}
 
+Gauge bosons mediate the fundamental forces of nature. All observed force mediators up to now are spin-1, which arises from symmetry considerations which the relevant theory possesses. The \gls{QFT} that describes the electromagnetism is \gls{QED} 
+% TODO: Continue
+
 \input{Chapter01/Tables/BosonProperties.tex}
 
-% \subsection{Fundamental Forces}
-% 
 % The fundamental forces of nature are mediated by the exchange of gauge bosons. They are all spin-1 particles which arise from consideration of the symmetries which the relevant theory possesses (See Section~\ref{sec:ewksymmetry}). The quantum field theories of electromagnetism, Quantum Electro-dynamics (QED), and the strong nuclear force, Quantum Chromo-dynamics (QCD), yield massless mediator bosons, the photon and the gluons, which are a direct consequence of the gauge invariance of those theories. Despite this, the typical ranges over which the two interactions occur are dramatically different; strong interaction effects are only apparent on a scale of around $10^{-15}$m whereas the range of electromagnetic interactions are effectively infinite.
 % 
 % The mediators of the weak nuclear and electromagnetic forces arise through the unification of the theories of weak and electromagnetic interactions and the mixing of the associated gauge fields. The weak gauge bosons, $W^{\pm}$ and $Z$, unlike the photon and gluons, have a finite mass which has been measured experimentally~\citep{combinedWmass,pdg}. A summary of the fundamental gauge bosons of the Standard Model is given in Table~\ref{tab:bosons}. A quantum description of gravity is not included in the Standard Model. This is a reasonable approximation as the strength of this interaction is much smaller than the other three, thereby having no impact on the predictive power of the model.
@@ -176,14 +177,14 @@ Generation                &     Symbol &            Mass & Q/e & Symbol &       
 % As $e_{L}$ transforms as a member of a doublet and $e_{R}$ as a singlet, the addition of this term to Equation~\ref{eqn:ewklagrangianeg} would break the symmetry of the Lagrangian which motivated its construction, namely transformations under the $\sutwol$ group~\citep{aitchison}.
 % 
 % The physical electroweak boson fields, $\hat{W}_{\mu}^{\pm}$, $\hat{Z}_{\mu}$ and photon field, $\hat{A}_{\mu}$, are obtained through a mixture of the electroweak gauge fields as,
-% 
-% \begin{eqnarray}
-% \hat{W}_{\mu}^{\pm} & = &  \sqrt{\frac{1}{2}} \left( \hat{W}_{\mu}^{1} \mp i \hat{W}_{\mu}^{2} \right) \nonumber \\
-% \hat{Z}_{\mu} &  = & \cos\theta_{w} \hat{W}_{\mu}^{3} - \sin\theta_{w} \hat{B}_{\mu} \nonumber \\
-% \hat{A}_{\mu} &  = & \sin\theta_{w} \hat{W}_{\mu}^{3} + \cos\theta_{w} \hat{B}_{\mu},
-% \label{eqn:ewkbosons}
-% \end{eqnarray}
-% 
+ 
+\begin{eqnarray}
+\hat{W}_{\mu}^{\pm} & = &  \sqrt{\frac{1}{2}} \left( \hat{W}_{\mu}^{1} \mp i \hat{W}_{\mu}^{2} \right) \nonumber \\
+\hat{Z}_{\mu} &  = & \cos\theta_{w} \hat{W}_{\mu}^{3} - \sin\theta_{w} \hat{B}_{\mu} \nonumber \\
+\hat{A}_{\mu} &  = & \sin\theta_{w} \hat{W}_{\mu}^{3} + \cos\theta_{w} \hat{B}_{\mu},
+\label{eqn:ewkbosons}
+\end{eqnarray}
+ 
 % where the mixing angle, $\theta_{w} = \tan^{-1}{\frac{g^{\prime}}{g}}$, relates the couplings of the weak neutral and electromagnetic interactions. As expected, there is no term which corresponds to the mass of the photon, however, the same is true for the $W$ and $Z$ bosons. The masses of the $W$ and $Z$ bosons, given in Table~\ref{tab:bosons}, have been measured experimentally and found to be non-zero. The inclusion of mass terms for these bosons in Equation~\ref{eqn:ewklagrangianeg} would also break the symmetry of the Lagrangian. Furthermore, it has been shown that the inclusion of these mass terms results in a loss of re-normalizability of the theory, making it less powerful for predicting observables such as cross-sections and decay rates~\citep{halzen}. Instead, these masses can be generated via a spontaneous, rather than explicit, breaking of the symmetry.
 
 \subsection{Spontaneous Symmetry Breaking: The Higgs Mechanism}
@@ -301,6 +302,87 @@ The widths of the lines represent the
 theoretical uncertainties on the branching ratio calculation.}
 \label{fig:SMHiggsBRs}
 \end{figure}
+
+% \subsection{Higgs Boson Production and Decay at the LHC}
+% 
+% At the LHC, protons are accelerated to higher energies than previously available at the 
+% Tevatron. The increased centre-of-mass energy enhances the 
+% rate at which Higgs boson production occurs and improves the sensitivity to higher 
+% masses. The four main mechanisms by which a Higgs boson can be produced
+% are shown at leading order in Figure~\ref{fig:higgsprodfeyn}.
+% \begin{figure}[hbtp!]
+% \begin{center}
+% %\includegraphics[width=.49\textwidth]{theory/pheno/ggh.pdf}
+% %\includegraphics[width=.49\textwidth]{theory/pheno/vh.pdf}\\
+% %\includegraphics[width=.49\textwidth]{theory/pheno/qqh.pdf}
+% %\includegraphics[width=.4\textwidth]{theory/pheno/tth.pdf}
+% \includegraphics[width=\textwidth]{theory/pheno/allprods_new.pdf}
+% \caption{Dominant SM Higgs boson production mechanisms: Gluon-gluon fusion (top left),
+% vector-boson fusion (bottom left), associated production with vector boson (top right) 
+% and top anti-top quark pair (bottom right).}
+% \label{fig:higgsprodfeyn}
+% \end{center}
+% \end{figure}
+% The dominant production mechanism is through gluon-gluon fusion ($ggH$). As the gluons
+% are massless particles, the gluons couple to the Higgs boson via a quark-loop.
+% The three other production mechanisms which dominate Higgs boson production are 
+% vector boson fusion ($qqH$) and production in association with 
+% a $W$ or $Z$ boson ($VH$) or top anti-top quark pair ($ttH$).
+% Although these modes are at least an order of magnitude smaller in cross-section
+% than gluon-gluon fusion, their specific topologies 
+% can be exploited experimentally to enhance the signal over background processes 
+% (see Chapter~\ref{chap:combinations}).
+% Figure~\ref{fig:higgsprod} shows the production cross-sections and their theoretical 
+% errors for the four main production modes of the SM Higgs boson in  
+% p-p collisions at the LHC~\citep{lhcxswg2011,lhcxswg2012}.
+% \begin{figure}[hbtp!]
+% \begin{center}
+% \includegraphics[width=0.8\textwidth]{theory/pheno/Higgs_XS_7TeV.pdf}\\
+% \includegraphics[width=0.8\textwidth]{theory/pheno/Higgs_XS_8TeV_lx.pdf}
+% \caption{SM Higgs boson production cross-sections at $\sqrt{s}=7~\mathrm{TeV}$ (top)
+% and 8 TeV (bottom) of the four main production mechanisms, $pp\rightarrow H+X$,
+% along with their theoretical uncertainties as a function of 
+% $\mh$~\citep{lhcxswg2011,lhcxswg2012}. The coloured bands indicate the theoretical
+% uncertainties.}
+% \label{fig:higgsprod}
+% \end{center}
+% \end{figure}
+% The Higgs boson is an unstable particle so will be observable directly at the LHC
+% only through its decay products. The relative decay rates (branching ratios) to 
+% different SM particles vary as a function of the Higgs boson mass.
+% At low mass, $\mh<135$ GeV, Higgs boson decay to a $b$ anti-$b$ quark pair
+% dominates. In proton-proton collisions, pairs of $b$-quarks are produced 
+% frequently making the background levels too high to compete with for an experimental
+% search. For higher masses, $\mh>180$ GeV, the Higgs boson is heavy enough
+% to facilitate production of real $W$ and $Z$ bosons which dominate its decay.
+% As the gluon and photon are massless, they do not directly couple to the Higgs boson
+% hence these decays are mediated by virtual loops of massive particles.
+% The branching ratios of the Higgs boson to SM particles are shown as a function
+% of $\mh$ in Figure~\ref{fig:higgsdecay} (left).
+% 
+% For small $\mh$, the natural width of the SM Higgs boson, $\hwidth$, is several
+% orders of magnitude smaller than its mass. Figure~\ref{fig:higgsdecay} (right) shows the 
+% value of the SM Higgs boson total width as a function of its mass.
+% This means that for decays in which the products are fully reconstructible in particle
+% detectors, the width of the invariant mass spectrum of the decay products will depend almost entirely
+% on the experimental resolution. 
+% In particular the ATLAS and CMS detectors provide excellent energy and momentum resolution 
+% for electrons, muons and photons.
+% Despite having lower branching ratios,  the $\Hgg$ and $\Hzzl$ channels
+% are therefore of particular importance for direct detection of the SM Higgs boson
+% at the LHC.
+% 
+% 
+% \begin{figure}[hbtp]
+% \begin{center}
+% \includegraphics[width=0.49\textwidth]{theory/pheno/YRHXS_BR_fig3.pdf}
+% \includegraphics[width=0.49\textwidth]{theory/pheno/YRHXS_BR_fig2.pdf}
+% \caption{Left: SM Higgs boson production branching ratios for 
+% the dominant decays as a function of $\mh$. Right: SM Higgs boson total width, $\hwidth$, as 
+% a function of $\mh$~\citep{lhcxswg2011}.}
+% \label{fig:higgsdecay}
+% \end{center}
+% \end{figure}
 
 \subsection{Higgs Invisible decays}
 
