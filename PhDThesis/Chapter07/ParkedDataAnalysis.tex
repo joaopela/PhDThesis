@@ -6,6 +6,30 @@
 % Documentation
 % PAS 14-038
 % AN-14-243
+%
+% => Software to replicate (IC):
+% /vols/cms02/jca10/work/slc6/dev01/cc/ (base area)
+% /vols/cms02/jca10/work/slc6/dev01/cc/HEPFW_v2/ (Dev HEPFW)
+% /vols/cms02/jca10/work/slc6/dev01/cc/CMSSW_5_3_32/src/ (Dev CMSSW)
+%
+% => To setup
+% cd /vols/cms02/jca10/work/slc6/dev01/cc/CMSSW_5_3_32/src/
+% cmsenv
+% cd /vols/cms02/jca10/work/slc6/dev01/cc/HEPFW_v2/
+% source bin/thisHEPFW.sh
+%
+% => To Compile
+% make all
+%
+% => To run all jobs
+% cd /vols/cms02/jca10/work/slc6/dev01/cc/HEPFW_v2/src/VBFHiggsToInvisible/Analysis/jobs/
+% ./submitJobs_justData.sh
+%
+% => Postprocessing
+% hepfwPostProcessing -c postProcessing_Region_Signal.json
+%
+%
+% https://github.com/ajgilbert/ICHiggsTauTau/blob/495ff3741c2549d2116749bbdb085daefdbc79ac/Analysis/HiggsNuNu/scripts/DefaultLightTreeConfig_data.cfg
 
 %STATUS: DONE (reviewed J.Pela x1)
 
