@@ -61,223 +61,194 @@ Generation                &     Symbol &            Mass & Q/e & Symbol &       
 \label{TABLE:Theory_SM_ParticlesAndForces_MatterParticle}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fundamental forces}
+\label{SUBSECTION:Theory_SM_FundamentalForces}
 
-Gauge bosons mediate the fundamental forces of nature. All observed force mediators up to now are spin-1, which arises from symmetry considerations which the relevant theory possesses. The \gls{QFT} that describes the electromagnetism is \gls{QED} 
-% TODO: Continue
+% STATUS: DONE 
+
+Gauge bosons mediate the fundamental forces of nature. All the currently observed force mediators are spin-1 particles, which is consequence of symmetries in the relevant theory possesses. The \gls{QFT} that describes the electromagnetism is \gls{QED}, and the strong nuclear force is \gls{QCD}, both these theories describe massless mediator bosons, the photon and the gluons, they are appear as a direct consequence of the gauge invariance of those theories. A fundamental difference between these interactions is their range, while the electromagnetism is effectively infinite, the scale of the strong force is of around $10^{-15}\,\meter$.
+
+The weak and electromagnetic forces mediator appear from the unification of the weak and electromagnetic interactions theories and the mixing of the associated gauge fields. The $W^{\pm}$ and $Z$ bosons are responsible to mediate the weak force and have a non-zero mass which has been measured experimentally~\cite{ARTICLE:TEVATRONcombinedWmass,ARTICLE:DELPHIMassZ,ARTICLE:PDG2014}. Table \ref{TABLE:Theory_SM_ParticlesAndForces_BosonProperties} contains a summary of the fundamental gauge bosons of the Standard Model. The description of gravity is currently not included in the Standard Model, but as its interaction strength is much smaller than the other three forces and should not have any impact in its predictions.
 
 \input{Chapter01/Tables/BosonProperties.tex}
 
-% The fundamental forces of nature are mediated by the exchange of gauge bosons. They are all spin-1 particles which arise from consideration of the symmetries which the relevant theory possesses (See Section~\ref{sec:ewksymmetry}). The quantum field theories of electromagnetism, Quantum Electro-dynamics (QED), and the strong nuclear force, Quantum Chromo-dynamics (QCD), yield massless mediator bosons, the photon and the gluons, which are a direct consequence of the gauge invariance of those theories. Despite this, the typical ranges over which the two interactions occur are dramatically different; strong interaction effects are only apparent on a scale of around $10^{-15}$m whereas the range of electromagnetic interactions are effectively infinite.
-% 
-% The mediators of the weak nuclear and electromagnetic forces arise through the unification of the theories of weak and electromagnetic interactions and the mixing of the associated gauge fields. The weak gauge bosons, $W^{\pm}$ and $Z$, unlike the photon and gluons, have a finite mass which has been measured experimentally~\citep{combinedWmass,pdg}. A summary of the fundamental gauge bosons of the Standard Model is given in Table~\ref{tab:bosons}. A quantum description of gravity is not included in the Standard Model. This is a reasonable approximation as the strength of this interaction is much smaller than the other three, thereby having no impact on the predictive power of the model.
-% 
-% \begin{table}[htbp!]
-% \begin{tabular}{|l|l c|c|c|}
-% \hline 
-%         & \textbf{Mediator Particle} & & \textbf{Charge} & \textbf{Mass (GeV)} \\
-% \hline
-% Electromagnetism & photon & $\gamma$                    & 0 & 0   \\
-% \hline
-% Strong Nuclear   & gluon  & $g_{j},$ $j\in\left\{1,\cdots8\right\}$     & 0 & 0   \\
-% \hline
-% Weak Nuclear     &  &  $W^{+}$ & +1 & 80.39 \\
-%                  &  &  $W^{-}$ & -1 & 80.39 \\
-%                  &  &  $Z$     & 0  & 91.19 \\
-% \hline
-% \end{tabular}
-% \caption{Fundamental gauge bosons in the Standard Model. All of the gauge-bosons are spin-1 particles. The masses of the $W^{\pm}$ and $Z$ bosons are taken from References~\citep{combinedWmass} and~\citep{pdg} respectively.}
-% \label{tab:bosons}
-% \end{table}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Electroweak Gauge Symmetry}
+\label{SUBSECTION:Theory_SM_ElectroweakGaugeSymmetry}
 
-% \subsection{Electroweak Gauge Symmetry}
-% \label{sec:ewksymmetry}
-% 
-% Symmetries in nature are often found to relate to some underlying physical principle or fundamental law. It was first shown by Emmy Noether that for any physical system which can be described in the Lagrangian formalism, any symmetry of the Lagrangian has an associated conserved quantity~\cite{noether}. In the context of dynamical quantum theories, the particular characteristics of particle interactions can be used to constrain the appropriate Lagrangian by identifying a particular group of transformations under which the Lagrangian should be symmetric (invariant). 
-% 
-% One of the major achievements of the twentieth century in the development of the Standard Model was the unification of the electromagnetic and weak interactions~\citep{glashow,weinberg,salam}. The original proposal, by Glashow in 1961, was to construct a theory which incorporates the characteristics of the weak and electromagnetic interactions by associating them with a particular symmetry group~\citep{glashow}. The physical nature of electroweak interactions is encoded into a Lagrangian which is invariant under transformations of the group $\sutwol\times\uone$. This group has three generators for $\sutwol$, $T_{i} = \frac{1}{2}\tau_{i}$ where $\tau_{i},~i\in \{1,2,3 \}$ are the $2\times2$ Pauli-spin matrices, and one additional generator for $\uone$, $Y$. The quantum numbers associated with the $\sutwol$ group, weak isospin $t_{1,2,3}$, and $\uone$ group, hypercharge $y$, are related to the electric charge $Q$ as,
-% 
-% \begin{equation}
-% Q = t_{3}+\frac{y}{2},
-% \end{equation} 
-% 
-% where the factor of $\frac{\displaystyle 1}{\displaystyle 2}$ is chosen by convention. The associated gauge fields are $\hat{\mathbf{W}}_{\mu} = \left(\hat{W}_{\mu}^{1},\hat{W}_{\mu}^{2},\hat{W}_{\mu}^{3}\right)$ and $\hat{B}_{\mu}$. An example Lagrangian for interactions within the first leptonic generation of fermions, $\lagr_{G}$, is given in Equation~\ref{eqn:ewklagrangianeg},
-% 
-% \begin{eqnarray}
-% \lagr_{G} & =& \bar{\chi}_{L}\gamma^{\mu}\left[i\partial_{\mu} 
-%                    - g\frac{1}{2}\boldsymbol{\tau}\cdot\hat{\mathbf{W}_{\mu}}
-%                    - g^{\prime}\left(-\frac{1}{2}\right)\hat{B}_{\mu}\right] \chi_{L}
-% \nonumber \\
-% & &                + \bar{e}_{R}\gamma^{\mu}\left[i\partial_{\mu} 
-%                    - g^{\prime}(-1)\hat{B}_{\mu}\right]{e}_{R}
-%                      -\frac{1}{4}
-%                      \hat{\mathbf{W}}_{\mu\nu}\cdot\hat{\mathbf{W}}^{\mu\nu} 
-%                      -\frac{1}{4}
-%                      \hat{B}_{\mu\nu}\hat{B}^{\mu\nu}
-% \label{eqn:ewklagrangianeg}
-% \end{eqnarray}
-% 
-% where the bar notation denotes the adjoint of the field, $\bar{\psi}=\psi^{\dagger}\gamma^{0}$ and $\chi_{L}$ is the left handed component of the leptonic fermion doublet. The field tensors, $\hat{\mathbf{W}}_{\mu\nu}$ and $\hat{B}_{\mu\nu}$ given in Equations~\ref{eqn:wmunu} and~\ref{eqn:bmunu}, describe the kinematics of the gauge fields.
-% 
-% \begin{equation}
-% \hat{\mathbf{W}}_{\mu\nu} = \partial_{\mu}\hat{\mathbf{W}}_{\nu} - \partial_{\nu}\hat{\mathbf{W}}_{\mu} - g \hat{\mathbf{W}}_{\mu}\wedge\hat{\mathbf{W}}_{\nu}
-% \label{eqn:wmunu}
-% \end{equation}
-% \begin{equation}
-% \hat{B}_{\mu\nu} = \partial_{\mu}\hat{B}_{\nu} - \partial_{\nu}\hat{B}_{\mu}.
-% \label{eqn:bmunu}
-% \end{equation}
-% 
-% Experimentally, it has been verified that the weak nuclear force explicitly violates parity, that is transformations under spatial inversions $x\rightarrow -x$~\citep{wu}. A fermionic field, $\psi$, can be projected into its left and right handed components, $\psi_{L}$ and $\psi_{R}$, using the operators $\frac{1}{2}(1\mp\gamma^{5})$ respectively, where $\gamma^{5} = \gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$. As the weak nuclear force only interacts with left-handed fermions, right-handed components of the fermion fields are invariant under $\sutwol$ transformations. The right-handed component of the neutrino field therefore does not appear in the Lagrangian, $\lagr_{G}$, since it interacts with neither the electromagnetic nor the weak interactions. Under the $\sutwol\times\uone$ group, the left handed components of the leptonic fermion fields, $\chi_{L}$ of Equation~\ref{eqn:ewklagrangianeg}, transform as a doublet
-% 
-% \begin{equation}
-% \chi_{L}  =   
-% \everymath{\displaystyle} \begin{pmatrix}
-% \nu_{e} \\ 
-% e
-% \end{pmatrix}_{L}
-%  \longrightarrow 
-% \exp(-i\boldsymbol\alpha\cdot\frac{\boldsymbol\tau}{2} - i\alpha) 
-% \begin{pmatrix}
-% \nu_{e} \\ 
-% e
-% \end{pmatrix}_{L}
-% \end{equation}
-% \label{eqn:doublettrans}
-% whereas the right-handed component of the electron field transforms as a singlet.  
-% \begin{equation}
-% e_{R}
-%  \longrightarrow 
-% \exp(-2i{\alpha}) 
-% e_{R}.
-% \end{equation}
-% 
-% The transformations are ``local'' in the sense that the coefficients $\boldsymbol{\alpha}$ and $\alpha$ are functions of space-time. To maintain the symmetry under local transformations of this type, the gauge fields transform as follows, 
-% 
-% \begin{eqnarray}
-% \hat{\mathbf{W}}_{\mu} & 
-%  \longrightarrow & 
-% \hat{\mathbf{W}}_{\mu} - \frac{1}{g}\partial_{\mu}\boldsymbol{\alpha} 
-%         - \boldsymbol{\alpha}\wedge\hat{\mathbf{W}}_{\mu} \\
-% \hat{{B}}_{\mu} & 
-%  \longrightarrow & 
-% \hat{{B}}_{\mu} - \frac{1}{g^{\prime}}\partial_{\mu}{\alpha} 
-% \end{eqnarray}
-% 
-% The Lagrangian of Equation~\ref{eqn:ewklagrangianeg} contains no explicit terms which relate to the mass of the electron ($m_{e}$). Including the electron's mass directly would require the addition of the term,
-% 
-% \begin{eqnarray}
-% -m_{e}\bar{e}e  &=& -m_{e}\bar{e}\left[\frac{1}{2}\left(1-\gamma^{5}\right) 
-%                     + \frac{1}{2}\left(1+\gamma^{5}\right)\right]e \nonumber \\
-%                 &=& -m_{e}\left(\bar{e}_{R}e_{L} + \bar{e}_{L}e_{R}\right).
-% \end{eqnarray}
-% 
-% As $e_{L}$ transforms as a member of a doublet and $e_{R}$ as a singlet, the addition of this term to Equation~\ref{eqn:ewklagrangianeg} would break the symmetry of the Lagrangian which motivated its construction, namely transformations under the $\sutwol$ group~\citep{aitchison}.
-% 
-% The physical electroweak boson fields, $\hat{W}_{\mu}^{\pm}$, $\hat{Z}_{\mu}$ and photon field, $\hat{A}_{\mu}$, are obtained through a mixture of the electroweak gauge fields as,
- 
-\begin{eqnarray}
-\hat{W}_{\mu}^{\pm} & = &  \sqrt{\frac{1}{2}} \left( \hat{W}_{\mu}^{1} \mp i \hat{W}_{\mu}^{2} \right) \nonumber \\
-\hat{Z}_{\mu} &  = & \cos\theta_{w} \hat{W}_{\mu}^{3} - \sin\theta_{w} \hat{B}_{\mu} \nonumber \\
-\hat{A}_{\mu} &  = & \sin\theta_{w} \hat{W}_{\mu}^{3} + \cos\theta_{w} \hat{B}_{\mu},
-\label{eqn:ewkbosons}
-\end{eqnarray}
- 
-% where the mixing angle, $\theta_{w} = \tan^{-1}{\frac{g^{\prime}}{g}}$, relates the couplings of the weak neutral and electromagnetic interactions. As expected, there is no term which corresponds to the mass of the photon, however, the same is true for the $W$ and $Z$ bosons. The masses of the $W$ and $Z$ bosons, given in Table~\ref{tab:bosons}, have been measured experimentally and found to be non-zero. The inclusion of mass terms for these bosons in Equation~\ref{eqn:ewklagrangianeg} would also break the symmetry of the Lagrangian. Furthermore, it has been shown that the inclusion of these mass terms results in a loss of re-normalizability of the theory, making it less powerful for predicting observables such as cross-sections and decay rates~\citep{halzen}. Instead, these masses can be generated via a spontaneous, rather than explicit, breaking of the symmetry.
+% STATUS: DONE 
 
-\subsection{Spontaneous Symmetry Breaking: The Higgs Mechanism}
+Symmetries in nature normally appear as a direct consequence of the fundamental law. It can be showed that if a physical system can be described within the Lagrangian formalism, all symmetries that can be found on the system Lagrangian have an associated conserved quantity~\cite{ARTICLE:InvariantVariationProblems}. These property can be applied when using dynamical quantum theories to constrain the Lagrangian of particle interactions, where the characteristics of the interaction itself allows the identification of transformation under which the Lagrangian should be symmetric.
 
-% \subsection{Spontaneous Symmetry Breaking: The Higgs Mechanism}
-% 
-% In quantum field theory, a symmetry is ``spontaneously'' broken when the Lagrangian itself remains invariant while the vacuum state, for which the Hamiltonian of the theory attains its minimum, does not~\cite{aitchison}. In the context of the electroweak theory, spontaneous symmetry breaking is achieved through the introduction of a complex scalar field which attains a non-zero vacuum expectation value (VEV)~\citep{Higgs:1964ia,PhysRev.155.1554,Higgs:1964pj,Guralnik:1964eu,PhysRev.145.1156}. This field is an $SU(2)$ doublet,
- 
+The development of the \gls{SM} had one of its greatest successes in the unification of the electromagnetic and weak interactions~\cite{ARTICLE:Glashow,ARTICLE:Weinberg,ARTICLE:Salam}. The unification of these theories appears by associating them to a particular symmetry group. The characteristics of the electroweak interaction are described by a Lagrangian which is invariant under transformations of the group $\sutwol\times\uone$. The quantum numbers in these electroweak theory are the weak isospin $t_{1,2,3}$ and hypercharge $y$, which are related to the electric charge as expressed in equation \ref{EQUATION:Theory_SM_ElectroweakGaugeSymmetry_ElecCharge}.
+
 \begin{equation}
-\phi = 
-\everymath{\displaystyle} \begin{pmatrix}
-\phi^{+} \\ 
-\phi^{0}
-\end{pmatrix}
+Q = t_{3} + \frac{y}{2}
+\label{EQUATION:Theory_SM_ElectroweakGaugeSymmetry_ElecCharge}
 \end{equation}
 
-% The Lagrangian, $\lagr_{G}$, of Equation~\ref{eqn:ewklagrangianeg} is modified to include
-% an additional term which is $\sutwol\times\uone$ invariant, $\lagr_{\phi}$
-% given by, 
+These quantum numbers are associated with gauge fields. The weak isospin fields $W_{\mu}^{i}$, $i = 1,2,3$ and the hypercharge field $B_{\mu}$. The weak isospin fields act on doublets like the on in equation \ref{EQUATION:Theory_SM_ElectroweakGaugeSymmetry_Doublet}.
+ 
+\begin{equation}
+\psi_{L} =  \begin{pmatrix} u_{i} \\ d_{i} \end{pmatrix}_{L} ,   
+\begin{pmatrix} \nu_{i} \\ {l_{i}} \end{pmatrix}_{L}
+\label{EQUATION:Theory_SM_ElectroweakGaugeSymmetry_Doublet}
+\end{equation}
 
-% \begin{equation}
-% \lagr_{\phi}=(\hat{D}_{\mu}\phi)^{\dagger}(\hat{D}^{\mu}\phi)  
-%             +\mu^{2} \phi^{\dagger}\phi - \frac{\lambda}{4}(\phi^{\dagger}\phi)^{2},
-% \label{eqn:higgslagr}
-% \end{equation}
-%
-%where the covariant derivative $\hat{D}^{\mu}$ which acts on $\phi$ is given by,
-%
-% \begin{equation}
-% \hat{D}^{\mu} = \partial^{\mu} + ig\frac{1}{2}\boldsymbol{\tau}\cdot\hat{\mathbf{W}}^{\mu}
-%                 + ig^{\prime}\frac{1}{2} \hat{B}^{\mu}.
-% \end{equation}
-% 
-% The second two terms in Equation~\ref{eqn:higgslagr} correspond to the Higgs potential. In order to generate masses for the gauge bosons, the parameters, $\mu$ and $\lambda$, must satisfy $\mu^{2}>0$ and $\lambda>0$. The choice of non-zero VEV must then be made so that only the $W$ and $Z$ bosons acquire mass, while the symmetry associated with electromagnetism remains unbroken, leaving the photon massless. The choice suggested by Weinberg in 1967~\citep{weinberg} was,
-% 
-% \begin{equation}
-% \mathrm{VEV} = \langle0|\phi|0\rangle = 
-% \everymath{\displaystyle} \begin{pmatrix}
-% 0 \\ 
-% \frac{v}{\sqrt{2}}
-% \end{pmatrix},
-% \end{equation}
-% 
-% where $v= \frac{\displaystyle 2\mu}{\displaystyle \sqrt{\lambda}}$. In order to obtain the physical particle spectrum, perturbations around the vacuum state are considered. If $\boldsymbol{\hat{\theta}}$ and $\hat{H}$ represent small variations in the four degrees of freedom of the field $\phi$ then, 
-% 
-% \begin{equation}
-% \phi = \exp(-i\boldsymbol{\hat{\theta}}\cdot\frac{1}{2v}\boldsymbol{\tau}) 
-% \everymath{\displaystyle} \begin{pmatrix}
-% 0 \\ 
-% \frac{1}{\sqrt{2}}(v+\hat{H})
-% \end{pmatrix}.
-% \end{equation}
-% 
-% This can be simplified by choosing the phase fields $\boldsymbol{\hat{\theta}}$ to be zero. The Lagrangian obtained by inserting $\phi$ with this form into Equation~\ref{eqn:higgslagr} and adding it to the Lagrangian of Equation~\ref{eqn:ewklagrangianeg} is,
-% 
-% \begin{eqnarray}
-% \lagr_{\phi}+\lagr_{G} 
-%              & = &   \frac{1}{2} \partial_{\mu} \hat{H} \partial^{\mu} \hat{H} 
-%              - \mu^{2} \hat{H}^{2} 
-%              + \frac{1}{8} g^{2}v^{2}\hat{W}_{1\mu}\hat{W}_{1}^{\mu}
-%              + \frac{1}{8} g^{2}v^{2}\hat{W}_{2\mu}\hat{W}_{2}^{\mu}    
-% \nonumber \\
-%             & & - \frac{v^{2}}{8} \left(g^{2}+{g^{\prime}}^{2}\right)\hat{Z}_{\mu}\hat{Z}^{\mu}
-%              + KB ,
-% \label{eqn:lagrssb}
-% \end{eqnarray}
-% 
-% where only terms which are at most second order in the fields are kept, illustrating the physical particle spectrum, and the fermion fields are dropped altogether. The relation between the $\hat{W}^{\mu}_{3}$ and $\hat{B}^{\mu}$ fields from Equation~\ref{eqn:ewkbosons} has been used to obtain the physical photon, $\hat{A}^{\mu}$, and $\hat{Z}^{\mu}$ fields. From this form of the Lagrangian, it is clear that the $\hat{W}_{1}^{\mu}$, $\hat{W}^{\mu}_{2}$ and $\hat{Z}$ fields acquire mass. As the $\hat{W}_{1}^{\mu}$ and $\hat{W}^{\mu}_{2}$ fields mix to form the physical $\hat{W}^{\pm}$ fields, the $W^{\pm}$ bosons acquire a mass of $m_{W} = \frac{\displaystyle gv}{\displaystyle 2}$. The mass of the $Z$ boson is given by $m_{Z}=\frac{\displaystyle v}{\displaystyle 2}\sqrt{g^{2}+{g^{\prime}}^{2}}$, while there is no term associated with the mass of the photon. An additional scalar field, $\hat{H}$ (the Higgs boson), remains in the Lagrangian with mass $\sqrt{2}\mu$. The term $KB$ in Equation~\ref{eqn:lagrssb} denotes additional kinetic terms for the $\hat{W}^{\mu}_{1}$, $\hat{W}^{\mu}_{2}$, $\hat{Z}^{\mu}$ and $\hat{A^{\mu}}$ fields. The masses of the fermions are generated by adding Yukawa coupling terms,
-% 
-% \begin{equation} 
-% -\lambda_{f} \bar{\chi}_{L} \phi \psi_{R} + \lambda_{f^{\prime}}\bar{\psi}_{R}(-i\tau_{2}\phi^{*})\chi_{L},
-% \end{equation}
-% 
-% to $\lagr_{\phi}$. The couplings $\lambda_{f}$, $f=u,d,e,\mu\cdots$,  are directly related to the mass of the fermions, specifically $\lambda_{f}\propto m_{f}$ such that the heavier fermions have stronger coupling to the Higgs boson. Although the SM does not predict the values of these couplings, the masses of the fermions are experimentally measurable allowing access to, and providing constraints on, the properties of the Higgs boson.
-% 
+In this equation the $u_{i}$ and $d_{i}$ are up-type and down-type quarks respectfully, the $l_{i}$ are charged leptons and the $\nu_{i}$ are the corresponding neutrinos. The index $i$ identifies the generation of fermions. The weak force only interacts with left handed fermions, which is indicatd by the subscript $L$, which makes it maximally parity violating. The fermion right handed projections $\psi_{R}$ are invariant under $SU(2)_{L}$ and transform as singlet states.
+ 
+The physical electronweak boson fields, $W_{\mu}^{\pm}$, $A_{\mu}$ and photon field $Z_{\mu}^{0}$ result from the mixing between the electroweak gauge fields as it can be seen in equation \ref{EQUATION:Theory_SM_ElectroweakGaugeSymmetry_W} and \ref{EQUATION:Theory_SM_ElectroweakGaugeSymmetry_AZ}.
+
+
+\begin{equation}
+W_{\mu}^{\pm} = \frac{1}{\sqrt{2}}\left(W_{\mu}^{1} \mp W_{\mu}^{2}\right) ,\label{EQUATION:Theory_SM_ElectroweakGaugeSymmetry_W}\\
+\begin{pmatrix} A_{\mu} \\ Z_{\mu}^{0} \end{pmatrix} = 
+\begin{pmatrix} \cos{\theta_{W}} & \sin{\theta_{W}} \\ -\sin{\theta_{W}} &
+\cos{\theta_{W}} \end{pmatrix} . 
+\begin{pmatrix} B_{\mu} \\ W_{\mu}^{3} \end{pmatrix} ,
+\label{EQUATION:Theory_SM_ElectroweakGaugeSymmetry_AZ}
+\end{equation}
+
+Where  $\theta_{W}$ is the weak mixing angle, which is connected to the coupling of the the weak neutral ($g$) and electromagnetic interactions ($g'$) through the relation $\theta_{W}=\tan^{-1}{\frac{g'}{g}}$. The Gargamelle bubble chamber experiment at CERN discovered the weak neutral currents in 1973~\cite{ARTICLE:GargamelleNeutrinoObservation}, while the $\PZ$ and $\PWpm$ were discovered by the UA1 and UA2 collaborations at CERN in 1983~\cite{ARTICLE:UA1WObservation,ARTICLE:UA2WObservation,ARTICLE:UA1ZObservation,ARTICLE:UA2ZObservation}.
+
+This model construction leads to a Lagrangian that does not have any mass terms. Adding mass terms of the form $-M^{2}W_{\mu}W^{\mu}$ cannot be done since it would break gauge invariance. Adding fermion will mass terms of the form $-m\overline{\psi}\psi = -m(\overline{\psi_{R}}\psi_{L} + \overline{\psi_{L}}\psi_{R})$, where $\overline\psi$ is the adjoint of the field $\psi$, has field pairs of left and right handed which will transform differently under the $SU(2)_{L}$ and $U(1)_{Y}$ groups, and as a consequence will also break gauge invariance.
+
+The photon mass has been experimentally measured to be compatible with zero within errors, but $\PW$ and $\PZ$ have masses of the order of $\approx 80\,\GeV$ and $\approx91\,\GeV$ respectively~\cite{ARTICLE:PDG2014}. Therefore the electroweak symmetry must be spontaneously broken to reconcile theory and observation. The Higgs mechanism is the electroweak symmetry breaking in the \gls{SM}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Higgs Mechanism in the Standard Model}
+\label{SUBSECTION:Theory_SM_HiggsMechanism}
+
+% STATUS: DONE 
+
+In quantum field theory, a symmetry is spontaneously broken when the Lagrangian itself remains invariant but the vacuum state, where the Hamiltonian of the theory is at its minimum, does not~\cite{ARTICLE:AitchisonGaugeTheories}. For the electroweak theory, this symmetry breaking is obtained with the introduction of a complex scalar field has a non-zero vacuum expectation value (VEV)~\cite{ARTICLE:HiggsBrokenSymmetries1,ARTICLE:HiggsBrokenSymmetries2,ARTICLE:GlobalConservation,ARTICLE:HiggsSpontaneousSymmetryBreakdown,ARTICLE:SymmetryBreaking}. This field is an $SU(2)$ doublet as represented in equation~\ref{EQUATION:Theory_SM_HiggsMechanism_Doublet}.
+
+\begin{equation}
+\phi = \begin{pmatrix}\phi^{+} \\ \phi^{0} \end{pmatrix}
+\label{EQUATION:Theory_SM_HiggsMechanism_Doublet}
+\end{equation}
+
+The electroweak Lagrangian can now be expressed in the simple form present in equation~\ref{EQUATION:Theory_SM_HiggsMechanism_EWKLagrangian}.
+
+\begin{equation}
+\mathcal{L}_{EW} = -\frac{1}{4}(\mathbf{F_{\mu\nu}}\cdot\mathbf{F^{\mu\nu}} +
+G_{\mu\nu}G^{\mu\nu}),
+\label{EQUATION:Theory_SM_HiggsMechanism_EWKLagrangian}
+\end{equation}
+
+In this Lagrangian $\mathbf{F_{\mu\nu}}$ is the weak isospin and $G_{\mu\nu}$ is the field strength tensor, which are related to the fields through equations~\ref{EQUATION:Theory_SM_HiggsMechanism_Field1} and~\ref{EQUATION:Theory_SM_HiggsMechanism_Field2}.
+
+\begin{equation}
+\mathbf{F_{\mu\nu}} = \partial_{\mu} \mathbf{W_{\nu}} - \partial_{\nu}\mathbf{W_{\mu}} -g\mathbf{W_{\mu}} \times \mathbf{W_{\nu}} \label{EQUATION:Theory_SM_HiggsMechanism_Field1}\\ 
+G_{\mu\nu} = \partial_{\mu} B_{\nu} - \partial_{\nu}B_{\mu} \label{EQUATION:Theory_SM_HiggsMechanism_Field2}
+\end{equation}
+
+Where $\mathbf{W_{\mu}}= (W_{\mu}^{1},W_{\mu}^{2},W_{\mu}^{3})$. An additional term appears as a consequence of the introduction of the complex scalar field as expressed in equation~\ref{EQUATION:Theory_SM_HiggsMechanism_ExtraTerm1}.
+
+\begin{equation}
+\mathcal{L_{\phi}} = (D_{\mu}\phi)^{\dagger}(D^{\mu}\phi) - V(\phi) \label{EQUATION:Theory_SM_HiggsMechanism_ExtraTerm1} \\ 
+\text{with } D_{\mu} = \partial_{\mu} - \frac{1}{2}(igT_{i}W_{\mu}^{i} - ig'B_{\mu}) \label{EQUATION:Theory_SM_HiggsMechanism_ExtraTerm2}
+\end{equation}
+
+where $T_{i}$ are the $SU(2)$ group generators, and $V(\phi)$ is the potential term which can be found in equation \ref{EQUATION:Theory_SM_HiggsMechanism_Potential}.
+
+\begin{equation}
+V(\phi) = \lambda(\phi^{\dagger}\phi)^{2} - \mu_{SM}\phi^{\dagger}\phi
+\label{EQUATION:Theory_SM_HiggsMechanism_Potential}
+\end{equation}
+
+Where $\lambda$ and $\mu_{SM}$ are constants which take into account the self-interactions and the masses of the scalar fields. The vacuum states correspond to the minima of $V(\phi)$ and its expectation values of $\bra{0}\phi\ket{0}$, which are expressed in equation \ref{EQUATION:Theory_SM_HiggsMechanism_VEV}.
+
+\begin{equation}
+\bra{0}\phi\ket{0} = \frac{1}{\sqrt{2}} \begin{pmatrix}0 \\ v \end{pmatrix},\text{ with } v=\sqrt{\frac{\mu_{SM}^{2}}{\lambda}} 
+\label{EQUATION:Theory_SM_HiggsMechanism_VEV}
+\end{equation}
+
+In order to obtain physical particles, the perturbations around the vacuum state are taken into account. If $\theta_{i}$ and $H_{SM}$ are small variations in four degrees if freedom of the field $\phi$ is can be expressed as equation \ref{EQUATION:Theory_SM_HiggsMechanism_Phi}.
+
+\begin{equation}
+\phi = \exp(-i\theta_{i}T^{i}/2v)\frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ v+H_{SM} \end{pmatrix}
+\label{EQUATION:Theory_SM_HiggsMechanism_Phi}
+\end{equation}
+
+The phase fields $\theta_{i}$ can be set to zero by an appropriate gauge transformation which only leaves $H_{SM}$. This result can now be inserted into the Lagrangian, where $H_{SM}$ is the a scalar field with mass $\sqrt{2}\mu_{SM}$ which in turn means the $W_{\mu}^{\pm}$ and $Z_{\mu}^{0}$ fields acquire mass terms $m_{\PW}$ and $m_{\PZ}$ as expressed in equation \ref{EQUATION:Theory_SM_HiggsMechanism_WeakBosonMass}.
+
+\begin{equation}
+m_{\PW} = m_{\PZ}\cos{\theta_{W}}=\frac{gv}{2}.
+\label{EQUATION:Theory_SM_HiggsMechanism_WeakBosonMass}
+\end{equation}
+
+Finally, equation \ref{EQUATION:Theory_SM_HiggsMechanism_FermionsMass} shows the form of mass terms for the fermions which are introduced via Yukawa interactions between the fermion and Higgs fields.
+
+\begin{equation}
+-\lambda_{f}( \overline{\psi_{L}}\phi\psi_{R} + \overline{\psi_{R}}\phi\psi_{L}),  
+\label{EQUATION:Theory_SM_HiggsMechanism_FermionsMass}
+\end{equation}
+
+Where $\lambda_{f}$ is the coupling for each fermion. Heavier fermions will have a stronger coupling to the Higgs boson, the value of $\lambda_{f}$ will vary proportionally to the mass of the fermion $m_{f}$. The value of each coupling are not predicted in the \gls{SM} and have to be determined experimentally. The values of $\sin{\theta_{W}}$, $v$ and $g$ can be determined with experimental values of the $\PW$ and $\PZ$ masses and the fine structure constant, but the value of $\mu_{SM}$ cannot be predicted. The mass of a Higgs boson associated with the Higgs field is $m_{\PH}=\sqrt{2}\mu_{SM}$, so it cannot be predicted directly by the \gls{SM}, but indirect constraints can be imposed from theoretical considerations with the help of precision electroweak data~\cite{SITE:lepewwg}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Searching for the SM Higgs boson}
+\label{SUBSECTION:Theory_SM_SearchingSMHiggs}
 
+As described in the previous section the Higgs boson mass is not directly predicted by the \gls{SM}, which implies searches for this particle need to be performed covering the widest possible mass range. In particle accelerators these searches are performed by looking for specific Higgs boson decays to either bosons of fermions. The coupling of the Higgs to a specific final state depends in both the mass of the Higgs and the masses of the particles of the final state. 
+
+The production of the \gls{SM} Higgs boson the proton-proton collisions occurs primarily through gluon-gluon fusion, \gls{VBF} and associated production with either a vector boson or a pair of top quarks, the processes are illustrated in figure \ref{SUBSECTION:Theory_SM_SearchingSMHiggs}. The Higgs boson only couple with particles that have mass, hence it does not couple to gluons which are massless. The gluon fusion production process goes mainly through a top quark loop which is the heaviest quark and thus also has the highest coupling with the higgs. All these four processes are accessible at the \gls{LHC}.
 
 \begin{figure}[htbp]
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_ggH.pdf}} \qquad
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_qqH.pdf}} \\
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_VH.pdf}}  \qquad
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_ttH.pdf}} \\
-\caption[Feynman diagrams for the dominant production processes of the SM Higgs
-boson.]{Feynman diagrams for the dominant production processes of the SM Higgs
-boson. Shown is a) gluon fusion, b) vector boson fusion and
-associated production with c) vector bosons and d) top quarks.}
-\label{fig:SMFeynmanDiagrams}
+\caption[Feynman diagrams for the main production processes of the SM Higgs
+boson.]{Feynman diagrams for the main production processes of the \gls{SM} Higgs
+boson. Shown is (a) gluon fusion, (b) vector boson fusion and
+associated production with (c) vector bosons and (d) top quarks.}
+\label{FIGURE:SMFeynmanDiagrams}
 \end{figure}
+
+% Previous searches for the Higgs boson were carried out at LEP and the
+% Tevatron. LEP collided electrons and positrons at centre of mass
+% energies ($\sqrt{s}$) between $90$ and $209\,\GeV$. In such collisions the Higgs
+% boson is predominantly produced in association with a $\PZ$ boson, a process
+% referred to as ``Higgsstrahlung''. The decay channels used were predominantly decays
+% to $\Pqb\Paqb$ and $\Pgtp\Pgtm$ pairs. The fact that the Higgs boson was not
+% observed at LEP yields the exclusion of masses with $m_{\PH}<114.4\,\GeV$ at the
+% 95\% \ac{CL} \cite{Barate:2003sz}. Searches were also performed by the CDF and D0 Collaborations at
+% the Tevatron accelerator, which collided protons and antiprotons with
+% $\sqrt{s}=1.96\,\TeV$. The searches were performed in a mass range of
+% $90$--$200\,\GeV$ and focussed on decays into $\Pqb\Paqb$, $\PWp\PWm$,
+% $\gamma\gamma$ and $\Pgtp\Pgtm$ pairs, with  $\Pqb\Paqb$ and $\PWp\PWm$ offering
+% the highest sensitivity. The combined results from the Tevatron yielded
+% exclusions of $m_{\PH}$ in the ranges $90$--$109\,\GeV$ and $149$--$182\,\GeV$
+% \cite{Aaltonen:2013kxa}. The results of such direct searches
+% can be combined with precision measurements of electroweak observables at LEP
+% and by the SLAC Large Detector (SLD) to constrain the mass of the Higgs
+% boson to $94^{+29}_{-24}\,\GeV$ \cite{lepewwg}, 
+% where the uncertainty incorporates experimental effects only.
+% 
+% The LHC provides a higher centre of mass energy than the Tevatron, and so
+% gives access to higher cross sections and a wider range of Higgs masses. Figure
+% \ref{fig:SMHiggsXS} indicates the cross sections of the different production
+% processes, for proton-proton collisions at $\sqrt{s}=8\,\TeV$ as used during the 
+% 2012 operating period of the LHC. The gluon fusion production process dominates 
+% over the others by at least one order of magnitude in cross section. 
+% Despite this, the other production modes are useful as they have specific 
+% topologies which can be exploited in the selection of signal-like events. 
+% The \ac{VBF} process is characterised by the two outgoing quarks which
+% hadronise to form jets with high momentum, typically found in the forward
+% detector region. Production via the associated production process consists of a vector
+% boson or a pair of top quarks in the final state, yielding multi-lepton and 
+% multi-jet final states with reduced backgrounds from other \ac{SM} processes.
 
 \begin{figure}[htbp]
  \includegraphics[width=0.7\textwidth]{Chapter01/Images/Higgs_XS_8TeV_lx.pdf}
@@ -289,6 +260,22 @@ and associated production modes. The widths of the lines represent the
 theoretical uncertainties on the cross section calculation.}
 \label{fig:SMHiggsXS}
 \end{figure}
+
+% The branching fractions to the different decay channels are shown in
+% figure~\ref{fig:SMHiggsBRs} for a range of possible Higgs masses. At low Higgs
+% boson masses, a variety of different decay channels are accessible. The decay
+% into two photons occurs via a fermion and $\PW$ loop, and decays to $\PWp\PWm$, $\PZ\PZ$,
+% $\Pqb\Paqb$ and $\Pgtp\Pgtm$ pairs are also possible. At higher Higgs masses
+% above $130\,\GeV$, the decays into $\PWp\PWm$, $\PZ\PZ$ are more kinematically
+% favourable and hence dominate. In the discovery of a Higgs boson, identication of
+% any of these decay channels is important, but the most sensitive channels for
+% discovery in the low mass region are $\Pphoton\Pphoton$ and $\PZ\PZ$ due to
+% their clean signatures. However, upon discovery of a Higgs boson, decays into 
+% fermions are particularly important
+% to establish the Yukawa couplings. In fermionic decays, the decay into
+% $\Pqb\Paqb$ dominates with a branching fraction of $\sim 57\%$ in this mass
+% range. However, this final state is difficult to disentangle from the large QCD
+% jet background at the LHC, meaning that the $\Pgtp\Pgtm$ final state has higher sensitivity.
 
 \begin{figure}[htbp]
  \includegraphics[width=0.6\textwidth]{Chapter01/Images/Higgs_BR.pdf}
@@ -303,126 +290,39 @@ theoretical uncertainties on the branching ratio calculation.}
 \label{fig:SMHiggsBRs}
 \end{figure}
 
-% \subsection{Higgs Boson Production and Decay at the LHC}
 % 
-% At the LHC, protons are accelerated to higher energies than previously available at the 
-% Tevatron. The increased centre-of-mass energy enhances the 
-% rate at which Higgs boson production occurs and improves the sensitivity to higher 
-% masses. The four main mechanisms by which a Higgs boson can be produced
-% are shown at leading order in Figure~\ref{fig:higgsprodfeyn}.
-% \begin{figure}[hbtp!]
-% \begin{center}
-% %\includegraphics[width=.49\textwidth]{theory/pheno/ggh.pdf}
-% %\includegraphics[width=.49\textwidth]{theory/pheno/vh.pdf}\\
-% %\includegraphics[width=.49\textwidth]{theory/pheno/qqh.pdf}
-% %\includegraphics[width=.4\textwidth]{theory/pheno/tth.pdf}
-% \includegraphics[width=\textwidth]{theory/pheno/allprods_new.pdf}
-% \caption{Dominant SM Higgs boson production mechanisms: Gluon-gluon fusion (top left),
-% vector-boson fusion (bottom left), associated production with vector boson (top right) 
-% and top anti-top quark pair (bottom right).}
-% \label{fig:higgsprodfeyn}
-% \end{center}
-% \end{figure}
-% The dominant production mechanism is through gluon-gluon fusion ($ggH$). As the gluons
-% are massless particles, the gluons couple to the Higgs boson via a quark-loop.
-% The three other production mechanisms which dominate Higgs boson production are 
-% vector boson fusion ($qqH$) and production in association with 
-% a $W$ or $Z$ boson ($VH$) or top anti-top quark pair ($ttH$).
-% Although these modes are at least an order of magnitude smaller in cross-section
-% than gluon-gluon fusion, their specific topologies 
-% can be exploited experimentally to enhance the signal over background processes 
-% (see Chapter~\ref{chap:combinations}).
-% Figure~\ref{fig:higgsprod} shows the production cross-sections and their theoretical 
-% errors for the four main production modes of the SM Higgs boson in  
-% p-p collisions at the LHC~\citep{lhcxswg2011,lhcxswg2012}.
-% \begin{figure}[hbtp!]
-% \begin{center}
-% \includegraphics[width=0.8\textwidth]{theory/pheno/Higgs_XS_7TeV.pdf}\\
-% \includegraphics[width=0.8\textwidth]{theory/pheno/Higgs_XS_8TeV_lx.pdf}
-% \caption{SM Higgs boson production cross-sections at $\sqrt{s}=7~\mathrm{TeV}$ (top)
-% and 8 TeV (bottom) of the four main production mechanisms, $pp\rightarrow H+X$,
-% along with their theoretical uncertainties as a function of 
-% $\mh$~\citep{lhcxswg2011,lhcxswg2012}. The coloured bands indicate the theoretical
-% uncertainties.}
-% \label{fig:higgsprod}
-% \end{center}
-% \end{figure}
-% The Higgs boson is an unstable particle so will be observable directly at the LHC
-% only through its decay products. The relative decay rates (branching ratios) to 
-% different SM particles vary as a function of the Higgs boson mass.
-% At low mass, $\mh<135$ GeV, Higgs boson decay to a $b$ anti-$b$ quark pair
-% dominates. In proton-proton collisions, pairs of $b$-quarks are produced 
-% frequently making the background levels too high to compete with for an experimental
-% search. For higher masses, $\mh>180$ GeV, the Higgs boson is heavy enough
-% to facilitate production of real $W$ and $Z$ bosons which dominate its decay.
-% As the gluon and photon are massless, they do not directly couple to the Higgs boson
-% hence these decays are mediated by virtual loops of massive particles.
-% The branching ratios of the Higgs boson to SM particles are shown as a function
-% of $\mh$ in Figure~\ref{fig:higgsdecay} (left).
+% On 4 July 2012 the ATLAS and CMS Collaborations announced the discovery of a new
+% boson with a mass around $125\,\GeV$~\cite{CMSobservation125,ATLASobservation125}. 
+% Both experiments analysed approximately $5\,\invfb$ of data collected at 
+% $\sqrt{s}=7\,\TeV$ and $5$--$6\,\invfb$ at $\sqrt{s}=8\,\TeV$. The discovery was
+% made predominantly using the $\PZ\PZ$ and $\Pphoton\Pphoton$ decay modes with a
+% combined excess of events in data yielding a $5\sigma$ deviation from the
+% background-only expectation.
 % 
-% For small $\mh$, the natural width of the SM Higgs boson, $\hwidth$, is several
-% orders of magnitude smaller than its mass. Figure~\ref{fig:higgsdecay} (right) shows the 
-% value of the SM Higgs boson total width as a function of its mass.
-% This means that for decays in which the products are fully reconstructible in particle
-% detectors, the width of the invariant mass spectrum of the decay products will depend almost entirely
-% on the experimental resolution. 
-% In particular the ATLAS and CMS detectors provide excellent energy and momentum resolution 
-% for electrons, muons and photons.
-% Despite having lower branching ratios,  the $\Hgg$ and $\Hzzl$ channels
-% are therefore of particular importance for direct detection of the SM Higgs boson
-% at the LHC.
+% Run 1 of the LHC was completed in early 2013, increasing the dataset to
+% $\approx20\,\invfb$ at $8\,\TeV$. The increased dataset allows access to the less
+% sensitive decay modes. The most recent combination of CMS Higgs results yields a
+% best fit mass of
+% $125.02^{+0.26}_{-0.27}(\text{stat})^{+0.14}_{-0.15}(\text{syst})\,\GeV$ and a
+% signal strength relative to the \ac{SM} expectation of
+% $1.00\pm0.09(\text{stat})^{+0.08}_{-0.07}(\text{theo})\pm0.01(\text{syst})$,
+% combining results from the $\Pphoton\Pphoton$, $\PWp\PWm$, $\PZ\PZ$,
+% $\Pqb\Paqb$, $\Pgtp\Pgtm$ and $\APmuon\Pmuon$ final states, as well as 
+% searches for the $\Pqt\Pqt\PH$ production mode and searches for an invisible
+% Higgs \cite{CMScomb}. Within the combination is a study of the compatibility of
+% the couplings in each decay mode with the \ac{SM}. 
+% These channels all show consistency with the \ac{SM}
+% predictions for a $125\,\GeV$ Higgs boson. Other analyses from ATLAS have
+% studied the production rates and couplings in various channels~\cite{Aad:2014eva,Aad:2014lwa,Aad:2015vsa}, 
+% and results from both ATLAS and CMS study the spin-parity quantum
+% numbers~\cite{Chatrchyan:2013mxa,Chatrchyan:2013iaa,Aad:2013xqa} and limits on
+% the decay width~\cite{Khachatryan:2014iha} and invisible branching
+% fraction~\cite{Aad:2014iia,Chatrchyan:2014tja}. No significant deviations from \ac{SM}
+% predictions have been found to date in any of these results.
 % 
-% 
-% \begin{figure}[hbtp]
-% \begin{center}
-% \includegraphics[width=0.49\textwidth]{theory/pheno/YRHXS_BR_fig3.pdf}
-% \includegraphics[width=0.49\textwidth]{theory/pheno/YRHXS_BR_fig2.pdf}
-% \caption{Left: SM Higgs boson production branching ratios for 
-% the dominant decays as a function of $\mh$. Right: SM Higgs boson total width, $\hwidth$, as 
-% a function of $\mh$~\citep{lhcxswg2011}.}
-% \label{fig:higgsdecay}
-% \end{center}
-% \end{figure}
-
-\subsection{Higgs Invisible decays}
-
-\colorbox{red}{
-\begin{minipage}{0.95\linewidth}
-TODO: 
-\begin{itemize}
-  \item Explain what are SM Higgs invisible decays.
-  \item Go over the possibility of BSM invisible decays.
-\end{itemize}
-
-\end{minipage}
-}
-
-% Adding a bunch of references
-\cite{ARTICLE:Higgs_SpontaneousSymmetryBreakdown}
-\cite{BOOK:Griffiths}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% 
-
-% 
-
-% 
-
+% Future studies will further test the compatibility of the observed boson with
+% the \ac{SM} Higgs, including discovery and precision measurements in the
+% channels which are less sensitive and require more data. 
+% The most recent CMS results for the search for the Higgs boson in the $\HToTauTau$
+% decay channel, corresponding to the complete Run 1 dataset and as included in
+% the most recent combination, are reported in chapter~\ref{chap:htt-sm}.
