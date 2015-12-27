@@ -5,7 +5,7 @@
 
 % STATUS: DONE
 
-The goal of particle physics is to study the most fundamental constituents of matter and understand how they interact with each other. The \gls{SM} of particle physics will briefly introduced and the Higgs mechanism explained and the search for Higgs boson decaying invisibly decays will be motivated. Throughout this chapter Einstein summation convention, Feynman slash notation and natural units are used, where $\hbar=c=1$. Additionally, greek letters are used to label the four vectors, and gauge group generators use roman letters.
+The goal of particle physics is to study the most fundamental constituents of matter and understand how they interact with each other. The \gls{SM} of particle physics will briefly introduced, the Higgs mechanism explained and the search for Higgs boson decaying invisibly decays will be motivated. Throughout this chapter Einstein summation convention, Feynman slash notation and natural units are used, where $\hbar=c=1$. Additionally, greek letters are used to label the four vectors, and gauge group generators use roman letters.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -200,11 +200,11 @@ Where $\lambda_{f}$ is the coupling for each fermion. Heavier fermions will have
 \subsection{Searching for the SM Higgs boson}
 \label{SUBSECTION:Theory_SM_SearchingSMHiggs}
 
+% STATUS: DONE 
+
 As described in the previous section the Higgs boson mass is not directly predicted by the \gls{SM}, which implies searches for this particle need to be performed covering the widest possible mass range. In particle accelerators these searches are performed by looking for specific Higgs boson decays to either bosons of fermions. The coupling of the Higgs to a specific final state depends in both the mass of the Higgs and the masses of the particles of the final state. 
 
-The production of the \gls{SM} Higgs boson the proton-proton collisions occurs primarily through gluon-gluon fusion, \gls{VBF} and associated production with either a vector boson or a pair of top quarks, the processes are illustrated in figure \ref{SUBSECTION:Theory_SM_SearchingSMHiggs}. The Higgs boson only couple with particles that have mass, hence it does not couple to gluons which are massless. The gluon fusion production process goes mainly through a top quark loop which is the heaviest quark and thus also has the highest coupling with the higgs. All these four processes are accessible at the \gls{LHC}.
-
-\begin{figure}[htbp]
+\begin{figure}[!htb]
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_ggH.pdf}} \qquad
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_qqH.pdf}} \\
 \subfloat[]{\includegraphics[width=0.45\textwidth]{Chapter01/Images/feynman_VH.pdf}}  \qquad
@@ -213,44 +213,18 @@ The production of the \gls{SM} Higgs boson the proton-proton collisions occurs p
 boson.]{Feynman diagrams for the main production processes of the \gls{SM} Higgs
 boson. Shown is (a) gluon fusion, (b) vector boson fusion and
 associated production with (c) vector bosons and (d) top quarks.}
-\label{FIGURE:SMFeynmanDiagrams}
+\label{FIGURE:Theory_SM_SearchingSMHiggs_SMFeynmanDiagrams}
 \end{figure}
 
-% Previous searches for the Higgs boson were carried out at LEP and the
-% Tevatron. LEP collided electrons and positrons at centre of mass
-% energies ($\sqrt{s}$) between $90$ and $209\,\GeV$. In such collisions the Higgs
-% boson is predominantly produced in association with a $\PZ$ boson, a process
-% referred to as ``Higgsstrahlung''. The decay channels used were predominantly decays
-% to $\Pqb\Paqb$ and $\Pgtp\Pgtm$ pairs. The fact that the Higgs boson was not
-% observed at LEP yields the exclusion of masses with $m_{\PH}<114.4\,\GeV$ at the
-% 95\% \ac{CL} \cite{Barate:2003sz}. Searches were also performed by the CDF and D0 Collaborations at
-% the Tevatron accelerator, which collided protons and antiprotons with
-% $\sqrt{s}=1.96\,\TeV$. The searches were performed in a mass range of
-% $90$--$200\,\GeV$ and focussed on decays into $\Pqb\Paqb$, $\PWp\PWm$,
-% $\gamma\gamma$ and $\Pgtp\Pgtm$ pairs, with  $\Pqb\Paqb$ and $\PWp\PWm$ offering
-% the highest sensitivity. The combined results from the Tevatron yielded
-% exclusions of $m_{\PH}$ in the ranges $90$--$109\,\GeV$ and $149$--$182\,\GeV$
-% \cite{Aaltonen:2013kxa}. The results of such direct searches
-% can be combined with precision measurements of electroweak observables at LEP
-% and by the SLAC Large Detector (SLD) to constrain the mass of the Higgs
-% boson to $94^{+29}_{-24}\,\GeV$ \cite{lepewwg}, 
-% where the uncertainty incorporates experimental effects only.
-% 
-% The LHC provides a higher centre of mass energy than the Tevatron, and so
-% gives access to higher cross sections and a wider range of Higgs masses. Figure
-% \ref{fig:SMHiggsXS} indicates the cross sections of the different production
-% processes, for proton-proton collisions at $\sqrt{s}=8\,\TeV$ as used during the 
-% 2012 operating period of the LHC. The gluon fusion production process dominates 
-% over the others by at least one order of magnitude in cross section. 
-% Despite this, the other production modes are useful as they have specific 
-% topologies which can be exploited in the selection of signal-like events. 
-% The \ac{VBF} process is characterised by the two outgoing quarks which
-% hadronise to form jets with high momentum, typically found in the forward
-% detector region. Production via the associated production process consists of a vector
-% boson or a pair of top quarks in the final state, yielding multi-lepton and 
-% multi-jet final states with reduced backgrounds from other \ac{SM} processes.
+The production of the \gls{SM} Higgs boson the proton-proton collisions occurs primarily through gluon-gluon fusion, \gls{VBF} and associated production with either a vector boson or a pair of top quarks, the processes are illustrated in figure \ref{FIGURE:Theory_SM_SearchingSMHiggs_SMFeynmanDiagrams}. The Higgs boson only couple with particles that have mass, hence it does not couple to gluons which are massless. The gluon fusion production process goes mainly through a top quark loop which is the heaviest quark and thus also has the highest coupling with the higgs. All these four processes are accessible at the \gls{LHC}.
 
-\begin{figure}[htbp]
+Searches for the Higgs boson have been already carried out at \gls{LEP} and the Tevatron. The \gls{LEP} was a particle accelerator colliding electrons and positrons at a center of mass energy ($\sqrt{s}$) between $90$ and $209\,\GeV$. For this type of colliding particles the dominant production channel is associated production with a $\PZ$ boson, this process is sometimes referred to as ``Higgsstrahlung''. In the experiments of the accelerator the searched performed were predominantly looking for decays to $\Pqb\Paqb$ and $\Pgtp\Pgtm$ pairs. The Higgs boson was not observed at \gls{LEP} lead to the exclusion of a \gls{SM} Higgs with $m_{\PH}<114.4\,\GeV$ at the 95\% \gls{CL}~\cite{ARTICLE:LEPWorkingGroupforHiggsBosonSearches}.
+
+Searches were also performed by the CDF and D0 Collaborations at the Tevatron accelerator, which collided protons and antiprotons with $\sqrt{s}=1.96\,\TeV$. The experiments performed searches in the mass range of $90-200\,\GeV$ over the Higgs boson decays $\Pqb\Paqb$, $\PWp\PWm$, $\gamma\gamma$ and $\Pgtp\Pgtm$ pairs, with the most sensitive being $\Pqb\Paqb$ and $\PWp\PWm$. The combined results of the Tevatron experiments resulted in an exclusion of a \gls{SM} Higgs boson with $m_{\PH}$ in the ranges $90-109\,\GeV$ and $149-182\,\GeV$~\cite{ARTICLE:CDFDOHiggsBosonStudies}. The results from the \gls{LEP} and Tevatron direct searches can be combined with precision measurements of electroweak observables at \gls{LEP} and by the \gls{SLD} to constrain the Higgs mass to $94^{+29}_{-24}\,\GeV$ \cite{SITE:lepewwg}, the quoted uncertainty only accounts for the experimental effects.
+
+The \gls{LHC} is capable of colliding particles with a significantly higher centre of mass energy when compared with the Tevatron. As a consequence it gives access processes with smaller cross sections and allows searches in a wider mass range. Figure \ref{FIGURE:Theory_SM_SearchingSMHiggs_SMHiggsXS} shows the production cross section of different processes for proton-proton collisions with $\sqrt{s}=8\,\TeV$ as operated during the 2012 period of \gls{LHC} running. The dominate production process is the gluon fusion by over one over magnitude in cross section. Other processes, even with such low relative production rate are also useful. Their topological characteristics can be exploited to isolate signal like event from the large quantities of background events. The second most likely process is the \gls{VBF} which is characterised by the presence of well separated high momentum quark jets. The associated production processes consist of a vector boson of a pair of top quarks in the final state, since this particles can decay to leptons, selecting those modes allows for good background rejection. 
+
+\begin{figure}[!htb]
  \includegraphics[width=0.7\textwidth]{Chapter01/Images/Higgs_XS_8TeV_lx.pdf}
 \caption[Cross sections for Higgs production processes at $\sqrt{s}=8\,\TeV$ for
 a range of Higgs boson masses.]{Cross sections for Higgs production processes at
@@ -258,26 +232,12 @@ $\sqrt{s}=8\,\TeV$ for a range of Higgs boson masses $m_{\PH}$~\cite{ARTICLE:Han
 mass range the gluon-fusion mode dominates, followed by the vector boson fusion
 and associated production modes. The widths of the lines represent the
 theoretical uncertainties on the cross section calculation.}
-\label{fig:SMHiggsXS}
+\label{FIGURE:Theory_SM_SearchingSMHiggs_SMHiggsXS}
 \end{figure}
 
-% The branching fractions to the different decay channels are shown in
-% figure~\ref{fig:SMHiggsBRs} for a range of possible Higgs masses. At low Higgs
-% boson masses, a variety of different decay channels are accessible. The decay
-% into two photons occurs via a fermion and $\PW$ loop, and decays to $\PWp\PWm$, $\PZ\PZ$,
-% $\Pqb\Paqb$ and $\Pgtp\Pgtm$ pairs are also possible. At higher Higgs masses
-% above $130\,\GeV$, the decays into $\PWp\PWm$, $\PZ\PZ$ are more kinematically
-% favourable and hence dominate. In the discovery of a Higgs boson, identication of
-% any of these decay channels is important, but the most sensitive channels for
-% discovery in the low mass region are $\Pphoton\Pphoton$ and $\PZ\PZ$ due to
-% their clean signatures. However, upon discovery of a Higgs boson, decays into 
-% fermions are particularly important
-% to establish the Yukawa couplings. In fermionic decays, the decay into
-% $\Pqb\Paqb$ dominates with a branching fraction of $\sim 57\%$ in this mass
-% range. However, this final state is difficult to disentangle from the large QCD
-% jet background at the LHC, meaning that the $\Pgtp\Pgtm$ final state has higher sensitivity.
+Figure \ref{FIGURE:Theory_SM_SearchingSMHiggs_SMHiggsBRs} shows the branching fractions to the different decay channels depending on the Higgs boson mass. At low Higgs boson mass, many possible decay channels are accessible. The decay into two photon, which cannot happen directly since the photon is massless, happens via a fermion or $\PW$ loops. Other decays are also possible to $\PWp\PWm$, $\PZ\PZ$, $\Pqb\Paqb$ and $\Pgtp\Pgtm$. For Higgs masses above $130\,\GeV$, decays to $\PWp\PWm$, $\PZ\PZ$ dominate since they becomes kinematically favourable. The observation of a Higgs boson in any of these decay channel is in itself important and gives a handle to probe the couplings of the particles involved in the Higgs production and decay. The most sensitive decay at the low mass region are $\Pphoton\Pphoton$ and $\PZ\PZ$ due to their clean signatures.
 
-\begin{figure}[htbp]
+\begin{figure}[!htb]
  \includegraphics[width=0.6\textwidth]{Chapter01/Images/Higgs_BR.pdf}
 \caption[Higgs boson branching ratios in the SM for a range of Higgs boson
 masses.]{Higgs boson branching ratios in the SM for a range of Higgs boson
@@ -287,42 +247,25 @@ $\PZ\PZ$ and $\ttbar$ (shown in red) decay modes dominate.
 At lower masses a wide range of different final states is possible. 
 The widths of the lines represent the
 theoretical uncertainties on the branching ratio calculation.}
-\label{fig:SMHiggsBRs}
+\label{FIGURE:Theory_SM_SearchingSMHiggs_SMHiggsBRs}
 \end{figure}
 
-% 
-% On 4 July 2012 the ATLAS and CMS Collaborations announced the discovery of a new
-% boson with a mass around $125\,\GeV$~\cite{CMSobservation125,ATLASobservation125}. 
-% Both experiments analysed approximately $5\,\invfb$ of data collected at 
-% $\sqrt{s}=7\,\TeV$ and $5$--$6\,\invfb$ at $\sqrt{s}=8\,\TeV$. The discovery was
-% made predominantly using the $\PZ\PZ$ and $\Pphoton\Pphoton$ decay modes with a
-% combined excess of events in data yielding a $5\sigma$ deviation from the
-% background-only expectation.
-% 
-% Run 1 of the LHC was completed in early 2013, increasing the dataset to
-% $\approx20\,\invfb$ at $8\,\TeV$. The increased dataset allows access to the less
-% sensitive decay modes. The most recent combination of CMS Higgs results yields a
-% best fit mass of
-% $125.02^{+0.26}_{-0.27}(\text{stat})^{+0.14}_{-0.15}(\text{syst})\,\GeV$ and a
-% signal strength relative to the \ac{SM} expectation of
-% $1.00\pm0.09(\text{stat})^{+0.08}_{-0.07}(\text{theo})\pm0.01(\text{syst})$,
-% combining results from the $\Pphoton\Pphoton$, $\PWp\PWm$, $\PZ\PZ$,
-% $\Pqb\Paqb$, $\Pgtp\Pgtm$ and $\APmuon\Pmuon$ final states, as well as 
-% searches for the $\Pqt\Pqt\PH$ production mode and searches for an invisible
-% Higgs \cite{CMScomb}. Within the combination is a study of the compatibility of
-% the couplings in each decay mode with the \ac{SM}. 
-% These channels all show consistency with the \ac{SM}
-% predictions for a $125\,\GeV$ Higgs boson. Other analyses from ATLAS have
-% studied the production rates and couplings in various channels~\cite{Aad:2014eva,Aad:2014lwa,Aad:2015vsa}, 
-% and results from both ATLAS and CMS study the spin-parity quantum
-% numbers~\cite{Chatrchyan:2013mxa,Chatrchyan:2013iaa,Aad:2013xqa} and limits on
-% the decay width~\cite{Khachatryan:2014iha} and invisible branching
-% fraction~\cite{Aad:2014iia,Chatrchyan:2014tja}. No significant deviations from \ac{SM}
-% predictions have been found to date in any of these results.
-% 
-% Future studies will further test the compatibility of the observed boson with
-% the \ac{SM} Higgs, including discovery and precision measurements in the
-% channels which are less sensitive and require more data. 
-% The most recent CMS results for the search for the Higgs boson in the $\HToTauTau$
-% decay channel, corresponding to the complete Run 1 dataset and as included in
-% the most recent combination, are reported in chapter~\ref{chap:htt-sm}.
+The ATLAS and CMS Collaborations announced the discovery of a new boson with a mass around $125\,\GeV$~\cite{ARTICLE:CMS_HiggsDiscovery,ARTICLE:ATLAS_HiggsDiscovery}. To achieve this result both experiments analysed approximately $5\,\invfb$ of data collected at $\sqrt{s}=7\,\TeV$ and $5-6\,\invfb$ at $\sqrt{s}=8\,\TeV$. These discovery was made by combining searches using $\PZ\PZ$ and $\Pphoton\Pphoton$ decay modes in both experiments, the observed combined excess of events yielded a $5\sigma$ deviation from the background-only expectation.
+
+The \gls{LHC} Run I was completed in early 2013, with ATLAS and \gls{CMS} recording $\approx20\,\invfb$ at $8\,\TeV$. This increase in luminosity allowed the access to less sensitive decay modes. The combination of both experiments $\PZ\PZ$ and $\Pphoton\Pphoton$ measurements results in best fit mass of $125.09 \pm 0.21(\text{stat}) \pm 0.11(\text{syst})\,\GeV$ and a signal strength relative to the \gls{SM} of $1.24^{+0.18}_{-0.16}$ \cite{ARTICLE:CombinedMeasurementOfTheHiggsBoson}. The \gls{CMS} collaboration has also performed a signal strength measurement combining the information from $\Pphoton\Pphoton$, $\PWp\PWm$, $\PZ\PZ$, $\Pqb\Paqb$, $\Pgtp\Pgtm$ and $\APmuon\Pmuon$ final states, obtaining a signal strength of $1.00\pm0.09(\text{stat})^{+0.08}_{-0.07}(\text{theo})\pm0.01(\text{syst})$~\cite{ARTICLE:CMScomb}. Individual channels were were studied in their compatibility with the \gls{SM}, and all of them show consistency is the \gls{SM} predictions for a $125\,\GeV$ Higgs boson. The ATLAS collaboration has also performed similar studies over production rates and couplings for various channels~\cite{Aad:2014eva,Aad:2014lwa,Aad:2015vsa}, and both collaborations have performed studies on the spin-parity quantum numbers~\cite{Chatrchyan:2013mxa,Chatrchyan:2013iaa,Aad:2013xqa} and limits have also been set over the invisible branching fraction which will be analysed in depth in this document. No significant deviations from the predictions of the \gls{SM} have been observed to date.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Invisible Higgs decay}
+\label{SUBSECTION:Theory_SM_InvisibleHiggsDecay}
+
+% STATUS: DONE
+
+The discovery of the Higgs boson described in the previous chapter, and the absence of any new experimental hints of new physics beyond the \gls{SM} at the \gls{LHC}, have strongly limited the proposed models for new physics. Currently the uncertainties associated with the Higgs boson are still large enough that allow for the possibility of non-\gls{SM} properties. Although additional \gls{SM}-like Higgs bosons have been excluded over a wide range of masses, there is still the possibility of additional Higgs bosons with exotic decay modes.
+
+Invisible Higgs boson decays are predicted in a wide range of models, for example in supersymmetric models to neutralinos \cite{ARTICLE:MSSMInvisibleHiggs} or graviscalars in models with extra dimensions \cite{ARTICLE:Graviscalars,ARTICLE:ADDInvisible}. If the Higgs boson can interact with the currently unknown dark matter sector, invisible decay modes could be possible, and bounds on these decays can constrain dark matter models.
+
+The \gls{SM} Higgs boson can decay to neutrinos through $\PZ\PZ$ intermediate decay, but this decay has a very small branch ration of only 0.106\%. The observation of a significant branching fraction to invisible would be clear evidence of new physics and would point to direct production of dark matter.
+
+
