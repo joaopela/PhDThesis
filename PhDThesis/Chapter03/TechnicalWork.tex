@@ -1,11 +1,11 @@
-\chapter{Technical work}
+\chapter{L1 Trigger Data Quality Monitoring}
 \label{CHAPTER:TechnicalWork}
 
 % \glsresetall % Resetting all acronyms
 
-% Status: DONE (reviewed J.Pela x1)
+% Status: DONE (reviewed J.Pela x1) (reviewed D. Colling x1)
 
-The author as member of the \gls{CMS} collaboration was required, like all other members, to perform service work in order to become member of the \gls{CMS} author list. This requirement has been fulfilled with work for the \gls{L1T} system. Field work component was performed by doing shifts as Trigger and Shift Leader in the experiment control room and on call shifts as the Trigger \gls{DOC} expert. Another important contribution was the work as a software developer for the \gls{L1T} \gls{DQM} system. The authors contributions lead his appointment for two years to the position of coordinator of the \gls{CMS} \gls{L1T} \gls{DQM} software development team. This chapter describes the tools developed and used for online monitoring of the \gls{L1T} during 2012-13 data taking. This tools were partially ported to the offline monitoring and were the basis for data certification for physics analyses.
+The \gls{CMS} \gls{L1T} makes the first event selection of any physics analysis. Therefore, its correct operation is crucially for the physics output of the experiment. The \gls{DQM} is one of the \gls{CMS} monitoring systems which is able to provide both real-time monitoring and offline analysis of the detector operation. This chapter describes the \gls{L1T} \gls{DQM} applications developed and used for online monitoring and data certification for physics analyses of the during 2012-13 data taking.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -13,9 +13,9 @@ The author as member of the \gls{CMS} collaboration was required, like all other
 \section{Data Quality Monitoring}
 \label{SECTION:TechnicalWork_DataQualityMonitoring}
 
-% Status: DONE (reviewed J.Pela x1)
+% Status: DONE (reviewed J.Pela x1) (reviewed D. Colling x1)
 
-The \acrfull{DQM} is a critical monitoring system that has an important role in detector and operations efficiency. It also important in the certification of recorded data for physics analysis \cite{CMSTDR:CMSTridasTDRVol1,ARTICLE:CMSDataQualityMonitoringSoftWare_ExperienceAndFuture}. The \gls{DQM} system is an end-to-end solution that provides tools to create, fill, display and archive histograms and scalar monitors. It provided the ability to monitor the detector and \gls{DAQ} in real-time, analyse the reconstruction process, validate the experiment's software releases and its simulated data. The purpose of this system is to identify problems or errors in both hardware and software as early and accurately as possible.
+The \gls{DQM} is a critical monitoring system that has an important role in detector and operations efficiency. It also important in the certification of recorded data for physics analysis \cite{CMSTDR:CMSTridasTDRVol1,ARTICLE:CMSDataQualityMonitoringSoftWare_ExperienceAndFuture}. The \gls{DQM} system is an end-to-end solution that provides tools to create, fill, display and archive histograms and scalar monitors. It provided the ability to monitor the detector and \gls{DAQ} in real-time, analyse the reconstruction process, validate the experiment's software releases and its simulated data. The purpose of this system is to identify problems or errors in both hardware and software as early and accurately as possible.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -23,9 +23,9 @@ The \acrfull{DQM} is a critical monitoring system that has an important role in 
 \subsection{Online Monitoring}
 \label{SECTION:TechnicalWork_DataQualityMonitoring_OnlineMonitoring}
 
-% Status: DONE (reviewed J.Pela x1)
+% Status: DONE (reviewed J.Pela x1) (reviewed D. Colling x1)
 
-The online \gls{DQM} system is composed of several applications that are part of the \gls{CMS} data processing work flow. The software is executed at the \gls{CMS} point 5 computing cluster. Applications fall into two categories: \textit{high level trigger modules} and \textit{data quality monitoring modules}. The \textit{high level trigger modules} are run directly in the \gls{HLT} filter farm and can only produce a limited number of histograms with the purpose of monitoring that system or specific \gls{HLT} path. The \textit{data quality monitoring modules} run over event coming from a dedicated \gls{DQM} event stream with a rate of $5-10\,\hertz$. These events contain only the raw detector and trigger information. Each subsystem has its own application which can analyse all events from the stream or filter a subset with a predefined trigger selection. At the end of every luminosity section, which corresponds to $23.31\,\second$, histograms are gathered from the nodes where the applications are run and are merged together. The results are showed in real time in a web based application which is accessible by the shift crew and on call experts.
+The online \gls{DQM} system is composed of several applications that are part of the \gls{CMS} data processing work flow. The software is executed on the \gls{CMS} computing cluster at point 5. Applications fall into two categories: \textit{high level trigger modules} and \textit{data quality monitoring modules}. The \textit{high level trigger modules} are run directly on the \gls{HLT} filter farm and can only produce a limited number of histograms which of monitor that system or specific \gls{HLT} path. The \textit{data quality monitoring modules} run over events coming from a dedicated \gls{DQM} event stream with a rate of $5-10\,\hertz$. These events contain only the raw detector and trigger information. Each subsystem has its own application which can analyse all events from the stream or filter a subset with a predefined trigger selection. At the end of every luminosity section, which corresponds to $23.31\,\second$, histograms are gathered from the nodes where the applications are run and are merged together. The results are showed in real time in a web based application which is accessible by the shift crew and on call experts.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -33,13 +33,13 @@ The online \gls{DQM} system is composed of several applications that are part of
 \subsection{Offline Monitoring}
 \label{SECTION:TechnicalWork_DataQualityMonitoring_OfflineMonitoring}
 
-% Status: DONE (reviewed J.Pela x1)
+% Status: DONE (reviewed J.Pela x1) (reviewed D. Colling x1)
 
-The offline \gls{DQM} is used in numerous workflows including monitoring of the event reconstruction process, alignment and calibration validation, \gls{CMS} software release validation, etc. For all this task a standardized two step process is run. 
+The offline \gls{DQM} is used in numerous workflows including monitoring of the event reconstruction process, alignment and calibration validation, \gls{CMS} software release validation, etc. For all these tasks a standardized two step process is run. 
 
 In the first step histograms are produced in the same computing jobs of the task to be monitored and stored along with the rest of the event data. This is happens in multiple simultaneous jobs which depending on the task can be at Tier 0 or Tier 1 level.
 
-In the second \textit{harvesting step}, the histograms are extracted from the event data and summed together. The resulting histograms contain the full event yields from each run for each processed dataset. Applications running at this step have access to the detector conditions from the \gls{DCS} and the \gls{DAQ} and can produce new histograms such as summaries of the relevant quantities for each run.
+In the second, \textit{harvesting step}, the histograms are extracted from the event data and summed together. The resulting histograms contain the full event yields from each run for each processed dataset. Applications running at this step have access to the detector conditions from the \gls{DCS} and the \gls{DAQ} and can produce new histograms like summaries of the relevant quantities for each run.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -47,15 +47,17 @@ In the second \textit{harvesting step}, the histograms are extracted from the ev
 \section{Level 1 Trigger Data Quality Monitoring}
 \label{SECTION:TechnicalWork_L1TDQM}
 
-% Status: DONE (reviewed J.Pela x1)
+% Status: DONE (reviewed J.Pela x1) (reviewed D. Colling x1)
 
-The \acrfull{L1T} \acrfull{DQM} is composed of four applications. The first two application run as part of the online \gls{DQM} system with the mission of monitoring the trigger and trigger emulation in real-time. The second pair of applications runs in the offline \gls{DQM} system as part of the (re-)reconstruction workflow with the main function of providing information for physics data certification.
+The \gls{L1T} \gls{DQM} is composed of four applications. The first two application run as part of the online \gls{DQM} system and monitor the trigger hardware and emulation in real-time. The second pair of applications runs in the offline \gls{DQM} system as part of the (re-)reconstruction workflow with and provide information for physics data certification.
 
-The first of the two online applications directly monitors the operation of the trigger. Each trigger subsystem produces plots of its own relevant quantities including information on the produced objects which allows to pin-point the origin of problems. Additionally, a set of monitoring tools observe the final objects and global behaviour of the system. Key aspects are analysed such as the value of reference algorithm rates, synchronization of firing, finding regions of the detector that show unexpected high/low rate. The second online application compares the results of the trigger against a real-time software emulation of the system which should allow quick detection of trigger miss configuration or degradation of quality of operation.
+The first of the two online applications directly monitors the operation of the trigger. Each trigger subsystem produces plots of its own relevant quantities including information which allows it to pin-point the origin of problems. Additionally, a set of monitoring tools observe the final objects and global behaviour of the system. Key aspects are analysed such as the value of reference algorithm rates, synchronization of firing, finding regions of the detector that show unexpected high/low rate. 
+
+The second online application compares the results of the trigger against a real-time software emulation of the system which should allow quick detection of trigger miss configuration or degradation of quality of operation.
 
 Both offline monitoring applications replicate the analysis preformed by their online counterparts but over a the complete recorded dataset for each run.
 
-In the next sections we will focus on the trigger monitoring tools that the author developed or improved.
+In the next sections we will focus on the trigger monitoring tools that the author developed or significantly improved.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -123,7 +125,7 @@ Similarly to the \gls{L1T} rates monitoring tool, automatic tests are configured
 
 % Status: DONE (reviewed J.Pela x1)
 
-The \acrfull{BPTX} system is composed of two beam detectors located in each beam pipe $175\,\meter$ upstream of the \gls{CMS} experiment \cite{ARTICLE:TheCMSExperiment}. This detectors were designed to provide precise information about the bunch structure and timing of each beam and have sensitivity to time structures under $25\,\nano\second$. 
+The \gls{BPTX} system is composed of two beam detectors located in each beam pipe $175\,\meter$ upstream of the \gls{CMS} experiment \cite{ARTICLE:TheCMSExperiment}. This detectors were designed to provide precise information about the bunch structure and timing of each beam and have sensitivity to time structures under $25\,\nano\second$. 
 
 In early 2012 a problem was identified in the \gls{L1T} where some events would fire on the bunch crossing before the actual event. It was discovered that this effect was most likely connect to sensors in the calorimeter system being directly hit by particles causing a large out-of-time signal. Unfortunately, the trigger has a set of rules intended to limit the event rate. They are necessary in order to allow for the necessary latency to extract the information from the detector in case a collision is accepted. One of these rules states that if a collision is accepted by the \gls{L1T} the next 2 collisions are ignore by the system \cite{CMSTDR:CMSTridasTDRVol1}. This means that if a specific event causes the \gls{L1T} to fire on the previous bunch crossing, that event will be vetoed by trigger rules. To avoid losing interesting events due to this pre-firing problem the signal of both \gls{BPTX} detectors logical AND was advanced by one bunch crossing and connected to the trigger via a technical algorithm bit. This bit in turn was used to veto the \gls{L1T} from firing.
 
