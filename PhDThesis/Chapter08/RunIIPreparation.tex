@@ -23,6 +23,21 @@ The first step is always the definition of a trigger condition for data taking. 
 % /vols/cms02/jca10/work/slc6/dev01/CMSSW_7_2_0_pre8/src
 % /vols/cms02/jca10/work/slc6/dev01/testPhD/CMSSW_7_2_0_pre8/src
 %
+% Executable:
+% /vols/cms02/jca10/work/slc6/dev01/testPhD/HEPFW/src/VBFHiggsToInvisible/TriggerAnalysisRun2015/exe/vbfinv_getTriggerResults.cxx
+%
+% L1T plots
+% cd /vols/cms02/jca10/work/slc6/dev01/testPhD/CMSSW_7_2_0_pre8/src/jobs
+% vbfinv_getTriggerResults --l1t
+% cd /vols/cms02/jca10/work/slc6/dev01/testPhD/CMSSW_7_2_0_pre8/src/jobs/Run_1/SameDijet/DijetVBF30_DEta3p5/ <- Plots here
+%
+% HLT plots
+% cd 
+% vbfinv_getTriggerResults --hlt2 HLT_Run2015_ETM70/ HLT_Run2015_ETM70_NOTPFMET170/
+% vbfinv_getTriggerResults --hlt2 HLT_Run2015_DijetVBF-SingleJet96/ HLT_Run2015_DijetVBF-SingleJet96_NOTPFMET170/
+% vbfinv_getTriggerResults --hlt2 HLT_Run2015_DijetVBF-ETM50/ HLT_Run2015_DijetVBF-ETM50_NOTPFMET170/ 
+% cd 
+%
 % Oct 21  2014 jobs
 % Oct 14  2014 jobsHLT
 % Oct 22  2014 jobsHLTv2
@@ -59,7 +74,7 @@ In order to propose new triggers it was decided to consider low rate and high ra
 
 To study new \gls{L1T} algorithms for a never before attempted collision energy \gls{MC} simulation must be used. At this level the system has to analyse all collisions which are produces by the \gls{LHC} which implies that the test simulated events sample cannot have significant generation cuts. For this purpose, so called neutrino gun events samples are used. In this event simulations the hard process is replaced by the production of a single neutrino which will escape the detector without leaving any deposit. \acrfull{PU} jets are added to the event following a Poissonian distribution with its centre being chosen according to predicted \gls{LHC} performance scenarios. This \gls{PU} events are selected randomly from a large \gls{QCD} multi-jet sample which where generated with minimum restrictions, this type of sample normally is denominated \textit{Minimum Bias \gls{QCD}}. The final event content will be the overlap of many minimum bias events without any hard process as expected from the great majority of the collision.
 
-At the \gls{HLT} the events are already pre-selected by the \gls{L1T} and the dominating processes at this point are dependent on the characteristics of both the \gls{L1T} seeding algorithm and the \gls{HLT} conditions. For the \gls{CMS} \gls{VBF} Higgs to invisible analysis the trigger conditions take advantage of the topological conditions of the \gls{VBF} jets and \gls{MET}. These characteristics make high energy \gls{QCD} multi-jets events the dominating source of rate for any \gls{HLT} paths that will collect specifically our signal process.
+At the \gls{HLT} the events are already pre-selected by the \gls{L1T} and the dominating processes at this point are dependent on the characteristics of both the \gls{L1T} seeding algorithm and the \gls{HLT} conditions. For the \gls{CMS} \gls{VBF} Higgs to invisible analysis the trigger conditions take advantage of the topology of the \gls{VBF} jets and \gls{MET}. These characteristics make high energy \gls{QCD} multi-jets events the dominating source of rate for any \gls{HLT} paths that will collect specifically our signal process.
 
 The trigger system that was present in the begging of Run II was an upgraded version of the one previously used. As such, its response had to be emulated using available \gls{MC} samples. The latest version available of the \gls{L1T} stage 2 and \gls{HLT} systems description was used to preform these studies.
 
@@ -75,11 +90,11 @@ The target conditions of \gls{LHC} running conditions used in this study and req
 
 In the \gls{L1T} trigger menu, the reference algorithm was selected as the lowest unprescaled \gls{MET} trigger available, which was \verb|L1_ETM70|. This algorithm selects events with \gls{L1T} \gls{MET} of $70\,\GeV$ which is only calculated in $|\eta|<3.0$ range. It has an expected pure rate of $\approx 7\,\kilo\hertz$ and a signal efficiency of 27-28\%. 
 
-When designing an offline analysis normally it is desirable to selected events in a parameter space where the trigger efficiency is close to 100\%. Avoiding the need to re-weight the \gls{MC} simulated events to match the trigger behaviour. Unfortunately, even if the default \gls{L1T} algorithm has a reasonable signal collection efficiency, it is likely to only be fully efficient when selecting events with offline \gls{PF} \gls{MET} two to three times higher than the trigger threshold. This means that the value would mean a significant increase of this offline variable requirement when compared with that used during Run I. For these reason the priority was to find a solution that would allow a lower threshold to be applied to \gls{L1T} \gls{MET} by requiring additional conditions.
+When designing an offline analysis normally it is desirable to selected events in a parameter space where the trigger efficiency is close to 100\%. Avoiding the need to re-weight the \gls{MC} simulated events to match the trigger behaviour. Unfortunately, even if the default \gls{L1T} algorithm has a reasonable signal collection efficiency, it is likely to only be fully efficient when selecting events with offline \gls{PF} \gls{MET} two to three times higher than the trigger threshold. Implying a significant increase of this offline variable requirement when compared with that used during Run I. For these reason the priority was to find a solution that would allow a lower threshold to be applied to \gls{L1T} \gls{MET} by requiring additional conditions.
 
-To determine the best possible algorithm an automatic optimization method was implemented. Several base dijet configurations were defined with one key variable being allowed to float to achieve a target rate. The a maximum rate of $5\,\kilo\hertz$ was set as an optimistic acceptable pure rate for such a proposed algorithm. All base configurations start by requiring at least on \gls{L1T} dijet being on opposite sides of the detector (\gls{VBF} condition). All possible configuration were tested requiring the selected jets to have  $\pt>{30,40}$ and dijet $\Delta\eta>{3.0,3.5}$. Scanned variables included lead jet \pt, sub-lead jet \pt, dijet $M_{jj}$, \gls{L1T} \gls{MET} and \gls{L1T} \gls{MHT}. 
+To determine the best possible algorithm an automatic optimization method was implemented. Several base dijet configurations were defined with one key variable being allowed to float to achieve a target rate. A maximum rate of $5\,\kilo\hertz$ was set as an optimistic acceptable pure rate for such an algorithm. All base configurations start by requiring at least one \gls{L1T} dijet being on opposite sides of the detector (\gls{VBF} condition). Many possible configuration were tested requiring the selected jets to have  $\pt>{30,40}$ and dijet $\Delta\eta>{3.0,3.5}$. Scanned variables included lead jet \pt, sub-lead jet \pt, dijet $M_{jj}$, \gls{L1T} \gls{MET} and \gls{L1T} \gls{MHT} (minus the momentum sum of all \gls{L1T} jets). 
 
-Since the reference trigger already collects a significant amount of signal, for each possible \gls{L1T} selection criteria the additional signal efficiency to \verb|L1_ETM70| is calculated. Table \ref{TABLE:RunIITriggerStudies_L1TAlgorithmDevelopment_OptimizationResults} shows the best results obtained by the automatic procedure, ordered in descending value of additional efficiency.
+As the reference trigger already collects a significant fraction of the signal, for each possible \gls{L1T} selection criteria the additional signal efficiency to \verb|L1_ETM70| is calculated. Table \ref{TABLE:RunIITriggerStudies_L1TAlgorithmDevelopment_OptimizationResults} shows the best results obtained by the automatic procedure, ordered in descending value of additional efficiency.
 
 \begin{table}[!htb]
 \centering
@@ -88,26 +103,26 @@ Since the reference trigger already collects a significant amount of signal, for
 \hline
 \multicolumn{3}{|c|}{Event Selection Criteria} & L1T & \multicolumn{2}{c|}{Signal Efficiency [\%]} \\
 \hline
-Base  & Additional & Value [$\GeV$] & Rate  & Total &  Additional \\
+Base  & Additional & Value [$\GeV$] & Rate [$\hertz$]  & Individual &  Additional \\
 \hline\hline
 Dijet $\text{VBF} + \pt^{jets}>30 + \Delta\eta>3.5$ & Lead Jet \pt     & 97   & 4632 & 14.6 & 5.5 \\
 Dijet $\text{VBF} + \pt^{jets}>40 + \Delta\eta>3.5$ & Lead Jet \pt     & 97   & 4356 & 13.5 & 5.2 \\
 Dijet $\text{VBF} + \pt^{jets}>30 + \Delta\eta>3.5$ & ETM              & 51   & 4961 & 13.6 & 4.0 \\
 Dijet $\text{VBF} + \pt^{jets}>30 + \Delta\eta>3.0$ & ETM              & 56   & 4890 & 17.6 & 3.9 \\
-Dijet $\text{VBF} + \pt^{jets}>40 + \Delta\eta>3.0$ & Dijet $M_{jj}$   & 1760 & 4991 & 06.5 & 3.7 \\
+Dijet $\text{VBF} + \pt^{jets}>40 + \Delta\eta>3.0$ & Dijet $M_{jj}$   & 1760 & 4991 &  6.5 & 3.7 \\
 Dijet $\text{VBF} + \pt^{jets}>40 + \Delta\eta>3.5$ & ETM              & 51   & 4482 & 12.4 & 3.7 \\
 Dijet $\text{VBF} + \pt^{jets}>40 + \Delta\eta>3.5$ & MHT              & 47   & 4963 & 12.5 & 3.7 \\
-Dijet $\text{VBF} + \pt^{jets}>40 + \Delta\eta>3.5$ & Dijet $M_{jj}$   & 1760 & 4991 & 06.5 & 3.7 \\
+Dijet $\text{VBF} + \pt^{jets}>40 + \Delta\eta>3.5$ & Dijet $M_{jj}$   & 1760 & 4991 &  6.5 & 3.7 \\
 Dijet $\text{VBF} + \pt^{jets}>40 + \Delta\eta>3.0$ & ETM              & 56   & 4589 & 16.4 & 3.6 \\
 Dijet $\text{VBF} + \pt^{jets}>30 + \Delta\eta>3.5$ & MHT              & 49   & 4518 & 13.1 & 3.6 \\
 \hline
 \end{tabular}
 }
-\caption{Results of the search for \gls{L1T} algorithms with a maximum rate of $5\,\kilo\hertz$ for the \textit{\gls{TSG} high luminosity scenario}. Base criteria is fixed while an additional variable is scanned and its value is set to the by the allowed maximum rate. Results are presented in descending order of additional signal collection efficiency relative to L1\_ETM70.}
+\caption{Results of the search for \gls{L1T} algorithms with a maximum rate of $5\,\kilo\hertz$ for the \textit{\gls{TSG} high luminosity scenario}. Base criteria is fixed while an additional variable is scanned and its value is set to the by the allowed maximum rate. Results are presented in descending order of additional signal collection efficiency relative to L1\_ETM70, while individual efficiency is the sole algorithm signal efficiency.}
 \label{TABLE:RunIITriggerStudies_L1TAlgorithmDevelopment_OptimizationResults}
 \end{table}
 
-The obtained results are surprising since the highest additional efficiency algorithm found does not included any \gls{L1T} \gls{MET} requirement. Instead it requires that the leading \gls{L1T} jet in the event is at least $97\,\GeV$. As expected by adding a dijet requirement  the \gls{MET} requirement could be reduced to about $50\,\GeV$. Both a \gls{MHT} and dijet $M_{jj}$ requirements preform significantly worst than the single jet and \gls{MET} options. The two following criteria were selected after rounding to the closest possible \gls{L1T} thresholds for further studies:
+The obtained results are surprising as the highest additional efficiency algorithm found does not included any \gls{L1T} \gls{MET} requirement. Instead it requires that the leading \gls{L1T} jet in the event is at least $97\,\GeV$. As expected by adding a dijet requirement  the \gls{MET} requirement could be reduced to about $50\,\GeV$. Both a \gls{MHT} and dijet $M_{jj}$ requirements preform significantly worst results than the single jet and \gls{MET} options. The two following criteria were selected after rounding to the closest possible \gls{L1T} thresholds for further studies:
 
 %TODO: Check rounding
 
@@ -120,8 +135,8 @@ For both of this algorithms the plots resulting from the scan over the additiona
 
 \begin{figure}[!htp]%
 \centering
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/TriggerStudies/L1T/DijetVBF30_DEta3p5_-_l1t_etm.png}}\qquad
-\subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/TriggerStudies/L1T/DijetVBF30_DEta3p5_-_dijet_pt0.png}}\\
+\subfloat[][]{\includegraphics[width=0.49\linewidth]{Chapter08/TriggerStudies/L1T/DijetVBF30_DEta3p5_-_l1t_etm.pdf}}
+\subfloat[][]{\includegraphics[width=0.49\linewidth]{Chapter08/TriggerStudies/L1T/DijetVBF30_DEta3p5_-_dijet_pt0.pdf}}\\
 \caption{Plots produced by the optimization process of possible \gls{L1T} algorithms with a maximum rate of $5\,\kilo\hertz$ for the \textit{\gls{TSG} high luminosity scenario}. Both figures require events with at least one dijet in opposite sides of the detector passing $\pt^{jets}>30$ and $\Delta\eta>3.5$. Figure (a) shows the scan over \gls{L1T} \gls{MET} while figure (b) shows the scan over leading jet \pt. The red line is the estimated rate in $\hertz$, the blue line the faction of accepted signal and the green shaded area the additional efficiency relative to L1\_ETM70.}
 \label{FIGURE:RunIIPreparation_L1TAlgorithmDevelopment_VariableScan}
 \end{figure}
@@ -134,7 +149,7 @@ For both of this algorithms the plots resulting from the scan over the additiona
 
 %Status: DONE (reviewed J.Pela x1)
 
-In the \gls{HLT} trigger menu, the reference trigger was selected as the lowest unprescaled \gls{PF} \gls{MET} trigger available which was \verb|HLT_PFMET170_NoiseCleaned|. This algorithm is seeded by \verb|L1_ETM70| and selects events with \gls{HLT} \gls{PF} \gls{MET} over $170\,\GeV$ which is calculated in the full $\eta$ coverage of the detector. This trigger was calculated to have an expected \gls{HLT} pure rate of $\approx 4.5\,\hertz$ and a signal collection efficiency of 9.4\%. 
+In the \gls{HLT} trigger menu, the reference trigger was selected as the lowest unprescaled \gls{PF} \gls{MET} trigger available which was \verb|HLT_PFMET170_NoiseCleaned|. This algorithm is seeded by \verb|L1_ETM70| and selects events with \gls{HLT} \gls{PF} \gls{MET} over $170\,\GeV$ which is calculated in the full $\eta$ coverage of the detector. This trigger was calculated to have an expected \gls{HLT} pure rate of $\approx 4.5\,\hertz$ and a signal collection efficiency of 9.4\%, while the Run I prompt trigger efficiency was $\approx 7.6\%$ and the parked trigger between $\approx 10.0\%$ and $\approx 12.9\%$ depending in the acquisition era. 
 
 Similarly to the \gls{L1T} search algorithm an automatic approach was developed to obtain the best possible algorithm thresholds. In this case the only variable scanned to fulfil the desired rate algorithm was \gls{HLT} \gls{PF} \gls{MET}. A \textit{grid search} method was implemented, where all possible base configuration of thresholds were tested. For each set of thresholds the signal efficiency, selection rates, and additional efficiency to reference \gls{HLT} path were calculated. 
 
@@ -147,7 +162,7 @@ Events were selected when at least one \gls{HLT} dijet was found, where both jet
   \item Dijet $\Delta\eta>{3.5,3.7,3.9,4.1,4.3,4.5}$
 \end{itemize}
 
-The \gls{PF} \gls{MET} minimum threshold was optimised for the signal \gls{HLT} path to select for the low bandwidth scenario a rate of $\approx 1.5\,\hertz$ and $5.0\,\hertz$ for the high bandwidth scenario. For the sake of brevity and since the high rate scenario was accepted by the \gls{TSG} group only this results are showed in the following section.
+The \gls{PF} \gls{MET} minimum threshold was optimised for the signal \gls{HLT} path considering a conservative low target rate of $\approx 1.5\,\hertz$ and a aggressive high target rate  of $5.0\,\hertz$. The assumption was that the high target rate trigger would be the base of the proposal to the \gls{TSG} group, but if there was limited available bandwidth in the menu we would have the fall back conservative trigger proposal. For the sake of brevity and as the high rate scenario was accepted by the \gls{TSG} group only these results are shown in the following section.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
@@ -157,7 +172,7 @@ The \gls{PF} \gls{MET} minimum threshold was optimised for the signal \gls{HLT} 
 
 %Status: DONE (reviewed J.Pela x1)
 
-The baseline \gls{HLT} signal path was optimized for events passing the already available \gls{L1T} reference algorithm which is \verb|L1_ETM70|. All the obtained paths for a $5\,\hertz$ maximum \gls{HLT} rate have significantly lower signal collection efficiency than the reference \gls{HLT} path. Table \ref{TABLE:RunIIPreparation_HLT_Seed_L1TETM70} shows the best algorithm thresholds for maximum total signal efficiency, maximum additional signal efficiency and lowest lowest \gls{PF} \gls{MET} threshold. For each category of results, the best dijet symmetric and asymmetric \pt thresholds results are presented.
+The baseline \gls{HLT} signal path was optimized for events passing the already available \gls{L1T} reference algorithm which was \verb|L1_ETM70|. All the obtained paths for a $5\,\hertz$ maximum \gls{HLT} rate have significantly lower signal collection efficiency than the reference \gls{HLT} path. Table \ref{TABLE:RunIIPreparation_HLT_Seed_L1TETM70} shows the best algorithm thresholds for the maximum total signal efficiency, maximum additional signal efficiency and lowest lowest \gls{PF} \gls{MET} threshold. For each category of results, the best dijet symmetric and asymmetric \pt thresholds results are presented.
 
 \begin{table}[!htb]
 \centering
@@ -204,6 +219,29 @@ Since the difference was small between these two trigger paths, for simplicity t
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{VBF Higgs to invisible trigger turn ons}
+\label{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment_TriggerTurnOns}
+
+In the end of 2015 data taking run trigger analysis was performed with the full luminosity recorded with $8\,\TeV$. To study the trigger efficiency in an unbiased way events were used that were recorded through a single muon trigger. The \gls{VBF} Higgs to invisible dedicated \gls{HLT} trigger has requirements in four variables, $\text{MET}_{no-\mu}$, dijet $pt_T^{jets}$, dijet $\Delta\eta$ and dijet $M_{jj}$. To study the trigger efficiency in selecting events depending on the offline values of this variables (trigger turn ons) they must be analysed individually. 
+
+To decouple the dependency between them, we require all except the one being analysed to be above a threshold where in that specific variable the trigger is 100\% efficient. The offline selection used requires events with lead dijet $p_{T}^{jets}>80\,\GeV$, dijet $M_{jj}>600\,\GeV$, dijet $\Delta\eta_{jj}>3.6$ and $\text{MET}_{no-\mu}>300\,\GeV$. When analysing variable turn on the corresponding event selection requirement is removed. Figure \ref{FIGURE:RunIIPreparation_HLT_TriggerTurnOns} shows the trigger turn ons for all variables used on the trigger as a function of their offline counterparts. 
+
+\begin{figure}[!htp]
+\centering
+\subfloat[][]{\includegraphics[width=0.49\linewidth]{Chapter08/TriggerStudies/TurnOns/nunu_metnomuons.pdf}}
+\subfloat[][]{\includegraphics[width=0.49\linewidth]{Chapter08/TriggerStudies/TurnOns/nunu_jet2_pt.pdf}} \\
+\subfloat[][]{\includegraphics[width=0.49\linewidth]{Chapter08/TriggerStudies/TurnOns/nunu_dijet_deta.pdf}} 
+\subfloat[][]{\includegraphics[width=0.49\linewidth]{Chapter08/TriggerStudies/TurnOns/nunu_dijet_M.pdf}} \\
+\caption{Trigger turn ons for the \gls{VBF} Higgs to invisible dedicated trigger for (a) $\text{MET}_{no-\mu}$ (includes comparison with the trigger menu \gls{MET} only trigger), (b) dijet sub-lead jet \pt, (c) dijet $\Delta\eta_{jj}$ and (d) dijet $M_{jj}$~\cite{IMAGEREF:LHCJamboree}.}
+\label{FIGURE:RunIIPreparation_HLT_TriggerTurnOns}
+\end{figure}
+
+It can be seen that the dedicated trigger preforms significantly better than the \gls{MET} only trigger which selects event with \gls{PF} $\text{MET}>170\,\GeV$, when considering the $\text{MET}_{no-\mu}$ turn on. In this variable 90\% efficiency is reached around 
+$240\,\GeV$, for the dijet sub-leading jet $\pt$ around $70\,\GeV$, for dijet $\Delta\eta_{jj}$ around 3.7 and for dijet $M_{jj}$ a precise turn on cannot be described with the current statistics but it appears to sharply rise to 100\% just after the trigger requirement of $600\,\GeV$. With these results we can conclude that the trigger is performing as expected and is significantly than the \gls{MET} only trigger considering the analysis needs.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% SUBSUBSECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Signal path with L1T seed Dijet + MET}
 \label{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment_L1TDijetMET}
 
@@ -222,18 +260,18 @@ Type       & $p_T^{jet_1},p_T^{jet_2}\,[\GeV]$ & VBF & $\Delta\eta$ & $M_{jj}\,[
 \hline\hline
 \multicolumn{9}{|c|}{Maximum efficiency for jets} \\
 \hline\hline
-Asymmetric &                             60,40 & Yes &          3.7 &              500 &          144 &           4.76 &     0.0459 &            1.57 \\
-Symmetric  &                             40,40 & Yes &          3.5 &              600 &          145 &           4.69 &     0.0448 &            1.52 \\
+Asymmetric &                             60,40 & Yes &          3.7 &              500 &          144 &           4.76 &     4.59 &            1.57 \\
+Symmetric  &                             40,40 & Yes &          3.5 &              600 &          145 &           4.69 &     4.48 &            1.52 \\
 \hline\hline
 \multicolumn{9}{|c|}{Maximum Additional Efficiency} \\
 \hline\hline
-Asymmetric &                             60,40 & Yes &          4.1 &              500 &          140 &           4.77 &     0.0439 &            1.71 \\
-Symmetric  &                             40,40 & Yes &          4.1 &              600 &          141 &           4.95 &     0.0423 &            1.62 \\
+Asymmetric &                             60,40 & Yes &          4.1 &              500 &          140 &           4.77 &     4.39 &            1.71 \\
+Symmetric  &                             40,40 & Yes &          4.1 &              600 &          141 &           4.95 &     4.23 &            1.62 \\
 \hline\hline
 \multicolumn{9}{|c|}{Lowest MET Threshold} \\
 \hline\hline
-Symmetric  &                             60,60 & Yes &          4.5 &             1000 &          122 &           4.93 &     0.0228 &            1.02 \\
-Asymmetric &                            100,40 & Yes &          4.5 &             1100 &          125 &           4.87 &     0.0264 &            1.00 \\
+Symmetric  &                             60,60 & Yes &          4.5 &             1000 &          122 &           4.93 &     2.28 &            1.02 \\
+Asymmetric &                            100,40 & Yes &          4.5 &             1100 &          125 &           4.87 &     2.64 &            1.00 \\
 \hline
 \end{tabular}
 }
@@ -241,7 +279,7 @@ Asymmetric &                            100,40 & Yes &          4.5 &           
 \label{TABLE:RunIIPreparation_HLT_Seed_L1TDijetMET}
 \end{table}
 
-As expected lowering the \gls{L1T} \gls{MET} threshold allow a bigger additional signal efficiency to be achieved. The best algorithms in this benchmark quantity, similarly to the previous study, also requires \gls{HLT} $\text{MET}>140\,\GeV$  and similar dijet thresholds. Implying the added efficiency comes from recovering events that fail \verb|L1_ETM70|. It is also interesting that the total efficiency is lower than seen in table \ref{TABLE:RunIIPreparation_HLT_Seed_L1TETM70}, which should be caused by the additional \gls{L1T} jet requirements. Plots of the two best additional signal efficiency algorithms scans of \gls{PF} \gls{MET} can be found in figure \ref{FIGURE:RunIIPreparation_HLT_Seed_L1TDijetMET}.
+As expected lowering the \gls{L1T} \gls{MET} threshold allow a bigger additional signal efficiency to be achieved. The best algorithms in this benchmark quantity, similarly to the previous study, also requires \gls{HLT} $\text{MET}>140\,\GeV$  and similar dijet thresholds. Implying the added efficiency comes from recovering events that fail \verb|L1_ETM70|. It is also interesting that the total efficiency is lower than seen in table \ref{TABLE:RunIIPreparation_HLT_Seed_L1TETM70}, which could be caused by the additional \gls{L1T} jet requirements. Plots of the two best additional signal efficiency algorithms scans of \gls{PF} \gls{MET} can be found in figure \ref{FIGURE:RunIIPreparation_HLT_Seed_L1TDijetMET}.
 
 \begin{figure}[!htp]%
 \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/TriggerStudies/HLT/Seed_DijetVBF30_DEta3p5_ETM50/HLT_DijetVBF60-40_DEta4p1_MJJ500.pdf}}\qquad
@@ -250,7 +288,7 @@ As expected lowering the \gls{L1T} \gls{MET} threshold allow a bigger additional
 \label{FIGURE:RunIIPreparation_HLT_Seed_L1TDijetMET}
 \end{figure}
 
-The tail of additional efficiency can be seen continuing above \gls{PF} $\text{MET}>170\,\GeV$, further supporting that efficiency is being recovered from events lost by the \verb|L1_ETM70| requirement. The best additional signal efficiency algorithm optimized for this \gls{L1T} dijet plus \gls{MET} seed combined with the \gls{HLT} reference trigger records 11.11\% of the simulated signal process. This dedicated \gls{HLT} trigger, when compared with the proposed dedicated trigger for Run II, gives more 14.8\% additional efficiency with an increase of 2.0\% in total signal efficiency.
+The tail of additional efficiency can be seen continuing above \gls{PF} $\text{MET}>170\,\GeV$, further supporting the hypothesis that efficiency is being recovered from events lost by the \verb|L1_ETM70| requirement. The best additional signal efficiency algorithm optimized for this \gls{L1T} dijet plus \gls{MET} seed combined with the \gls{HLT} reference trigger records 11.11\% of the simulated signal process. This dedicated \gls{HLT} trigger, when compared with the proposed dedicated trigger for Run II, gives 14.8\% additional efficiency with an increase of 2.0\% in total signal efficiency.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSUBSECTION
@@ -292,7 +330,7 @@ Asymmetric &                            100,40 & Yes &          4.3 &           
 \label{TABLE:RunIITriggerStudies_HLT_Seed_L1TDijetSingleJet}
 \end{table}
 
-The best additional signal efficiency \gls{HLT} trigger algorithm found was highly asymmetric as expected. Surprisingly, this is the best additional efficiency algorithm obtained in all studies. Once gain, the determined \gls{PF} \gls{MET} was $140\,\GeV$, suggesting that the recovered efficiency come from the absence of an \gls{L1T} \gls{MET} restriction combined with the asymmetric topological requirements. Total efficiency is also below the algorithms based on the \verb|L1_ETM70| seed. Since the best additional efficiency configurations are selected, this implies that phase space lost by reference algorithm is being recovered at the cost of total efficiency. Plots of the two best additional signal efficiency algorithms \gls{PF} \gls{MET} scans can be found in figure \ref{FIGURE:RunIITriggerStudies_HLT_Seed_L1TDijetSingleJet}.
+The best additional signal efficiency \gls{HLT} trigger algorithm found was highly asymmetric, as expected. Surprisingly, this is the best additional efficiency algorithm obtained in all studies. Once gain, the determined \gls{PF} \gls{MET} was $140\,\GeV$, suggesting that the recovered efficiency come from the absence of an \gls{L1T} \gls{MET} restriction combined with the asymmetric topological requirements. Total efficiency is also below the algorithms based on the \verb|L1_ETM70| seed. Since the best additional efficiency configurations are selected, this implies that phase space lost by reference algorithm is being recovered at the cost of total efficiency. Plots of the two best additional signal efficiency algorithms \gls{PF} \gls{MET} scans can be found in figure \ref{FIGURE:RunIITriggerStudies_HLT_Seed_L1TDijetSingleJet}.
 
 \begin{figure}[!htp]%
 \centering
@@ -312,9 +350,9 @@ The best additional signal efficiency algorithm optimized for this \gls{L1T} dij
 
 %Status: DONE (reviewed J.Pela x1)
 
-One of the main systematics for the Run II analysis was the lack of statistics on the background control regions. In an attempt to solve this problem in Run II it was seen as desirable to design a trigger algorithm with lower thresholds to study this regions. To allow the lowering of thresholds the trigger has to be prescaled. The target rate is for the low bandwidth scenario $0.1\,\hertz$ and $0.5\,\hertz$ for the high bandwidth scenario.
+One of the main systematics for the Run II analysis was the lack of statistics on the background control regions. In an attempt to solve this problem in Run II it was seen as desirable to design a trigger algorithm with lower thresholds to study these regions. To allow the lowering of thresholds the trigger has to be prescaled. The target rate is for the low bandwidth scenario $0.1\,\hertz$ and $0.5\,\hertz$ for the high bandwidth scenario.
 
-Considering the chosen dedicated \gls{HLT} trigger path presented in section \ref{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment_L1ETM70}, it was decided to make a systematics path with the lowest possible \gls{MET} requirement both at \gls{L1T} and \gls{HLT}. The \gls{L1T} algorithm chosen to seed this trigger path was \verb|L1_ETM50| which in the \gls{TSG} proposed menu is prescaled by 1000. The same automatic procedure used for the signal path studies was used here again, considering that the maximum rate with this seed before any prescale applied would be $500\,\hertz$ for the high bandwidth scenario of an \gls{HLT} output rate of $0.5\,\hertz$. The same base dijet configuration as the dedicated signal path was used, selecting events with a dijet on opposite sides of the detector passing requirements: $p_T^{jet_1},p_T^{jet_2}>40,40\,\GeV$, $\Delta\eta>3.5$ and $M_{jj}>600\,\GeV$. The obtained \gls{HLT} \gls{PF} \gls{MET} thresholds was of $80\,\GeV$ for an unprescaled rate of $505.75\,\hertz$. The final predicted rate for an \gls{HLT} prescale of 1 was $0.5\,\hertz$ and $0.1\,\hertz$ for an \gls{HLT} prescale of 5, as required by the study targets for each scenario. A plot of the scan over \gls{HLT} \gls{PF} \gls{MET} results from the optimization procedure can be found in figure \ref{FIGURE:RunIITriggerStudies_SystematicsPath}.
+Considering the chosen dedicated \gls{HLT} trigger path presented in section \ref{SECTION:RunIITriggerStudies_HLTAlgorithmDevelopment_L1ETM70}, it was decided to make a background path with the lowest possible \gls{MET} requirement both at \gls{L1T} and \gls{HLT}. The \gls{L1T} algorithm chosen to seed this trigger path was \verb|L1_ETM50| which in the \gls{TSG} proposed menu is prescaled by 1000. The same automatic procedure used for the signal path studies was used here again. The maximum rate for this seed before any prescale applied was $500\,\hertz$ for the high bandwidth scenario of an \gls{HLT} output rate of $0.5\,\hertz$. The same base dijet configuration as the dedicated signal path was used, selecting events with a dijet on opposite sides of the detector passing requirements: $p_T^{jet_1},p_T^{jet_2}>40,40\,\GeV$, $\Delta\eta>3.5$ and $M_{jj}>600\,\GeV$. The obtained \gls{HLT} \gls{PF} \gls{MET} thresholds was of $80\,\GeV$ for an unprescaled rate of $505.75\,\hertz$. The final predicted rate for an \gls{HLT} prescale of 1 was $0.5\,\hertz$ and $0.1\,\hertz$ for an \gls{HLT} prescale of 5, as required by the study targets for each scenario. A plot of the scan over \gls{HLT} \gls{PF} \gls{MET} results from the optimization procedure can be found in figure \ref{FIGURE:RunIITriggerStudies_SystematicsPath}.
 
 \begin{figure}[!htp]%
 \centering
@@ -323,7 +361,7 @@ Considering the chosen dedicated \gls{HLT} trigger path presented in section \re
 \label{FIGURE:RunIITriggerStudies_SystematicsPath}
 \end{figure}
 
-It was decided to propose to \gls{TSG} the lowest rate path with prescale 1000 at \gls{L1T} and 5 at \gls{HLT}. This proposal was accepted and a version of this trigger using \gls{PF} $\text{MET}_{no-\mu}$ was implemented and integrated into the standard \gls{CMS} trigger menu and was used to record data during the full 2015 Run II campaign.
+It was decided to propose to the \gls{TSG} the lowest rate background path with prescale 1000 at \gls{L1T} and 5 at \gls{HLT}. This proposal was accepted and a version of this trigger using \gls{PF} $\text{MET}_{no-\mu}$ was implemented and integrated into the standard \gls{CMS} trigger menu and was used to record data during the full 2015 Run II campaign.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -335,11 +373,11 @@ It was decided to propose to \gls{TSG} the lowest rate path with prescale 1000 a
 
 A complete study was preformed to define trigger conditions to record data during the \gls{LHC} Run II to be used by the \gls{VBF} Higgs to invisible analysis. Two \gls{HLT} triggers were proposed and accepted by the \gls{TSG} and included in the used 2015 trigger menus. 
 
-Considering a \gls{SM} \gls{VBF} Higgs to Invisible process where the higgs mass is $125\,\GeV$, the signal is gathered by a combination of a general purpose trigger path, \verb|HLT_PFMET170_NoiseCleaned| and a dedicated trigger. The dedicated trigger is seeded by \verb|L1_ETM70| and selects events with at least one dijet on opposite sides of the detector passing requirements $p_T^{jets}>40\,\GeV$, $\Delta\eta>3.5$, and $M_{jj}>600\,\GeV$ and \gls{PF} $\text{MET}_{no-\mu}>140\,\GeV$. Together these triggers collect 10.9\% of the simulated signal process where the dedicated path corresponds to an increase of signal collection efficiency of 15.8\% over the generic trigger only. For the \textit{\gls{TSG} high luminosity scenario} the dedicated trigger is expected to have a pure rate under $5.0\,\hertz$.
+Considering a \gls{SM} \gls{VBF} Higgs to Invisible process with $m_H=125\,\GeV$, the signal is gathered by a combination of a general purpose trigger path, \verb|HLT_PFMET170_NoiseCleaned| and a dedicated trigger. The dedicated trigger is seeded by \verb|L1_ETM70| and selects events with at least one dijet on opposite sides of the detector passing requirements $p_T^{jets}>40\,\GeV$, $\Delta\eta>3.5$, $M_{jj}>600\,\GeV$ and \gls{PF} $\text{MET}_{no-\mu}>140\,\GeV$. Together these triggers collect 10.9\% of the simulated signal process where the dedicated path corresponds to an increase of signal collection efficiency of 15.8\% over the \gls{MET} only trigger. For the \textit{\gls{TSG} high luminosity scenario} the dedicated trigger is expected to have a pure rate under $5.0\,\hertz$. Turn on curves has been produced for this trigger with the full luminosity recorded during 2015 showing it is operating as expects.
 
-A new systematics study trigger path was developed, it is seeded by \verb|L1_ETM50| and selects events with at least one dijet on opposite sides of the detector passing requirements $p_T^{jets}>40\,\GeV$, $\Delta\eta>3.5$, and $M_{jj}>600\,\GeV$ and \gls{PF} $\text{MET}_{no-\mu}>80\,\GeV$. For the \textit{\gls{TSG} high luminosity scenario} an \gls{HLT} pure rate of $\approx 0.1\,\hertz$ is expected when applying a \gls{L1T} prescale of 1000 and 5 at \gls{HLT}.
+A new background trigger path was developed, it is seeded by \verb|L1_ETM50| and selects events with at least one dijet on opposite sides of the detector passing requirements $p_T^{jets}>40\,\GeV$, $\Delta\eta>3.5$, and $M_{jj}>600\,\GeV$ and \gls{PF} $\text{MET}_{no-\mu}>80\,\GeV$. For the \textit{\gls{TSG} high luminosity scenario} an \gls{HLT} pure rate of $\approx 0.1\,\hertz$ is expected when applying a \gls{L1T} prescale of 1000 and 5 at \gls{HLT}.
 
-Additionally, a study of new dedicated \gls{L1T} algorithms was preformed with the \gls{HLT} algorithms being optimise for the best obtained criteria. It was demonstrated that the dedicated trigger additionally efficiency can be increased by 14.8\% by using a dedicated \gls{L1T} algorithm selecting events with a dijet plus \gls{MET} and by as much as 19.8\% when selecting events with a dijet plus a hard single jet algorithm. The latter would have the advantage of avoid the slow turn on the \gls{L1T} \gls{MET}. Both this options are being considered for the 2016 Run II campaign.
+Additionally, a study of new dedicated \gls{L1T} algorithms was preformed with the \gls{HLT} algorithms being optimise for the highest additional rate when compared with the baseline triggers. It was demonstrated that the dedicated trigger additionally efficiency can be increased by 14.8\% by using a dedicated \gls{L1T} algorithm selecting events with a dijet plus \gls{MET} and by as much as 19.8\% when selecting events with a dijet plus a hard single jet. The latter would have the advantage of avoid the slow turn on the \gls{L1T} \gls{MET}. Both this options are being considered for the 2016 Run II campaign.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -349,9 +387,9 @@ Additionally, a study of new dedicated \gls{L1T} algorithms was preformed with t
 
 %Status: DONE (reviewed J.Pela x1)
 
-During the preparation of the Run I \gls{VBF} Higgs to invisible analysis privately produced set of \gls{QCD} samples with \gls{VBF} like jets and real \gls{MET}, the description of the characteristics of this samples can be found in section \ref{SECTION:PreparationParkedDataAnalysis_QCDVBFMET}. This samples allowed understanding of the mechanisms that create real \gls{MET} in \gls{QCD} and how those could be mitigated. 
+During the preparation of the Run I \gls{VBF} Higgs to invisible analysis a set of \gls{QCD} samples with \gls{VBF} like jets and real \gls{MET} were produced, described in section \ref{SECTION:PreparationParkedDataAnalysis_QCDVBFMET}. These samples enabled the understanding of the mechanisms that create real \gls{MET} in \gls{QCD} and how those could be mitigated. However events with fake \gls{MET} were found to be the dominating type of QCD multi-jet events passing the analysis selection criteria. 
 
-In the preparation for Run II it was considered once again to be useful to have similar samples remade and possibly extended. It was identified that not only real \gls{MET} is significant but also fake \gls{MET} coming from detector miss-measurement. The \gls{QCD} background is currently the only background without any representative \gls{MC} event sample. If such a sample could be produced it could allow the analysis to evolve to a shape based analysis or the use of machine learning techniques, since full description of the signal and backgrounds would be possible with simulations.
+In the preparation for Run II it was considered once again to be useful to have similar samples remade and possibly extended. It was identified that not only real \gls{MET} is significant but also fake \gls{MET} coming from detector miss-measurement. The \gls{QCD} background is currently the only background without any adequate representative \gls{MC} event sample. If such a sample could be produced it could allow the analysis to evolve into a shape based analysis or the use of machine learning techniques, since full description of the signal and backgrounds would be possible with simulations.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -361,9 +399,9 @@ In the preparation for Run II it was considered once again to be useful to have 
 
 %Status: DONE (reviewed J.Pela x1)
 
-Building on the knowledge gained from the samples produced during Run I we can defined the goals for this new samples. Cuts at generator level involving \gls{MET} should be avoided in order to not filter out events where the \gls{MET} comes from miss-measurement. Variables that may bias the $\Delta\phi(jet-jet)$ distribution should also be avoided since the Run I analysis uses inverted cuts in this variable to perform data-driven \gls{QCD} estimation. All cuts should be below the event selections used during Run I and if possible around or even below the Run II trigger conditions. The sample to be simulated should be equivalent to at least $1\,\femto\barn^{-1}$ of data but of a size comparable with the current official \gls{QCD} Inclusive sample. This last requirement is to ensure that the computing resources necessary for making such sample do not go above what currently is used to produce similar purpose samples. 
+Building on the knowledge gained from the samples produced during Run I we can defined the goals for this new samples. Cuts at generator level involving \gls{MET} should be avoided in order to not filter out events where the \gls{MET} comes from miss-measurement. Variables that may bias the $\Delta\phi(jet-jet)$ distribution should also be avoided as the Run I analysis uses inverted cuts in this variable to perform data-driven \gls{QCD} estimation. All cuts should be below the event selections used during Run I and if possible around or even below the Run II trigger conditions. The sample to be simulated should be equivalent to at least $1\,\femto\barn^{-1}$ of data but of a size comparable with the current official \gls{QCD} Inclusive sample. This last requirement is to ensure that the computing resources necessary for making such sample do not go above those currently used to produce similar purpose samples. 
 
-The first attempt to produce a proposal for the production of this \gls{QCD} \gls{VBF}-like samples was based on filtering events produced by \textsc{PYTHIA 8}. The filtering of this events was made by first clustering the generator particles in anti-$k_T$ jets with $\Delta R<0.4$ where muons were ignored. Only the events where at least one dijet with \gls{VBF} characteristics would kept. Unfortunately, this approach lead to a very large number of event being generated (hard scattering and hadronization) and clustered only do be discarded. The computing time was considered too large to be feasible considering the physics case by the \gls{CMS} team responsible for official sample production. However, it was recommended to take a different approach by using a \gls{ME} generator, like \textsc{MADGRAPH} and cut already at the parton level, before any hadronization or clustering. After this initial event selection a second layer of cuts could be applied after hadronization to ensure the actual outgoing jets would pass offline selection criteria. Furthermore, using a \gls{ME} generator should provide a more accurate description of multi-jet events while the two steps approach should allow a significant reduction of the necessary computing time. 
+The first attempt to produce a proposal for the production of this \gls{QCD} \gls{VBF}-like samples was based on filtering events produced by \textsc{PYTHIA 8}. The filtering of this events was made by first clustering the generator particles in anti-$k_T$ jets with $\Delta R<0.4$ where muons were ignored. Only the events where at least one dijet with \gls{VBF} characteristics would kept. Unfortunately, this approach lead to a very large number of event being generated (hard scattering and hadronization) and clustered only do be discarded. The computing time was considered too large to be feasible considering the physics case by the \gls{CMS} team responsible for official sample production. However, a different approach was recommended to take a different approach by using a \gls{ME} generator, like \textsc{MADGRAPH} and to cut at the parton level, before any hadronization or clustering. After this initial event selection a second layer of cuts could be applied after hadronization to ensure the actual outgoing jets would pass offline selection criteria. Furthermore, using a \gls{ME} generator should provide a more accurate description of multi-jet events while the two steps approach should allow a significant reduction of the necessary computing time. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -373,9 +411,9 @@ The first attempt to produce a proposal for the production of this \gls{QCD} \gl
 
 %Status: DONE (reviewed J.Pela x1)
 
-The \textsc{MADGRAPH} event generator was selected produce the parton level simulation. With this generator it is possible to make events from the interaction of two proton partons and obtain a final state with any number of partons. Each additional parton on the final state comes at the cost of an exponential increase of the possible diagrams, which in turn means more time is necessary to create events. I was chosen to only produce final states with 2, 3 and 4 outgoing partons. This generator has been used to create similar \gls{QCD} samples used by some \gls{CMS} \gls{SUSY} analyses. 
+The \textsc{MADGRAPH} event generator was selected to produce the parton level simulation. With this generator it is possible to simulate events from the interaction of two proton partons and to obtain a final state with any number of partons. Each additional parton on the final state comes at the cost of an exponential increase of the possible diagrams, which in turn means more time is necessary to create events. It was chosen to only produce final states with 2, 3 and 4 outgoing partons. This generator has been used to create similar \gls{QCD} samples used by some \gls{CMS} \gls{SUSY} analyses. 
 
-The outgoing partons are defined to be a gluon or a quark (u, d, c, s or b). We do not allow diagrams with top quarks since they do not hadronize and lead to event topologies which are already accounted by other \gls{MC} samples. The outgoing partons will be the seed of our final state jets. 
+The outgoing partons are defined to be a gluon or a quark (u, d, c, s or b). We do not allow diagrams with top quarks as they do not hadronize and lead to event topologies which are already accounted by other \gls{MC} samples. The outgoing partons are the seed of our final state jets. 
 
 A custom parton level filter was implemented inside the \textsc{MADGRAPH} code to select events with \gls{VBF} characteristics. To pass the filter the event must have at least one outgoing di-parton with invariant mass of $800\,\GeV$, where both parton are inside the detector volume with $|\eta|<5.0$ and have more than $p_{T}>30\,\GeV$. The distributions of this variables for events passing this cuts can be found in figure \ref{FIGURE:RunIIPreparation_PassPartonFilterDistributions}.
 
@@ -388,11 +426,11 @@ A custom parton level filter was implemented inside the \textsc{MADGRAPH} code t
 % \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/QCDVBFSamples/PartonFilter/Images/SelDiParton_DEta.pdf}}\qquad
 % \subfloat[][]{\includegraphics[width=0.45\linewidth]{Chapter08/QCDVBFSamples/PartonFilter/Images/SelDiParton_DPhi.pdf}}\\
 \subfloat[][]{\includegraphics[width=0.40\linewidth]{Chapter08/QCDVBFSamples/PartonFilter/Images/SelDiParton_Mjj.pdf}}\\
-\caption[Key variables of events passing the parton level filter]{Parton \pt, $\eta$ and di-parton $m_jj$ distributions for the leading di-parton passing cuts: parton $p_{T}>30\,\GeV$ and $|\eta|<5.0$, di-parton $M_{jj}>800\,\GeV$}
+\caption[Key variables of events passing the parton level filter]{Parton \pt, $\eta$ and di-parton $m_jj$ distributions for the leading di-parton passing cuts: parton $p_{T}>30\,\GeV$ and $|\eta|<5.0$, di-parton $M_{jj}>800\,\GeV$.}
 \label{FIGURE:RunIIPreparation_PassPartonFilterDistributions}
 \end{figure}
 
-The estimated cross section for this processes and selection is $1.029 \times 10^7 \pm 1.614 \times 10^4 \,\pico\barn$ and we request the production of $1.2 \times 10^{10}$ events. That corresponds just over $1.1\,\femto\barn^{-1}$ of equivalent integrated luminosity. 
+The estimated cross section for this processes and selection is $(1.029 \pm 0.002) \times 10^7 \,\pico\barn$ and we request the production of $1.2 \times 10^{10}$ events. That corresponds just over $1.1\,\femto\barn^{-1}$ of equivalent integrated luminosity. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -402,11 +440,11 @@ The estimated cross section for this processes and selection is $1.029 \times 10
 
 %Status: DONE (reviewed J.Pela x1)
 
-The parton level events that have passed the initial filter now have to be hadronized. Similarly to other samples produced in \gls{CMS}, \textsc{PYTHIA 8} was chosen for this task. As described in section \ref{SECTION:EventReconstructionAndSimulation_MonteCarloSimulation} when using a \gls{ME} generator with a shower generator we need to filter the overlapping phase-space. As for recommendation of the \gls{CMS} generator group we used the MLM scheme with the same parameters used for the production of previous official samples. The results of the hadronization process are summarized in table \ref{TABLE:RunIIPreparation_Pythia8HadronizationResults}.
+The parton level events that have passed the initial filter are then hadronized. Similarly to other samples produced in \gls{CMS}, \textsc{PYTHIA 8} was chosen for this. As described in section \ref{SECTION:EventReconstructionAndSimulation_MonteCarloSimulation}, when using a \gls{ME} generator with a shower generator we need to filter the overlapping phase-space. As recommened by the \gls{CMS} generator group we used the MLM scheme~\cite{ARTICLE:MLMScheme} with the same parameters used for the production of previous official samples. The results of the hadronization process are summarized in table \ref{TABLE:RunIIPreparation_Pythia8HadronizationResults}.
 
 \input{Chapter08/QCDVBFSamples/Hadronization/Table/Pythia8_HadronizationResults.tex}
 
-Efficiency of the post hadronization event matching has been estimated of $9.45\% \pm 0.03\%$, leading to an sample cross section of $9.718 \times 10^5 \pm 2.903 \times 10^3\,\pico\barn$. The lower matching efficiency in the 3 and 4 jets final states is due to the absence of a restriction on minimum jet \pt on any additional jets to the dijet passing the parton level cuts. This jets, if low enough in energy will hardly be clusters into a jet and therefore cannot be match to their seed parton.
+Efficiency of the post hadronization event matching has been estimated of $9.45\% \pm 0.03\%$, leading to an sample cross section of $(9.718 \pm 0.029) \times 10^5\,\pico\barn$. The lower matching efficiency in the 3 and 4 jets final states is due to the absence of a restriction on minimum jet \pt on any additional jets to the dijet passing the parton level cuts. These jets, if low enough in energy, will hardly ever be clusters into a jet and therefore cannot be match to their seed parton.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -416,9 +454,9 @@ Efficiency of the post hadronization event matching has been estimated of $9.45\
 
 %Status: DONE (reviewed J.Pela x1)
 
-After hadronization we cluster the outgoing stable particles with the anti-$k_T$ algorithm with $\Delta R<0.4$ while ignoring muons. The reason to ignore muons is that \gls{CMS} muon detector coverage only goes up to $|\eta|<2.4$ so all muons outside this region will not be seen by the experiment and therefore will not be clustered into jets. Most of our signal like events will have at least one jet in the region $|\eta|>2.4$. 
+After hadronization we cluster the outgoing stable particles with the anti-$k_T$ algorithm with $\Delta R<0.4$ while ignoring muons. The reason for ignoring muons is that \gls{CMS} muon detector coverage only goes up to $|\eta|<2.4$ so all muons outside this region will not be seen by the experiment and therefore will not be clustered into jets. Most of our signal like events will have at least one jet in the region $|\eta|>2.4$. For the jets inside the muons systems acceptance the jet \pt will be underestimated when a muon is present, this effect was assumed to small.
 
-We start by making an initial selection of the events with at least one generator level dijet passing $\Delta\eta > 3.0$, $M_{jj} > 1000\,\GeV$ where both jets pass $\pt > 40\,\GeV$ and $|\eta|<4.8$. The events passing this cuts are split into two sub-samples. Sub-sample A will have the events where the selected dijet passes $\Delta\phi<=2.15$ and sub-sample B where at least one dijet passing all initial conditions and an inverted $\Delta\phi$ requirement. Plots over all the relevant variable before the $\Delta\phi$ requirement and for the leading dijet passing the cuts can be found in figure \ref{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions1} and \ref{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions2}.
+We start by making an initial selection of the events with at least one generator level dijet passing $\Delta\eta > 3.0$, $M_{jj} > 1000\,\GeV$ where both jets pass $\pt > 40\,\GeV$ and $|\eta|<4.8$, this selection is thresholds are below all offline requirements of the parked data analysis. The events passing this cuts are split into two sub-samples. Sub-sample A has events where the selected dijet passes $\Delta\phi<=2.15$ and sub-sample B where at least one dijet passing all initial conditions and an inverted $\Delta\phi$ requirement. Plots over all the relevant variable before the $\Delta\phi$ requirement and for the leading dijet passing the cuts can be found in figure \ref{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions1} and \ref{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions2}.
 
 \begin{figure}[!htp]%
 \centering
@@ -430,7 +468,7 @@ We start by making an initial selection of the events with at least one generato
 \label{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions1}
 \end{figure}
 
-All the distributions show the expected features of the generator level filter cuts. As expected the peak of the $\Delta\phi$ distribution is at \pi when the 2 jets are back to back, but a tail of events is visible down to zero. A similar shape was observed in the Run I analysis before applying a cut on $min(\Delta\phi(jets,MET))$ in \gls{QCD} multi-jets dominated regions.
+All the distributions show the expected features of the generator level filter cuts. As expected the peak of the $\Delta\phi$ distribution is at \pi when the 2 jets are back to back, but a tail of events is visible down to zero.
 
 \begin{figure}[!htp]%
 \centering
@@ -441,19 +479,19 @@ All the distributions show the expected features of the generator level filter c
 \label{FIGURE:RunIIPreparation_PassGeneratorFilterDistributions2}
 \end{figure}
 
-Sub-sample A will be produced by running over all the events produced up to the hadronization step. Its estimated filter efficiency is of $2.938 \times 10^{-1} \pm 4.67 \time 10^{-4}$ which would lead to a sample size of approximately 29 million events and corresponding to an equivalent luminosity of over $1.1\,\femto\barn^{-1}$.
+Sub-sample A will be produced by running over all the events produced up to the hadronization step. Its estimated filter efficiency is of $(2.938 \pm 0.005) \time 10^{-1}$ which would lead to a sample size of approximately 29 million events and corresponding to an equivalent luminosity of over $1.1\,\femto\barn^{-1}$.
 
-Sub-sample B will result from running over only 10\% of the events available at the hadronization step. This filter has an efficiency of $1.125 \time 10^{-1} \pm 9.13 \time 10^{-4}$  and would lead to sample of about 14 million events, corresponding to an equivalent luminosity of over $110\,\pico\barn$. If additional computing resources would become available this sample could be expanded up to 100\% of the base sample to a total of 141 million events and equivalent luminosity over $1.1\,\femto\barn^{-1}$.
+Sub-sample B will result from running over only 10\% of the events available at the hadronization step. This filter has an efficiency of $(1.125 \pm 0.009) \time 10^{-1}$  and would lead to sample of about 14 million events, corresponding to an equivalent luminosity of over $110\,\pico\barn$. If additional computing resources would become available this sample could be expanded up to 100\% of the base sample to a total of 141 million events and equivalent luminosity over $1.1\,\femto\barn^{-1}$.
 
-It is necessary to determine the overlap between this two sub-samples. From table \ref{TABLE:RunIIPreparation_PassFilterNJetsDphi} we can see that a significant amount of events on each sub-sample have additional jets, passing all required jet conditions. 
+It is necessary to determine the overlap between this two sub-samples. From table \ref{TABLE:RunIIPreparation_PassFilterNJetsDphi} we can see that a significant number of events of each sub-sample have additional jets, passing all required jet conditions. 
 
 \input{Chapter08/QCDVBFSamples/GeneratorFilter/Tables/GeneratorJets_PassFilter_NJets_Dphi.tex}
 
-This additional jets lead to additional combinations that may pass the criteria of the opposite sub-sample. As it can be seen in table \ref{TABLE:RunIIPreparation_PassFilterNDijetsDphi} in as much as 5\% of the events in the $\Delta\phi<=2.15$ sub-sample there is a second combination of two jets that would pass the criteria to be in that sub-sample.
+These additional jets lead to additional combinations that may pass the criteria of the opposite sub-sample. As it can be seen in table \ref{TABLE:RunIIPreparation_PassFilterNDijetsDphi} in as much as 5\% of the events in the $\Delta\phi<=2.15$ sub-sample there is a second combination of two jets that would pass the criteria to be in that sub-sample.
 
 \input{Chapter08/QCDVBFSamples/GeneratorFilter/Tables/GeneratorJets_PassFilter_NDijets_Dphi.tex}
 
-The overlap between the two sub-samples has been determined to be $3.95\% \pm 0.14\%$ of the events passing the initial selection. Since this number is relevant, and to to avoid event double counting, events with combinations that would pass both sub-sample definitions should be vetoed in the smallest equivalent luminosity sub-sample.
+The overlap between the two sub-samples has been determined to be $3.95\% \pm 0.14\%$ of the events passing the initial selection. Since this number is relevant, and to to avoid event double counting, events with combinations that would pass both sub-sample definitions should be selected into the smallest equivalent luminosity sub-sample.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SUBSECTION
@@ -471,7 +509,7 @@ In order to compare generator jets to the partons that created them matching is 
 
 \input{Chapter08/QCDVBFSamples/Migrations/Tables/PartonGenJetMatchingEfficiency.tex}
 
-Partons are being simulated with fairly low \pt, two jets with $\pt > 10\,\GeV$ and up to two more with no restriction on energy. It is not a surprise that in significant amount of events all partons cannot be matched to generator jets. This is due to the spread of energy over a larger area then the jet algorithm can cluster and due to the default AK4 minimum \pt necessary to form a jet of $3\,\GeV$. A set of plots of the relevant variable are shown in figure \ref{FIGURE:RunIIPreparation_VariablesPartonVsGenJet}. The selected di-parton are taken and each variable is plotted against the matched dijet.
+Partons are being simulated with fairly low \pt, two jets with $\pt > 10\,\GeV$ and up to two more with no restriction on energy. It is not a surprise that in significant number of events all partons cannot be matched to generator jets. This is due to the spread of energy over a larger area then the jet algorithm can cluster and due to the default AK4 minimum \pt necessary to form a jet of $3\,\GeV$. A set of plots of the relevant variable are shown in figure \ref{FIGURE:RunIIPreparation_VariablesPartonVsGenJet}. The selected di-parton are taken and each variable is plotted against the matched dijet.
 
 
 \begin{figure}[!htp]%
@@ -486,7 +524,7 @@ Partons are being simulated with fairly low \pt, two jets with $\pt > 10\,\GeV$ 
 \label{FIGURE:RunIIPreparation_VariablesPartonVsGenJet}
 \end{figure}
 
-On plots \ref{FIGURE:RunIIPreparation_VariablesPartonVsGenJet} a), b) and f) two populations can be seen. In the parton \pt plots they are along the diagonal and along the line of generator jet \pt equal to zero and in the $M_{jj}$ plot along the diagonal and along the line of $y=x/2$. In both cases the none diagonal population arises from miss matching a parton to a low \pt jet. In the $M_{jj}$ plot the second diagonal line is due to the fact that at parton level the partons are perfectly matched in energy and momentum but if they are matched to only one correct generator jet and the other jet has \pt is close to zero, the system will have half the mass of the correctly assigned events.
+On plots \ref{FIGURE:RunIIPreparation_VariablesPartonVsGenJet} a), b) and f) two populations can be seen. In the parton \pt plots they are along the diagonal and along the line of generator jet \pt equal to zero and in the $M_{jj}$ plot along the diagonal and along the line of $y=x/2$. In both cases the none diagonal population probably arises from miss matching a parton to a low \pt jet. In the $M_{jj}$ plot the second diagonal line is due to the fact that at parton level the partons are perfectly matched in energy and momentum but if they are matched to only one correct generator jet and the other jet has \pt is close to zero, the system will have half the mass of the correctly assigned events.
 
 Event migrations can now be calculate from the events that did not pass the parton event selection but could have passed the generator level selection. This effect can be from jet dispersion, overlap, or clustering artefacts. Let's first consider the migrations on each variable separately, lead jet \pt (eq. \ref{EQUATION:RunIIPreparation_SigleVariableMigrationLeadPt}), sub-lead jet \pt (eq. \ref{EQUATION:RunIIPreparation_SigleVariableMigrationSubleadPt}) and dijet $M_{jj}$ (eq. \ref{EQUATION:RunIIPreparation_SigleVariableMigrationMjj}).
 
