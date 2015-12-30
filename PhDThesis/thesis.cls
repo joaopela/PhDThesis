@@ -31,3 +31,7 @@
 
 %% TikZ is a marvellous drawing package
 \RequirePackage{tikz}
+
+\usepackage{hyperref}
+% \hypersetup{ colorlinks = false }
+\hypersetup{ hidelinks }
