@@ -1,6 +1,6 @@
 {
 //=========Macro generated from canvas: rates_pf_met/
-//=========  (Fri Dec 11 03:46:05 2015) by ROOT version5.34/18
+//=========  (Wed Dec 30 04:39:46 2015) by ROOT version5.34/18
    TCanvas *rates_pf_met = new TCanvas("rates_pf_met", "",0,0,600,600);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
@@ -1327,7 +1327,7 @@
    rate_HLT PF MET->GetZaxis()->SetTitleFont(42);
    rate_HLT PF MET->Draw("Y+");
    
-   TLegend *leg = new TLegend(0.5,0.8,0.85,0.95,NULL,"brNDC");
+   TLegend *leg = new TLegend(0.4,0.7,0.85,0.95,NULL,"brNDC");
    leg->SetBorderSize(1);
    leg->SetTextFont(62);
    leg->SetLineColor(1);
@@ -1335,18 +1335,17 @@
    leg->SetLineWidth(1);
    leg->SetFillColor(19);
    leg->SetFillStyle(1001);
-   TLegendEntry *entry=leg->AddEntry("Sig_Total_pf_met_eff","VBF Inv Eff","lpf");
-   entry->SetFillStyle(1001);
+   TLegendEntry *entry=leg->AddEntry("Sig_Total_pf_met_eff","VBF Inv Eff","L");
 
    ci = TColor::GetColor("#000099");
    entry->SetLineColor(ci);
    entry->SetLineStyle(1);
    entry->SetLineWidth(1);
    entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(1);
+   entry->SetMarkerStyle(21);
    entry->SetMarkerSize(1);
    entry->SetTextFont(62);
-   entry=leg->AddEntry("Sig_NoPFMET170_pf_met_eff","VBF Inv Eff (not PFMET170)","lpf");
+   entry=leg->AddEntry("Sig_NoPFMET170_pf_met_eff","VBF Inv Eff (not PFMET170)","LF");
 
    ci = TColor::GetColor("#00ff00");
    entry->SetFillColor(ci);
@@ -1357,18 +1356,17 @@
    entry->SetLineStyle(1);
    entry->SetLineWidth(1);
    entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(1);
+   entry->SetMarkerStyle(21);
    entry->SetMarkerSize(1);
    entry->SetTextFont(62);
-   entry=leg->AddEntry("rate_HLT PF MET","QCD Rate","lpf");
-   entry->SetFillStyle(1001);
+   entry=leg->AddEntry("rate_HLT PF MET","QCD Rate","L");
 
    ci = TColor::GetColor("#ff0000");
    entry->SetLineColor(ci);
    entry->SetLineStyle(1);
    entry->SetLineWidth(1);
    entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(1);
+   entry->SetMarkerStyle(21);
    entry->SetMarkerSize(1);
    entry->SetTextFont(62);
    leg->Draw();
