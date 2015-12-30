@@ -1,6 +1,6 @@
 {
 //=========Macro generated from canvas: c1/c1
-//=========  (Thu Dec 17 20:22:18 2015) by ROOT version5.34/11
+//=========  (Wed Dec 30 01:14:27 2015) by ROOT version5.34/11
    TCanvas *c1 = new TCanvas("c1", "c1",0,0,600,600);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
@@ -282,10 +282,10 @@
    VBF_dijetmet_vectorialSum_pt->SetBinError(26,6.238948);
    VBF_dijetmet_vectorialSum_pt->SetEntries(12571);
 
-   ci = TColor::GetColor("#00ffff");
+   ci = TColor::GetColor("#ffcc00");
    VBF_dijetmet_vectorialSum_pt->SetFillColor(ci);
 
-   ci = TColor::GetColor("#00ffff");
+   ci = TColor::GetColor("#ffcc00");
    VBF_dijetmet_vectorialSum_pt->SetLineColor(ci);
    VBF_dijetmet_vectorialSum_pt->SetLineStyle(0);
    VBF_dijetmet_vectorialSum_pt->SetMarkerStyle(20);
@@ -419,11 +419,11 @@
    entry->SetTextFont(62);
    entry=leg->AddEntry("VBF_dijetmet_vectorialSum_pt","QCD VBF+MET","F");
 
-   ci = TColor::GetColor("#00ffff");
+   ci = TColor::GetColor("#ffcc00");
    entry->SetFillColor(ci);
    entry->SetFillStyle(1001);
 
-   ci = TColor::GetColor("#00ffff");
+   ci = TColor::GetColor("#ffcc00");
    entry->SetLineColor(ci);
    entry->SetLineWidth(1);
    entry->SetMarkerColor(1);

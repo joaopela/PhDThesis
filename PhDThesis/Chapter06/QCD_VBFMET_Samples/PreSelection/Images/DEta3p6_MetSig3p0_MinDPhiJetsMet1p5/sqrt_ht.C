@@ -1,6 +1,6 @@
 {
 //=========Macro generated from canvas: c1/c1
-//=========  (Thu Dec 17 20:22:22 2015) by ROOT version5.34/11
+//=========  (Wed Dec 30 01:14:31 2015) by ROOT version5.34/11
    TCanvas *c1 = new TCanvas("c1", "c1",0,0,600,600);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
@@ -218,10 +218,10 @@
    VBF_sqrt_ht->SetBinError(21,0.2107799);
    VBF_sqrt_ht->SetEntries(12571);
 
-   ci = TColor::GetColor("#00ffff");
+   ci = TColor::GetColor("#ffcc00");
    VBF_sqrt_ht->SetFillColor(ci);
 
-   ci = TColor::GetColor("#00ffff");
+   ci = TColor::GetColor("#ffcc00");
    VBF_sqrt_ht->SetLineColor(ci);
    VBF_sqrt_ht->SetLineStyle(0);
    VBF_sqrt_ht->SetMarkerStyle(20);
@@ -331,11 +331,11 @@
    entry->SetTextFont(62);
    entry=leg->AddEntry("VBF_sqrt_ht","QCD VBF+MET","F");
 
-   ci = TColor::GetColor("#00ffff");
+   ci = TColor::GetColor("#ffcc00");
    entry->SetFillColor(ci);
    entry->SetFillStyle(1001);
 
-   ci = TColor::GetColor("#00ffff");
+   ci = TColor::GetColor("#ffcc00");
    entry->SetLineColor(ci);
    entry->SetLineWidth(1);
    entry->SetMarkerColor(1);
