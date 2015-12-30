@@ -43,6 +43,10 @@
 \makeglossaries
 \input{Glossary.tex}
 
+% \hypersetup{
+% colorlinks=false
+% }
+
 % \newcommand{\PW}   {\ensuremath{W}}
 \newcommand{\W}    {\ensuremath{W}} % plain W (no superscript +/-)
 \newcommand{\Z}    {\ensuremath{Z}} % plain Z (no superscript 0)
@@ -85,19 +89,19 @@
 \begin{document}
 
 \begin{frontmatter}
-  \input{FrontMatter/frontmatter}
+  \input{FrontMatter/frontmatter}                     %Status: DONE
 \end{frontmatter}
 
 \begin{mainmatter}
-  \include{Chapter01/Theory}
-  \include{Chapter02/ExperimentalApparatus}
-  \include{Chapter03/TechnicalWork}
-  \include{Chapter04/PhysicsObjects}
-  \include{Chapter05/PromptDataAnalysis}
-  \include{Chapter06/RunIParkedAnalysisPreparation}
-  \include{Chapter07/ParkedDataAnalysis}
-  \include{Chapter08/RunIIPreparation}
-  \include{Chapter09/Conclusions}
+   \include{Chapter01/Theory}                        %Status: DONE
+   \include{Chapter02/ExperimentalApparatus}         %Status: DONE
+   \include{Chapter03/TechnicalWork}                 %Status: DONE
+   \include{Chapter04/PhysicsObjects}                %Status: DONE
+   \include{Chapter05/PromptDataAnalysis}            %Status: DONE
+   \include{Chapter06/RunIParkedAnalysisPreparation} %Status: DONE
+   \include{Chapter07/ParkedDataAnalysis}            %Status: DONE
+   \include{Chapter08/RunIIPreparation}              %Status: DONE
+   \include{Chapter09/Conclusions}                   
 \end{mainmatter}
 
 \begin{backmatter}
