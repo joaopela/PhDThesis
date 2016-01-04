@@ -318,7 +318,16 @@ The \gls{QCD} multi-jet events passing this pre-selection were weighted so their
 
 Data description by the \gls{MC} event samples was seen as acceptable in all variables to proceed with further studies. The biggest observed discrepancies were at low values of \gls{MET} and \gls{MET} significance and high values of dijet $\Delta\eta$.
 
-Unfortunately, when analysing the control regions already defined for the \textit{prompt analysis} with the additional pre-selection requirements, the agreement became unacceptable for many variables, making it not possible to use this samples for shape comparison of \gls{BDT} training. The new \gls{QCD} multi-jet samples had special difficulty describing events where the \gls{MET} was aligned with a jet axis which points to \gls{MET} miss measurement. Although, this \gls{QCD} multi-jet event samples could not fully describe this component of data they still model a significant part of this the \gls{QCD} multi-jet background and have been used to study new variables to attempt to suppress at least those types of events. 
+Unfortunately, when analysing new signal and control regions inspired in the \textit{prompt analysis} with the additional pre-selection requirements, the agreement became unacceptable for many variables, making it not possible to use this samples for shape comparison of \gls{BDT} training. Figure \ref{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_PreSectionFail} shows plots of $\Delta\phi$ and $min(\Delta\phi(\text{MET}),jets)$ for a possible loose signal selection requiring the leading dijet to be on opposite sides of the detector and pass $\pt^{jets}>50,40\,\GeV$, $|\eta_{jets}|<4.7$, $M_{jj}>800\,\GeV$, $\Delta\eta_{jj}>3.6$, $min(\Delta\phi(\text{MET}),jets)>1.5$, with $\text{MET}>60\,\GeV$ and $\text{MET}_{sig}>3$. When imposing this criteria the new \gls{QCD} multi-jet samples have significant difficulty modelling the shape difference between the other \gls{MC} samples and data. The new \gls{QCD} multi-jet samples had special difficulty describing events where the \gls{MET} was aligned with a jet axis which points to \gls{MET} miss measurement. Although, this \gls{QCD} multi-jet event samples could not fully describe this component of data they still model a significant part of this the \gls{QCD} multi-jet background and have been used to study new variables to attempt to suppress at least those types of events. 
+
+\begin{figure}[!htb]
+\vspace{-50px}
+\centering
+\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/Fail/JetsDeltaPhi.png} 
+\includegraphics[width=0.45\linewidth]{Chapter06/QCD_VBFMET_Samples/Fail/JetsMet_MinDeltaPhi.png}
+\caption{Distributions of (a) jets $\Delta\phi$ (b) and $min(\Delta\phi(\text{MET}),jets)$, for a signal selection criteria requiring the leading dijet to be on opposite sides of the detector and pass $\pt^{jets}>50,40\,\GeV$, $|\eta_{jets}|<4.7$, $M_{jj}>800\,\GeV$, $\Delta\eta_{jj}>3.6$, $min(\Delta\phi(\text{MET}),jets)>1.5$, with $\text{MET}>60\,\GeV$ and $\text{MET}_{sig}>3$. Monte Carlo samples are compared with 19.5 $fb^{-1}$ of data. \cite{ARTICLE:PatrickPlots}}
+\label{FIGURE:PreparationParkedDataAnalysis_QCDVBFMET_PreSectionFail}
+\end{figure}
 
 % To force plots to be in this section
 \clearpage
