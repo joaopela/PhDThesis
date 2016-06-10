@@ -891,7 +891,7 @@ FUNCTION {article}
       format.eprint output
     }
   if$
-  new.sentence
+
   note output
   new.sentence
   format.SLACcitation output
