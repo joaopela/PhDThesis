@@ -94,7 +94,7 @@
    Int_t ci;   // for color index setting
    ci = TColor::GetColor("#000099");
    LeadDijet_Mjj->SetLineColor(ci);
-   LeadDijet_Mjj->GetXaxis()->SetTitle("Lead Generator Dijet m_{jj}");
+   LeadDijet_Mjj->GetXaxis()->SetTitle("Lead Generator Dijet m_{jj} [GeV]");
    LeadDijet_Mjj->GetXaxis()->SetRange(1,70);
    LeadDijet_Mjj->GetXaxis()->SetLabelFont(42);
    LeadDijet_Mjj->GetXaxis()->SetLabelSize(0.035);

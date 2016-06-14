@@ -33,7 +33,54 @@
 
 %STATUS: DONE (reviewed J.Pela x1)
 
-This chapter describes the analysis performed over the \gls{CMS} Run I proton-proton parked data collected over 2012. A total integrated luminosity of $19.2 \pm 0.5\,\femto\barn$ was analysed. This data was recorded and stored without reconstruction and only became fully available a few months after data taking during the \gls{LS1}. The advantage of this approach was the possibility of using lower threshold triggers which can collect more signal but unfortunately also more backgrounds. To take full advantage of this data, the analysis had to be redesigned and extended with new control regions. To validate the obtained results a new cross check analysis was also preformed.
+This chapter describes the analysis performed over the \gls{CMS} Run I proton-proton parked data collected over 2012. A total integrated luminosity of $19.2 \pm 0.5\,\femto\barn$ was analysed. This data was recorded and stored without reconstruction and only became fully available a few months after data taking during the \gls{LS1}. The advantage of this approach was the possibility of using lower threshold triggers which can collect more signal but unfortunately also more backgrounds. To take full advantage of this data, the analysis had to be redesigned and extended with new control regions. Table \ref{TABLE:ParkedDataAnalysis_DifferencesPromptParked} summarises the main parameters used in both analyses. To validate the obtained results a new cross check analysis was also preformed.
+
+\begin{table}[!htp]
+\centering
+\begin{tabular}{|l||c|c|}
+\hline
+\centering Requirement & Prompt Analysis & Parked Analysis \\
+\hline\hline
+\multicolumn{3}{|c|}{Level 1 Trigger} \\
+\hline
+L1T MET                       & $>40\,\GeV$           & $>40\,\GeV$                 \\
+\hline\hline
+\multicolumn{3}{|c|}{High Level Trigger} \\
+\hline
+Jets \pt                      & $>40\,\GeV$ (PF jets) & $>35(30)\,\GeV$ (calo jets) \\
+$\eta_{j1} \cdot \eta_{j2}<0$ & yes                   & yes                         \\
+$\Delta\eta_{jj}$             & $>3.5$                & $>3.5$                      \\
+$M_{jj}$                      & $>800\,\GeV$          & $>700\,\GeV$                \\
+$MET_{no-\mu}$                & $>65\,\GeV$           & no cut                      \\
+\hline\hline
+\multicolumn{3}{|c|}{Signal Selection} \\
+\hline
+$\pt^{jet_1},\pt^{jet_2}$      & $>50,50\,\GeV$ & $>50,45\,\GeV$  \\
+$|\eta_{jets}|$                & $<4.7$         & $<4.7$          \\
+$\eta_{j1} \cdot \eta_{j2}<0$  & yes            & yes             \\
+$\Delta\eta_{jj}$              & $>4.2$         & $>3.6$          \\
+$M_{jj}$                       & $>1100\,\GeV$  & $>1200\,\GeV$   \\
+PF $MET_{no-\mu}$              & $>130\,\GeV$   & $>90\,\GeV$     \\
+$\text{MET}_{sig}$             & no cut         & $>4.0$          \\
+$\Delta\phi(\text{MET},jets)$  & no cut         & $>2.3\,\radian$ \\
+CJV (jets $\pt>30\,\GeV$)      & yes            & no cut          \\
+\hline\hline
+\multicolumn{3}{|c|}{Control Region} \\
+\hline
+$Z\rightarrow\nu\nu$    & DD               & DD                                          \\
+$W\rightarrow e\nu$     & DD               & DD                                          \\
+$W\rightarrow\mu\nu$    & DD               & DD                                          \\
+$W\rightarrow\tau\nu$   & DD (no CJV)      & DD (modified $\Delta\phi(\text{MET},jets)$) \\
+top                     & MC               & DD                                          \\
+QCD multijet            & DD (ABCD method) & DD (fit extrapolation)                      \\ 
+Other backgrounds        & MC               & MC                                          \\ 
+\hline
+\end{tabular}
+\caption[Table summarizing the differences between the prompt and parked analysis for the search for Higgs invisible decays in the VBF channel.]
+{Table summarizing the differences between the prompt and parked analysis for the search for Higgs invisible decays in the VBF channel. Here DD is the acronym for ``data-driven''.}
+\label{TABLE:ParkedDataAnalysis_DifferencesPromptParked}
+\end{table}
+% \multicolumn{3}{c|}{$\Delta\phi$ cut} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% SECTION
@@ -197,33 +244,59 @@ Most events recorded by the triggers originate from \gls{QCD} multi-jet processe
 
 The trigger requirements and the need to reduce the \gls{QCD} multi-jet contribution to a negligible level drive the choice of the following base criteria. Events are selected where the leading pair of \gls{PF} anti-$k_T^{R=0.5}$ jets pass the requirements $\eta_{j1} \cdot \eta_{j2}<0$, $\pt^{jet_1},\pt^{jet_2} > 50,40\,\GeV$, $|\eta_{jets}| < 4.7$, $\Delta\eta_{jj}>3.6$, $M_{jj}>1000\,\GeV$,  where $jet_1$ and $jet_2$ are respectively the leading and sub-leading jets in terms of \pt in the event. Missing transverse energy is required to be at least $90\,\GeV$, $\text{MET}_{sig}>4.0$ and $\Delta\phi(\text{MET},jets)>2.0$. Additionally, events are rejected if a veto electron or a loose muon are found with identification criteria defined in chapter \ref{CHAPTER:EventReconstructionAndSimulation}.
 
-The events selected by these criteria are in order of decreasing predicted yield: W($\ell\nu$) and Z($\nu\nu$) + jets, \gls{QCD} multi-jet, $t\bar{t}$ and single top, dibosons, and Drell--Yan$(\ell\ell)\text{+jets}$. The selection is further optimised by tightening the requirements in order to obtain the best 95\% C.L. expected limit on \BRinv\, for a $m_H=125\,\GeV$ Higgs boson. The optimal selection, which is defined at the signal region, is found to be the presented base criteria with the additional tighter requirements of $\Delta\phi(\text{MET},jets)>2.3$, $\pt^{jet_2}>45\,\GeV$ and $M_{jj}>1200\,\GeV$. Table \ref{TABLE:ParkedDataAnalysis_SignalEventSelection_CrossSectionYields} shows the obtained yield for each step of the event selection obtained by the cross check analysis.
+The events selected by these criteria are in order of decreasing predicted yield: W($\ell\nu$) and Z($\nu\nu$) + jets, \gls{QCD} multi-jet, $t\bar{t}$ and single top, dibosons, and Drell--Yan$(\ell\ell)\text{+jets}$. The selection is further optimised by tightening the requirements in order to obtain the best 95\% C.L. expected limit on \BRinv\, for a $m_H=125\,\GeV$ Higgs boson. The optimal selection, which is defined at the signal region, is found to be the presented base criteria with the additional tighter requirements of $\Delta\phi(\text{MET},jets)>2.3$, $\pt^{jet_2}>45\,\GeV$ and $M_{jj}>1200\,\GeV$. Table \ref{TABLE:ParkedDataAnalysis_SignalEventSelection_CrossSectionYields} shows the obtained yield for each step of the event selection obtained by the cross check analysis over data.
 
 \begin{table}[!htb]
 \centering
 \resizebox{1.00\linewidth}{!}{
-\begin{tabular}{|l|c|c|c|c||c|}
+\begin{tabular}{|l|c|c|c|c||c|c|}
 \hline
- & \rotatebox{90}{Prompt Run A } & \rotatebox{90}{Parked Run B } & \rotatebox{90}{Parked Run C } & \rotatebox{90}{Parked Run D } & \rotatebox{90}{Total Data } \\
+ & \rotatebox{90}{Prompt Run A } & \rotatebox{90}{Parked Run B } & \rotatebox{90}{Parked Run C } & \rotatebox{90}{Parked Run D } & \rotatebox{90}{Total Data} & \rotatebox{90}{Total Data faction} \\
 \hline \hline
-Vertex Filter                     & 3606391 & 132346320 & 228049748 & 308041846 & 672044305 \\
-Event Quality Filters             & 2658960 & 131554431 & 226680352 & 305918529 & 666812272 \\
-ECAL Laser Filter                 & 2634271 & 131543040 & 226680352 & 305918529 & 666776192 \\
-HCAL Laser Filter                 & 2634080 & 131543040 & 226679741 & 305918529 & 666775390 \\
-L1T $\text{MET}\geq 40\,\GeV$     & 2461217 &  88174347 & 160560859 & 227801622 & 478998045 \\
-HLT Trigger                       &   97522 &  75100422 & 137527238 & 152041761 & 364766943 \\
-$N(Electron_{veto})=0$            &   96600 &  74947192 & 137241812 & 151725585 & 364011189 \\
-$N(Muon_{loose})=0$               &   94864 &  74913002 & 137179173 & 151652654 & 363839693 \\
-Dijet requirement                 &   18338 &  13678405 &  25090291 &  24082304 &  62869338 \\
-$\text{MET}>90\,\GeV$             &    4167 &     38178 &     68047 &     79723 &    190115 \\
-$\text{MET}_{sig}>4$              &     786 &      3396 &      5988 &      5567 &     15737 \\
-$\Delta\phi(\text{MET},jets)>2.3$ &      34 &        91 &       205 &       178 &       508 \\
+Vertex Filter                     & 3606391 & 132346320 & 228049748 & 308041846 & 672044305 & 1.0000 \\
+Event Quality Filters             & 2658960 & 131554431 & 226680352 & 305918529 & 666812272 & 0.9923 \\
+ECAL Laser Filter                 & 2634271 & 131543040 & 226680352 & 305918529 & 666776192 & 0.9922 \\
+HCAL Laser Filter                 & 2634080 & 131543040 & 226679741 & 305918529 & 666775390 & 0.9922 \\
+L1T $\text{MET}\geq 40\,\GeV$     & 2461217 &  88174347 & 160560859 & 227801622 & 478998045 & 0.7128 \\
+HLT Trigger                       &   97522 &  75100422 & 137527238 & 152041761 & 364766943 & 0.5428 \\
+$N(Electron_{veto})=0$            &   96600 &  74947192 & 137241812 & 151725585 & 364011189 & 0.5417 \\
+$N(Muon_{loose})=0$               &   94864 &  74913002 & 137179173 & 151652654 & 363839693 & 0.5414 \\
+Dijet requirement                 &   18338 &  13678405 &  25090291 &  24082304 &  62869338 & 0.0936 \\
+$\text{MET}>90\,\GeV$             &    4167 &     38178 &     68047 &     79723 &    190115 & $2.83 \times 10^{-4}$ \\
+$\text{MET}_{sig}>4$              &     786 &      3396 &      5988 &      5567 &     15737 & $2.34 \times 10^{-5}$ \\
+$\Delta\phi(\text{MET},jets)>2.3$ &      34 &        91 &       205 &       178 &       508 & $7.56 \times 10^{-7}$ \\
 \hline
 \end{tabular}
 }
 \caption[Table of the step-by-step event yields for the signal region obtained by the cross check analysis. Yields are discriminated by Run I period.]
 {Table of the step-by-step event yields for the signal region obtained by the cross check analysis. Yields are discriminated by Run I period. Exact matching was achieved with the main analysis in each run period.}
 \label{TABLE:ParkedDataAnalysis_SignalEventSelection_CrossSectionYields}
+\end{table}
+
+Table \ref{TABLE:ParkedDataAnalysis_SignalEventSelection_MCCrossSectionYields} shows the obtained yield for each step of the event selection and the necessary re-weighting obtained by the cross check analysis over the \gls{VBF} Higgs to invisible signal Monte-Carlo.
+
+\begin{table}[htp]
+\centering
+
+\begin{tabular}{|l|c|}
+\hline
+ & Signal \\
+\hline \hline
+Weight: Cross Section                    & 30337.7 \\
+Weight: Pile Up                          & 30382.9 \\
+Vertex Filter                            & 30382.9 \\
+$N(Electrons_{veto})=0$                  & 30359.6 \\
+$N(Muon_{loose})=0$                      & 30350.1 \\
+Dijet requirement                        &  1259.7 \\ 
+Weight: Trigger                          &   720.9 \\ 
+$\text{MET}>90\,\GeV$                    &   681.8 \\
+$\text{MET}_{sig}>4$                     &   534.0 \\
+$\Delta\phi(\text{MET},jets)>2.3$        &   267.7 \\
+\hline
+\end{tabular}
+\caption[Table of the step-by-step event yields for the signal region obtained by the cross check analysis over the VBF Higgs to invisible signal Monte-Carlo.]
+{Table of the step-by-step event yields for the signal region obtained by the cross check analysis over the VBF Higgs to invisible signal Monte-Carlo. Steps where events are re-weights are also reported.}
+\label{TABLE:ParkedDataAnalysis_SignalEventSelection_MCCrossSectionYields}
 \end{table}
 
 The observed yield for this region is 508 events in both main and cross check analyses. Synchronization was also achieved for each Run I data taking period.  

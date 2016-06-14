@@ -119,7 +119,7 @@
    Int_t ci;   // for color index setting
    ci = TColor::GetColor("#000099");
    SelDiParton_Parton2_Pt->SetLineColor(ci);
-   SelDiParton_Parton2_Pt->GetXaxis()->SetTitle("Selected Diparton - Sublead parton p_{T}");
+   SelDiParton_Parton2_Pt->GetXaxis()->SetTitle("Selected Diparton - Sublead parton p_{T} [GeV]");
    SelDiParton_Parton2_Pt->GetXaxis()->SetRange(1,50);
    SelDiParton_Parton2_Pt->GetXaxis()->SetLabelFont(42);
    SelDiParton_Parton2_Pt->GetXaxis()->SetLabelSize(0.035);

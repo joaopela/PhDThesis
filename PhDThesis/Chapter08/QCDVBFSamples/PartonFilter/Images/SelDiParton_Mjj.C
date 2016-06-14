@@ -110,7 +110,7 @@
    Int_t ci;   // for color index setting
    ci = TColor::GetColor("#000099");
    SelDiParton_Mjj->SetLineColor(ci);
-   SelDiParton_Mjj->GetXaxis()->SetTitle("Selected Diparton - m_{jj}");
+   SelDiParton_Mjj->GetXaxis()->SetTitle("Selected Diparton - m_{jj} [Gev]");
    SelDiParton_Mjj->GetXaxis()->SetRange(1,60);
    SelDiParton_Mjj->GetXaxis()->SetLabelFont(42);
    SelDiParton_Mjj->GetXaxis()->SetLabelSize(0.035);
